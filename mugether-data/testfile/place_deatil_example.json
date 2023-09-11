@@ -1,0 +1,240 @@
+{
+    "html_attributions": [],
+    "result": {
+        "address_components": [
+            {
+                "long_name": "65",
+                "short_name": "65",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "ตำบล บึงโขงหลง",
+                "short_name": "ตำบล บึงโขงหลง",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "อำเภอ บึงโขงหลง",
+                "short_name": "อำเภอ บึงโขงหลง",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "บึงกาฬ",
+                "short_name": "จ. บึงกาฬ",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "ประเทศไทย",
+                "short_name": "TH",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "38220",
+                "short_name": "38220",
+                "types": [
+                    "postal_code"
+                ]
+            }
+        ],
+        "adr_address": "<span class=\"street-address\">65</span> <span class=\"extended-address\">ตำบล บึงโขงหลง</span> <span class=\"locality\">อำเภอ บึงโขงหลง</span> <span class=\"region\">บึงกาฬ</span> <span class=\"postal-code\">38220</span> <span class=\"country-name\">ประเทศไทย</span>",
+        "business_status": "OPERATIONAL",
+        "formatted_address": "65 ตำบล บึงโขงหลง อำเภอ บึงโขงหลง บึงกาฬ 38220 ประเทศไทย",
+        "formatted_phone_number": "065 561 6555",
+        "geometry": {
+            "location": {
+                "lat": 17.9616982,
+                "lng": 104.0448421
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 17.9631149302915,
+                    "lng": 104.0462128802915
+                },
+                "southwest": {
+                    "lat": 17.9604169697085,
+                    "lng": 104.0435149197085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+        "icon_background_color": "#909CE1",
+        "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+        "international_phone_number": "+66 65 561 6555",
+        "name": "โรงแรมพณิชา วิลล์",
+        "photos": [
+            {
+                "height": 2048,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/101585447623993016359\">โรงแรมพณิชา วิลล์</a>"
+                ],
+                "photo_reference": "ATJ83zh68xolPtE4yu_7hGrWcoc12T-CgO-DPNZRtMdROktgaFraPIykG5IJW5Y83JHpjiS3szir6Cesc5CtjIerdqvnSti1NZNnDRktC5mxqiyustOhifJQA7eJH1ePnoJJ-1TF8AwIfYAHDc16Y0D4WSMDIdEpkFDTXr8Al8wBmPzR842W",
+                "width": 1536
+            },
+            {
+                "height": 1000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/113628360576513198482\">Chawinee Siriyothin</a>"
+                ],
+                "photo_reference": "ATJ83zjhhVN_VmrS6i2ENQ9L-4H2aeVNosFOSRLbbYm9O88E1frrJaswOfA44w1qJuKvgHjiMxIGw8jhztev5hMd4DoDKsRMjFTz-cfjqDYF4NpKnlmGwbvgQ0XYBcPlCp6pcfFCgNJQcfAYyPybNzc63k_Zvcge2XWGanq9aRJ8Cz4wWBFz",
+                "width": 1636
+            },
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/106057535257648313467\">Nuttawut Kosiyanun</a>"
+                ],
+                "photo_reference": "ATJ83zgM2n8Dnm3W-X6d6ry22-sx8a0Rdcc1tkQoHDgcBOAM9-N29v9hG7rXzFckiAp_APmnLZ2W0XAwF1hEjcr0j5-nsvDvdn212EboWx5A86R313VlY8NFB1UKXamLNGq7xMf-XlXxt8DDZA6V3iohDJtcoJsQUzuUrc-LxCeJ4-l4G1Ju",
+                "width": 4032
+            },
+            {
+                "height": 3000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/116390430195263167260\">Panatchakorn Pueng</a>"
+                ],
+                "photo_reference": "ATJ83zjzW-dnojgfCTUgsPq25FVjN4siMsIQQ6Q5i5OFOtOGOe3yAdYQH7Gu4ROo3c8S6RNhMBXmTzQ2g6h4Aann6neRJM04hK_Qgi0qzyh13kY_3BrCIbBLY1bgHOcSBBTlaeDwaK3_5MajQaQjRJiwjSLSvoIPhg0WMv56wYlFXu8AEbBq",
+                "width": 4000
+            },
+            {
+                "height": 4000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/116390430195263167260\">Panatchakorn Pueng</a>"
+                ],
+                "photo_reference": "ATJ83zgEUWD5cA5ixm2qgHSkjwAWysBN0AHjT8nRVW8AzHSHAJO4z2M4WTpt9v78UrjFJgn_F0iwfjf599HyifxMbYZjMDSLrAUyxSPCW2uwQSHmXPr2JgGxDFkwXvfCPiDJTkK8IsM90BHTml3nSIXfrb0JxWnsY_YEpjbHte8Og8iucjFg",
+                "width": 3000
+            },
+            {
+                "height": 3000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/116390430195263167260\">Panatchakorn Pueng</a>"
+                ],
+                "photo_reference": "ATJ83zjdsQDVYV69FUsv9GiIDjZ89EEJaEP1UdJ70w8Hsvqku6vRZ2hlWU90aG06ltnCvNWPDQvCzaxwTnQR1y0hy8HQDA4BJS21Hhxrj4cycXI4bcJLRdIB4twCYqrRlyWk7MDWqK9OOcmPldTLJQs6y-pbQN6lB0Pl_HLEJHD-7ZrX8fvR",
+                "width": 4000
+            },
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/117771017346099568428\">Phutsadee Thrudmoraka</a>"
+                ],
+                "photo_reference": "ATJ83zjztu3RikFH7l0ZNnizMNquGBbCCfnAIoJhEod0CZuec4QaYoLCpQv5bZwTvW-GZ1HkRCn9LV4zajnI5KxfTF8AxOFyaLrq8zk7vw9993UjNZZseKvw2JzbAbcxqXjRnFUjkfOxN-_gIFo8LSqF4JC9a6FyIguqHN7lR6jmJgFFZkLG",
+                "width": 3024
+            },
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/117771017346099568428\">Phutsadee Thrudmoraka</a>"
+                ],
+                "photo_reference": "ATJ83zj3VVMrTaQEWHV4ABgFNsizipaLwKBAPDhCwEelpkd8BZcSriZLuxTylNcqvwOZWkgqwQWkmgMSNm9CGqzq8rp28UWajR5WlPwHXe4r7M5yV0LQSKgNM76fazf5wJ7IQjn3FLYxHkCgGj-Zatk8IOoBYKjxgNge0J0QrN0uxUK4Xxoo",
+                "width": 3024
+            },
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/117771017346099568428\">Phutsadee Thrudmoraka</a>"
+                ],
+                "photo_reference": "ATJ83zhCSa_PdeLLUIa9b-JGVr6P4HITIe37YB1VgMrB1j-oRzSPq0KR-Qa31ZgyJ-iKHooQm6oMM4G9TZwDRNPAvKxC_LbjwEYWyzUEBoPofYkd9zDvV4tfAI6fBSw5dIRNjpd9wEGLM-tZ-54FLKkyVVTe4i9J5SSpbeGiKklZcORM4IMb",
+                "width": 3024
+            },
+            {
+                "height": 3840,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/103328510127443408142\">TIME by Flukzaa</a>"
+                ],
+                "photo_reference": "ATJ83zjGxa2MnniF0qYCvUMNzdz4vsJE0s9wRPIPFTmpvIPxUz79LB3yfQPyMFvi4Bu_-p1VzPGNoj9Irg5pusu7H2GHiIwMPu3O38Oez0-SHGJoLRhy19_chl_r-O_iIatujmVpB9niwMLUrKsofLOb86VZK13VLT_gBRDA-skziPsGKMMD",
+                "width": 5120
+            }
+        ],
+        "place_id": "ChIJJ1nlxXoTOzERdjWfSSpbD54",
+        "plus_code": {
+            "compound_code": "X26V+MW ตำบล บึงโขงหลง อำเภอ บึงโขงหลง บึงกาฬ ประเทศไทย",
+            "global_code": "7P96X26V+MW"
+        },
+        "rating": 4.5,
+        "reference": "ChIJJ1nlxXoTOzERdjWfSSpbD54",
+        "reviews": [
+            {
+                "author_name": "phuttiporn intarasongkroh",
+                "author_url": "https://www.google.com/maps/contrib/116110713581547600688/reviews",
+                "language": "th",
+                "original_language": "th",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjW-KGdhDI_Q1TymuOhdwRBj1DGC2p4PUlhRq5aZ6o8C_BY=s128-c0x00000000-cc-rp-mo-ba4",
+                "rating": 5,
+                "relative_time_description": "2 สัปดาห์ที่แล้ว",
+                "text": "ที่พักดีมาก ใกล้ชุมชน ใกล้ตลาดและร้านสะดวกซื้อ ห้องพักสะอาด ราคาไม่แพง พนักงานดูแลดีมาก ไปค้างคืนบึงโขงหลงผมนอนที่นี่ทุกครั้งเลยครับ 😊",
+                "time": 1692801388,
+                "translated": false
+            },
+            {
+                "author_name": "Thanate Puangkoh",
+                "author_url": "https://www.google.com/maps/contrib/117804121170125042845/reviews",
+                "language": "th",
+                "original_language": "th",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXPvRYBRek76Ht8ynfEA2Cp40EZCKPIku_qFw0M37GenIY=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "3 เดือนที่แล้ว",
+                "text": "ที่พักดูใหม่ สะอาด หาง่าย อยู่เกือบติดถนน ที่สำคัญเลยคือ หาของกินง่ายมากๆๆๆๆๆ ทั้งร้านอาหาร โลตัสเอ๊กซ์เพรส ตลาดนัด อยู่ใกล้ศาลปู่อือลือ, ถนนคนเดินบึงโขงหลง\nอ้อ ตอนเช้าตรู่มีบริการจัดเตรียมของให้เราใส่บาตรพระด้วยนะ",
+                "time": 1685952102,
+                "translated": false
+            },
+            {
+                "author_name": "อารียา ฝ่ายพงษา",
+                "author_url": "https://www.google.com/maps/contrib/103134847139739873621/reviews",
+                "language": "th",
+                "original_language": "th",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocIVEfMbOOvDyI08aWzYTG0YkQFJzWaKoEx64zewzHR1=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "4 เดือนที่แล้ว",
+                "text": "ห้องสะอาด หาของทานสะดวก เจ้าของใจดีเป็นกันเอง แนะนำได้ดี มีบริการตักบาตรเช้า ภายในห้องมีสิ่งอำนวยความสะดวก เช่น ตู้เย็น แอร์ เครื่องทำน้ำอุ่น ทีวี ไดร์เป่าผม สบู่ แชมพู มีบริการ น้ำดื่ม/กาแฟ/โอวัลติน และกาต้มน้ำร้อนอีกด้วย",
+                "time": 1681872756,
+                "translated": false
+            },
+            {
+                "author_name": "สุดารัตน์ บุญตาม",
+                "author_url": "https://www.google.com/maps/contrib/101375078269000108424/reviews",
+                "language": "th",
+                "original_language": "th",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocKLfShz-F0m5SlwMkycxj2nZB0I8UARA5QTNd3y4tRF=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "4 เดือนที่แล้ว",
+                "text": "ห้องพักใหญ่ ห้องสะอาด หาของกินง่ายใกล้สิ่งอำนวยความสะดวกแถมยัง ใกล้ศาลปู่อือลือสามารถเดินไปไหว้ได้ ช่วงเช้ามีไส่บาตรมีผ้าถุงสใบ รวมๆคือดีค่ะติดใจ",
+                "time": 1681715740,
+                "translated": false
+            },
+            {
+                "author_name": "Aom Aozakijung",
+                "author_url": "https://www.google.com/maps/contrib/108415921741656319748/reviews",
+                "language": "th",
+                "original_language": "th",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjUZFoyIHZkwQr_FdKYe6Rr7bf0a55zolCVrQs2MrM65mA=s128-c0x00000000-cc-rp-mo-ba5",
+                "rating": 5,
+                "relative_time_description": "2 เดือนที่แล้ว",
+                "text": "ห้องพักอยู่ห่างจากถ้ำนาคาเพียง6.3กก. เงียบ สงบ บริการเป็นกันเอง สะดวกสะบายค่ะ",
+                "time": 1688298760,
+                "translated": false
+            }
+        ],
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "url": "https://maps.google.com/?cid=11389422219825198454",
+        "user_ratings_total": 85,
+        "utc_offset": 420,
+        "vicinity": "65 ตำบล บึงโขงหลง อำเภอ บึงโขงหลง",
+        "website": "https://www.facebook.com/profile.php?id=100071456511832"
+    },
+    "status": "OK"
+}
