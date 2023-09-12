@@ -4,6 +4,8 @@ const path = require('path');
 
 const Travel = require('./Photoref/Travel_Ref.json')
 const hotel = require('./Photoref/Hotel_Ref.json')
+const Food = require('./Photoref/Food_Ref.json')
+
 
 const downloadPhoto = async (name,photo_ref,i) => {
     try{
@@ -11,7 +13,7 @@ const downloadPhoto = async (name,photo_ref,i) => {
       await axios.get(`https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=${photo_ref}&key=AIzaSyCAA86m3sjNW8C1mCXvHtk2_He59BWytCI`,{ responseType: 'stream' })
       .then((res) => {
 
-           let photo_name = `photofile/Nearby/travel/${name}/${name}${i}.jpg`
+           let photo_name = `photofile/Nearby/food/${name}/${name}${i}.jpg`
            let photodir = path.dirname(photo_name)
 
            if(!fs.existsSync(photodir)){
@@ -47,6 +49,7 @@ const run= async () => {
         console.log(err);
         return;
     }
+
 }
 
 
