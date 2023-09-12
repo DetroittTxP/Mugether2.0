@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const line = require('@line/bot-sdk')
+const {MongoClient} = require('mongodb')
 
 const app = express();
 const lineConfig = {
@@ -12,6 +13,7 @@ const lineConfig = {
 
 
 const client = new line.Client(lineConfig)
+const Db_Client = new MongoClient(process.env.CONNECT_STRING)
 
 app.post('/webhook',line.middleware(lineConfig) , async (req,res) => {
     try{
@@ -30,10 +32,24 @@ app.post('/webhook',line.middleware(lineConfig) , async (req,res) => {
     }
 })
 
-const handleEvents=(events)=>{
+const handleEvents= async (events)=>{
      console.log(events);
      
      if(events.type === 'message' && events.message.type === 'text'){
+
+        try{
+            let nearby = await axios.get('http://localhost:1111/location',{
+                params:{
+                    mu_place:events.message.text
+                }
+            })
+
+            console.log(nearby);
+        }
+        catch(err){
+            console.log(err);
+            return;
+        }
 
         // const messages = [
         //     {
@@ -54,6 +70,12 @@ const handleEvents=(events)=>{
         //   }else{
         //      client.replyMessage(events.replyToken,{type:"text",text:'พิมไรง่ะ ขออีกที'})
         //   } 
+        
+
+        console.log(events.message.text);
+
+        
+       
      }
 }
 
@@ -61,6 +83,29 @@ const handleEvents=(events)=>{
 app.get('/test',(req,res) => {
     res.send('test ok')
 })
+
+
+
+
+
+
+
+//db
+app.get('/location',async (req,res) => {
+    await Db_Client.connect();
+
+    const {mu_place,menu} = req.query;
+
+    let results = await Db_Client.db(process.env.DB).collection(process.env.FOOD_MU).find({ mu_place: {$regex:mu_place} }).toArray();
+    res.json(results);
+})
+
+
+
+
+
+
+
 
 
 app.listen(process.env.PORT,() => {
