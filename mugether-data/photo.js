@@ -1,10 +1,65 @@
-const fixed1 = require('./Photoref/Food_Ref.json')
-const fixed2 = require('./Photoref/Hotel_Ref.json')
-const fixed3 = require('./Photoref/Travel_Ref.json')
+const axios = require('axios');
 const fs = require('fs');
+const path = require('path');
 
-let newdata1 = fixed1.filter( e => Object.keys(e).length !== 0)
-let newdata2 = fixed2.filter( e => Object.keys(e).length !== 0)
-let newdata3 = fixed3.filter( e => Object.keys(e).length !== 0)
+const Travel = require('./Photoref/Travel_Ref.json')
+const hotel = require('./Photoref/Hotel_Ref.json')
 
-fs.writeFileSync('Food_Ref3333333333.json',JSON.stringify(newdata3,null,2));
+const downloadPhoto = async (name,photo_ref,i) => {
+    try{
+        
+      await axios.get(`https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=${photo_ref}&key=AIzaSyCAA86m3sjNW8C1mCXvHtk2_He59BWytCI`,{ responseType: 'stream' })
+      .then((res) => {
+
+           let photo_name = `photofile/Nearby/travel/${name}/${name}${i}.jpg`
+           let photodir = path.dirname(photo_name)
+
+           if(!fs.existsSync(photodir)){
+            fs.mkdirSync(photodir, { recursive: true });
+           }
+
+
+           res.data.pipe(fs.createWriteStream(photo_name));
+           return;
+      })
+      
+    }
+    catch(err){
+        console.log(err);
+        return;
+    }
+}
+
+const run= async () => {
+    try{
+         for(let i = 0 ;i<Travel.length;i++)
+         {
+            for(let j = 0;j<Travel[i].photoref.length;j++)
+            {
+                 await downloadPhoto(Travel[i].name,Travel[i].photoref[j],j+1);
+               
+            }
+            console.log(i, ' จาก ',Travel.length);
+         }
+        console.log('ok');
+        return;
+    }catch(err){
+        console.log(err);
+        return;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+//newdata.forEach((e) => e.place_ref.forEach((item,i) => console.log(i+1)))
+run();
+
+//downloadPhoto('สถานที่นี้เอง',"AUacShhlxg8Fb0q_FWro8AdUOkuhjoHSHGv2NVC0DtOMxE-j1ocwCMYINn2YyjGf-u5zYqehPTw-YihojHIZECM25YgmmMQtVE_Ix2i50FDx7oDLqVd4vXiVeBXNvS8TZCXyUDjlUpd8GGxOm73E_fUYUNvQ9SjZfTkK9BVgeNoxoT3iBMfi",'1')
