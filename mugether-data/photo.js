@@ -34,14 +34,14 @@ const downloadPhoto = async (name,photo_ref,i) => {
 
 const run= async () => {
     try{
-         for(let i = 0 ;i<Travel.length;i++)
+         for(let i = 0 ;i<Food.length;i++)
          {
-            for(let j = 0;j<Travel[i].photoref.length;j++)
+            for(let j = 0;j<Food[i].photoref.length;j++)
             {
-                 await downloadPhoto(Travel[i].name,Travel[i].photoref[j],j+1);
+                 await downloadPhoto(Food[i].name,Food[i].photoref[j],j+1);
                
             }
-            console.log(i, ' จาก ',Travel.length);
+            console.log(i, ' จาก ',Food.length);
          }
         console.log('ok');
         return;
