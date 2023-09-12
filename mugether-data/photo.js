@@ -13,7 +13,7 @@ const downloadPhoto = async (name,photo_ref,i) => {
       await axios.get(`https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=${photo_ref}&key=AIzaSyCAA86m3sjNW8C1mCXvHtk2_He59BWytCI`,{ responseType: 'stream' })
       .then((res) => {
 
-           let photo_name = `photofile/Nearby/food/${name}/${name}${i}.jpg`
+           let photo_name = `photofile/Nearby/hotel/${name}/${name}${i}.jpg`
            let photodir = path.dirname(photo_name)
 
            if(!fs.existsSync(photodir)){
@@ -34,14 +34,14 @@ const downloadPhoto = async (name,photo_ref,i) => {
 
 const run= async () => {
     try{
-         for(let i = 0 ;i<Food.length;i++)
+         for(let i = 0 ;i<hotel.length;i++)
          {
-            for(let j = 0;j<Food[i].photoref.length;j++)
+            for(let j = 0;j<hotel[i].photoref.length;j++)
             {
-                 await downloadPhoto(Food[i].name,Food[i].photoref[j],j+1);
+                 await downloadPhoto(hotel[i].name,hotel[i].photoref[j],j+1);
                
             }
-            console.log(i, ' จาก ',Food.length);
+            console.log(i, ' จาก ',hotel.length);
          }
         console.log('ok');
         return;
