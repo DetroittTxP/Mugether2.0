@@ -20,7 +20,6 @@ app.post('/webhook',line.middleware(lineConfig) , async (req,res) => {
     try{
 
         const {events} = req.body;
-      //  console.log(events[0].message.text);
         if(events.length > 0){
             await events.map(e => handleEvents(e))
         }
@@ -42,7 +41,12 @@ const handleEvents= async (events)=>{
         console.log(events.message.text);
 
         let ken = events.message.text
- 
+
+
+        if (ken === 'โรงแรม' || ken === 'สถานที่ท่องเที่ยว' || ken === 'ร้านอาหาร') {
+            return;
+        }
+        
         let hotel = 'โรงแรม'
         let food = 'ร้านอาหาร'
         let travel = 'สถานที่ท่องเที่ยว'
@@ -50,7 +54,7 @@ const handleEvents= async (events)=>{
         if(ken.includes(hotel) ){
            
             if(events.message.text.length <= 10){
-                return client.replyMessage(events.replyToken,{type:'text',text:'พิมใหม่เคสบน'})
+                return client.replyMessage(events.replyToken,{type:'text',text:'โปรดพิมใหม่นะครับ'})
             }   
 
             let mu_place  = (events.message.text).split("โรงแรมใกล้").pop()  
@@ -79,7 +83,7 @@ const handleEvents= async (events)=>{
         {
 
             if(events.message.text.length <= 13){
-                return client.replyMessage(events.replyToken,{type:'text',text:'พิมใหม่เคสบน'})
+                return client.replyMessage(events.replyToken,{type:'text',text:'โปรดพิมใหม่นะครับ'})
             }   
 
             let mu_place  = (events.message.text).split("ร้านอาหารใกล้").pop()  
@@ -110,7 +114,7 @@ const handleEvents= async (events)=>{
         else if(ken.includes(travel)){
 
             if(events.message.text.length <= 21){
-                return client.replyMessage(events.replyToken,{type:'text',text:'พิมใหม่เคสบน'})
+                return client.replyMessage(events.replyToken,{type:'text',text:'โปรดพิมใหม่นะครับ'})
             }  
           
             let mu_place  = (events.message.text).split("สถานที่ท่องเที่ยวใกล้").pop()  
@@ -138,14 +142,29 @@ const handleEvents= async (events)=>{
         
 
         }
-        else if(ken === 'วิธีใช้'){
-             
-        }
         else{
-            return client.replyMessage(events.replyToken,{type:'text',text:'พิมใหม่เคสล่าง'})
+            return client.replyMessage(events.replyToken,{type:'text',text:'โปรดพิมใหม่นะครับ'})
         }
      }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
