@@ -33,7 +33,11 @@ app.post('/webhook',line.middleware(lineConfig) , async (req,res) => {
 })
 
 
-
+let tempData = {
+    type:'',
+    mu_place:'',
+    temp:[]
+}
 
 const handleEvents= async (events)=>{
     //  if(events.type === 'message' && events.message.type === 'text'){
