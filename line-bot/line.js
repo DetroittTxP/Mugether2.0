@@ -47,7 +47,7 @@ const handleEvents= async (events)=>{
         let food = 'ร้านอาหาร'
         let travel = 'สถานที่ท่องเที่ยว'
     
-        if(ken.includes(hotel)){
+        if(ken.includes(hotel) ){
            
             if(events.message.text.length <= 10){
                 return client.replyMessage(events.replyToken,{type:'text',text:'พิมใหม่เคสบน'})
@@ -82,9 +82,6 @@ const handleEvents= async (events)=>{
                 return client.replyMessage(events.replyToken,{type:'text',text:'พิมใหม่เคสบน'})
             }   
 
-
-
-          
             let mu_place  = (events.message.text).split("ร้านอาหารใกล้").pop()  
 
             let res = await axios.get('http://localhost:1111/location',{
@@ -94,7 +91,7 @@ const handleEvents= async (events)=>{
                 }
             })
 
-
+                
             let location_map = res.data.map(e => {
                  return{
                     type:'location',
@@ -140,6 +137,9 @@ const handleEvents= async (events)=>{
            return  client.replyMessage(events.replyToken,location_map)
         
 
+        }
+        else if(ken === 'วิธีใช้'){
+             
         }
         else{
             return client.replyMessage(events.replyToken,{type:'text',text:'พิมใหม่เคสล่าง'})
