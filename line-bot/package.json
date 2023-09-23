@@ -5,7 +5,7 @@
   "main": "line.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon line.js"
+    "start": "nodemon lineV2.js"
   },
   "keywords": [],
   "author": "",
