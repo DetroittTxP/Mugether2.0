@@ -1,5 +1,4 @@
 const express = require('express');
-const {MongoClient} = require('mongodb')
 require('dotenv').config();
 const Muplace = require('./routers/Mu_place')
 const Shop = require('./routers/Shop')
