@@ -1,8 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
-const rootDirectory = './mugether-data/photofile/Muplace';
-const Mu_PLACE = require('../mugether-data/rawfile/JSON/mudata_latest_3.json')
+// const rootDirectory = './mugether-data/photofile/Muplace';
+// const Mu_PLACE = require('../mugether-data/rawfile/JSON/mudata_latest_3.json')
+
+const rootDirectory = './mugether-data/photofile/Nearby/hotel'
+const Mu_PLACE = require('../mugether-data/rawfile/JSON/Hotel_Mu_3.json')
 
 const imagePaths = [];
 
@@ -57,4 +60,4 @@ for(let i =0 ; i<newnewnew.length;i++){
 
 console.log(newnewnew);
 
-fs.writeFileSync('test.json',JSON.stringify(newnewnew,null,2))
+fs.writeFileSync('testHOTEL.json',JSON.stringify(newnewnew,null,2))
