@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Container, Nav, Navbar, Form } from 'react-bootstrap'
 import { Button, Dropdown, Menu } from 'antd';
 import Logo from '../assets/Pap.jpg'
-import { auto } from '@popperjs/core'
 import { SlLogin } from 'react-icons/sl'
 import { LuListFilter } from 'react-icons/lu'
 import axios from 'axios'
@@ -10,7 +9,7 @@ import axios from 'axios'
 export default function Header() {
   const regis = [
     {
-      key:'1',
+      key: '1',
       label: (
         <a href='#ken'>
           <h6>LOGIN</h6>
@@ -18,7 +17,7 @@ export default function Header() {
       )
     },
     {
-      key:'2',
+      key: '2',
       label: (
         <a href='#ken'>
           <h6>REGISTER</h6>
@@ -60,15 +59,14 @@ export default function Header() {
 
   return (
     <div >
-      <Navbar style={{ padding: 20,}} bg="light" data-bs-theme="light">
-        <Container>
+      <Navbar style={{ padding: 30,  }} bg="light" data-bs-theme="light">
+        <Container >
           <Navbar.Brand href="#home">
             <img src={Logo} height={80} width={100} style={{ borderRadius: 50 }} />
           </Navbar.Brand>
-
           <div >
-            <Dropdown menu={{ items:Muplace, }}>
-              <Nav style={{ margin: auto,}} className="me-auto">
+            <Dropdown menu={{ items: Muplace, }}>
+              <Nav >
                 <Form.Control onChange={onChange} type="text" placeholder="Search here" style={{ width: 600 }} />
               </Nav>
 
@@ -76,7 +74,7 @@ export default function Header() {
           </div>
 
 
-          <Dropdown menu={{items:regis}} >
+          <Dropdown menu={{ items: regis }} >
             <Button style={{ width: 95, height: 50, textAlign: 'center', borderRadius: 50 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <LuListFilter style={{ fontSize: 'larger' }} />
@@ -86,7 +84,7 @@ export default function Header() {
           </Dropdown>
         </Container>
       </Navbar>
-
+      
 
     </div>
   )

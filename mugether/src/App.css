@@ -1,11 +1,6 @@
-.login-header-logo{
-     width: 50;
-     height: 30;
-     background-color: red;
-     border-radius: 30;
-}
 
-.my-header{
-    width: 100%;
-    position: fixed;
+.Nav-Type{
+      display: flex;
+      justify-content: center;
+      
 }
