@@ -5,6 +5,7 @@ require('dotenv').config({path:'../.env'})
 
 const client = new MongoClient(process.env.CONNECT_STRING_BANK)
 
+
 router.get('/mudata',async (req,res) => {
      
        await client.connect();
@@ -12,11 +13,11 @@ router.get('/mudata',async (req,res) => {
                    .collection(process.env.MU_PLACE)
                    .find({},{projection:{"photos":0}})
                    .toArray();
-       await client.close();
 
        return res.json(result);
        
 })
+
 
 
 router.get('/',(req,res) => {
