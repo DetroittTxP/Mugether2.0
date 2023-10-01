@@ -7,6 +7,7 @@ export default function App() {
   return (
     <>
        <Header/>
+       <br/>
        
        <NavType/>
     </>
