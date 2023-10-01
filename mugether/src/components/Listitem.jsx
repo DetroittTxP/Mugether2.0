@@ -6,7 +6,7 @@ export default function Listitem() {
   const [List_Of_Mu,Setlistofmu] = useState([]);
 
   useEffect(() => {
-
+      //get mu place here
   },[])
   
 
@@ -14,10 +14,27 @@ export default function Listitem() {
   return (
     <Container fluid>
          <Row>
-             <Col className='bg-success' sm={12}>
+             <Col className='bg-success' sm={4}>
                   Area 1 
              </Col>
-             <Col className='bg-danger' sm={6}>
+             <Col className='bg-danger' sm={4}>
+                  Area 1 
+             </Col>
+             <Col className='bg-warning' sm={4}>
+                  Area 1 
+             </Col>
+         </Row>
+          <br/>
+          <br/>
+          <br/>
+         <Row>
+             <Col className='bg-success' sm={4}>
+                  Area 1 
+             </Col>
+             <Col className='bg-danger' sm={4}>
+                  Area 1 
+             </Col>
+             <Col className='bg-warning' sm={4}>
                   Area 1 
              </Col>
          </Row>
