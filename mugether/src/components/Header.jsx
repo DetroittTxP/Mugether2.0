@@ -4,6 +4,7 @@ import { Button, Dropdown } from 'antd';
 import Logo from '../assets/Pap.jpg'
 import { auto } from '@popperjs/core'
 import {SlLogin} from 'react-icons/sl'
+import {LuListFilter} from 'react-icons/lu'
 
 export default function Header() {
 
@@ -33,9 +34,11 @@ export default function Header() {
 
       
                  <Dropdown menu={{items,}} >
-                      <Button style={{width:100,height:50,textAlign:'center',borderRadius:50}}>
-                        
-                             <SlLogin style={{marginLeft:50,fontSize:'larger'}}/>
+                      <Button style={{width:95,height:50,textAlign:'center',borderRadius:50}}>
+                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                               <LuListFilter style={{fontSize:'larger'}} />
+                               <SlLogin style={{fontSize:'larger'}}/>
+                             </div>
 
                       </Button>
                  </Dropdown>
