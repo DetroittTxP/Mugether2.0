@@ -4,3 +4,8 @@
      background-color: red;
      border-radius: 30;
 }
+
+.my-header{
+    width: 100%;
+    position: fixed;
+}
