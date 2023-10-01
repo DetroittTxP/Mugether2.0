@@ -18,6 +18,7 @@ export default function App() {
        <br/>
        <NavType SelectedType={SelectedType}/>   
         <br/>
+        <br/>
        <Listitem/>
     </>
   )
