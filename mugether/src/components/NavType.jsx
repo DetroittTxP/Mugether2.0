@@ -2,8 +2,8 @@
 import React from 'react';
 import { Nav, Container } from 'react-bootstrap';
 
-export default function NavType() {
-
+export default function NavType({SelectedType}) {
+  
   const type = [
     {
       type: 'การเงิน',
@@ -35,13 +35,11 @@ export default function NavType() {
     },
   ]
 
-
-
   return (
     <Nav
     className='justify-content-center'
     variant="underline"
-    onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+    onSelect={(selectedKey) => SelectedType(selectedKey)}
     style={{ marginLeft: 40, display: 'flex', justifyContent: 'center' }}
   >
     {type.map(data => (
@@ -53,9 +51,5 @@ export default function NavType() {
       </Nav.Item>
     ))}
   </Nav>
-  
-  
-
-
   );
 }
