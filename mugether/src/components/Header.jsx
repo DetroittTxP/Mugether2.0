@@ -8,16 +8,32 @@ import { LuListFilter } from 'react-icons/lu'
 import axios from 'axios'
 
 export default function Header() {
-
-  const [items, Setitems] = useState([])
+  const regis = [
+    {
+      key:'1',
+      label: (
+        <a href='#ken'>
+          <h6>LOGIN</h6>
+        </a>
+      )
+    },
+    {
+      key:'2',
+      label: (
+        <a href='#ken'>
+          <h6>REGISTER</h6>
+        </a>
+      )
+    }
+  ]
+  const [Muplace, Setmuplace] = useState([])
   const [data, Setdata] = useState([])
-
 
   useEffect(() => {
     axios.get('http://localhost:5353/muplace/mudata')
       .then(res => {
         Setdata(res.data)
-        Setitems(res.data.map(data => ({
+        Setmuplace(res.data.map(data => ({
           key: data._id.toString(),
           label: (
             <a href='#ken'>
@@ -51,7 +67,7 @@ export default function Header() {
           </Navbar.Brand>
 
           <div >
-            <Dropdown menu={{ items, }}>
+            <Dropdown menu={{ items:Muplace, }}>
               <Nav style={{ margin: auto,}} className="me-auto">
                 <Form.Control onChange={onChange} type="text" placeholder="Search here" style={{ width: 600 }} />
               </Nav>
@@ -60,7 +76,7 @@ export default function Header() {
           </div>
 
 
-          <Dropdown menu={{ items, }} >
+          <Dropdown menu={{items:regis}} >
             <Button style={{ width: 95, height: 50, textAlign: 'center', borderRadius: 50 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <LuListFilter style={{ fontSize: 'larger' }} />
