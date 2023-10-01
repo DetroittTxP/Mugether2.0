@@ -47,7 +47,7 @@ export default function Header() {
 
   const onChange = (e) => {
     let newdata = data.filter(data => data.name.toLowerCase().includes(e.target.value))
-    Setitems(newdata.map(data => ({
+    Setmuplace(newdata.map(data => ({
       key: data._id.toString(),
       label: (
         <a href='#ken'>
