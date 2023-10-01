@@ -8,7 +8,13 @@ const client = new MongoClient(process.env.CONNECT_STRING_BANK)
 router.get('/mudata',async (req,res) => {
      
        await client.connect();
-       let result = await client.db(process.env.DATABASE).collection(process.env.MU_PLACE)
+       let result = await client.db(process.env.DATABASE)
+                   .collection(process.env.MU_PLACE)
+                   .find({},{projection:{"photos":0}})
+                   .toArray();
+       await client.close();
+
+       return res.json(result);
        
 })
 
