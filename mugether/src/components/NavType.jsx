@@ -40,6 +40,7 @@ export default function NavType() {
       >
       {type.map(data => (
         <Nav.Item style={{ marginRight: '50px' }}>
+             
             <Nav.Link eventKey={data.type} style={{color:'black'}} >{data.type}</Nav.Link>
         </Nav.Item>
       ))}
