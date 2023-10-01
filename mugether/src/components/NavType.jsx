@@ -6,45 +6,55 @@ export default function NavType() {
 
   const type = [
     {
-      type:'การเงิน'
+      type: 'การเงิน',
+      icon: 'https://cdn-icons-png.flaticon.com/128/2953/2953363.png'
     },
     {
-      type:'การงาน'
+      type: 'การงาน',
+      icon: 'https://cdn-icons-png.flaticon.com/128/1584/1584911.png'
     },
     {
-      type:'ความรัก'
+      type: 'ความรัก',
+      icon: 'https://cdn-icons-png.flaticon.com/128/1077/1077035.png'
     },
     {
-      type:'โชคลาภ'
+      type: 'โชคลาภ',
+      icon: 'https://cdn-icons-png.flaticon.com/128/10197/10197782.png'
     },
     {
-      type:'สุขภาพ'
+      type: 'สุขภาพ',
+      icon: 'https://cdn-icons-png.flaticon.com/128/2966/2966334.png'
     },
     {
-      type:'การเรียน'
+      type: 'การเรียน',
+      icon: 'https://cdn-icons-png.flaticon.com/128/29/29302.png'
     },
     {
-      type:'การเดินทาง'
+      type: 'การเดินทาง',
+      icon: 'https://cdn-icons-png.flaticon.com/128/3097/3097136.png'
     },
   ]
 
 
 
   return (
-    <Nav 
-        className='justify-content-center' 
-        variant="underline" 
-        onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-    
-    
-      >
-      {type.map(data => (
-        <Nav.Item style={{ marginRight: '50px' }}>
-             
-            <Nav.Link eventKey={data.type} style={{color:'black'}} >{data.type}</Nav.Link>
-        </Nav.Item>
-      ))}
-    </Nav>
+    <Nav
+    className='justify-content-center'
+    variant="underline"
+    onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+    style={{ marginLeft: 40, display: 'flex', justifyContent: 'center' }}
+  >
+    {type.map(data => (
+      <Nav.Item style={{ marginRight: '120px' }} key={data.type}>
+        <div style={{ textAlign: 'center' }}>
+          <img height={40} width={40} src={data.icon} alt={data.type} />
+          <Nav.Link eventKey={data.type} style={{ color: 'black' }}>{data.type}</Nav.Link>
+        </div>
+      </Nav.Item>
+    ))}
+  </Nav>
+  
+  
 
 
   );
