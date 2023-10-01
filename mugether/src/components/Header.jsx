@@ -5,7 +5,7 @@ import Logo from '../assets/Pap.jpg'
 import { auto } from '@popperjs/core'
 import { SlLogin } from 'react-icons/sl'
 import { LuListFilter } from 'react-icons/lu'
-
+import axios from 'axios'
 
 export default function Header() {
   const [text, Settext] = useState('')
@@ -29,14 +29,18 @@ export default function Header() {
     },
   ];
 
+  const Apicall= async (value) => {
+      await axios.get('http://localhost:5353/muplace/mudata')
+      .then(res =>{
+          console.log(res.data);
+      })
+      .catch(err => alert(err))
+  }
+
   const onChange = (e) => {
     Settext(e.target.value)
+    Apicall(e.target.value)
   }
-
-  const onSearch = (search) => {
-    //api
-  }
-
 
   return (
     <div >
