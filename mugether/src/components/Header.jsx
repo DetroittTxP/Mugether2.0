@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Container, Nav, Navbar, Form} from 'react-bootstrap'
 import { Button, Dropdown } from 'antd';
 import Logo from '../assets/Pap.jpg'
@@ -6,16 +6,27 @@ import { auto } from '@popperjs/core'
 import {SlLogin} from 'react-icons/sl'
 import {LuListFilter} from 'react-icons/lu'
 
+
+
 export default function Header() {
 
   const items = [
     {
       key: '1',
       label: (
-        <h5>test</h5>
+        <a href='#ken'>
+            <h7>LOGIN</h7>
+        </a>
       ),
     },
-   
+    {
+      key: '2',
+      label: (
+         <a href='#beam'>
+            <h7>REGISTER</h7>
+        </a>
+      ),
+    },
   ];
 
 
@@ -32,18 +43,15 @@ export default function Header() {
             <Form.Control type="text" placeholder="Search here" style={{ width: 600 }} />
           </Nav>
 
-      
                  <Dropdown menu={{items,}} >
                       <Button style={{width:95,height:50,textAlign:'center',borderRadius:50}}>
                              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                <LuListFilter style={{fontSize:'larger'}} />
                                <SlLogin style={{fontSize:'larger'}}/>
                              </div>
-
                       </Button>
                  </Dropdown>
-      
-           
+    
 
         </Container>
       </Navbar>
