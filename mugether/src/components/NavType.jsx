@@ -39,7 +39,10 @@ export default function NavType({SelectedType}) {
     <Nav
     className='justify-content-center'
     variant="underline"
-    onSelect={(selectedKey) => SelectedType(selectedKey)}
+    onSelect={(selectedKey) => {
+        alert(`selected ${selectedKey}`);
+        SelectedType(selectedKey);
+    }}
     style={{  display: 'flex', justifyContent: 'center' }}
   >
     {type.map((data, index) => (
