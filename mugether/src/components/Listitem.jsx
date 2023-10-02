@@ -20,10 +20,9 @@ export default function Listitem() {
                <Row>
                     {List_Of_Mu.map(data => (
                          <Col md={3}>
-                              <img width={200} height={200} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
+                              <img style={{borderRadius:30}} width={200} height={200} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
                               <br/> <br/> <br/>  <br/>
                          </Col>
-
                     ))}
                </Row>
 
