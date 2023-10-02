@@ -17,15 +17,23 @@ export default function Listitem() {
      return (
           <Container style={{ display: 'flex', justifyContent: 'center' }} >
 
-               <Row style={{justifyContent: 'center'}} >
-                    {List_Of_Mu.map(data => (
-                         <Col style={{marginTop:100,}} md={3} >
-                              <img style={{borderRadius:30}} width={200} height={200} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
-                              
-                              
-                         </Col>
-                    ))}
-                    
+               <Row style={{ justifyContent: 'center' }} >
+
+                    {List_Of_Mu.map((data, index) => {
+
+                         let top = index > 3 ? { marginTop: 100 } : {} ;
+
+                         return (
+                              <Col style={top} md={3} >
+                                   <img style={{ borderRadius: 30 }} width={200} height={200} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
+
+
+                              </Col>
+                         )
+                    }
+
+                    )}
+
                </Row>
 
           </Container>
