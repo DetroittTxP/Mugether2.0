@@ -27,7 +27,7 @@ export default function Listitem() {
                                    <img style={{ borderRadius: 30 }} width={200} height={200} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
                                    <br />
                                    <br />
-                                   <h6>{data.name}</h6>
+                                   <h5>{data.name}</h5>
 
                               </Col>
                          )
