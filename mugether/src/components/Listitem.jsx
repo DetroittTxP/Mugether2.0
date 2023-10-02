@@ -21,8 +21,10 @@ export default function Listitem() {
           <Container  style={{ display: 'flex', justifyContent: 'center' }} >
 
                <Row style={{ justifyContent: 'center' }} >
-                    {List_Of_Mu.filter(data => data.name !== 'วัดดาวดึงษาราม').map((data, index) => {
-
+                    {List_Of_Mu
+                    .filter(data => data.name !== 'วัดดาวดึงษาราม')
+                    .sort((a, b) => a.name.localeCompare(b.name, 'th'))
+                    .map((data, index) => {
                          let top = index > 3 ? { marginTop: 100 } : {};
 
                          return (
