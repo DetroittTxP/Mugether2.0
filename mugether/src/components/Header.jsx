@@ -32,7 +32,8 @@ export default function Header() {
     axios.get('http://localhost:5353/muplace/mudata')
       .then(res => {
         Setdata(res.data)
-        Setmuplace(res.data.map(data => ({
+        Setmuplace(res.data.sort((a, b) => a.name.localeCompare(b.name, 'th'))
+        .map(data => ({
           key: data._id.toString(),
           label: (
             <a href='#ken'>
@@ -46,7 +47,8 @@ export default function Header() {
   }, [])
 
   const onChange = (e) => {
-    let newdata = data.filter(data => data.name.toLowerCase().includes(e.target.value))
+    let newdata = data.sort((a, b) => a.name.localeCompare(b.name, 'th')).filter(data => data.name.toLowerCase().includes(e.target.value))
+
     Setmuplace(newdata.map(data => ({
       key: data._id.toString(),
       label: (
