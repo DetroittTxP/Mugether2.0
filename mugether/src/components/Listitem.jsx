@@ -1,43 +1,32 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import {Row,Col,Container} from 'react-bootstrap'
+import { Row, Col, Container } from 'react-bootstrap'
 export default function Listitem() {
 
-  const [List_Of_Mu,Setlistofmu] = useState([]);
+     const [List_Of_Mu, Setlistofmu] = useState([]);
 
-  useEffect(() => {
-      //get mu place here
-  },[])
-  
+     useEffect(() => {
+          //get mu place here
+          axios.get('http://localhost:5353/muplace/mudata')
+               .then(res => Setlistofmu(res.data))
+               .catch(err => alert(err))
+     }, [])
 
-////////////////////////ทำเป็น เเถว เเถวละ  3 หรือมากกว่านั้นิดหน่อย รูปจนกว่าจะหมดทุกรูป
-  return (
-    <Container fluid>
-         <Row>
-             <Col className='bg-success' sm={4}>
-                  Area 1 
-             </Col>
-             <Col className='bg-danger' sm={4}>
-                  Area 1 
-             </Col>
-             <Col className='bg-warning' sm={4}>
-                  Area 1 
-             </Col>
-         </Row>
-          <br/>
-          <br/>
-          <br/>
-         <Row>
-             <Col className='bg-success' sm={4}>
-                  Area 1 
-             </Col>
-             <Col className='bg-danger' sm={4}>
-                  Area 1 
-             </Col>
-             <Col className='bg-warning' sm={4}>
-                  Area 1 
-             </Col>
-         </Row>
-    </Container>
-  )
+
+     ////////////////////////ทำเป็น เเถว เเถวละ  3 หรือมากกว่านั้นิดหน่อย รูปจนกว่าจะหมดทุกรูป
+     return (
+          <Container>
+
+               <Row>
+                    {List_Of_Mu.map(data => (
+                         <Col md={3}>
+                              <img width={200} height={200} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
+                              <br/> <br/> <br/>  <br/>
+                         </Col>
+
+                    ))}
+               </Row>
+
+          </Container>
+     )
 }
