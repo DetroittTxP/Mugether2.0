@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Row, Col, Container } from 'react-bootstrap'
+import { Typography } from 'antd';
+
+
 export default function Listitem() {
 
      const [List_Of_Mu, Setlistofmu] = useState([]);
@@ -15,7 +18,7 @@ export default function Listitem() {
 
      ////////////////////////ทำเป็น เเถว เเถวละ  3 หรือมากกว่านั้นิดหน่อย รูปจนกว่าจะหมดทุกรูป
      return (
-          <Container style={{ display: 'flex', justifyContent: 'center' }} >
+          <Container  style={{ display: 'flex', justifyContent: 'center' }} >
 
                <Row style={{ justifyContent: 'center' }} >
                     {List_Of_Mu.filter(data => data.name !== 'วัดดาวดึงษาราม').map((data, index) => {
@@ -27,7 +30,20 @@ export default function Listitem() {
                                    <img style={{ borderRadius: 30 }} width={200} height={200} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
                                    <br />
                                    <br />
-                                   <h5>{data.name}</h5>
+                                   {/* <Typography >
+                                        
+                                        <Typography.Title style={{fontFamily:"Sarabun"}}  level={5}>
+                                             {data.name}
+
+                                             <span></span>
+                                        </Typography.Title>
+                                        
+                                     
+                                  
+                                   </Typography> */}
+                                   <div style={{fontFamily:"Sarabun"}}>
+                                        <h5 >{data.name}</h5>
+                                   </div>
 
                               </Col>
                          )
