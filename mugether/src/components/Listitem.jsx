@@ -15,15 +15,17 @@ export default function Listitem() {
 
      ////////////////////////ทำเป็น เเถว เเถวละ  3 หรือมากกว่านั้นิดหน่อย รูปจนกว่าจะหมดทุกรูป
      return (
-          <Container>
+          <Container style={{ display: 'flex', justifyContent: 'center' }} >
 
-               <Row>
+               <Row style={{justifyContent: 'center'}} >
                     {List_Of_Mu.map(data => (
-                         <Col md={3}>
+                         <Col style={{marginTop:100,}} md={3} >
                               <img style={{borderRadius:30}} width={200} height={200} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
-                              <br/> <br/> <br/>  <br/>
+                              
+                              
                          </Col>
                     ))}
+                    
                </Row>
 
           </Container>

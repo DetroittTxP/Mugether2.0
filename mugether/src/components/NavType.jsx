@@ -40,7 +40,7 @@ export default function NavType({SelectedType}) {
     className='justify-content-center'
     variant="underline"
     onSelect={(selectedKey) => SelectedType(selectedKey)}
-    style={{ marginLeft: 40, display: 'flex', justifyContent: 'center' }}
+    style={{  display: 'flex', justifyContent: 'center' }}
   >
     {type.map((data, index) => (
       <Nav.Item
