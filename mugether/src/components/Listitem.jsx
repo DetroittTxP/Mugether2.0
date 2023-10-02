@@ -11,30 +11,45 @@ export default function Listitem() {
                .then(res => Setlistofmu(res.data))
                .catch(err => alert(err))
      }, [])
-
+     
 
      ////////////////////////ทำเป็น เเถว เเถวละ  3 หรือมากกว่านั้นิดหน่อย รูปจนกว่าจะหมดทุกรูป
      return (
           <Container style={{ display: 'flex', justifyContent: 'center' }} >
 
                <Row style={{ justifyContent: 'center' }} >
+                    {List_Of_Mu.filter(data => data.name !== 'วัดดาวดึงษาราม').map((data, index) => {
 
-                    {List_Of_Mu.map((data, index) => {
-
-                         let top = index > 3 ? { marginTop: 100 } : {} ;
+                         let top = index > 3 ? { marginTop: 100 } : {};
 
                          return (
                               <Col style={top} md={3} >
                                    <img style={{ borderRadius: 30 }} width={200} height={200} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
-                                   <br/>
-                                   <br/>
+                                   <br />
+                                   <br />
+                                   <h6>{data.name}</h6>
+
+                              </Col>
+                         )
+                    })}
+
+
+                    {/* {List_Of_Mu.map((data, index) => {
+
+                         let top = index > 3 ? { marginTop: 100 } : {};
+
+                         return (
+                              <Col style={top} md={3} >
+                                   <img style={{ borderRadius: 30 }} width={200} height={200} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
+                                   <br />
+                                   <br />
                                    <h6>{data.name}</h6>
 
                               </Col>
                          )
                     }
 
-                    )}
+                    )} */}
 
                </Row>
 
