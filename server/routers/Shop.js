@@ -20,29 +20,27 @@ shop.get('/listofshop', async (req,res) => {
        return res.send(result)
 })
 
-
-
-
-
 shop.post('/addshop', async(req,res ) => {
 
        /*
-              // shop database format
-    {
-       "shopdata":{
-              "name":"KEN",
-              "tel":"123456",
-              "contact":[],
-              "photo":"",
-              "rating":"3",
-              "detail":"111/222/333/444/555",
-              "opening":"12-16 MONDAY",
-              "lat":1,
-              "long":2,
-              "review":[],
-              "profile_pic":""
-              }
+   {
+    "shopdata":{
+        "name":"KEN",
+        "contact":{
+            "owner_name":"test-ownwer",
+            "tel":"087-111-1111",
+            "email":"ken@email.com"
+        },
+        "photo":"",
+        "rating":"3",
+        "detail":"111/222/333/444/555",
+        "opening":"12-16 MONDAY",
+        "lat":1,
+        "long":2,
+        "review":[],
+        "profile_pic":""
     }
+}
 
        */
        

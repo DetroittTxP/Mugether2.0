@@ -8,6 +8,7 @@ import Listitem from './components/Listitem'
 import { Muplace_Context } from './context/MuContext'
 import axios from 'axios'
 import { Route,Routes,useLocation } from 'react-router-dom'
+import ShopV2 from './components/ShopV2'
 
 
 
@@ -37,15 +38,14 @@ export default function App() {
     <Muplace_Context.Provider value={{muplace:global_muplace}} >
       <Header />
       <br />
-      <NavType SelectedType={SelectedType} />
+      {location.pathname !== '/shop' && <NavType SelectedType={SelectedType} />}
       <br />
       <br />
-
-      
+       
 
       <Routes>
           <Route path='/' element={  <Listitem />}/>
-          <Route path='/shop' element={ <Shop/>}/>
+          <Route path='/shop' element={ <ShopV2/>}/>
       </Routes>
     
      
