@@ -1,5 +1,6 @@
 import React, { useState,useEffect, createContext } from 'react'
 import Header from './components/Header'
+import Shop from './components/Shop'
 
 import './App.css'
 import NavType from './components/NavType'
@@ -36,6 +37,7 @@ export default function App() {
       <br />
       <br />
       <Listitem />
+      <Shop/>
     </Muplace_Context.Provider>
   )
 }
