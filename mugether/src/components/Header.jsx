@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Container, Nav, Navbar, Form } from 'react-bootstrap'
 import { Button, Dropdown, Menu } from 'antd';
 import Logo from '../assets/Pap.jpg'
 import { SlLogin } from 'react-icons/sl'
 import { LuListFilter } from 'react-icons/lu'
 import axios from 'axios'
+import { Muplace_Context } from '../context/MuContext';
 
 export default function Header() {
+
+
   const regis = [
     {
       key: '1',
@@ -25,14 +28,14 @@ export default function Header() {
       )
     }
   ]
+
+  const { muplace } = useContext(Muplace_Context)
   const [Muplace, Setmuplace] = useState([])
-  const [data, Setdata] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:5353/muplace/mudata')
-      .then(res => {
-        Setdata(res.data)
-        Setmuplace(res.data.sort((a, b) => a.name.localeCompare(b.name, 'th'))
+
+    Setmuplace(
+      muplace.sort((a, b) => a.name.localeCompare(b.name, 'th'))
         .map(data => ({
           key: data._id.toString(),
           label: (
@@ -40,14 +43,13 @@ export default function Header() {
               <h6>{data.name}</h6>
             </a>
           )
-        })))
-
-      })
-      .catch(err => alert(err))
-  }, [])
+        }))
+    )
+  }, [muplace])
+  
 
   const onChange = (e) => {
-    let newdata = data.sort((a, b) => a.name.localeCompare(b.name, 'th')).filter(data => data.name.toLowerCase().includes(e.target.value))
+    let newdata = muplace.sort((a, b) => a.name.localeCompare(b.name, 'th')).filter(data => data.name.toLowerCase().includes(e.target.value))
 
     Setmuplace(newdata.map(data => ({
       key: data._id.toString(),
@@ -59,9 +61,11 @@ export default function Header() {
     })))
   }
 
+
+
   return (
     <div >
-      <Navbar style={{ padding: 30,  }} bg="light" data-bs-theme="light">
+      <Navbar style={{ padding: 30, }} bg="light" data-bs-theme="light">
         <Container >
           <Navbar.Brand href="#home">
             <img src={Logo} height={80} width={100} style={{ borderRadius: 50 }} />
@@ -86,7 +90,7 @@ export default function Header() {
           </Dropdown>
         </Container>
       </Navbar>
-      
+
 
     </div>
   )

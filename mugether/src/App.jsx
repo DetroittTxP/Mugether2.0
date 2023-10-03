@@ -1,15 +1,24 @@
-import React, { useState, createContext } from 'react'
+import React, { useState,useEffect, createContext } from 'react'
 import Header from './components/Header'
 
 import './App.css'
 import NavType from './components/NavType'
 import Listitem from './components/Listitem'
 import { Muplace_Context } from './context/MuContext'
+import axios from 'axios'
 
 export default function App() {
 
+  const [global_muplace,Setmuplace] = useState([]);
 
-
+  //fetch global MUPLACE 
+  useEffect(() => {
+    axios.get('http://localhost:5353/muplace/mudata')
+    .then(res => {
+        Setmuplace(res.data.filter(e => e.name !== "วัดดาวดึงษาราม"))
+    })
+    .catch(err => alert(err))
+  },[])
 
 
 
@@ -20,7 +29,7 @@ export default function App() {
 
 
   return (
-    <Muplace_Context.Provider>
+    <Muplace_Context.Provider value={{muplace:global_muplace}} >
       <Header />
       <br />
       <NavType SelectedType={SelectedType} />
