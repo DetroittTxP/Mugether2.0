@@ -37,16 +37,24 @@ export default function App() {
   return (
     <Muplace_Context.Provider value={{muplace:global_muplace}} >
       <Header />
+      <br />  
       <br />
+      <br />
+      <br />
+      <br />
+     
       {location.pathname !== '/shop' && <NavType SelectedType={SelectedType} />}
       <br />
       <br />
+    
+      
        
 
       <Routes>
           <Route path='/' element={  <Listitem />}/>
           <Route path='/shop' element={ <ShopV2/>}/>
       </Routes>
+ 
     
      
     </Muplace_Context.Provider>
