@@ -7,9 +7,11 @@ const app = express();
 const fs = require('fs');
 const path = require('path');
 const images = require('./routers/images');
-
+const bodyparser = require('body-parser')
 
 app.use(cors())
+app.use(bodyparser.json());
+
 app.use('/muplace', Muplace )
 app.use('/shop', Shop )
 app.use('/image', images)

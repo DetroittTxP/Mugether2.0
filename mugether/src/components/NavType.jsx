@@ -59,10 +59,16 @@ export default function NavType({SelectedType}) {
         key={data.type}
       >
         <div style={{ textAlign: 'center' }}>
-          <img height={40} width={40} src={data.icon} alt={data.type} />
+
+   
+          
           <Nav.Link eventKey={data.type} style={{ color: 'black' }}>
+            <img style={{marginBottom:15}} height={40} width={40} src={data.icon} alt={data.type} />    
+            <br/>  
+             
             {data.type}
           </Nav.Link>
+          
         </div>
       </Nav.Item>
     ))}
