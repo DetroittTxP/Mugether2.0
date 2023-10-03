@@ -22,7 +22,7 @@ shop.get('/listofshop', async (req,res) => {
 
 shop.post('/addshop', async(req,res ) => {
 
-       /*
+ /*
    {
     "shopdata":{
         "name":"KEN",
@@ -41,8 +41,8 @@ shop.post('/addshop', async(req,res ) => {
         "profile_pic":""
     }
 }
+*/     
 
-       */
        
        const {shopdata} = req.body;
 
@@ -57,11 +57,6 @@ shop.post('/addshop', async(req,res ) => {
 
        return res.send(result)
 })
-
-
-
-
-
 
 
 shop.get('/test',(req,res) => {

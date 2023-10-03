@@ -8,7 +8,6 @@ import { Muplace_Context } from '../context/MuContext';
 
 export default function Header() {
 
-
   const regis = [
     {
       key: '1',
@@ -45,7 +44,6 @@ export default function Header() {
     )
   }, [muplace])
   
-
   const onChange = (e) => {
     let newdata = muplace.sort((a, b) => a.name.localeCompare(b.name, 'th')).filter(data => data.name.toLowerCase().includes(e.target.value))
 
@@ -58,8 +56,6 @@ export default function Header() {
       )
     })))
   }
-
-
 
   return (
     <div >
