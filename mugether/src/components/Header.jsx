@@ -63,7 +63,7 @@ export default function Header() {
 
   return (
     <div >
-      <Navbar style={{ padding: 30, position: 'fixed', width: '100%', top: 0, zIndex: 100 }} bg="light" data-bs-theme="light">
+      <Navbar style={{ borderBottom: '2px solid #ccc',padding: 30, position: 'fixed', width: '100%', top: 0, zIndex: 100 }} bg="light" data-bs-theme="light">
         <Container >
           <Navbar.Brand href="#home">
             <img src={Logo} height={80} width={100} style={{ borderRadius: 50 }} />
