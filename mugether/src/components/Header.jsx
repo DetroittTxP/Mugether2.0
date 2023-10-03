@@ -4,7 +4,6 @@ import { Button, Dropdown, Menu } from 'antd';
 import Logo from '../assets/Pap.jpg'
 import { SlLogin } from 'react-icons/sl'
 import { LuListFilter } from 'react-icons/lu'
-import axios from 'axios'
 import { Muplace_Context } from '../context/MuContext';
 
 export default function Header() {
@@ -33,7 +32,6 @@ export default function Header() {
   const [Muplace, Setmuplace] = useState([])
 
   useEffect(() => {
-
     Setmuplace(
       muplace.sort((a, b) => a.name.localeCompare(b.name, 'th'))
         .map(data => ({

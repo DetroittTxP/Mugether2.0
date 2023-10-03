@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useContext } from 'react'
 import axios from 'axios'
 import { Row, Col, Container } from 'react-bootstrap'
 import { Typography } from 'antd';
-
+import { Muplace_Context } from '../context/MuContext';
 
 export default function Listitem() {
 
      const [List_Of_Mu, Setlistofmu] = useState([]);
-
+     const { muplace } = useContext(Muplace_Context)
+8
      useEffect(() => {
           //get mu place here
           axios.get('http://localhost:5353/muplace/mudata')
