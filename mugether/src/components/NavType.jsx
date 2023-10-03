@@ -1,8 +1,10 @@
 
 import React from 'react';
 import { Nav, Container } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 export default function NavType({SelectedType}) {
+ 
   
   const type = [
     {
@@ -42,6 +44,9 @@ export default function NavType({SelectedType}) {
     onSelect={(selectedKey) => {
         alert(`selected ${selectedKey}`);
         SelectedType(selectedKey);
+
+        
+        
     }}
     style={{  display: 'flex', justifyContent: 'center' }}
   >

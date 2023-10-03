@@ -11,7 +11,7 @@ export default function Header() {
     {
       key: '1',
       label: (
-        <a href='#ken'>
+        <a href='/login'>
           <h6>LOGIN</h6>
         </a>
       )
@@ -19,7 +19,7 @@ export default function Header() {
     {
       key: '2',
       label: (
-        <a href='#ken'>
+        <a href='/register'>
           <h6>REGISTER</h6>
         </a>
       )
