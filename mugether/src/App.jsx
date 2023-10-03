@@ -7,9 +7,13 @@ import NavType from './components/NavType'
 import Listitem from './components/Listitem'
 import { Muplace_Context } from './context/MuContext'
 import axios from 'axios'
+import { Route,Routes,useLocation } from 'react-router-dom'
+
+
+
 
 export default function App() {
-
+  const location = useLocation();
   const [global_muplace,Setmuplace] = useState([]);
 
   //fetch global MUPLACE 
@@ -36,8 +40,15 @@ export default function App() {
       <NavType SelectedType={SelectedType} />
       <br />
       <br />
-      <Listitem />
-      <Shop/>
+
+      
+
+      <Routes>
+          <Route path='/' element={  <Listitem />}/>
+          <Route path='/shop' element={ <Shop/>}/>
+      </Routes>
+    
+     
     </Muplace_Context.Provider>
   )
 }

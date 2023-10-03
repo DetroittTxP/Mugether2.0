@@ -8,7 +8,7 @@ export default function Listitem() {
 
      const [List_Of_Mu, Setlistofmu] = useState([]);
      const { muplace } = useContext(Muplace_Context)
-8
+
      useEffect(() => {
           //get mu place here
           axios.get('http://localhost:5353/muplace/mudata')
@@ -33,17 +33,7 @@ export default function Listitem() {
                                    <img style={{ borderRadius: 30 }} width={300} height={300} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
                                    <br />
                                    <br />
-                                   {/* <Typography >
-                                        
-                                        <Typography.Title style={{fontFamily:"Sarabun"}}  level={5}>
-                                             {data.name}
-
-                                             <span></span>
-                                        </Typography.Title>
-                                        
-                                     
-                                   // ค่อยมาต่อ
-                                   </Typography> */} 
+                           
                                    <div style={{fontFamily:"Sarabun"}}>
                                         <h5 >{data.name}</h5>
                                    </div>
