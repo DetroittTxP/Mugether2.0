@@ -1,16 +1,8 @@
-const router = require('express').Router();
+const shop = require('express').Router();
 
 
 
-router.get('/',(req,res) => {
-
-})
-
-
-
-
-
-router.post('/',(req,res ) => {
+shop.get('/',(req,res) => {
 
 })
 
@@ -18,9 +10,17 @@ router.post('/',(req,res ) => {
 
 
 
+shop.post('/',(req,res ) => {
+
+})
 
 
-router.get('/',(req,res) => {
+
+
+
+
+
+shop.get('/test',(req,res) => {
        res.send('SHOP OK')
 })
 
@@ -29,4 +29,4 @@ router.get('/',(req,res) => {
 
 
 
-module.exports = router;
+module.exports = shop;
