@@ -32,7 +32,7 @@ export default function Listitem() {
                                    <Col style={top} md={3} >
 
                                         <a href='#ken'>
-                                             <img onClick={() => alert(data.name)} style={{ borderRadius: 20 }} width={300} height={300} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
+                                             <img onClick={() => alert(`มึงกำลังคลิก ${data.name}`)} style={{ borderRadius: 20 }} width={300} height={300} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
                                         </a>
 
                                         <br />
