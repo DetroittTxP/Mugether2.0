@@ -8,7 +8,7 @@ export default function Listitem() {
 
      const [List_Of_Mu, Setlistofmu] = useState([]);
      const { muplace } = useContext(Muplace_Context)
-     
+8
      useEffect(() => {
           //get mu place here
           axios.get('http://localhost:5353/muplace/mudata')
