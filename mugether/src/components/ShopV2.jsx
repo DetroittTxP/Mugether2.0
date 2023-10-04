@@ -113,7 +113,7 @@ export default function ShopV2() {
         }}
         style={{ display: 'flex', justifyContent: 'center' }}
       >
-
+   
         {/* nav type */}
         {type.map((data, index) => (
           <Nav.Item
