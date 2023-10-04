@@ -1,5 +1,8 @@
 import React from 'react'
 import { Nav, Container } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import './Shop.css';
 
 export default function ShopV2() {
 
@@ -51,7 +54,7 @@ export default function ShopV2() {
    
           
           <Nav.Link eventKey={data.type} style={{ color: 'black' }}>
-            <img style={{marginBottom:15}} height={40} width={40} src={data.icon} alt={data.type} />    
+            <img style={{marginBottom:15}} height={30} width={30} src={data.icon} alt={data.type} />    
             <br/>  
              
             {data.type}
@@ -61,9 +64,54 @@ export default function ShopV2() {
       </Nav.Item>
     ))}
   </Nav>
+
+  <div className='card_container'>
+         <Card style={{ width: '15em' }}>
+      <Card.Img variant="top" src="https://down-th.img.susercontent.com/file/th-11134207-7r98o-lkosofyofpwe20" />
+      <Card.Body>
+        <Card.Title>พระพิฆเนศปางเสวยสุข แถมฟรี❗️หนูมุสิกะ 1 ตัว</Card.Title>
+        <Card.Text>
+          จังหวัดลำปาง
+        </Card.Text>
+        <Button variant="primary">More</Button>
+      </Card.Body>
+    </Card>
+
+    <Card style={{ width: '15em' }}>
+      <Card.Img variant="top" src="https://down-th.img.susercontent.com/file/930a3347af2a1cca20fdba87460681f2" />
+      <Card.Body>
+        <Card.Title>ท้าวเวสสุวรรณโณ พร้อมตลับ วัดจุฬามณี </Card.Title>
+        <Card.Text>
+          จังหวัดนครนายก
+        </Card.Text>
+        <Button variant="primary">More</Button>
+      </Card.Body>
+    </Card>
+
+    <Card style={{ width: '15em' }}>
+      <Card.Img variant="top" src="https://down-th.img.susercontent.com/file/th-11134207-7qukw-leqpqvb565ha9d" />
+      <Card.Body>
+        <Card.Title>เท้าเวสสุวรรณโน วัดจุฬามณี</Card.Title>
+        <Card.Text>
+           จังหวัดเลย
+        </Card.Text>
+        <Button variant="primary">More</Button>
+      </Card.Body>
+    </Card>
+
+    <Card style={{ width: '15em' }}>
+      <Card.Img variant="top" src="https://down-th.img.susercontent.com/file/4e701f668b5f84dc88a9e4449b16a253" />
+      <Card.Body>
+        <Card.Title>องค์พระพิฆเนศประทับพญานาค องค์พระพิฆเนศ</Card.Title>
+        <Card.Text>
+            จังหวัดอ่างทอง
+        </Card.Text>
+        <Button variant="primary">More</Button>
+      </Card.Body>
+    </Card>
       
-         
-         
+    </div>
+
 
     </div>
   )

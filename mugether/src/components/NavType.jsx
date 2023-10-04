@@ -53,7 +53,7 @@ export default function NavType({SelectedType}) {
     {type.map((data, index) => (
       <Nav.Item
         style={{
-          marginRight: index < type.length - 1 ? '120px' : '0', 
+          marginRight: index < type.length - 1 ? '110px' : '0', 
           marginTop: '50px', // ขยับ NavType ลงมา
         }}
         key={data.type}
@@ -63,7 +63,7 @@ export default function NavType({SelectedType}) {
    
           
           <Nav.Link eventKey={data.type} style={{ color: 'black' }}>
-            <img style={{marginBottom:15}} height={40} width={40} src={data.icon} alt={data.type} />    
+            <img style={{marginBottom:15}} height={30} width={30} src={data.icon} alt={data.type} />    
             <br/>  
              
             {data.type}
