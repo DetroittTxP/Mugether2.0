@@ -18,13 +18,13 @@ export default function Listitem() {
       .catch((err) => alert(err));
   }, []);
 
-  // Function to toggle heart icon on click
+
   const toggleHeart = (name) => {
     if (HeartCheck.includes(name)) {
-      // If name is in HeartCheck, remove it
+
       Setheartcheck((prev) => prev.filter((item) => item !== name));
     } else {
-      // If name is not in HeartCheck, add it
+     
       Setheartcheck((prev) => [...prev, name]);
     }
   };
