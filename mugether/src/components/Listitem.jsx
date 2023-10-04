@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Row, Col, Container } from 'react-bootstrap';
-import { Typography } from 'antd';
 import { Muplace_Context } from '../context/MuContext';
 import { FaHeart, FaMapMarkerAlt } from 'react-icons/fa';
 
-export default function Listitem() {
+export default function Listitem({SelectedMuType}) {
   const [List_Of_Mu, Setlistofmu] = useState([]);
   const [HeartCheck, Setheartcheck] = useState([]);
   const { muplace } = useContext(Muplace_Context);
+
 
   useEffect(() => {
     // Get mu place here
@@ -16,7 +16,20 @@ export default function Listitem() {
       .get('http://localhost:5353/muplace/mudata')
       .then((res) => Setlistofmu(res.data))
       .catch((err) => alert(err));
+     
   }, []);
+
+  useEffect(() => {
+    
+    Setlistofmu(muplace);
+    Setlistofmu(prev=>prev.filter(data => data.type.includes(SelectedMuType)))
+    
+
+  },[SelectedMuType])
+
+
+
+
 
 
   const toggleHeart = (name) => {

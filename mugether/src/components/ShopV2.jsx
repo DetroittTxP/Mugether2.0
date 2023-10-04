@@ -3,7 +3,7 @@ import { Nav, Container, Col,Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaHeart, FaMapMarkerAlt } from 'react-icons/fa';
-import './Shop.css';
+
 
 export default function ShopV2() {
 

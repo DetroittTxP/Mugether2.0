@@ -45,10 +45,8 @@ export default function NavType({SelectedTypeMu}) {
     className='justify-content-center'
     variant="underline"
     onSelect={(selectedKey) => {
-        alert(`selected ${selectedKey}`);
+
         SelectedTypeMu(selectedKey);
-        
-        
         
     }}
     style={{  display: 'flex', justifyContent: 'center' }}

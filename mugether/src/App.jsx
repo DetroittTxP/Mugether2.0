@@ -23,22 +23,12 @@ export default function App() {
     })
     .catch(err => alert(err))
 
-
-
-
-
-
-
-
-
-
-
   },[])
 
 
 
   const SelectedTypeMu = (type) => {
-    console.log(type);
+    Setselectedmutype(type)
   }
 
   
@@ -59,7 +49,7 @@ export default function App() {
       
       
       <Routes>
-          <Route path='/' element={  <Listitem />}/>
+          <Route path='/' element={  <Listitem SelectedMuType={selectedMuType} />}/>
           <Route path='/shop' element={ <ShopV2/>}/>
       </Routes>
       <div>
