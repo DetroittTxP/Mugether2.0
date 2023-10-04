@@ -6,18 +6,20 @@ images.get('/',(req,res) => {
       res.send('images ok')
 })
 
+let countApi = 0;
 images.get('/mu/:name/:id',(req,res) => {
     
    let dir = path.dirname(__dirname)
     let imagesFile = path.join(dir,"photofile","MuPlace",req.params.name,`${req.params.name}${req.params.id}.jpg`);
 
-    console.log(imagesFile);
-
+     countApi++;
+     console.log(countApi, '');
       if(!fs.existsSync(imagesFile)){
       return res.send('no images found')
       }
       return res.sendFile(imagesFile)
 })
+
 
 
 

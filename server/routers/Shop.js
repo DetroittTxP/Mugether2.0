@@ -62,7 +62,7 @@ shop.post('/addshop', async(req,res ) => {
 
 shop.put('/addreview', async (req,res) => {
         
-       const {id,shopname,username,comment} = req.body;
+       const {shopname,username,comment} = req.body;
 
        try{
            await client.connect();
