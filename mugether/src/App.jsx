@@ -16,6 +16,7 @@ import ShopV2 from './components/ShopV2'
 export default function App() {
   const location = useLocation();
   const [global_muplace,Setmuplace] = useState([]);
+  const [global_shop,Setshop] = useState([]);
 
   //fetch global MUPLACE 
   useEffect(() => {
@@ -24,6 +25,14 @@ export default function App() {
         Setmuplace(res.data.filter(e => e.name !== "วัดดาวดึงษาราม"))
     })
     .catch(err => alert(err))
+
+
+
+
+
+
+
+
   },[])
 
 

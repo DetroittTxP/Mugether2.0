@@ -3,11 +3,12 @@ import axios from 'axios'
 import { Row, Col, Container } from 'react-bootstrap'
 import { Typography } from 'antd';
 import { Muplace_Context } from '../context/MuContext';
+import { FaHeart, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Listitem() {
 
      const [List_Of_Mu, Setlistofmu] = useState([]);
-     const { muplace } = useContext(Muplace_Context)
+     const { muplace } = useContext(Muplace_Context);
 
      useEffect(() => {
           //get mu place here
@@ -31,6 +32,7 @@ export default function Listitem() {
                               return (
                                    <Col style={top} md={3} >
 
+
                                         <a href='#ken'>
                                              <img onClick={() => alert(`มึงกำลังคลิก ${data.name}`)} style={{ borderRadius: 20 }} width={300} height={300} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
                                         </a>
@@ -39,7 +41,13 @@ export default function Listitem() {
                                         <br />
 
                                         <div style={{ fontFamily: "Sarabun" }}>
-                                             <h5 >{data.name}</h5>
+                                             <h5>{data.name}</h5>
+                                             <FaHeart style={{ color: 'red' }} />
+                                        </div>
+
+                                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                                             <FaMapMarkerAlt style={{ marginRight: '10px' }} />
+                                             <span>{data.address}</span>
                                         </div>
 
                                    </Col>
