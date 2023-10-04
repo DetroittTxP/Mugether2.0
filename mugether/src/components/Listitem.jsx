@@ -8,6 +8,7 @@ import { FaHeart, FaMapMarkerAlt } from 'react-icons/fa';
 export default function Listitem() {
 
      const [List_Of_Mu, Setlistofmu] = useState([]);
+     const [HeartCheck, Setheartcheck] = useState(null) ;
      const { muplace } = useContext(Muplace_Context);
 
      useEffect(() => {
@@ -33,16 +34,22 @@ export default function Listitem() {
                                    <Col style={top} md={3} >
 
 
-                                        <a href='#ken'>
-                                             <img onClick={() => alert(`มึงกำลังคลิก ${data.name}`)} style={{ borderRadius: 20 }} width={300} height={300} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
+                                        <a href='#ken' style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', display: 'inline-block'  }}>
+                                        <div style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 1 }}>
+                                             <FaHeart
+                                                  onClick={() => alert(`คุณได้เพิ่ม ${data.name} เข้า wishlist ของคุณแล้ว`)}
+                                                  style={{ color: HeartCheck === data.id ? 'red' : 'white', cursor: 'pointer', fontSize: '24px'}}
+                                                  onMouseEnter={() => Setheartcheck(data.id)}
+                                                  onMouseLeave={() => Setheartcheck(null)} />
+                                        </div>
+                                             <img onClick={() => alert(`มึงกำลังคลิก ${data.name}`)} 
+                                             style={{ borderRadius: 20 }} width={300} height={300} alt={data.name} src={`http://localhost:5353/image/mu/${data.name}/1`} />
                                         </a>
 
-                                        <br />
                                         <br />
 
                                         <div style={{ fontFamily: "Sarabun" }}>
                                              <h5>{data.name}</h5>
-                                             <FaHeart style={{ color: 'red' }} />
                                         </div>
 
                                         <div style={{ display: 'flex', alignItems: 'center' }}>
