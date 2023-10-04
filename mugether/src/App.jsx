@@ -9,6 +9,7 @@ import { Muplace_Context } from './context/MuContext'
 import axios from 'axios'
 import { Route,Routes,useLocation } from 'react-router-dom'
 import ShopV2 from './components/ShopV2'
+import Favorites from './components/Favorites'
 
 
 
@@ -68,7 +69,9 @@ export default function App() {
           <Route path='/' element={  <Listitem />}/>
           <Route path='/shop' element={ <ShopV2/>}/>
       </Routes>
- 
+      <div>
+      <Favorites /> {}
+    </div>
     
      
     </Muplace_Context.Provider>
