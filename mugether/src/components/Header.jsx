@@ -8,28 +8,6 @@ import { Muplace_Context } from '../context/MuContext';
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default function Header() {
 
   const regis = [
