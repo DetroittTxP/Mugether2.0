@@ -3,7 +3,7 @@ import React from 'react';
 import { Nav, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-export default function NavType({SelectedType}) {
+export default function NavType({SelectedTypeMu}) {
  
   
   const type = [
@@ -37,14 +37,17 @@ export default function NavType({SelectedType}) {
     },
   ]
 
+  
+
+
   return (
     <Nav
     className='justify-content-center'
     variant="underline"
     onSelect={(selectedKey) => {
         alert(`selected ${selectedKey}`);
-        SelectedType(selectedKey);
-
+        SelectedTypeMu(selectedKey);
+        
         
         
     }}

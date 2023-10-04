@@ -17,6 +17,7 @@ export default function App() {
   const location = useLocation();
   const [global_muplace,Setmuplace] = useState([]);
   const [global_shop,Setshop] = useState([]);
+  const [selectedMuType,Setselectedmutype] = useState('')
 
   //fetch global MUPLACE 
   useEffect(() => {
@@ -33,15 +34,19 @@ export default function App() {
 
 
 
+
+
+
   },[])
 
 
 
   ///////////////// เดี๋ยวมาทำ context ต่อ
-  const SelectedType = (type) => {
+  const SelectedTypeMu = (type) => {
     console.log(type);
   }
 
+  
 
   return (
     <Muplace_Context.Provider value={{muplace:global_muplace}} >
@@ -52,7 +57,7 @@ export default function App() {
       <br />
       <br />
      
-      {location.pathname !== '/shop' && <NavType SelectedType={SelectedType} />}
+      {location.pathname !== '/shop' && <NavType SelectedTypeMu={SelectedTypeMu} />}
       <br />
       <br />
     
