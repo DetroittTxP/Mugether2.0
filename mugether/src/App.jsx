@@ -1,7 +1,5 @@
-import React, { useState,useEffect, createContext } from 'react'
+import React, { useState,useEffect} from 'react'
 import Header from './components/Header'
-import Shop from './components/Shop'
-
 import './App.css'
 import NavType from './components/NavType'
 import Listitem from './components/Listitem'
@@ -39,7 +37,6 @@ export default function App() {
 
 
 
-  ///////////////// เดี๋ยวมาทำ context ต่อ
   const SelectedTypeMu = (type) => {
     console.log(type);
   }
@@ -60,8 +57,7 @@ export default function App() {
       <br />
     
       
-       
-
+      
       <Routes>
           <Route path='/' element={  <Listitem />}/>
           <Route path='/shop' element={ <ShopV2/>}/>
