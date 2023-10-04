@@ -70,7 +70,7 @@ export default function App() {
           <Route path='/shop' element={ <ShopV2/>}/>
       </Routes>
       <div>
-      <Favorites /> {}
+    
     </div>
     
      
