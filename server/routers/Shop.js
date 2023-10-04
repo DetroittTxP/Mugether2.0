@@ -42,8 +42,6 @@ shop.post('/addshop', async(req,res ) => {
     }
 }
 */     
-
-       
        const {shopdata} = req.body;
 
        await client.connect();
@@ -59,12 +57,43 @@ shop.post('/addshop', async(req,res ) => {
 })
 
 
-shop.get('/test',(req,res) => {
-       res.send('SHOP OK')
+
+
+
+shop.put('/addreview', async (req,res) => {
+        
+       const {id,shopname,username,comment} = req.body;
+
+       try{
+           await client.connect();
+           let result = await client.db(process.env.DATABASE)
+                        .collection(process.env.SHOP)
+                        .updateOne(
+                            {name:shopname},
+                            {
+                                   $push:{
+                                          review:{
+                                                 user:username,
+                                                 comment:comment
+                                          }
+                                   }
+                            }
+                        )
+
+           return res.send(result)             
+       }
+       catch(err){
+             return console.log(err);
+       }
+       
+
+
 })
 
 
-
+shop.get('/test',(req,res) => {
+       res.send('SHOP OK')
+})
 
 
 
