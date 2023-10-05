@@ -18,8 +18,16 @@ mu.get('/mudata',async (req,res) => {
        
 })
 
-mu.post('/addmuplace',(req,res) => {
+mu.post('/addmuplace', async (req,res) => {
        
+       const {mudata} = req.body;
+       let result = await client.db(process.env.DATABASE)
+                    .collection(process.env.MU_PLACE)
+                    .insertOne(mudata)
+
+         return res.send(result)
+       
+
 })
 
 mu.put('/addreviewmuplace',(req,res) => {

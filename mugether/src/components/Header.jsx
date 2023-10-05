@@ -72,7 +72,7 @@ export default function Header() {
           <div >
             <Dropdown menu={{ items: Muplace, }}>
               <Nav >
-                <Form.Control onChange={onChange} type="text" placeholder="Search here..." style={{ width: 600 }} />
+                <Form.Control onChange={onChange} type="text" placeholder="ค้นหาสถานที่มู..." style={{ width: 600 }} />
               </Nav>
 
             </Dropdown>

@@ -80,7 +80,7 @@ export default function Listitem({SelectedMuType}) {
                     width={300}
                     height={300}
                     alt={data.name}
-                    src={`http://localhost:5353/image/mu/${data.name}/1`}
+                    src={`http://localhost:5353/image/mu/${data.name}/2`}
                   />
                 </a>
 
