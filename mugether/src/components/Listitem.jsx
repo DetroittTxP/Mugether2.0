@@ -81,6 +81,7 @@ export default function Listitem({SelectedMuType}) {
                     height={300}
                     alt={data.name}
                     src={`http://localhost:5353/image/mu/${data.name}/2`}
+                    loading='lazy'
                   />
                 </a>
 
