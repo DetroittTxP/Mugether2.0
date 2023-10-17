@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Container, Nav, Navbar, Form } from 'react-bootstrap'
 import { Button, Dropdown, Menu } from 'antd';
-import Logo from '../assets/Pap.jpg'
+import Logo from '../assets/MuLOGO.png'
 import { SlLogin } from 'react-icons/sl'
 import { LuListFilter } from 'react-icons/lu'
 import { Muplace_Context } from '../context/MuContext';
