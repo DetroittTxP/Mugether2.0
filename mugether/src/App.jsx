@@ -7,6 +7,8 @@ import { Muplace_Context } from './context/MuContext'
 import axios from 'axios'
 import { Route,Routes,useLocation } from 'react-router-dom'
 import ShopV2 from './components/ShopV2'
+import Mudetail from './components/Mudetail'
+
 
 
 export default function App() {
@@ -14,6 +16,7 @@ export default function App() {
   const [global_muplace,Setmuplace] = useState([]);
   const [global_shop,Setshop] = useState([]);
   const [selectedMuType,Setselectedmutype] = useState('')
+  const [selectedMuplace,SetSelecttedMuplace] = useState('');
 
   //fetch global MUPLACE 
   useEffect(() => {
@@ -29,6 +32,10 @@ export default function App() {
 
   const SelectedTypeMu = (type) => {
     Setselectedmutype(type)
+  }
+
+  const SelectedMuplace = (muplace) => {
+    SetSelecttedMuplace(muplace)
   }
 
   
@@ -49,8 +56,9 @@ export default function App() {
       
       
       <Routes>
-          <Route path='/' element={  <Listitem SelectedMuType={selectedMuType} />}/>
+          <Route path='/' element={  <Listitem SelectedMuplace={SelectedMuplace} SelectedMuType={selectedMuType} />}/>
           <Route path='/shop' element={ <ShopV2/>}/>
+          <Route path='/mudetail' element={<Mudetail selectedMuplace={selectedMuplace} />}  />
        
       </Routes>
       <div>

@@ -55,7 +55,7 @@ export default function NavType({SelectedTypeMu}) {
       path: '/shop'
     },
   ]
-
+  
 
   let type1= () => {
      if(location.pathname ==='/'){

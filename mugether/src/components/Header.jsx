@@ -38,7 +38,7 @@ export default function Header() {
         .map(data => ({
           key: data._id.toString(),
           label: (
-            <a href='#ken'>
+            <a href='#ken' style={{textDecoration:'none'}}>
               <h6>{data.name}</h6>
             </a>
           )

@@ -3,8 +3,10 @@ import axios from 'axios';
 import { Row, Col, Container } from 'react-bootstrap';
 import { Muplace_Context } from '../context/MuContext';
 import { FaHeart, FaMapMarkerAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
-export default function Listitem({SelectedMuType}) {
+export default function Listitem({SelectedMuType,SelectedMuplace}) {
+  const navigate = useNavigate()
   const [List_Of_Mu, Setlistofmu] = useState([]);
   const [HeartCheck, Setheartcheck] = useState([]);
   const { muplace } = useContext(Muplace_Context);
@@ -75,7 +77,11 @@ export default function Listitem({SelectedMuType}) {
                     />
                   </div>
                   <img
-                    onClick={() => alert(`มึงกำลังคลิก ${data.name}`)}
+                    onClick={() =>  {
+                      
+                      SelectedMuplace(data.name)
+                      navigate('/mudetail')
+                    }}
                     style={{ borderRadius: 20 }}
                     width={300}
                     height={300}
