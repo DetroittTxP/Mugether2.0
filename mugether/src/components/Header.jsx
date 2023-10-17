@@ -38,7 +38,7 @@ export default function Header() {
         .map(data => ({
           key: data._id.toString(),
           label: (
-            <a href='#ken' style={{textDecoration:'none'}}>
+            <a href='/mudetail' style={{textDecoration:'none'}}>
               <h6>{data.name}</h6>
             </a>
           )
@@ -48,11 +48,11 @@ export default function Header() {
   
   const onChange = (e) => {
     let newdata = muplace.sort((a, b) => a.name.localeCompare(b.name, 'th')).filter(data => data.name.toLowerCase().includes(e.target.value))
-
+   
     Setmuplace(newdata.map(data => ({
       key: data._id.toString(),
       label: (
-        <a href='#ken'>
+        <a href='/mudetail'>
           <h6>{data.name}</h6>
         </a>
       )
@@ -70,9 +70,9 @@ export default function Header() {
            
           </Navbar.Brand>
           <div >
-            <Dropdown menu={{ items: Muplace, }}>
-              <Nav >
-                <Form.Control onChange={onChange} type="text" placeholder="ค้นหาสถานที่มู..." style={{ width: 600 }} />
+            <Dropdown  menu={{ items: Muplace, }}>
+              <Nav  >
+                <Form.Control  onChange={onChange} type="text" placeholder="ค้นหาสถานที่มู..." style={{ width: 600 }} />
               </Nav>
 
             </Dropdown>
