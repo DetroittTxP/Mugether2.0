@@ -42,7 +42,7 @@ export default function App() {
       <br />
       <br />
      
-      {location.pathname !== '/shop' && <NavType SelectedTypeMu={SelectedTypeMu} />}
+      {location.pathname !== '/shop'  && <NavType SelectedTypeMu={SelectedTypeMu} />}
       <br />
       <br />
     
@@ -51,6 +51,7 @@ export default function App() {
       <Routes>
           <Route path='/' element={  <Listitem SelectedMuType={selectedMuType} />}/>
           <Route path='/shop' element={ <ShopV2/>}/>
+       
       </Routes>
       <div>
     

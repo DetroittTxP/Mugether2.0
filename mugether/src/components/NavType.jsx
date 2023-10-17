@@ -1,12 +1,13 @@
 
 import React from 'react';
 import { Nav, Container } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 
 export default function NavType({SelectedTypeMu}) {
- 
-  
-  const type = [
+  const location = useLocation()
+
+
+  const typeMu = [
     {
       type: 'โชคลาภ',
       icon: 'https://cdn-icons-png.flaticon.com/512/6584/6584542.png'
@@ -37,9 +38,36 @@ export default function NavType({SelectedTypeMu}) {
     },
   ]
 
+  const typeMudetail = [
+    {
+      type: 'Guide',
+      icon: 'https://cdn-icons-png.flaticon.com/128/2953/2953363.png',
+      path: '/guide'
+    },
+    {
+      type: 'รับจ้างมู',
+      icon: 'https://cdn-icons-png.flaticon.com/128/1584/1584911.png',
+      path: '/rubjark'
+    },
+    {
+      type: 'ร้านค้า',
+      icon: 'https://cdn-icons-png.flaticon.com/128/1584/1584911.png',
+      path: '/shop'
+    },
+  ]
+
+
+  let type1= () => {
+     if(location.pathname ==='/'){
+      return typeMu;
+     }
+     else{
+      return typeMudetail;
+     }
+  }
+
+  let type = type1()
   
-
-
   return (
     <Nav
     className='justify-content-center'
@@ -76,3 +104,6 @@ export default function NavType({SelectedTypeMu}) {
   </Nav>
   );
 }
+
+
+
