@@ -22,8 +22,6 @@ images.get('/mu/:name/:id',(req,res) => {
 
 
 
-
-
 images.get('/nearby/:type/:name/:id',(req,res) => {
       const {id,type,name} = req.params;
       
