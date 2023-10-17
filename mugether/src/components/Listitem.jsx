@@ -32,8 +32,6 @@ export default function Listitem({SelectedMuType,SelectedMuplace}) {
 
 
 
-
-
   const toggleHeart = (name) => {
     if (HeartCheck.includes(name)) {
 

@@ -56,7 +56,6 @@ export default function NavType({SelectedTypeMu}) {
     },
   ]
   
-
   let type1= () => {
      if(location.pathname ==='/'){
       return typeMu;
@@ -100,6 +99,8 @@ export default function NavType({SelectedTypeMu}) {
           
         </div>
       </Nav.Item>
+
+     
     ))}
   </Nav>
   );
