@@ -2,12 +2,14 @@ const express = require('express');
 require('dotenv').config();
 const Muplace = require('./routers/Mu_place')
 const Shop = require('./routers/Shop')
+const guide = require('./routers/Guide');
 const cors = require('cors')
-const app = express();
-const fs = require('fs');
-const path = require('path');
 const images = require('./routers/images');
-const bodyparser = require('body-parser')
+const bodyparser = require('body-parser');
+
+const app = express();
+
+
 
 app.use(cors())
 app.use(bodyparser.json());
@@ -15,6 +17,7 @@ app.use(bodyparser.json());
 app.use('/muplace', Muplace )
 app.use('/shop', Shop )
 app.use('/image', images)
+app.use('/guide', guide)
 
 
 
