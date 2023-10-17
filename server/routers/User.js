@@ -9,12 +9,12 @@ User.get('/',(req,res) => {
 })
 
 
-User.get('/register',(req,res) => {
+User.post('/register',(req,res) => {
     res.send('ok ken ok ken oken ')
 })
 
 
-User.get('/login',(req,res) => {
+User.post('/login',(req,res) => {
     res.send('ok ken ok ken oken ')
 })
 
