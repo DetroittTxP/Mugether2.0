@@ -33,17 +33,17 @@ export default function Header() {
   const [Muplace, Setmuplace] = useState([])
 
   useEffect(() => {
-    Setmuplace(
-      muplace.sort((a, b) => a.name.localeCompare(b.name, 'th'))
-        .map(data => ({
-          key: data._id.toString(),
-          label: (
-            <a href='/mudetail' style={{textDecoration:'none'}}>
-              <h6>{data.name}</h6>
-            </a>
-          )
-        }))
-    )
+    // Setmuplace(
+    //   muplace.sort((a, b) => a.name.localeCompare(b.name, 'th'))
+    //     .map(data => ({
+    //       key: data._id.toString(),
+    //       label: (
+    //         <a href='/mudetail' style={{textDecoration:'none'}}>
+    //           <h6>{data.name}</h6>
+    //         </a>
+    //       )
+    //     }))
+    // )
   }, [muplace])
   
   const onChange = (e) => {
@@ -51,14 +51,15 @@ export default function Header() {
    
     Setmuplace(newdata.map(data => ({
       key: data._id.toString(),
-      label: (
-        <a href='/mudetail'>
+      label: ( 
+        <a onClick={() => localStorage.setItem('muplace', data.name)} href='/mudetail' style={{textDecoration:'none'}}>
           <h6>{data.name}</h6>
         </a>
       )
     })))
   }
-
+  
+ 
   return (
     <div >
       <Navbar style={{ borderBottom: '2px solid #ccc',padding: 30, position: 'fixed', width: '100%', top: 0, zIndex: 100 }} bg="light" data-bs-theme="light">
@@ -69,10 +70,10 @@ export default function Header() {
             </a>
            
           </Navbar.Brand>
-          <div >
-            <Dropdown  menu={{ items: Muplace, }}>
+          <div  >
+            <Dropdown   menu={{ items: Muplace, }}>
               <Nav  >
-                <Form.Control  onChange={onChange} type="text" placeholder="ค้นหาสถานที่มู..." style={{ width: 600 }} />
+                <Form.Control   onChange={onChange} type="text" placeholder="ค้นหาสถานที่มู..." style={{ width: 600 }} />
               </Nav>
 
             </Dropdown>
