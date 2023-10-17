@@ -22,9 +22,6 @@ export default function Mudetail() {
     <div>
           <h1>{Muplace}</h1>
 
-
-
-
     </div>
   )
 }
