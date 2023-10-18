@@ -4,7 +4,7 @@ import './Nearby.css'
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-
+import {TbStarFilled} from 'react-icons/tb'
 
 export default function Nearby({ Muplace_name }) {
 
@@ -63,7 +63,7 @@ export default function Nearby({ Muplace_name }) {
             {nearby.map((data => (
                 <>
                     <h2>{data.typeNearby}</h2>
-
+                     
                     <Carousel responsive={responsive}>
                         {data.typeData.map(e => (
                             <>
@@ -71,7 +71,10 @@ export default function Nearby({ Muplace_name }) {
                                     <img style={{ borderRadius: 10 }} height={200} width={200} src={`http://localhost:5353/image/nearby/${data.key}/${e.name}/1`} alt={data.name} />
                                     <br /><br />
                                     <h6><b>{e.name}</b></h6>
+                                    <h6> <TbStarFilled /> {e.rating}</h6>
                                     <p className='detail'>{e.address}</p>
+                                    <br/><br/>
+                                    <p >{e.distance_to_mu} จากสถานที่มู</p>
                                 </div>
                                 <br/>
                                 <hr/>

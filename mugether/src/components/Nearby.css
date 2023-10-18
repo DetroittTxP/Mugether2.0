@@ -1,5 +1,5 @@
 .Card{
-
+   
     border: 1px solid #ccc;
     border-radius: 10px;
     padding:10px;
@@ -10,3 +10,20 @@
   .Card img {
      width: 100%;
   }
+
+  
+.Card p  {
+    margin: 0; /* เอา margin ออกเพื่อป้องกันการเว้นระยะระหว่างบรรทัด */
+    white-space: normal; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
+    overflow: hidden; /* ซ่อนข้อความเกินขอบของ .Card */
+    line-height: 1.2; /* ตั้งค่าความสูงของบรรทัด */
+    max-height: 2.4em; /* ความสูงสูงสุดของข้อความเท่ากับ 3 บรรทัด */
+}
+
+.Card h6{
+    margin: 0; /* เอา margin ออกเพื่อป้องกันการเว้นระยะระหว่างบรรทัด */
+    white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
+    overflow: hidden; /* ซ่อนข้อความเกินขอบของ .Card */
+    text-overflow: ellipsis;
+}
+
