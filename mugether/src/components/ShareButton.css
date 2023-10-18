@@ -1,4 +1,4 @@
-
+/* 
 .share-button-container {
     display: flex;
     justify-content: space-between;
@@ -16,6 +16,8 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
+    width: 24px;
+    height: 24px;
   }
   
   .share-button img {
@@ -25,4 +27,7 @@
   .share-button:hover {
     background: #0056b3;
   }
-  
+   */
+
+
+
