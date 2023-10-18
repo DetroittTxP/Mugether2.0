@@ -1,0 +1,15 @@
+.main-image{
+    padding-top: 5px;
+    display: flex;
+    margin: 5px;
+}
+.big-image{
+    height: 50px;
+    width: 1000px;
+}
+
+.small-image:nth-child(1) {
+    height: 300px;
+    width: 300px;
+    margin: 5px;
+}
