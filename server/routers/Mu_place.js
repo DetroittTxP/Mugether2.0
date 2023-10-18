@@ -109,7 +109,7 @@ mu.get('/nearby/multiple/:muplace_name',async (req,res) => {
               status:'ok',
               travel:resultTRAVEL,
               food:resultFOOD,
-              hotel:resultTRAVEL
+              hotel:resultHOTEL
        })
 
 
