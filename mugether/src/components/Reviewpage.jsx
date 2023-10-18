@@ -18,7 +18,7 @@ export default function Reviewpage({Muplace_name}) {
   },[])
 
   return (
-    <div>
+    <div style={{ marginLeft: 200 }}>
          <h2>{detail.length} reviews</h2>
 
          {detail.map((data,index) => {
@@ -30,10 +30,11 @@ export default function Reviewpage({Muplace_name}) {
                          <Rating readOnly name='read-only' value={data.score}/>
                          <h5>{data.detail}</h5>
                           
-                         <hr/>
+                         <hr />
                     </div>
                 )
          })}
+         
     </div>
   )
 }
