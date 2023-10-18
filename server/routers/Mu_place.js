@@ -30,9 +30,24 @@ mu.post('/addmuplace', async (req,res) => {
 
 })
 
-mu.put('/addreviewmuplace',(req,res) => {
-        
+
+
+
+
+mu.post('/addreviewmuplace',(req,res) => {
+       const {reviewdetail} = req.body;
+
+       
 })
+
+
+
+
+
+
+
+
+
 
 
 mu.get('/nearby/travel/:muplace_name',async (req,res) => {
@@ -76,7 +91,7 @@ mu.get('/nearby/hotel/:muplace_name',async (req,res) => {
        
        res.json(result)
        
-       res.json(result)
+  
         
 })
 
