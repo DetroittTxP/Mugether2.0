@@ -19,7 +19,7 @@ export default function Mudetail() {
       
   },[per_muplace])
   return ( 
-    <div>
+    <div style={{ paddingTop: '0.5px', paddingLeft:'90px'}}>
           <h1>{Muplace}</h1>
     </div>
   )
