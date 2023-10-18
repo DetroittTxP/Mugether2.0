@@ -59,6 +59,15 @@ export default function Mudetail() {
           <Reviewpage Muplace_name={Muplace} />
         </Col>
       </Row>
+      <hr/>
+      <br/>
+      <Row>
+          <Col md={11}>
+              <h2>สถานที่ท่องเที่ยวใกล้เคียง</h2>
+
+
+          </Col>
+      </Row>
     </Container>
   );
 }
