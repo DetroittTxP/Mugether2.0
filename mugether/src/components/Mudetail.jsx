@@ -21,34 +21,38 @@ export default function Mudetail() {
 
 
   return (
-    <div style={{ paddingTop: '0.5px', paddingLeft: '100px' }}>
-      <h1 style={{marginLeft: 200}}>{Muplace}</h1>
-      <br />
+    <div>
+      <div style={{ paddingTop: '0.5px', paddingLeft: '100px' }}>
+        <h1 style={{ marginLeft: 200 }}>{Muplace}</h1>
+        <br />
 
 
 
 
 
-      <div style={{ display: 'flex',justifyContent:'flex-start', marginLeft: 200 }}>
-        <img width={600} height={600} src={`http://localhost:5353/image/mu/${Muplace}/1`} />
+        <div style={{ display: 'flex', justifyContent: 'flex-start', marginLeft: 200 }}>
+          <img width={600} height={600} src={`http://localhost:5353/image/mu/${Muplace}/1`} />
 
-        <div style={{ marginLeft: 30}}>
-          <img width={300} height={300} src={`http://localhost:5353/image/mu/${Muplace}/2`} />
-          <img style={{ marginLeft: 30 }} width={300} height={300} src={`http://localhost:5353/image/mu/${Muplace}/3`} /><br/>
-          <img style={{paddingTop: 30}} width={300} height={300} src={`http://localhost:5353/image/mu/${Muplace}/4`} />
-          <img style={{paddingTop: 30, paddingLeft: 30}} width={330} height={300} src={`http://localhost:5353/image/mu/${Muplace}/5`}  />
+          <div style={{ marginLeft: 30 }}>
+            <img width={300} height={300} src={`http://localhost:5353/image/mu/${Muplace}/2`} />
+            <img style={{ marginLeft: 30 }} width={300} height={300} src={`http://localhost:5353/image/mu/${Muplace}/3`} /><br />
+            <img style={{ paddingTop: 30 }} width={300} height={300} src={`http://localhost:5353/image/mu/${Muplace}/4`} />
+            <img style={{ paddingTop: 30, paddingLeft: 30 }} width={330} height={300} src={`http://localhost:5353/image/mu/${Muplace}/5`} />
+          </div>
         </div>
+
+
+        <br />
+       
+        <br />
+        <hr/>
+        <br/>
+        <Reviewpage Muplace_name={Muplace} />
+
+
+
       </div>
-
       
-      <br/>
-      <hr/>
-      <br/>
-
-      <Reviewpage Muplace_name={Muplace}/>
-
-
-    
     </div>
   )
 }

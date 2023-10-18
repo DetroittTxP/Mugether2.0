@@ -65,13 +65,6 @@ mu.post('/addreviewmuplace/',async (req,res) => {
 
 
 
-
-
-
-
-
-
-
 mu.get('/nearby/travel/:muplace_name',async (req,res) => {
 
        const {muplace_name} = req.params;
