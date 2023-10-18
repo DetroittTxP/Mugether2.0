@@ -64,7 +64,7 @@ export default function Mudetail() {
       <br/>
       <Row>
           <Col md={11}>
-              <Nearby/>
+              <Nearby Muplace_name={Muplace}/>
 
 
           </Col>

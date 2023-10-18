@@ -133,7 +133,7 @@ mu.get('/nearby/multiple/:muplace_name',async (req,res) => {
                     .collection(process.env.TRAVEL)
                     .find({mu_place:{$regex:muplace_name}},{projection:{"photo_path":0}})
                     .toArray()
-       await client.close();
+    
 
       return res.json({
               status:'ok',
