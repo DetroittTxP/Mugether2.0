@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Muplace_Context } from '../context/MuContext'
 import { Container, Row, Col } from 'react-bootstrap'
+import Reviewpage from './Reviewpage'
 
 
 export default function Mudetail() {
@@ -21,7 +22,7 @@ export default function Mudetail() {
 
   return (
     <div style={{ paddingTop: '0.5px', paddingLeft: '100px' }}>
-      <h1>{Muplace}</h1>
+      <h1 style={{marginLeft: 200}}>{Muplace}</h1>
       <br />
 
 
@@ -43,6 +44,8 @@ export default function Mudetail() {
       <br/>
       <hr/>
       <br/>
+
+      <Reviewpage Muplace_name={Muplace}/>
 
 
     

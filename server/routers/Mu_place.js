@@ -30,7 +30,17 @@ mu.post('/addmuplace', async (req,res) => {
 
 })
 
+mu.get('/mudata/:name',async (req,res) => {
+     
+       await client.connect();
+       let result = await client.db(process.env.DATABASE)
+                   .collection(process.env.MU_PLACE)
+                   .find({name:req.params.name})
+                   .toArray();
 
+       return res.json(result);
+       
+})
 
 
 
