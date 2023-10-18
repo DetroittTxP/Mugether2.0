@@ -6,8 +6,6 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 
-
-
 export default function Nearby() {
 
     const responsive = {
@@ -42,6 +40,12 @@ export default function Nearby() {
 
 
   return (
-    <div>Nearby</div>
+    <div>
+        <h2>สถานที่ท่องเที่ยวใกล้เคียง</h2>
+
+        <Carousel responsive={responsive}>
+                
+        </Carousel>
+    </div>
   )
 }

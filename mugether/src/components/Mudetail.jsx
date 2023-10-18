@@ -4,6 +4,7 @@ import { Container, Row, Col, Image, Button, Badge } from 'react-bootstrap';
 import Reviewpage from './Reviewpage';
 import ShareButton from './ShareButton';
 import './Mudetail.css'; 
+import Nearby from './Nearby';
 
 export default function Mudetail() {
   const [Muplace, Setmuplace] = useState(localStorage.getItem('muplace'));
@@ -63,7 +64,7 @@ export default function Mudetail() {
       <br/>
       <Row>
           <Col md={11}>
-              <h2>สถานที่ท่องเที่ยวใกล้เคียง</h2>
+              <Nearby/>
 
 
           </Col>
