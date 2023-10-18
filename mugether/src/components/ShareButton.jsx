@@ -3,6 +3,7 @@ import React from 'react';
 const ShareButton = ({ url }) => {
   const shareOnFacebook = () => {
     window.open(`https://www.facebook.com/sharer.php?u=${encodeURIComponent(url)}`);
+    
   };
 
   const copyLink = () => {
@@ -12,17 +13,18 @@ const ShareButton = ({ url }) => {
     textField.select();
     document.execCommand('copy');
     document.body.removeChild(textField);
-    alert('Link copied to clipboard');
+    alert('Copied to clipboard');
   };
 
   return (
-    <div className="share-button-container">
+    <div className="share-button-container" style={{paddingLeft:'700px'}}  >
       <button className="share-button" onClick={shareOnFacebook}>
-        <img src="/path/to/share-icon.svg" alt="Share Icon" />
+        <img src="https://cdn-icons-png.flaticon.com/128/1828/1828954.png" alt="Share Icon"style={{ width: '24px', height: '24px' }} /><br/>
         Share on Facebook
       </button>
-      <button className="share-button" onClick={copyLink}>
-        <img src="/path/to/share-icon.svg" alt="Share Icon" />
+      <br/><br/>
+      <button className="share-button" onClick={copyLink} style={{paddingTop:'10px'}}>
+        <img src="https://cdn-icons-png.flaticon.com/128/126/126498.png" alt="Share Icon" style={{ width: '24px', height: '24px' }} /><br/>
         Copy Link
       </button>
     </div>
