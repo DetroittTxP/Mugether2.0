@@ -40,6 +40,23 @@ export default function Mudetail() {
           <img style={{ paddingTop: 30 }} width={300} height={300} src={`http://localhost:5353/image/mu/${Muplace}/4`} />
           <img style={{ paddingTop: 30, paddingLeft: 30, borderBottomRightRadius: '20px' }} width={330} height={300} src={`http://localhost:5353/image/mu/${Muplace}/5`} />
         </div>
+<<<<<<< HEAD
+=======
+
+
+        <br />
+       
+        <br />
+        <hr/>
+        <br/>
+        <Reviewpage Muplace_name={Muplace} />
+        <br/>
+        <br/>
+        
+
+
+
+>>>>>>> 518e819aef875d069b0753a8cee84e7d4f831043
       </div>
       
 

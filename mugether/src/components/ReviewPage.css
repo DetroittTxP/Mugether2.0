@@ -1,0 +1,44 @@
+.review-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .review-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .review-item {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .review-content {
+    margin-left: 20px;
+  }
+  
+  .username {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .rating {
+    margin-bottom: 5px;
+  }
+  
+  .review-text {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  
