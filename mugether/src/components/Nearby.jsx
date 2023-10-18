@@ -57,8 +57,6 @@ export default function Nearby({Muplace_name}) {
                         </div>
                     )
                 })}
-
-
             </Carousel>
         </div>
     )
