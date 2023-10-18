@@ -39,6 +39,7 @@ export default function Mudetail() {
       </div>
 
 
+        
       
 
 
