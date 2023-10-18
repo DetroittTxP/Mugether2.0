@@ -16,7 +16,7 @@ export default function Nearby({Muplace_name}) {
         },
         desktop: {
             breakpoint: { max: 1024, min: 800 },
-            items: 3
+            items: 4
         },
         tablet: {
             breakpoint: { max: 800, min: 464 },
@@ -35,7 +35,7 @@ export default function Nearby({Muplace_name}) {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5353/muplace/nearby/multiple/$%7BMuplace_name%7D`)
+        axios.get(`http://localhost:5353/muplace/nearby/multiple/${Muplace_name}`)
         .then(res => Setnearby(res.data))
         .catch(err => alert(err))
     }, [nearby])
@@ -50,8 +50,9 @@ export default function Nearby({Muplace_name}) {
                 {nearby.travel.map((data, index) => {
                     return (
                         <div className='Card'>
-                            <img height={250} width={250} src={`http://localhost:5353/image/nearby/travel/${data.name}/1`} alt={data.name} />
-                            <h2>{data.name}</h2>
+                            <img  height={200} width={200} src={`http://localhost:5353/image/nearby/travel/${data.name}/1`} alt={data.name} />
+                            <br/><br/>
+                            <h6><b>{data.name}</b></h6>
                             <p className='detail'>{data.address}</p>
                         </div>
                     )
