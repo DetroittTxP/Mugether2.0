@@ -34,10 +34,22 @@ mu.post('/addmuplace', async (req,res) => {
 
 
 
-mu.post('/addreviewmuplace',(req,res) => {
-       const {reviewdetail} = req.body;
+mu.post('/addreviewmuplace/',async (req,res) => {
+       const {reviewdetail,muplacename} = req.body;
 
-       
+       let resultreview = await client.db(process.env.DATABASE)
+       .collection(process.env.MU_PLACE)
+       .updateOne(
+              {name:muplacename},
+              {
+                     $push:{review:reviewdetail}
+              }
+       )
+
+
+       res.json(resultreview)
+
+
 })
 
 
