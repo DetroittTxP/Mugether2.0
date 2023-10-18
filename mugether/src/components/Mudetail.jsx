@@ -4,6 +4,7 @@ import { Container, Row, Col, Image, Button, Badge } from 'react-bootstrap';
 import Reviewpage from './Reviewpage';
 import ShareButton from './ShareButton';
 import './Mudetail.css'; 
+import Nearby from './Nearby';
 
 export default function Mudetail() {
   const [Muplace, Setmuplace] = useState(localStorage.getItem('muplace'));
@@ -58,6 +59,15 @@ export default function Mudetail() {
           <h2>Reviews</h2>
           <Reviewpage Muplace_name={Muplace} />
         </Col>
+      </Row>
+      <hr/>
+      <br/>
+      <Row>
+          <Col md={11}>
+              <Nearby Muplace_name={Muplace}/>
+
+
+          </Col>
       </Row>
     </Container>
   );
