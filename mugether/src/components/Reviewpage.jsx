@@ -14,7 +14,7 @@ export default function ReviewPage({ Muplace_name }) {
         Setdetail(res.data[0].review);
       })
       .catch((err) => alert(err));
-  }, []);
+  }, [detail]);
 
   return (
     <div className="review-container">
