@@ -111,8 +111,6 @@ mu.get('/nearby/hotel/:muplace_name',async (req,res) => {
 })
 
 
-
-
 mu.get('/nearby/multiple/:muplace_name',async (req,res) => {
 
        const {muplace_name} = req.params;
