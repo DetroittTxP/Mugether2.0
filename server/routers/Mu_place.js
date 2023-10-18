@@ -116,22 +116,38 @@ mu.get('/nearby/hotel/:muplace_name',async (req,res) => {
 mu.get('/nearby/multiple/:muplace_name',async (req,res) => {
 
        const {muplace_name} = req.params;
-
+       console.log(muplace_name);
        let resultHOTEL = await client.db(process.env.DATABASE)
                     .collection(process.env.HOTEL)
-                    .find({mu_place:{$regex:muplace_name}},{projection:{"photo_path":0}})
+                    .find({
+                       $or:[
+                            {mu_place:{$regex:muplace_name}},{projection:{"photo_path":0}},
+                            {mu_place:muplace_name}
+                       ]    
+                    })
                     .toArray()
      
 
        let resultFOOD = await client.db(process.env.DATABASE)
                     .collection(process.env.FOOD)
-                    .find({mu_place:{$regex:muplace_name}},{projection:{"photo_path":0}})
+                    .find({
+                     $or:[
+                          {mu_place:{$regex:muplace_name}},
+                          {projection:{"photo_path":0}},
+                          {mu_place:muplace_name}
+                     ]
+                  })
                     .toArray()
 
 
        let resultTRAVEL = await client.db(process.env.DATABASE)
                     .collection(process.env.TRAVEL)
-                    .find({mu_place:{$regex:muplace_name}},{projection:{"photo_path":0}})
+                    .find({
+                     $or:[
+                          {mu_place:{$regex:muplace_name}},{projection:{"photo_path":0}},
+                          {mu_place:muplace_name}
+                     ]
+                  })
                     .toArray()
     
 
