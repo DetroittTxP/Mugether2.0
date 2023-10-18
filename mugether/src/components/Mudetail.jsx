@@ -2,11 +2,11 @@ import React, { useEffect, useState, useContext } from 'react'
 import { Muplace_Context } from '../context/MuContext'
 import { Container, Row, Col } from 'react-bootstrap'
 
+
 export default function Mudetail() {
 
   const [Muplace, Setmuplace] = useState(localStorage.getItem('muplace'))
   const { per_muplace } = useContext(Muplace_Context)
-
   useEffect(() => {
     if (per_muplace !== "") {
       localStorage.setItem('muplace', per_muplace)
@@ -17,6 +17,7 @@ export default function Mudetail() {
     }
 
   }, [per_muplace])
+
 
   return (
     <div style={{ paddingTop: '0.5px', paddingLeft: '90px' }}>
@@ -34,15 +35,15 @@ export default function Mudetail() {
           <img width={300} height={300} src={`http://localhost:5353/image/mu/${Muplace}/1`} />
           <img style={{ marginLeft: 30 }} width={300} height={300} src={`http://localhost:5353/image/mu/${Muplace}/1`} />
         </div>
-
-        
       </div>
 
-
-        
       
+      <br/>
+      <hr/>
+      <br/>
 
 
+    
     </div>
   )
 }
