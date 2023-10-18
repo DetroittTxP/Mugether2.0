@@ -54,6 +54,9 @@ export default function Mudetail() {
           </Row>
         </Col>
       </Row>
+      <br/>
+      <hr/>
+      <br/>
       <Row>
         <Col md={11} className="review-section">
           <h2>Reviews</h2>
@@ -65,10 +68,9 @@ export default function Mudetail() {
       <Row>
           <Col md={11}>
               <Nearby Muplace_name={Muplace}/>
-
-
           </Col>
       </Row>
+  
     </Container>
   );
 }

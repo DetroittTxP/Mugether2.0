@@ -1,4 +1,12 @@
 .Card{
-    border: 1px solid black;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding:10px;
+    height: 400px;
     
-}
+  }
+
+  .Card img {
+     width: 100%;
+  }
