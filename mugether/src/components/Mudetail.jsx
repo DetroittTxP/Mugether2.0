@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Muplace_Context } from '../context/MuContext';
 import { Container, Row, Col, Image, Button, Badge } from 'react-bootstrap';
 import Reviewpage from './Reviewpage';
-import { FaHeart } from 'react-icons/fa';
+import ShareButton from './ShareButton';
 import './Mudetail.css'; 
 
 export default function Mudetail() {
@@ -18,6 +18,8 @@ export default function Mudetail() {
     }
   }, [per_muplace]);
 
+  const pageUrl = window.location.href;
+
   return (
     <Container>
       <Row>
@@ -27,7 +29,8 @@ export default function Mudetail() {
       </Row>
       <Row>
         <Col md={4} className="main-image">
-          <Image src={`http://localhost:5353/image/mu/${Muplace}/1`} alt="Main Image" className="big-image" fluid style={{ borderTopLeftRadius: '20px', borderBottomLeftRadius: '20px'}}/>
+          <Image src={`http://localhost:5353/image/mu/${Muplace}/1`} alt="Main Image" className="big-image" fluid />
+          <ShareButton url={pageUrl} />
         </Col>
         <Col md={3} className="image-list">
           <Row>
@@ -42,10 +45,10 @@ export default function Mudetail() {
         <Col md={3} className="image-list">
           <Row>
             <Col md={12}>
-              <Image src={`http://localhost:5353/image/mu/${Muplace}/4`} alt="Image 4" className="small-image" fluid style={{ borderTopRightRadius: '20px'}}/>
+              <Image src={`http://localhost:5353/image/mu/${Muplace}/4`} alt="Image 4" className="small-image figure-3" fluid />
             </Col>
             <Col md={12}>
-              <Image src={`http://localhost:5353/image/mu/${Muplace}/5`} alt="Image 5" className="small-image" fluid style={{ borderBottomRightRadius: '20px'}}/>
+              <Image src={`http://localhost:5353/image/mu/${Muplace}/5`} alt="Image 5" className="small-image figure-4" fluid />
             </Col>
           </Row>
         </Col>
