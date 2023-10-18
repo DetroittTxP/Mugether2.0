@@ -23,7 +23,17 @@ export default function Mudetail() {
   return (
     <div>
      <div style={{ paddingTop: '0.5px', paddingLeft: '1px' }}>
-      <h1 style={{ marginLeft: 200 }}>{Muplace}</h1>
+     <div style={{ display: 'flex', alignItems: 'center', marginLeft: '200px', justifyContent: 'space-between'}}>
+        <h1>{Muplace}</h1>
+        <div style={{ display: 'flex', alignItems: 'center', marginRight: '300px' }}>
+          <FaHeart style={{ marginRight: '10px', color: 'red', cursor: 'pointer' }} onClick={handleSave} />
+          <span>Save</span>
+          <FacebookShareButton url={window.location.href} quote={`Check out this place: ${Muplace}`}>
+            <FacebookIcon size={32} round={true} />
+          </FacebookShareButton>
+          <span style={{ marginRight: '10px' }}>Share</span>
+        </div>
+      </div>
 
       <br />
 
