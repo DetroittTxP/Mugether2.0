@@ -48,6 +48,9 @@ export default function Mudetail() {
         <hr/>
         <br/>
         <Reviewpage Muplace_name={Muplace} />
+        <br/>
+        <br/>
+        
 
 
 
