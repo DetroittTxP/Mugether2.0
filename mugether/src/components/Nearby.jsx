@@ -50,7 +50,7 @@ export default function Nearby({Muplace_name}) {
                 {nearby.travel.map((data, index) => {
                     return (
                         <div className='Card'>
-                            <img  height={200} width={200} src={`http://localhost:5353/image/nearby/travel/${data.name}/1`} alt={data.name} />
+                            <img style={{borderRadius:10}} height={200} width={200} src={`http://localhost:5353/image/nearby/travel/${data.name}/1`} alt={data.name} />
                             <br/><br/>
                             <h6><b>{data.name}</b></h6>
                             <p className='detail'>{data.address}</p>
