@@ -13,8 +13,54 @@ User.get('/',(req,res) => {
 })
 
 //login
-User.post('/login',(req,res) => {
-    res.send('ok ken ok ken oken ')
+User.post('/login', async (req,res) => {
+    const {username,password} = req.body;
+    try{
+        await client.connect();
+        let userInfo = await client.db(process.env.DATABASE)
+                       .collection(process.env.USER)
+                       .find({username:username})
+                       .toArray();
+        await client.close();
+
+        if(userInfo.length === 0){
+            return res.send({status:"mai me user "})
+        }
+
+        bcrypt.compare(password,userInfo[0].password,(err,Login) => {
+                
+                if(err){
+                    return res.send(err);
+                }
+
+
+                if(Login){
+                    let token = jwt.sign({name:username},process.env.SECRET_ACCESS);
+                    return res.send({status:'success',token:token})
+                } 
+                return res.send('failed')
+        })
+    }
+    catch(err){
+        return res.send(err)
+    }
+})
+
+User.get('/verifytoken',(req,res) => {
+     let token =  req.headers.authorization.split(' ')[1];
+    
+     jwt.verify(token,process.env.SECRET_ACCESS,(err,decoded) => {
+          if(err){
+            return res.send(err);
+          }
+
+          return res.send({
+               status:'ok',
+               username:decoded.name
+          })
+     })
+
+     return;
 })
 
 //regsiter
