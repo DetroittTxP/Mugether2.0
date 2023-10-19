@@ -45,7 +45,9 @@ User.post('/login', async (req,res) => {
 })
 
 User.get('/verifytoken',(req,res) => {
-     let token =  req.headers.authorization.split(' ')[1];
+     let tokenMEbearer =  req.headers.authorization
+     let token = tokenMEbearer.split(' ')[1]
+   
      
      jwt.verify(token,process.env.SECRET_ACCESS,(err,decoded) => {
           if(err){
@@ -81,8 +83,8 @@ User.post('/register',async(req,res) => {
                             password:hash,
                             email:email
                         })
-
-      return  res.send(inserted)
+                    
+      return res.send(inserted)
 
     })
 })
