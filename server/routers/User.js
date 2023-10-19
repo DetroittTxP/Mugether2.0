@@ -21,7 +21,7 @@ User.post('/login', async (req,res) => {
                        .collection(process.env.USER)
                        .find({username:username})
                        .toArray();
-        await client.close();
+
 
         if(userInfo.length === 0){
             return res.send({status:"mai me user "})
@@ -32,8 +32,6 @@ User.post('/login', async (req,res) => {
                 if(err){
                     return res.send(err);
                 }
-
-
                 if(Login){
                     let token = jwt.sign({name:username},process.env.SECRET_ACCESS);
                     return res.send({status:'success',token:token})
@@ -48,7 +46,7 @@ User.post('/login', async (req,res) => {
 
 User.get('/verifytoken',(req,res) => {
      let token =  req.headers.authorization.split(' ')[1];
-    
+     
      jwt.verify(token,process.env.SECRET_ACCESS,(err,decoded) => {
           if(err){
             return res.send(err);
@@ -60,7 +58,8 @@ User.get('/verifytoken',(req,res) => {
           })
      })
 
-     return;
+
+
 })
 
 //regsiter
