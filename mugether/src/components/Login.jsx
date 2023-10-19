@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Login.css';
 
 export default function Login () {
   const [email, setEmail] = useState('');
@@ -14,7 +15,20 @@ export default function Login () {
   return (
     <Container className="login-container">
       <Row className="justify-content-center">
-        <Col md={6}>
+        <Col md={6} className='InfoMu'>
+            <h1>MUGEHTER</h1>
+            <p>Mugether
+                <br/>เป็นเว็ปไซต์ที่จะช่วยแนะนำสถานที่มู
+                <br/>ให้แก่มือใหม่อีกทั้งยังรวบรวมข้อมูลที่
+                <br/>เกี่ยวข้องกับสายมูทั้งหมด
+            </p>
+            
+            {/* <img src='https://nizar-rizkiana.github.io/absensi-app/assets/image/login3.png'></img> */}
+        </Col>
+
+        {/* <hr className='vertical-line' /> */}
+
+        <Col md={6} className='Login-form'>
           <h2 className="text-center mb-4">เข้าสู่ระบบ</h2>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
