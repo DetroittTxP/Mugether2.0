@@ -119,3 +119,7 @@
     margin-left: 5px;
     color: orange;
 }
+
+.Login-form{
+    border-left: 1px solid black;
+}
