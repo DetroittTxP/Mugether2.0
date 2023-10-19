@@ -50,7 +50,7 @@ export default function App() {
       <br />
       <br />
 
-      {location.pathname !== '/shop' && <NavType SelectedTypeMu={SelectedTypeMu} />}
+      {location.pathname !== '/shop' &&location.pathname !== '/login'&& <NavType SelectedTypeMu={SelectedTypeMu} />}
       <br />
       <br />
 
