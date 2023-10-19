@@ -88,7 +88,7 @@ export default function Login () {
                     LOGIN
                 </Button>
                 <a className='forget' href='/#'>
-                    <h6>FORGET PASSWORD?</h6>
+                    <h6 className='forget-message'>FORGET PASSWORD?</h6>
                 </a>
             </Row>
 

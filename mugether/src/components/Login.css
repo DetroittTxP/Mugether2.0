@@ -73,11 +73,18 @@
 .forget{
     margin-left: 180px;
     margin-top: -30px;
+    font-weight: bold;
+    color: gray;
+}
+
+.forget-message{
+    font-weight: bold;
 }
 
 .anotherlogin{
     text-align: center;
     margin-top: 30px;
+    color: gray;
 }
 
 .GG{
@@ -94,6 +101,7 @@
 
 .welcome{
     margin-left: -4px;
+    font-weight: bold;
 }
 
 .login-message{
@@ -104,6 +112,7 @@
 
 .new-user{
     margin-left: 230px;
+    font-weight: bold;
 }
 
 .new-user a {
