@@ -8,6 +8,7 @@ import axios from 'axios'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import ShopV2 from './components/ShopV2'
 import Mudetail from './components/Mudetail'
+import Login from './components/Login'
 
 
 
@@ -59,6 +60,7 @@ export default function App() {
         <Route path='/' element={<Listitem SelectedMuplace={SelectedMuplace} SelectedMuType={selectedMuType} />} />
         <Route path='/shop' element={<ShopV2 />} />
         <Route path='/mudetail' element={<Mudetail />} />
+        <Route path='/login' element={<Login />}  />
         
       </Routes>
       <div>
