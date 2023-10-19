@@ -21,7 +21,7 @@ User.post('/login',(req,res) => {
 User.post('/regsiter',async(req,res) => {
     const {Username,password,email} = req.body;
 
-    bcrypt.hash(password,10,(err,hash) => {
+    bcrypt.hash(password,bcrypt.genSalt(10),(err,hash) => {
          if(err){
             res.send('error');
          }
