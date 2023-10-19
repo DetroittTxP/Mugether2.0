@@ -49,8 +49,6 @@ export default function Login () {
             
             <img src='https://nizar-rizkiana.github.io/absensi-app/assets/image/login3.png' className='custom-img'></img>
         </Col>
-
-        {/* <hr className='vertical-line' /> */}
         
         <Col md={6} className='Login-form'>
             <p className='new-user'>

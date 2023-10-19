@@ -20,19 +20,24 @@ User.post('/login',(req,res) => {
 //regsiter
 User.post('/register',async(req,res) => {
     const {username,password,email} = req.body;
-   
 
 
-    bcrypt.hash(password,13,async(err,hash) => {
+    bcrypt.hash(password,10,async(err,hash) => {
          if(err){
             return res.send(err);
          }
 
-      return  res.send({
-            username:username,
-            plain:password,
-            password:hash
-        })
+         await client.connect();
+
+         let inserted = await client.db(process.env.DATABASE)
+                        .collection(process.env.USER)
+                        .insertOne({
+                            username:username,
+                            password:hash,
+                            email:email
+                        })
+
+      return  res.send(inserted)
 
     })
 })
