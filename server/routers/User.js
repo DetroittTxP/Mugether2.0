@@ -9,7 +9,7 @@ const client = new MongoClient(process.env.CONNECT_STRING_POND);
 
 
 User.get('/',(req,res) => {
-    res.send('ok ken ok ken oken ')
+    res.send('hello ken user ken i na sus')
 })
 
 //login
