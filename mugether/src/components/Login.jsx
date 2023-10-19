@@ -51,7 +51,7 @@ export default function Login () {
         </Col>
 
         {/* <hr className='vertical-line' /> */}
-
+        
         <Col md={6} className='Login-form'>
             <p className='new-user'>
                 New user?
