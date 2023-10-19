@@ -16,8 +16,8 @@ export default function Login () {
     <Container className="login-container">
       <Row className="justify-content-center">
         <Col md={6} className='InfoMu'>
-            <h1>MUGEHTER</h1>
-            <p>Mugether
+            <h1>Mugether</h1>
+            <p className="justify-content-center2">Mugether
                 <br/>เป็นเว็ปไซต์ที่จะช่วยแนะนำสถานที่มู
                 <br/>ให้แก่มือใหม่อีกทั้งยังรวบรวมข้อมูลที่
                 <br/>เกี่ยวข้องกับสายมูทั้งหมด
