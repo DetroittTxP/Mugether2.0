@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const muplace = require('./rawfile/JSON/mudata_latest_V4.json');
-
+const travel = require('./rawfile/JSON/Travel_Mu_4.json')
 
 
 let newmuplace = muplace.map(e => {
@@ -16,6 +16,8 @@ let newmuplace = muplace.map(e => {
         review:[]
     }
 })
+
+
 
 fs.writeFileSync('mudata-fixed.json',JSON.stringify(newmuplace,null,2))
 
