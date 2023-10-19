@@ -38,9 +38,14 @@
     margin-left: -1px; 
     display: none;
 } */
-.InfoMu h1{
-    font-style: bold;
-}
+
 .InfoMu h1::first-letter {
     color: orange;
+}
+
+.custom-img{
+    width: 200px;
+    height: 200px;
+    margin-top: 70px;
+    margin-left: 80px;
 }

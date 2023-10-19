@@ -23,7 +23,7 @@ export default function Login () {
                 <br/>เกี่ยวข้องกับสายมูทั้งหมด
             </p>
             
-            {/* <img src='https://nizar-rizkiana.github.io/absensi-app/assets/image/login3.png'></img> */}
+            <img src='https://nizar-rizkiana.github.io/absensi-app/assets/image/login3.png' className='custom-img'></img>
         </Col>
 
         {/* <hr className='vertical-line' /> */}
