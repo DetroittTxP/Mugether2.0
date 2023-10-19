@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
 
 export default function Login () {
   const [email, setEmail] = useState('');
@@ -13,9 +17,28 @@ export default function Login () {
   };
   
 
+//   const handleGoogleLogin = async () => {
+//     const provider = new firebase.auth.GoogleAuthProvider();
+//     try {
+//       await firebase.auth().signInWithPopup(provider);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
+//   const handleFacebookLogin = async () => {
+//     const provider = new firebase.auth.FacebookAuthProvider();
+//     try {
+//       await firebase.auth().signInWithPopup(provider);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
+
   return (
     <Container className="login-container">
-      <Row className="justify-content-center">
+      <Row className="justify-content-center align-items-center">
         <Col md={6} className='InfoMu'>
             <h1>Mugether</h1>
             <p className="justify-content-center2">Mugether
@@ -30,7 +53,12 @@ export default function Login () {
         {/* <hr className='vertical-line' /> */}
 
         <Col md={6} className='Login-form'>
-          <h2 className="text-center mb-4">เข้าสู่ระบบ</h2>
+            <p className='new-user'>
+                New user?
+                <a href='#'>Sign Up</a>
+            </p>
+          <h2 className="welcome">Welcome Back!</h2>
+          <p className='login-message'>login to continue</p>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
@@ -52,11 +80,33 @@ export default function Login () {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              
             </Form.Group>
 
-            <Button variant="primary" type="submit" className="w-100 mt-3">
-              เข้าสู่ระบบ
-            </Button>
+            <Row>
+                <Button variant="primary" type="submit" className="Enter">
+                    LOGIN
+                </Button>
+                <a className='forget' href='/#'>
+                    <h6>FORGET PASSWORD?</h6>
+                </a>
+            </Row>
+
+            <Row>
+                <label className='anotherlogin'>or continue login with</label> 
+            </Row>
+
+            <Row>
+            <a className='GG' href="#">
+                <FontAwesomeIcon icon={faGoogle} size="3x" />
+            </a>
+            <a className='FB' href="#">
+                <FontAwesomeIcon icon={faFacebook} size="3x" />
+            </a>
+            </Row>
+            
+            
+
           </Form>
         </Col>
       </Row>
