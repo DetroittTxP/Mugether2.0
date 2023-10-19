@@ -33,7 +33,7 @@ User.post('/login', async (req,res) => {
                     return res.send(err);
                 }
                 if(Login){
-                    let token = jwt.sign({name:username},process.env.SECRET_ACCESS);
+                    let token = jwt.sign({username:username},process.env.SECRET_ACCESS);
                     return res.send({status:'success',token:token})
                 } 
                 return res.send('failed')
@@ -49,14 +49,17 @@ User.get('/verifytoken',(req,res) => {
      let token = tokenMEbearer.split(' ')[1]
    
      
-     jwt.verify(token,process.env.SECRET_ACCESS,(err,decoded) => {
-          if(err){
-            return res.send(err);
+     jwt.verify(token,process.env.SECRET_ACCESS,(error,verifedData) => {
+          if(error){
+            return res.send({
+                status:'error',
+                error
+            });
           }
 
           return res.send({
                status:'ok',
-               username:decoded.name
+               verifedData
           })
      })
 
