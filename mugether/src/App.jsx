@@ -9,6 +9,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import ShopV2 from './components/ShopV2'
 import Mudetail from './components/Mudetail'
 import Login from './components/Login'
+import Register from './components/Register'
 
 
 
@@ -50,7 +51,7 @@ export default function App() {
       <br />
       <br />
 
-      {location.pathname !== '/shop' &&location.pathname !== '/login'&& <NavType SelectedTypeMu={SelectedTypeMu} />}
+      {location.pathname !== '/shop' &&location.pathname !== '/login'&& location.pathname !== '/register' && <NavType SelectedTypeMu={SelectedTypeMu} />}
       <br />
       <br />
 
@@ -61,6 +62,7 @@ export default function App() {
         <Route path='/shop' element={<ShopV2 />} />
         <Route path='/mudetail' element={<Mudetail />} />
         <Route path='/login' element={<Login />}  />
+        <Route path='/register' element={<Register />}  />
         
       </Routes>
       <div>
