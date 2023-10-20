@@ -6,16 +6,16 @@ import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import './register.css';
 
 const Register = () => {
-  const [email, setEmail] = useState('');
-  const [username,setusername] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmpassword, setconfirmpassword] = useState('');
-  
+    const [email, setEmail] = useState('');
+    const [username, setusername] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmpassword, setconfirmpassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // ตรวจสอบข้อมูลและดำเนินการเข้าสู่ระบบ
-  };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // ตรวจสอบข้อมูลและดำเนินการเข้าสู่ระบบ
+    };
     return (
         <div>
             <Container className="login-container">
@@ -37,24 +37,27 @@ const Register = () => {
                             <a href='#'>Login</a>
                         </p>
                         <h2 className="welcome">Sign Up!</h2>
-                        
+                        <p className='login-message2'>Signup to continue</p>
+
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control
                                     type="email"
-                                    placeholder="Email"
+                                    placeholder="✉️  Email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
+
                                 />
+                               
                             </Form.Group>
 
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control
                                     type="Username"
-                                    placeholder="Username"
+                                    placeholder="👤  Username"
                                     value={username}
                                     onChange={(e) => setusername(e.target.value)}
                                     required
@@ -65,7 +68,7 @@ const Register = () => {
                                 <Form.Label>Enter Your Password</Form.Label>
                                 <Form.Control
                                     type="Password"
-                                    placeholder="Password"
+                                    placeholder="🔒  Password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
@@ -76,7 +79,7 @@ const Register = () => {
                                 <Form.Label>Confirm Your Password</Form.Label>
                                 <Form.Control
                                     type="ConfirmPassword"
-                                    placeholder="Confirm Your Password"
+                                    placeholder="🔒  Confirm Your Password"
                                     value={confirmpassword}
                                     onChange={(e) => setconfirmpassword(e.target.value)}
                                     required
@@ -88,11 +91,11 @@ const Register = () => {
                                 <Button variant="primary" type="submit" className="Enter">
                                     SIGN UP
                                 </Button>
-                                
+
                             </Row>
 
-                            
-                            
+
+
 
 
 

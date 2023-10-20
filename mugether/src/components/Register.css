@@ -124,3 +124,8 @@
     border-left: 1px solid black;
 }
 
+.login-message2{
+    font-size: 13px;
+    color: grey;
+    margin-top: -5px;
+}
