@@ -4,7 +4,7 @@ import './Nearby.css'
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-
+import { IoIosStar} from 'react-icons/io'
 
 export default function Nearby({ Muplace_name }) {
 
@@ -73,6 +73,7 @@ export default function Nearby({ Muplace_name }) {
                                 <img style={{ borderRadius: 20 }} height={200} width={200} src={`http://localhost:5353/image/nearby/${data.key}/${e.name}/1`} alt={data.name} />
                                 <br /><br />
                                 <h6><b>{e.name}</b></h6>
+                                <p><IoIosStar/> {e.rating}</p>
                                 <p className='detail'>{e.address}</p>
                                 <br/><br/>{e.distance_to_mu} จากสถานที่มู<br/>
                             </div>
