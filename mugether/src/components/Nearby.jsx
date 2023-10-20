@@ -6,8 +6,10 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { IoIosStar} from 'react-icons/io'
 
+
 export default function Nearby({ Muplace_name }) {
 
+    const [nearby, Setnearby] = useState([])
 
 
     const responsive = {
@@ -28,12 +30,6 @@ export default function Nearby({ Muplace_name }) {
             items: 1
         }
     };
-
-    const [nearby, Setnearby] = useState([])
-
-
-
-
 
     useEffect(() => {
         axios.get(`http://localhost:5353/muplace/nearby/multiple/${Muplace_name}`)
