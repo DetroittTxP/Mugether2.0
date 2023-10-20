@@ -50,7 +50,7 @@ images.get('/nearby/:type/:name/:id',(req,res) => {
 images.post('/upload/user', upload.single('image'),(req,res) => {
        res.send({
             status:'ok',
-            msg:'user profile saved'
+            msg:'user profile saved i sus'
        });
 })
 
