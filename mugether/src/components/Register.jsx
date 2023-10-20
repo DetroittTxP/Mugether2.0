@@ -81,7 +81,7 @@ const Register = () => {
                             <Form.Group controlId="formBasicEnterConfirmPassword">
                                 <Form.Label>Confirm Your Password</Form.Label>
                                 <Form.Control
-                                    type="ConfirmPassword"
+                                    type="Password"
                                     placeholder="🔒  Confirm Your Password"
                                     value={confirmpassword}
                                     onChange={(e) => setconfirmpassword(e.target.value)}
