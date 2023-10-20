@@ -73,7 +73,7 @@ export default function Login () {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Password"
+                placeholder=" Enter Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -95,6 +95,7 @@ export default function Login () {
             </Row>
 
             <Row>
+            
             <a className='GG' href="#">
                 <FontAwesomeIcon icon={faGoogle} size="3x" />
             </a>

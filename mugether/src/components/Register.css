@@ -1,3 +1,126 @@
-.H1{
-    padding-left: 100px;
+.login-container {
+    width: 800px;
+    height: 500px; 
+    padding: 20px;
+    margin: 0 auto; 
+    border: 1px solid #ccc; 
+    border-radius: 50px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+    position: relative;
+    margin-top: 85px;
+
+    
 }
+  
+.form-group {
+    margin-bottom: 15px;
+}
+  
+.form-control {
+    width: 100%; 
+}
+  
+.btn-primary {
+    background-color: #007bff; 
+    border: none; 
+}
+  
+.btn-primary:hover {
+    background-color: #0056b3; 
+}
+  
+.text-center {
+    text-align: center;
+}
+
+/* .vertical-line {
+    border-left: 2px solid black; 
+    height: 100vh; 
+    position: absolute; 
+    left: 50%; 
+    margin-left: -1px; 
+    display: none;
+} */
+
+.InfoMu h1{
+    font-weight: bolder;
+}
+
+.InfoMu h1::first-letter {
+    color: orange;
+    font-weight: 700;
+}
+
+
+.custom-img{
+    width: 200px;
+    height: 200px;
+    margin-top: 70px;
+    margin-left: 80px;
+}
+
+.justify-content-center2{
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.Enter{
+    margin-top: 30px;
+    width: 130px;
+    border-radius: 40px;
+    height: 45px;
+    margin-left: 30px;
+}
+
+.forget{
+    margin-left: 180px;
+    margin-top: -30px;
+    font-weight: bold;
+    color: gray;
+}
+
+.forget-message{
+    font-weight: bold;
+}
+
+.anotherlogin{
+    text-align: center;
+    margin-top: 30px;
+    color: gray;
+}
+
+.GG{
+    font-size: 10px;
+    margin-top: 20px;
+    margin-left: 140px;
+}
+
+.FB{
+    font-size: 10px;
+    margin-left: 200px;
+    margin-top: -30px;
+}
+
+.welcome{
+    margin-left: -4px;
+    font-weight: bold;
+}
+
+
+.new-user{
+    margin-left: 150px;
+    font-weight: bold;
+    
+    
+}
+
+.new-user a {
+    margin-left: 5px;
+    color: orange;
+    
+}
+
+.Login-form{
+    border-left: 1px solid black;
+}
+

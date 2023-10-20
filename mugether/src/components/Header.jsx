@@ -26,6 +26,14 @@ export default function Header() {
           <h6>REGISTER</h6>
         </a>
       )
+    },
+    {
+      key: '3',
+      label: (
+        <a href='/logout'>
+          <h6>LOG OUT</h6>
+        </a>
+      )
     }
   ]
 

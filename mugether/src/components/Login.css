@@ -111,13 +111,16 @@
 }
 
 .new-user{
-    margin-left: 230px;
+    margin-left: 150px;
     font-weight: bold;
+    
+    
 }
 
 .new-user a {
     margin-left: 5px;
     color: orange;
+    
 }
 
 .Login-form{
