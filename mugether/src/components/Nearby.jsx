@@ -4,12 +4,13 @@ import './Nearby.css'
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { IoIosStar} from 'react-icons/io'
-
+import { IoIosStar } from 'react-icons/io'
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 export default function Nearby({ Muplace_name }) {
 
-    const [nearby, Setnearby] = useState([])
+
 
 
     const responsive = {
@@ -30,6 +31,13 @@ export default function Nearby({ Muplace_name }) {
             items: 1
         }
     };
+
+   
+    const [nearby, Setnearby] = useState([])
+    const [open, setOpen] = useState(false);
+    const [imageinfo, Setimageinfo] = useState({ key: '', name: '' })
+    const [index, setIndex] = useState(0);
+    const updateIndex = ({ index: current }) =>  setIndex(current);
 
     useEffect(() => {
         axios.get(`http://localhost:5353/muplace/nearby/multiple/${Muplace_name}`)
@@ -54,8 +62,6 @@ export default function Nearby({ Muplace_name }) {
             })
             .catch(err => alert(err))
     }, [nearby])
-
-
     return (
         <div>
 
@@ -63,25 +69,45 @@ export default function Nearby({ Muplace_name }) {
                 <>
                     <h2>{data.type}</h2>
 
-                    <Carousel  responsive={responsive}>
+                    <Carousel responsive={responsive}>
                         {data.data.map((e) => (
                             <div className='Card'>
-                                <img  height={200} width={200} src={`http://localhost:5353/image/nearby/${data.key}/${e.name}/1`} alt={data.name} />
+                                <img onClick={() => {
+                                    setOpen(true)
+                                    Setimageinfo({
+                                        key:data.key,
+                                        name:e.name
+                                    })
+                                }} height={200} width={200} src={`http://localhost:5353/image/nearby/${data.key}/${e.name}/1`} alt={data.name} />
                                 <br /><br />
                                 <h6><b>{e.name}</b></h6>
-                                <p><IoIosStar/> {e.rating}</p>
+                                <p><IoIosStar /> {e.rating}</p>
                                 <p className='detail'>{e.address}</p>
-                                <br/><br/>{e.distance_to_mu} จากสถานที่มู<br/>
+                                <br /><br />{e.distance_to_mu} จากสถานที่มู<br />
+
+
                             </div>
                         ))}
                     </Carousel>
-                    <br/>
-                    <hr/>
+                    <br />
+                    <hr />
+
+
                 </>
             ))}
 
+            <Lightbox
+                open={open}
+                close={() => setOpen(false)}
+                slides={[
+                    { src: `http://localhost:5353/image/nearby/${imageinfo.key}/${imageinfo.name}/1` },
+                    { src: `http://localhost:5353/image/nearby/${imageinfo.key}/${imageinfo.name}/2` },
+                    { src: `http://localhost:5353/image/nearby/${imageinfo.key}/${imageinfo.name}/3` },
+                ]}
+                index={index}
+                on={{ view: updateIndex }}
+            />
 
-      
 
 
 
