@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 // import firebase from 'firebase/app';
 // import 'firebase/auth';
+import { Link } from 'react-router-dom';
 
 export default function Login () {
   const [email, setEmail] = useState('');
@@ -53,7 +54,8 @@ export default function Login () {
         <Col md={6} className='Login-form'>
             <p className='new-user'>
                 New user?
-                <a href='#'>Sign Up</a>
+                
+                <Link to="/register">Sign Up</Link>
             </p>
           <h2 className="welcome">Welcome Back!</h2>
           <p className='login-message'>login to continue</p>
@@ -78,7 +80,6 @@ export default function Login () {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              
             </Form.Group>
 
             <Row>
@@ -103,6 +104,8 @@ export default function Login () {
                 <FontAwesomeIcon icon={faFacebook} size="3x" />
             </a>
             </Row>
+
+            
             
             
 

@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import './register.css';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const [email, setEmail] = useState('');
@@ -34,7 +35,8 @@ const Register = () => {
                     <Col md={6} className='Login-form'>
                         <p className='new-user2'>
                             Already have account? 
-                            <a className='new-user3'>Login</a>
+                            {/* <a className='new-user3'>Login</a> */}
+                            <Link to="/login" className='new-user3'>Login</Link>
                         </p>
                         
                         <h2 className="welcome">Sign Up!</h2>
