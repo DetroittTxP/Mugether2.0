@@ -100,3 +100,20 @@
   color: grey;
   margin-top: -5px;
 }
+
+
+#formEmail:focus::placeholder{
+    color: transparent;
+}
+
+#formPassword:focus::placeholder{
+    color: transparent;
+}
+
+#formEnterPassword:focus::placeholder{
+    color: transparent;
+}
+
+#formEnterConfirmPassword:focus::placeholder{
+    color: transparent;
+}
