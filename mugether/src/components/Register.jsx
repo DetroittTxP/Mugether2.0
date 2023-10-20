@@ -14,6 +14,16 @@ const Register = () => {
         }
     ]);
     const handleSubmit = (e) => e.preventDefault();
+
+    const Change = (event)=>{
+        setUserdata((e)=>{
+            return{
+                ...e,
+                [event.target.id]:event.target.value 
+
+            }
+        })
+    }
     return (
         <div>
             <Container className="login-container">
@@ -44,43 +54,39 @@ const Register = () => {
                         <h2 className="welcome">Sign Up!</h2>
                         <p className="login-message2">Signup to continue</p>
                         <Form onSubmit={handleSubmit}>
-                            <Form.Group controlId="formEmail">
+                            <Form.Group controlId="email">
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control 
                                     type="email"
                                     placeholder="✉️  Email"
-                                    value={User.email}
-                                    onChange={(e) => setUserdata({...User,email:e.target.value})}
+                                    onChange={Change}
                                     required
                                 />
                             </Form.Group>
-                            <Form.Group controlId="formPassword">
+                            <Form.Group controlId="username">
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control
                                     type="Username"
                                     placeholder="👤  Username"
-                                    value={User.username}
-                                    onChange={(e) => setUserdata({...User,username:e.target.value})}
+                                    onChange={Change}
                                     required
                                 />
                             </Form.Group>
-                            <Form.Group controlId="formEnterPassword">
+                            <Form.Group controlId="password">
                                 <Form.Label>Enter Your Password</Form.Label>
                                 <Form.Control
                                     type="Password"
                                     placeholder="🔒  Password"
-                                    value={User.password}
-                                    onChange={(e) => setUserdata({...User,password:e.target.value})}
+                                    onChange={Change}
                                     required
                                 />
                             </Form.Group>
-                            <Form.Group controlId="formEnterConfirmPassword">
+                            <Form.Group controlId="confirmpassword">
                                 <Form.Label>Confirm Your Password</Form.Label>
                                 <Form.Control
                                     type="Password"
                                     placeholder="🔒  Confirm Your Password"
-                                    value={User.confirmpassword}
-                                    onChange={(e) => setUserdata({...User,confirmpassword:e.target.value})}
+                                    onChange={Change}
                                     required
                                 />
                             </Form.Group>

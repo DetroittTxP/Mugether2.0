@@ -6,13 +6,25 @@ import { Link } from "react-router-dom";
 
 export default function Login() {
   
-   const [user,setuserdata] = useState([
+   const [user,setuserdata] = useState(
     {
        email:"",
        password:""
     }
-   ])
+  )
   const handleSubmit = (e) => e.preventDefault();
+
+
+  const Change2=(event1)=>{
+      setuserdata((e)=>{
+      return{
+         ...e,
+         [event1.target.id]:event1.target.value
+
+      }
+     }
+  )}
+
   return (
     <Container className="login-container">
       <Row className="justify-content-center align-items-center">
@@ -40,23 +52,21 @@ export default function Login() {
           <h2 className="welcome">Welcome Back!</h2>
           <p className="login-message">login to continue</p>
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formEmail">
+            <Form.Group controlId="email">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="✉️  Email"
-                value={user.email}
-                onChange={(e) => setuserdata({...user,email:e.target.value})}
+                onChange={Change2}
                 required
               />
             </Form.Group>
-            <Form.Group controlId="formPassword">
+            <Form.Group controlId="password">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="🔒  Password"
-                value={user.password}
-                onChange={(e) => setuserdata({...user,password:e.target.value})}
+                onChange={Change2}
                 required
               />
             </Form.Group>
