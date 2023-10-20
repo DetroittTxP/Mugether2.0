@@ -22,14 +22,11 @@ images.get('/',(req,res) => {
       res.send('images ok')
 })
 
-let countApi = 0;
 images.get('/mu/:name/:id',(req,res) => {
     
-   let dir = path.dirname(__dirname)
-    let imagesFile = path.join(dir,"photofile","MuPlace",req.params.name,`${req.params.name}${req.params.id}.jpg`);
-
-     countApi++;
-     console.log(countApi, '');
+      let dir = path.dirname(__dirname)
+      let imagesFile = path.join(dir,"photofile","MuPlace",req.params.name,`${req.params.name}${req.params.id}.jpg`);
+  
       if(!fs.existsSync(imagesFile)){
       return res.send('no images found')
       }
@@ -51,7 +48,10 @@ images.get('/nearby/:type/:name/:id',(req,res) => {
 })
 
 images.post('/upload/user', upload.single('image'),(req,res) => {
-       res.send('image saved');
+       res.send({
+            status:'ok',
+            msg:'user profile saved'
+       });
 })
 
 module.exports = images;
