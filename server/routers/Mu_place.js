@@ -55,11 +55,7 @@ mu.post('/addreviewmuplace/',async (req,res) => {
                      $push:{review:reviewdetail}
               }
        )
-
-
        res.json(resultreview)
-
-
 })
 
 

@@ -4,4 +4,6 @@ guide.get('/',(req,res) => {
      res.send('gudie ok')
 })
 
+
+
 module.exports = guide;

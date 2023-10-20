@@ -109,9 +109,6 @@ export default function Nearby({ Muplace_name }) {
             />
 
 
-
-
-
             {/* <h2>สถานที่ท่องเที่ยวใกล้เคียง</h2>
         
             <Carousel responsive={responsive}>
