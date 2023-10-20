@@ -67,10 +67,10 @@ export default function Nearby({ Muplace_name }) {
                 <>
                     <h2>{data.type}</h2>
 
-                    <Carousel responsive={responsive}>
+                    <Carousel  responsive={responsive}>
                         {data.data.map((e) => (
                             <div className='Card'>
-                                <img style={{ borderRadius: 20 }} height={200} width={200} src={`http://localhost:5353/image/nearby/${data.key}/${e.name}/1`} alt={data.name} />
+                                <img  height={200} width={200} src={`http://localhost:5353/image/nearby/${data.key}/${e.name}/1`} alt={data.name} />
                                 <br /><br />
                                 <h6><b>{e.name}</b></h6>
                                 <p><IoIosStar/> {e.rating}</p>

@@ -4,11 +4,14 @@
     border-radius: 10px;
     padding:10px;
     height: 400px;
+    width: 100%;
 }
 
   .Card img {
      width: 100%;
- 
+     object-fit: cover;
+     border-radius: 20px;
+    
   }
 
 .Card p  {
