@@ -78,6 +78,14 @@ User.post('/register',async(req,res) => {
          }
 
          await client.connect();
+         let checkSame = await client.db(process.env.DATABASE)
+                         .collection(process.env.USER)
+                         .find({username:username})
+                         .toArray();
+
+         if(checkSame.length !== 0){
+             return res.send({status:'err',msg:"มี user ซ้ำกัน"})
+         }               
 
          let inserted = await client.db(process.env.DATABASE)
                         .collection(process.env.USER)
@@ -86,11 +94,8 @@ User.post('/register',async(req,res) => {
                             password:hash,
                             email:email
                         })
-                    
       return res.send(inserted)
 
     })
 })
-
-
 module.exports = User;
