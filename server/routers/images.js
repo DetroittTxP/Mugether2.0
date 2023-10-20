@@ -1,6 +1,24 @@
 const images = require('express').Router();
 const fs = require('fs');
 const path = require('path')
+const multer = require('multer');
+
+
+const storage = multer.diskStorage({
+      destination:(req,file,cb)=>{
+            cb(null,'../photofile/User')
+      },
+      filename:(req, file,cb) => {
+             console.log(file);
+             cb(null, Date.now() + path.extname(file.originalname))
+      }
+})
+
+
+
+const upload = multer({storage })
+
+
 
 images.get('/',(req,res) => {
       res.send('images ok')
@@ -32,6 +50,10 @@ images.get('/nearby/:type/:name/:id',(req,res) => {
           return res.send('no NEARBY images found')
        } 
       return res.sendFile(imagesFile)
+})
+
+images.post('/upload/user', upload.single('image'),(req,res) => {
+       res.send('image saved');
 })
 
 module.exports = images;
