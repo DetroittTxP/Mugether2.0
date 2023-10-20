@@ -32,10 +32,11 @@ const Register = () => {
                     </Col>
 
                     <Col md={6} className='Login-form'>
-                        <p className='new-user'>
-                            Already have account?
-                            <a href='#'>Login</a>
+                        <p className='new-user2'>
+                            Already have account? 
+                            <a className='new-user3'>Login</a>
                         </p>
+                        
                         <h2 className="welcome">Sign Up!</h2>
                         <p className='login-message2'>Signup to continue</p>
 

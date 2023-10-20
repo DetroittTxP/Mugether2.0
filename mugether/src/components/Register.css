@@ -107,14 +107,13 @@
 }
 
 
-.new-user{
+.new-user2{
     margin-left: 150px;
-    font-weight: bold;
-    
+    color: gray;
     
 }
 
-.new-user a {
+.new-user3 {
     margin-left: 5px;
     color: orange;
     
