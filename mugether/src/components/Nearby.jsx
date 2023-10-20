@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import './Nearby.css'
+
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import {TbStarFilled} from 'react-icons/tb'
 
-export default function Nearby({ Muplace_name }) {
 
+export default function Nearby({Muplace_name}) {
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 1024 },
@@ -27,78 +26,38 @@ export default function Nearby({ Muplace_name }) {
         }
     };
 
-    const [nearby, Setnearby] = useState([]);
+    const [nearby, Setnearby] = useState({
+        travel: []
+    })
 
 
 
     useEffect(() => {
         axios.get(`http://localhost:5353/muplace/nearby/multiple/${Muplace_name}`)
-            .then(res => {
-                Setnearby([
-                    {
-                        typeNearby: "สถานที่ท่องเที่ยวใกล้เคียง",
-                        typeData: res.data.travel,
-                        key:"travel"
-                    },
-                    {
-                        typeNearby: "ร้านอาหารใกล้เคียง",
-                        typeData: res.data.food,
-                        key:"food"
-                    },
-                    {
-                        typeNearby: "โรงเเรมใกล้เคียง",
-                        typeData: res.data.hotel,
-                        key:"hotel"
-                    }
-                ]
-                )
-            })
-            .catch(err => alert(err))
+        .then(res => Setnearby(res.data))
+        .catch(err => alert(err))
     }, [nearby])
 
 
     return (
         <div>
+            <h2>สถานที่ท่องเที่ยวใกล้เคียง</h2>
 
-            {nearby.map((data => (
-                <>
-                    <h2>{data.typeNearby}</h2>
-                     
-                    <Carousel responsive={responsive}>
-                        {data.typeData.map(e => (
-                            <>
-                                <div className='Card'  >
-                                    <img style={{ borderRadius: 10 }} height={200} width={200} src={`http://localhost:5353/image/nearby/${data.key}/${e.name}/1`} alt={data.name} />
-                                    <br /><br />
-                                    <h6><b>{e.name}</b></h6>
-                                    <h6> <TbStarFilled /> {e.rating}</h6>
-                                    <p className='detail'>{e.address}</p>
-                                    <br/><br/>
-                                    <p >{e.distance_to_mu} จากสถานที่มู</p>
-                                </div>
-                                <br/>
-                                <hr/>
-                            </>
-                        ))}
-                    </Carousel>
-                </>
-            )))}
-
-            {/* <Carousel  responsive={responsive}>
+            <Carousel responsive={responsive}>
 
                 {nearby.travel.map((data, index) => {
                     return (
-                        <div className='Card'  >
-                            <img  style={{borderRadius:10}} height={200} width={200} src={`http://localhost:5353/image/nearby/travel/${data.name}/1`} alt={data.name} />
+                        <div className='Card'>
+                            <img  height={200} width={200} src={`http://localhost:5353/image/nearby/travel/${data.name}/1`} alt={data.name} />
                             <br/><br/>
                             <h6><b>{data.name}</b></h6>
                             <p className='detail'>{data.address}</p>
                         </div>
                     )
                 })}
-            </Carousel>
 
-            <br/><hr/> */}
+
+            </Carousel>
         </div>
     )
 }

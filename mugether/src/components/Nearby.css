@@ -4,26 +4,24 @@
     border-radius: 10px;
     padding:10px;
     height: 400px;
-    
-  }
+}
 
   .Card img {
      width: 100%;
   }
 
-  
 .Card p  {
-    margin: 0; /* เอา margin ออกเพื่อป้องกันการเว้นระยะระหว่างบรรทัด */
-    white-space: normal; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
-    overflow: hidden; /* ซ่อนข้อความเกินขอบของ .Card */
-    line-height: 1.2; /* ตั้งค่าความสูงของบรรทัด */
-    max-height: 2.4em; /* ความสูงสูงสุดของข้อความเท่ากับ 3 บรรทัด */
+    margin: 0; 
+    white-space: normal; 
+    overflow: hidden; 
+    line-height: 1.2; 
+    max-height: 2.4em; 
 }
 
 .Card h6{
-    margin: 0; /* เอา margin ออกเพื่อป้องกันการเว้นระยะระหว่างบรรทัด */
-    white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
-    overflow: hidden; /* ซ่อนข้อความเกินขอบของ .Card */
+    margin: 0; 
+    white-space: nowrap; 
+    overflow: hidden;
     text-overflow: ellipsis;
 }
 
