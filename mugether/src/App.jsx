@@ -51,7 +51,7 @@ export default function App() {
       <br />
       <br />
 
-      {location.pathname !== '/shop' &&location.pathname !== '/login'&& location.pathname !== '/register' && <NavType SelectedTypeMu={SelectedTypeMu} />}
+      {location.pathname !== '/shop' &&location.pathname !== '/login'&& location.pathname !== '/register' && location.pathname !== '/logout' &&<NavType SelectedTypeMu={SelectedTypeMu} />}
       <br />
       <br />
 
