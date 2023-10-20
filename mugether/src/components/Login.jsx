@@ -5,8 +5,13 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  
+   const [user,setuserdata] = useState([
+    {
+       email:"",
+       password:""
+    }
+   ])
   const handleSubmit = (e) => e.preventDefault();
   return (
     <Container className="login-container">
@@ -40,8 +45,8 @@ export default function Login() {
               <Form.Control
                 type="email"
                 placeholder="✉️  Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={user.email}
+                onChange={(e) => setuserdata({...user,email:e.target.value})}
                 required
               />
             </Form.Group>
@@ -50,8 +55,8 @@ export default function Login() {
               <Form.Control
                 type="password"
                 placeholder="🔒  Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={user.password}
+                onChange={(e) => setuserdata({...user,password:e.target.value})}
                 required
               />
             </Form.Group>
