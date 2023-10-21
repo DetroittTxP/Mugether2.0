@@ -2,20 +2,8 @@ const images = require('express').Router();
 const fs = require('fs');
 const path = require('path')
 const multer = require('multer');
-
-
-const storage = multer.diskStorage({
-      destination:(req,file,cb)=>{
-            cb(null,'../photofile/User')
-      },
-      filename:(req, file,cb) => {
-             console.log(file);
-             cb(null, file.originalname)
-      }
-})
-
-const upload = multer({storage })
-
+const {MongoClient} = require('mongodb')
+require('dotenv').config({path:'../.env'})
 
 
 images.get('/',(req,res) => {
@@ -47,13 +35,34 @@ images.get('/nearby/:type/:name/:id',(req,res) => {
       return res.sendFile(imagesFile)
 })
 
-// images.post('/upload/user', upload.single('image'),(req,res) => {
-//        res.send({
-//             status:'ok',
-//             msg:'user profile saved i sus'
-//        });
-// })
 
+const client = new MongoClient(process.env.CONNECT_STRING_POND)
+
+images.get('/user/profile/:username', async (req,res) => {
+       const {username} = req.params;
+
+       try{
+            await client.connect();
+            let UserResult = await client.db(process.env.DATABASE)
+                                   .collection(process.env.USER)
+                                   .findOne({username:username})
+
+
+            //get image
+            let dir = path.dirname(__dirname)
+            let imagesFile = path.join(dir,"photofile","User",username,"profile",UserResult.profile_pic_name)        
+            console.log(imagesFile);
+            
+            if(!fs.existsSync(imagesFile)){
+                  return res.send({status:"no image hehe"})
+            }
+            
+            res.sendFile(imagesFile)
+       }
+       catch(err){
+            return res.send(err)
+       }
+})
 
 
 

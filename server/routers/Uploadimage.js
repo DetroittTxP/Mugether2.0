@@ -29,7 +29,7 @@ const storageUserProfile= multer.diskStorage({
 
 
 const uploadUserProfile= multer({ storage:storageUserProfile});
-
+const uploadGuideProfile = ''// deaw ma tum
 
 Uploadimage.post('/profile/user/:username/:type', uploadUserProfile.single('image'), async (req, res) => {
 
