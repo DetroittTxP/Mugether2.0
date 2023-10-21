@@ -47,11 +47,16 @@ images.get('/nearby/:type/:name/:id',(req,res) => {
       return res.sendFile(imagesFile)
 })
 
-images.post('/upload/user', upload.single('image'),(req,res) => {
-       res.send({
-            status:'ok',
-            msg:'user profile saved i sus'
-       });
-})
+// images.post('/upload/user', upload.single('image'),(req,res) => {
+//        res.send({
+//             status:'ok',
+//             msg:'user profile saved i sus'
+//        });
+// })
+
+
+
+
+
 
 module.exports = images;

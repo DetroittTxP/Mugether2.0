@@ -5,7 +5,7 @@ const Shop = require('./routers/Shop')
 const guide = require('./routers/Guide');
 const cors = require('cors')
 const images = require('./routers/images');
-
+const Uploadiamge = require('./routers/Uploadimage')
 const bodyparser = require('body-parser');
 const User = require('./routers/User');
 
@@ -21,6 +21,7 @@ app.use('/shop', Shop )
 app.use('/image', images)
 app.use('/guide', guide)
 app.use('/user' , User)
+app.use('/uploadimage', Uploadiamge);
 
 
 
