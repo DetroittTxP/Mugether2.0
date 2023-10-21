@@ -7,29 +7,31 @@ require('dotenv').config({path:'../.env'})
 
 const client = new MongoClient(process.env.CONNECT_STRING_POND)
 
-const checkfolder = (foldername, foldertype) => {
+const checkfolder = (foldertype,foldername, type) => {
     let dir = path.dirname(__dirname);
-    let directory = path.join(dir, "photofile", foldertype, foldername);
+    let directory = path.join(dir, "photofile", foldername, foldertype , type );
     if (!fs.existsSync(directory)) {
-        fs.mkdirSync(directory);
+        fs.mkdirSync(directory,{recursive:true});
     }
 }
 
 const storageUserProfile= multer.diskStorage({
     destination: (req, file, cb) => {
-       console.log(req.params.username);
-        checkfolder(req.params.username,'User')
-        cb(null,  `./photofile/User/${req.params.username}`);
+        const {username,type} = req.params;
+        checkfolder(username,'User',type)
+
+        cb(null,  `./photofile/User/${username}/${type}`);
     },
     filename: (req, file, cb) => {
         cb(null, Date.now() + file.originalname);
     }
 });
 
+
 const uploadUserProfile= multer({ storage:storageUserProfile});
 
 
-Uploadimage.post('/profile/user/:username', uploadUserProfile.single('image'), async (req, res) => {
+Uploadimage.post('/profile/user/:username/:type', uploadUserProfile.single('image'), async (req, res) => {
 
     try{
         await client.connect();
