@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose')
 require('dotenv').config();
 const Muplace = require('./routers/Mu_place')
 const Shop = require('./routers/Shop')
@@ -12,7 +13,9 @@ const User = require('./routers/User');
 const app = express();
 
 
-
+mongoose.connect(process.env.CONNECT_STRING_POND)
+              .then(()=> console.log('CONNECT DB SUCCESS'))
+              .catch(err => console.log(err))
 app.use(cors())
 app.use(bodyparser.json());
 

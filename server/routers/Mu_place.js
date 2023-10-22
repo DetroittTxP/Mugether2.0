@@ -1,44 +1,48 @@
 const mu = require('express').Router();
 const {MongoClient} = require('mongodb')
 require('dotenv').config({path:'../.env'})
+const MuplaceModel = require('../models/muplace_model')
 
 
 const client = new MongoClient(process.env.CONNECT_STRING_BANK)
 
 
 mu.get('/mudata',async (req,res) => {
-     
-       await client.connect();
-       let result = await client.db(process.env.DATABASE)
-                   .collection(process.env.MU_PLACE)
-                   .find({},{projection:{"photos":0}})
-                   .toArray();
-
-       return res.json(result);
-       
+       try{
+              let result = await MuplaceModel.find({});
+              return res.json(result)
+       }
+       catch(err){
+              return res.send(err)
+       }
 })
 
 mu.post('/addmuplace', async (req,res) => {
-       
-       const {mudata} = req.body;
-       let result = await client.db(process.env.DATABASE)
-                    .collection(process.env.MU_PLACE)
-                    .insertOne(mudata)
-
-         return res.send(result)
+       const {name,address,type} = req.body
+       try{
+              let result = await MuplaceModel.create({
+                  name:name,
+                  address:address,
+                  type:type
+              })
+              return res.json(result)
+       }
+       catch(err){
+              return res.send(err)
+       }
        
 
 })
 
 mu.get('/mudata/:name',async (req,res) => {
      
-       await client.connect();
-       let result = await client.db(process.env.DATABASE)
-                   .collection(process.env.MU_PLACE)
-                   .find({name:req.params.name})
-                   .toArray();
-
-       return res.json(result);
+       try{
+              let result = await MuplaceModel.find({name:req.params.name});
+              return res.json(result)
+       }
+       catch(err){
+              return res.send(err)
+       }
        
 })
 
