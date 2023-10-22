@@ -2,7 +2,7 @@ const mu = require('express').Router();
 const {MongoClient} = require('mongodb')
 require('dotenv').config({path:'../.env'})
 const MuplaceModel = require('../models/muplace_model')
-
+const {TravelModel,FoodModel,HotelModel} = require('../models/nearby_model')
 
 const client = new MongoClient(process.env.CONNECT_STRING_BANK)
 
@@ -50,15 +50,21 @@ mu.get('/mudata/:name',async (req,res) => {
 
 mu.post('/addreviewmuplace/',async (req,res) => {
        const {reviewdetail,muplacename} = req.body;
+       
+       try{
+              let result = await MuplaceModel.updateOne(
+                     {name:muplacename},
+                     {
+                        $push:{review:reviewdetail} 
+                     }
+              )
+              res.json(result)
 
-       let resultreview = await client.db(process.env.DATABASE)
-       .collection(process.env.MU_PLACE)
-       .updateOne(
-              {name:muplacename},
-              {
-                     $push:{review:reviewdetail}
-              }
-       )
+       }
+       catch(err){
+              return res.send(err)
+       }
+
        res.json(resultreview)
 })
 
@@ -110,61 +116,29 @@ mu.get('/nearby/hotel/:muplace_name',async (req,res) => {
         
 })
 
+mu.get('/nearby/multiple/:muplace_name', async (req,res) =>{
+       const {muplace_name } = req.params;
 
-mu.get('/nearby/multiple/:muplace_name',async (req,res) => {
+       let food = await FoodModel.find(
+              {$or:[{mu_place:{$regex:muplace_name}},{mu_place:muplace_name}]}
+       )
 
-       const {muplace_name} = req.params;
-       console.log(muplace_name);
-       let resultHOTEL = await client.db(process.env.DATABASE)
-                    .collection(process.env.HOTEL)
-                    .find({
-                       $or:[
-                            {mu_place:{$regex:muplace_name}},{projection:{"photo_path":0}},
-                            {mu_place:muplace_name}
-                       ]    
-                    })
-                    .toArray()
-     
+       let hotel = await HotelModel.find(
+              {$or:[{mu_place:{$regex:muplace_name}},{mu_place:muplace_name}]}
+       )
 
-       let resultFOOD = await client.db(process.env.DATABASE)
-                    .collection(process.env.FOOD)
-                    .find({
-                     $or:[
-                          {mu_place:{$regex:muplace_name}},
-                          {projection:{"photo_path":0}},
-                          {mu_place:muplace_name}
-                     ]
-                  })
-                    .toArray()
+       let travel = await TravelModel.find(
+              {$or:[{mu_place:{$regex:muplace_name}},{mu_place:muplace_name}]}
+       )
 
-
-       let resultTRAVEL = await client.db(process.env.DATABASE)
-                    .collection(process.env.TRAVEL)
-                    .find({
-                     $or:[
-                          {mu_place:{$regex:muplace_name}},{projection:{"photo_path":0}},
-                          {mu_place:muplace_name}
-                     ]
-                  })
-                    .toArray()
-    
-
-      return res.json({
+         return res.json({
               status:'ok',
-              travel:resultTRAVEL,
-              food:resultFOOD,
-              hotel:resultHOTEL
+              travel:travel,
+              food:food,
+              hotel:hotel
        })
 
-
 })
-
-
-
-
-
-
-
 
 
 mu.get('/',(req,res) => {
