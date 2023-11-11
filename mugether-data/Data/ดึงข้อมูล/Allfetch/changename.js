@@ -1,0 +1,1 @@
+const food = require('./resturant.json');

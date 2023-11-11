@@ -1,0 +1,983 @@
+{
+    "html_attributions": [],
+    "next_page_token": "AUacShinbaRyjZUKkFZrjGKMuIq3DyN0PPQyXNG_aYqn3apvmlkHrwAlTV6jrX0Jc5JlVLJopCSD9woWAX8UcDRQn5Ekogw29-2vLMVF39bS-WoKPEgs9VOdXgWSBNIGYN7ztqoDZ66sbBdii57OXK1u0DlkvvqzomVnWwIKoIxMA8_2X6wyihnFl5roCtmegvZQsQzK6SpnVVsYmVE_RE4JwTOLkEkFmOF_YOoaU2HnRPWB11Wc1Sd9IkgFvIQzKsTkK2Z_qGvlGiX_Vb4cukOSLBzUmMd9qSjbD0wIvvUDjuFdnoajT9GBiutw80GQo2YSvhPl6G8JK1UYnWmBjy7yWDq1GdDIX0BOJlmiW2IMPlz1J8tqdbBh4aY-76DjkykAkIrjWsBQc8mbipWq3fCUuzFJJ9o9zcBX5HDCe0g96BCqUgXXgU4_dBh4x1WKoEZmrJ0aaKtVxMR3uDNZfzh8cacXDUgYlSWqzBwhED5er4M",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.8640257,
+                    "lng": 100.7014903
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.86500107989272,
+                        "lng": 100.7026812798927
+                    },
+                    "southwest": {
+                        "lat": 13.86230142010728,
+                        "lng": 100.6999816201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Spy War",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102500364652897881408\">Ah Ken</a>"
+                    ],
+                    "photo_reference": "AUacShjbHPMpnmtqtMmJZCQZIfe_0W9oYSRNC7eSwlj6YulZo-T5ZZRYFCkPS9s6uPIMg7RnqiwAocy_bLVxnDxJCiv0PhijuWEBv_ZutoIvH0uze6jH2zwZe1H6hbXYZfj6aJGGRm78LuIUYyzaVy6RnZx9h1sleKWC8t--PTWFWJqy0amL",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJfy6GokZjHTERzcLSfeQr7Lo",
+            "plus_code": {
+                "compound_code": "VP72+JH กรุงเทพมหานคร",
+                "global_code": "7P52VP72+JH"
+            },
+            "rating": 4.5,
+            "reference": "ChIJfy6GokZjHTERzcLSfeQr7Lo",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 132,
+            "vicinity": "World, Safari แขวงสามวาตะวันตก เขตคลองสามวา"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7685069,
+                    "lng": 100.5328757
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.76986927989272,
+                        "lng": 100.5342317298927
+                    },
+                    "southwest": {
+                        "lat": 13.76716962010728,
+                        "lng": 100.5315320701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "พระที่นั่งพิมานจักรี",
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109494256454478603251\">Rathakarn Khuruthiti</a>"
+                    ],
+                    "photo_reference": "AUacShhg9dm5aJYDy1tAD53PZR40MrVdFuM_Qu355amU8RjNVHcRACfWyggkQIkswq2xFBA3sl4vpLxooq54TlXGwNXcOE6nLR34OQKHpR5aTU-MzDPcBN5IePv1UPsnNbALh0uVmKoWGs7-CsSpxuFuW-JaZ71TCNLhejNum156OfEQWsYv",
+                    "width": 5184
+                }
+            ],
+            "place_id": "ChIJeTAMebKe4jARVOEGovuAEBM",
+            "plus_code": {
+                "compound_code": "QG9M+C5 กรุงเทพมหานคร",
+                "global_code": "7P52QG9M+C5"
+            },
+            "rating": 3.4,
+            "reference": "ChIJeTAMebKe4jARVOEGovuAEBM",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 9,
+            "vicinity": "315 ถ. ราชวิถี แขวงทุ่งพญาไท เขตราชเทวี"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.9050229,
+                    "lng": 100.4879706
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.90656192989272,
+                        "lng": 100.4893797298927
+                    },
+                    "southwest": {
+                        "lat": 13.90386227010728,
+                        "lng": 100.4866800701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "สวนเกร็ดพุทธ",
+            "opening_hours": {},
+            "photos": [
+                {
+                    "height": 3120,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111023892679001323267\">Екатерина Давыдова</a>"
+                    ],
+                    "photo_reference": "AUacShgLs2ie1eow-WKRx6SYUQb8mfvSzM_AnvNItBYLmP0jPimKDcuffFTVwEvzSB552g1_DGwdqhrrpGfcOS4srGx70IaUb6Lh6ybHX1ooyB4s1PAUIszFAzUvCHyCRJFWcz6fk6MTFzVQNZnUqkJ2-0gyk8nIMobNEAFbztLaBtiTjwrW",
+                    "width": 4160
+                }
+            ],
+            "place_id": "ChIJTVrkqOOE4jARfTeUQ89fnN0",
+            "rating": 4.1,
+            "reference": "ChIJTVrkqOOE4jARfTeUQ89fnN0",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 112,
+            "vicinity": "WF4Q+254 ตำบล เกาะเกร็ด อำเภอปากเกร็ด"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.8654914,
+                    "lng": 100.7030427
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.86732542989272,
+                        "lng": 100.70857215
+                    },
+                    "southwest": {
+                        "lat": 13.86462577010728,
+                        "lng": 100.70119955
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "ซาฟารีเวิลด์",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2252,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118417439773789769161\">Pawan</a>"
+                    ],
+                    "photo_reference": "AUacShj52gxJiknU1AGzwmhsZ_ZS0gNLlH1u7p2TNhc3q9IFsU0bba6ON32Uw4a0IRGxyLNzM7Xux-TOQzMgZu9qPmRpdqiB_5lXfjA_Z5VT6jb5CoMsn6YdvyGWLAlRbNBYn2Y1BGncoBL2aAnmwYPLIVjxcKEyGAL9UbNUyIE9DIdEQmLh",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJu3Kvbk1jHTERxDQviagK6ig",
+            "plus_code": {
+                "compound_code": "VP83+56 กรุงเทพมหานคร",
+                "global_code": "7P52VP83+56"
+            },
+            "rating": 4.5,
+            "reference": "ChIJu3Kvbk1jHTERxDQviagK6ig",
+            "scope": "GOOGLE",
+            "types": [
+                "zoo",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 35647,
+            "vicinity": "99 ถ. ปัญญาอินทรา แขวงสามวาตะวันตก เขตคลองสามวา"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7517707,
+                    "lng": 100.5012761
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.75309817989272,
+                        "lng": 100.5026249298927
+                    },
+                    "southwest": {
+                        "lat": 13.75039852010728,
+                        "lng": 100.4999252701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "เสาชิงช้า",
+            "opening_hours": {},
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105712258832825930243\">Suksant Sermsakul</a>"
+                    ],
+                    "photo_reference": "AUacShgvDkd2iz1-TuNnrRd_KIEnhHme30_tsXNnsMZ7aFZ3kfJlQOLvPkBo6gYBnrxLMuOCbRLGHCeZM2rhdBtwQq6ZPm9GbxXRpa2vkkg5skqx79-g6H-OpONpsqvuZA9AuutxSiB71u1PzitEydbWq5lCHgdv5NufBp-DfgsUMsQp1bw",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJX49VWsWZ4jARwEYBM0MDXnE",
+            "plus_code": {
+                "compound_code": "QG22+PG กรุงเทพมหานคร",
+                "global_code": "7P52QG22+PG"
+            },
+            "rating": 4.6,
+            "reference": "ChIJX49VWsWZ4jARwEYBM0MDXnE",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1606,
+            "vicinity": "239 ถนน ดินสอ แขวงบางขุนพรหม เขตพระนคร"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.8487664,
+                    "lng": 100.5688721
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.85011752989272,
+                        "lng": 100.5702787298927
+                    },
+                    "southwest": {
+                        "lat": 13.84741787010728,
+                        "lng": 100.5675790701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "ริมน้ำโขง หอ14",
+            "place_id": "ChIJOT4WKrKd4jARLsTd643rfvw",
+            "plus_code": {
+                "compound_code": "RHX9+GG กรุงเทพมหานคร",
+                "global_code": "7P52RHX9+GG"
+            },
+            "rating": 0,
+            "reference": "ChIJOT4WKrKd4jARLsTd643rfvw",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0,
+            "vicinity": "50, Kasetsart University, Ngam Wong Wan Road, Lat Yao, Khet Chatuchak, Bangkok, 10900 แขวงลาดยาว เขตจตุจักร"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.9347737,
+                    "lng": 100.5617274
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.93617162989272,
+                        "lng": 100.5630806298927
+                    },
+                    "southwest": {
+                        "lat": 13.93347197010728,
+                        "lng": 100.5603809701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "พิพิธภัณฑ์ของเล่น ตูนนี่ ประเทศไทย",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4128,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117925956708816361005\">Jung mi Kim</a>"
+                    ],
+                    "photo_reference": "AUacShiObMWd80g6fPPqcPWfGDw3StbjFlXUMy4-I7VwUf9IUHQVGICXhTVYmkvXF0jkZVRtjUsbfhFDZ-00uM7WVQv0Hryx0-CZ6BquOTu_siOtGFggXqteBjhdArCCp_QSlIGdtRY7oxOoE3M-5Zbx5rHpYGt5clw2nMcrtzVCL9QI7b3G",
+                    "width": 3096
+                }
+            ],
+            "place_id": "ChIJ44kOaU-b4jARG9qpD5jqFWg",
+            "plus_code": {
+                "compound_code": "WHM6+WM เทศบาลนครปากเกร็ด อำเภอปากเกร็ด นนทบุรี",
+                "global_code": "7P52WHM6+WM"
+            },
+            "rating": 4.2,
+            "reference": "ChIJ44kOaU-b4jARG9qpD5jqFWg",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "cafe",
+                "museum",
+                "store",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "user_ratings_total": 353,
+            "vicinity": "ซอย ศรีสมาน 8 ตำบลบ้านใหม่ อำเภอปากเกร็ด"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.8095512,
+                    "lng": 100.5549011
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.81074712989272,
+                        "lng": 100.5565321798927
+                    },
+                    "southwest": {
+                        "lat": 13.80804747010728,
+                        "lng": 100.5538325201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "อุทยานผีเสื้อและแมลง กรุงเทพฯ",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104232085253451185462\">Pravit</a>"
+                    ],
+                    "photo_reference": "AUacShisMJe8H9KYNzbgjQcdDukvE1n-EH8l7HdtqhN4sIAsKAalPUUszcAxxlrJZxgt-RdtTtvbAaZOf2m2TBlyRSqtEkydt_c911b7Uw7oMreRVR-y7Jm7_Xjo41az8YsNMDoQImk97cPa884nvQszDx9qOklhd6H3-ggq-h__UfBCc7Py",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJN1kUQ1yc4jARjpGEPYyF0S0",
+            "plus_code": {
+                "compound_code": "RH53+RX กรุงเทพมหานคร",
+                "global_code": "7P52RH53+RX"
+            },
+            "rating": 4.1,
+            "reference": "ChIJN1kUQ1yc4jARjpGEPYyF0S0",
+            "scope": "GOOGLE",
+            "types": [
+                "museum",
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 740,
+            "vicinity": "สวนวิชรเบญจทิศ(สวนรถไฟ ถนน กำแพงเพชร 3 แขวงลาดยาว เขตจตุจักร"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 14.032087,
+                    "lng": 100.7302152
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 14.03348607989272,
+                        "lng": 100.7315109298927
+                    },
+                    "southwest": {
+                        "lat": 14.03078642010728,
+                        "lng": 100.7288112701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/museum_pinlet",
+            "name": "พิพิธภัณฑ์บัว มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3265,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106773836252912709064\">Kasame C.charuskul</a>"
+                    ],
+                    "photo_reference": "AUacShiGxDo8aor33nM-_eOJXDPVI6-DWzJkq0XeX5JnsA097P0FFyOeFeneBsy0RuQZS4gQaA7mWt_EapHpSVt_EmGB7EcmfVRyD3bVUesSTiQDOnxxBt98yOW7w4F2CM47659ct2cUJvWy6h0G4pPZOArSlgoA9yzBVnrs2RouKUhvipNB",
+                    "width": 4898
+                }
+            ],
+            "place_id": "ChIJg9huUaN4HTERhW2sC-0DpXI",
+            "plus_code": {
+                "compound_code": "2PJJ+Q3 ตำบล รังสิต อำเภอธัญบุรี ปทุมธานี",
+                "global_code": "7P622PJJ+Q3"
+            },
+            "rating": 4.2,
+            "reference": "ChIJg9huUaN4HTERhW2sC-0DpXI",
+            "scope": "GOOGLE",
+            "types": [
+                "museum",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 109,
+            "vicinity": "มหาวิทยาลัยเทคโนโลยีราชมงคล ธัญบุรี 39 ถนน รังสิต - นครนายก ตำบล คลองหก อำเภอคลองหลวง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7575138,
+                    "lng": 100.4895887
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.75886362989272,
+                        "lng": 100.4909385298927
+                    },
+                    "southwest": {
+                        "lat": 13.75616397010728,
+                        "lng": 100.4882388701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "ลาน 60 ปี ธรรมศาสตร์",
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104962566658815105884\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShj0xG9kugXAiij_zxC8tLk2o79Qjxc-Mr1sgSe1H1DszyriNW-82reIM0in0GuLU46g3tGYmWKG2nNIeT0pAhdckUivymu8STKKzw0UxcfcGqF1xI9Rk1Lxx9qUU393ezBsoMHvCZHixHIlo2ele73fUZgYgAHvTLwoGr8vvgS0kbyF",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJk_yAWwuZ4jARJJRArZ_mtM8",
+            "plus_code": {
+                "compound_code": "QF5Q+2R กรุงเทพมหานคร",
+                "global_code": "7P52QF5Q+2R"
+            },
+            "rating": 4.5,
+            "reference": "ChIJk_yAWwuZ4jARJJRArZ_mtM8",
+            "scope": "GOOGLE",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10,
+            "vicinity": "2 ถ. หน้าพระธาตุ แขวงพระบรมมหาราชวัง เขตพระนคร"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7625155,
+                    "lng": 100.4795931
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.76365927989272,
+                        "lng": 100.4808349298927
+                    },
+                    "southwest": {
+                        "lat": 13.76095962010728,
+                        "lng": 100.4781352701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "ท่องเที่ยวลำพัง",
+            "photos": [
+                {
+                    "height": 4080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109581786698140642054\">fabienne nennig</a>"
+                    ],
+                    "photo_reference": "AUacShiDMIr8_Yf6Mvk1aW5K0l9NSB9HpjckVaHkepGEMlbJXA8LFSWouOMMvZCdNxbYReXuaM2uiUqc6ZlaHowk2Dn-cicn64I6NbtcmdqdYnCXZc4nOLeoRniB2bL16BkG_-APY4RuVo6LUlKA6qUf3ozNKw8-suIzcJOvvRsK3IHbzx-x",
+                    "width": 3072
+                }
+            ],
+            "place_id": "ChIJCbKDmHGZ4jAR8p7GxM0qKcA",
+            "rating": 0,
+            "reference": "ChIJCbKDmHGZ4jAR8p7GxM0qKcA",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0,
+            "vicinity": "QF7H+2R4 คลอง แขวงอรุณอมรินทร์ เขตบางกอกน้อย"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.8066994,
+                    "lng": 100.6923303
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.80808077989272,
+                        "lng": 100.6936485798927
+                    },
+                    "southwest": {
+                        "lat": 13.80538112010728,
+                        "lng": 100.6909489201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "สยามอะเมซิ่งพาร์ค",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3181,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114571198357967388424\">kokiat</a>"
+                    ],
+                    "photo_reference": "AUacShhrROUpPUiimNrQMuGIXBh7pLnLIQmivcr6zU4YzvZ4S27UqSltpc0iGYKmYsZCW4abNu_mSbRzG3rQghOI8YdcG0ceN-teOHSC70-GHbgRKYhilq1PJcYek9wDTK73BwG6GXwXX_XLOXs2-9-pn29s-4xKYqV8Tgj17TwnH5fab7kX",
+                    "width": 4779
+                }
+            ],
+            "place_id": "ChIJrc78zJBjHTERdLG8EciM5Qs",
+            "plus_code": {
+                "compound_code": "RM4R+MW กรุงเทพมหานคร",
+                "global_code": "7P52RM4R+MW"
+            },
+            "rating": 4.2,
+            "reference": "ChIJrc78zJBjHTERdLG8EciM5Qs",
+            "scope": "GOOGLE",
+            "types": [
+                "amusement_park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 12009,
+            "vicinity": "203 ถ. สวนสยาม แขวงคันนายาว เขตคันนายาว"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7577024,
+                    "lng": 100.491825
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.75909462989272,
+                        "lng": 100.4931240798927
+                    },
+                    "southwest": {
+                        "lat": 13.75639497010728,
+                        "lng": 100.4904244201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "พระตำหนักแดง",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113626080386480114302\">วาทิต อุดมวรกุลชัย</a>"
+                    ],
+                    "photo_reference": "AUacShg9UCU1ogBG_OkL8LWVkZnwqIFAKenvHGrfFMhjC8Cn060bFH6jMTa5mpa-JDxDvb2aImmQJqECAg0xfg7GHnxHL91h2p8gDfXGQbOv_oC7znaUfxQCIU_U9yq4FJve11FZpPWrBqD0u7HwrarXQerZcWRSvLfpFV5slEIbZhHf7UkB",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ_f2H6gyZ4jARueZlV8nZ3s8",
+            "plus_code": {
+                "compound_code": "QF5R+3P กรุงเทพมหานคร",
+                "global_code": "7P52QF5R+3P"
+            },
+            "rating": 4.6,
+            "reference": "ChIJ_f2H6gyZ4jARueZlV8nZ3s8",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 18,
+            "vicinity": "4 ถ. หน้าพระธาตุ แขวงพระบรมมหาราชวัง เขตพระนคร"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.893999,
+                    "lng": 100.4918495
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.89535827989272,
+                        "lng": 100.4932104298927
+                    },
+                    "southwest": {
+                        "lat": 13.89265862010728,
+                        "lng": 100.4905107701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "พุทธสถานเชิงท่า-หน้าโบสถ์",
+            "photos": [
+                {
+                    "height": 961,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101588680662674783147\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShgtDHv9mjBzTBPleDwfIVmLpOmQgIVlJti34IoYBfENqZQaVkIJeoSKnxFH8cbGLBYK8jdFabzUyVHiVpmlBi61AvCcPb-lY_saHQ3qBsqcnwoRjdxFL4cVK0SFeQR9y5YExijmOragnMR1WHE2eLG0ma1lQ22sLwxUQFGCCdcEevBQ",
+                    "width": 1704
+                }
+            ],
+            "place_id": "ChIJ8UJNsd2E4jARFSgf1sdGJUQ",
+            "rating": 4.6,
+            "reference": "ChIJ8UJNsd2E4jARFSgf1sdGJUQ",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 509,
+            "vicinity": "VFVR+HQW ท่าทราย อำเภอเมืองนนทบุรี"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7640367,
+                    "lng": 100.4951096
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.76518117989272,
+                        "lng": 100.4966431798927
+                    },
+                    "southwest": {
+                        "lat": 13.76248152010728,
+                        "lng": 100.4939435201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "สวนสันติชัยปราการ",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2592,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116110820573588560554\">Khanita T</a>"
+                    ],
+                    "photo_reference": "AUacShh6LguSzeejRSdHnkrP4S0YNvOrvZdQ40n3addvozHxXxh1FmxaRJg5LwWgrp-V23XKLxulHAiCY4Thmeyal4GmYmz6DE8qUHvCOn6j32qa5PfdjFckbWW3hjOMzzdcmb63_YeaW2UI7-9O7a-7uqM11l7XTnbYrpuk7tQVRnfAkb6I",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJ_0J6BXKZ4jAREKhaPbMAAR0",
+            "rating": 4.4,
+            "reference": "ChIJ_0J6BXKZ4jAREKhaPbMAAR0",
+            "scope": "GOOGLE",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2330,
+            "vicinity": "QF7W+J29 ถนน พระอาทิตย์ แขวงชนะสงคราม เขตพระนคร"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.751068,
+                    "lng": 100.5010391
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.75263315,
+                        "lng": 100.5023828298927
+                    },
+                    "southwest": {
+                        "lat": 13.74890735,
+                        "lng": 100.4996831701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/worship_dharma-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "วัดสุทัศนเทพวรารามราชวรมหาวิหาร",
+            "photos": [
+                {
+                    "height": 2464,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105478272989313152160\">Supaporn Konlawit</a>"
+                    ],
+                    "photo_reference": "AUacShjyVHn7l0tz9tHmDnQAMd7CJXKk8DUqSzJk0gIFJppIfkS_NfgDVOyeH-g6Xi0zum0qULIN9HLg9AVeWkkXdGkRTXY6ciIRw9FQGTkZ2AjJLgDrCOCuNrEQGXHASzGPyQbAbI3_mispYws9oBsdCuOayOzYNrg5EjdBrGiDLQ21E6eI",
+                    "width": 2464
+                }
+            ],
+            "place_id": "ChIJg-IqNBGZ4jAR0dPx_MR-gTk",
+            "plus_code": {
+                "compound_code": "QG22+CC กรุงเทพมหานคร",
+                "global_code": "7P52QG22+CC"
+            },
+            "rating": 4.7,
+            "reference": "ChIJg-IqNBGZ4jAR0dPx_MR-gTk",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "place_of_worship",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5548,
+            "vicinity": "146 ถ. บำรุงเมือง แขวงวัดราชบพิตร เขตพระนคร"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7639776,
+                    "lng": 100.4956975
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.76521097989272,
+                        "lng": 100.4971119298927
+                    },
+                    "southwest": {
+                        "lat": 13.76251132010728,
+                        "lng": 100.4944122701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "ป้อมพระสุเมรุ",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105365256239463433989\">박혜인</a>"
+                    ],
+                    "photo_reference": "AUacShiw8FLaabPkGTz-i1yR3KvIH5R3Pe1gDKsYywDSPrrnSdlWRVapB1R5upuQRl7Uxb2AQ6k8YtakAWI0PyYGyGdPAydEywUbjUWWZ2Td70EKf_WMdJZ_yjQyNE-fomlesGXqQrAW9qHl5JnSQEXXXuN7ahcyNVi-WgSE78NNXr7p8VfS",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJb_OyCXKZ4jARN3QMU-Tnx8I",
+            "rating": 4.4,
+            "reference": "ChIJb_OyCXKZ4jARN3QMU-Tnx8I",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1770,
+            "vicinity": "QF7W+H7W ถนน พระอาทิตย์ แขวงชนะสงคราม เขตพระนคร"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7558693,
+                    "lng": 100.4932804
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.75720017989272,
+                        "lng": 100.4946250298927
+                    },
+                    "southwest": {
+                        "lat": 13.75450052010728,
+                        "lng": 100.4919253701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "สนามหลวง",
+            "opening_hours": {},
+            "photos": [
+                {
+                    "height": 3265,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103735465252008345784\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShgc8EfJz10NpKSFtfjSSk3J5HG271uvnk0KMYH-zuHoDBAVYgHvZP_CsZIyTQPvHJiuaogbWPDIuzF9ZKNKbQWUU6VqH8PLQx2cZPifX8tpXvDL0WHoIfhijNk9lBLoZOANWgk1I3qvKgAxS66oAiF2WAGNn-bhk1t4mY0Fy4iyJiEQ",
+                    "width": 4898
+                }
+            ],
+            "place_id": "ChIJ-WOptA2Z4jARRFoeZFcz_Gk",
+            "rating": 4.6,
+            "reference": "ChIJ-WOptA2Z4jARRFoeZFcz_Gk",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 19817,
+            "vicinity": "QF4V+88R ถนน ราชดำเนินกลาง แขวงพระบรมมหาราชวัง เขตพระนคร"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7500569,
+                    "lng": 100.5316902
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.75133507989272,
+                        "lng": 100.5330748298927
+                    },
+                    "southwest": {
+                        "lat": 13.74863542010728,
+                        "lng": 100.5303751701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "สวนเฉลิมหล้า",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109494256454478603251\">Rathakarn Khuruthiti</a>"
+                    ],
+                    "photo_reference": "AUacShg0VOytKfCsr9O8atzcAQvYrBgbkOxwo1W8I1LLlmo2XNFM1B3dBXgxGrBC7GB5_bLyXQhoKB2bDnPjaDFZRV2xvTMdoOT7htoXULVL5bOLe1Q3plpfGlGkxEioIY4AvIJQRe-4R8hRIY2ZTw4u5k2sDd0eLNSyPrTsxbrXSq-75rIt",
+                    "width": 5184
+                }
+            ],
+            "place_id": "ChIJfXVL7Mye4jARicdRUjNh8hE",
+            "plus_code": {
+                "compound_code": "QG2J+2M กรุงเทพมหานคร",
+                "global_code": "7P52QG2J+2M"
+            },
+            "rating": 4.3,
+            "reference": "ChIJfXVL7Mye4jARicdRUjNh8hE",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 448,
+            "vicinity": "ซอย เพชรบุรี 18 - ซอย ซอย เพชรบุรี 18 แขวงถนนเพชรบุรี เขตราชเทวี"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7565977,
+                    "lng": 100.5113017
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.75793247989272,
+                        "lng": 100.5126664798927
+                    },
+                    "southwest": {
+                        "lat": 13.75523282010728,
+                        "lng": 100.5099668201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "บ้านนราศิลป์",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116238684574520931406\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShgEkiAgwmoa5M5kIR_W4bcwevIYsMaZ4h01xXddkOIK3JTKaG3vlJDaG8FeG2wM_GzB_fXwV9ki-3Tgn-2YuJLiCZk7MKS4rnThlrmd57bk8d5G0cWjHhnDFweHL7MzjbCh2GLe3Ez2iabsa7s85lM5w87OrIR4wsJnkAex226HUtqx",
+                    "width": 3120
+                }
+            ],
+            "place_id": "ChIJWduIFT-Z4jAR_0djnTBFJAQ",
+            "plus_code": {
+                "compound_code": "QG46+MG กรุงเทพมหานคร",
+                "global_code": "7P52QG46+MG"
+            },
+            "rating": 3.8,
+            "reference": "ChIJWduIFT-Z4jAR_0djnTBFJAQ",
+            "scope": "GOOGLE",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 20,
+            "vicinity": "173 ถนน หลานหลวง แขวงวัดโสมนัส เขตป้อมปราบศัตรูพ่าย"
+        }
+    ],
+    "status": "OK"
+}

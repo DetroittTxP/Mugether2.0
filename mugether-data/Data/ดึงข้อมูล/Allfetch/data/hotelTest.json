@@ -1,0 +1,1024 @@
+{
+    "html_attributions": [],
+    "next_page_token": "AUacShj50kWV0OmUUMugSPzpLSfEPxPnaaAz8Xg-iBGcjXYshGc8KT9dc4zha_WpvDVeBypr9qA2bEDUPR7hBVD_-0GI30qQwZLdDSRNleTVLeorY4o7E5Xw_i4SQhhh7rzFmruptbeZ1GJiGGFKN_RBdoQkC2hZ6TDav4Fhq5Y8GsD5h1Nd-02PGvqPg52cj8YfOS8a2ovcPrkmYrmWXTjdKpmFVSPoxKYTOSpfuAkFL7xdeK12MwSBFyC2V7kapnhUaFPjU6R4fCnKuXOn1Jq-chp1VMJwzWdnVcyj7Bt9DcrOexYH4y6FvFsYOyDyDC0EE0ut4fquA-UYBJ6CjZCtQ-Afgt8I1gvPehBhT4SQe3veT-XFVPV4GSUxbbAqL7S2foImGeDjXweU0YsWGZLW_lkXSsNyHSVQrnJL3XNfqv3PFAGg9xvONbWIKyiQhXyf2jY",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.9418573,
+                    "lng": 100.6370299
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.94320867989272,
+                        "lng": 100.6384229298927
+                    },
+                    "southwest": {
+                        "lat": 13.94050902010728,
+                        "lng": 100.6357232701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "นิทรา เรสซิเดนซ์",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1530,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111157747988111285106\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShiaNxjfR4D5htnCcAdJjAt2j0zO5OyyqktFH-a4KA2Xn8f5r9jekB1r9IA4J2lbyBWoNQx2nkn0GMcRqAWDWBQ628MI9KaFvFY9-6GIOllZO8Z0Vn-LrBLPoBIHWxVk8XCXGjRpgD2HaAiC4QkgQtPqVciNCE4R31xH4Pf-Oz5vrksT",
+                    "width": 2313
+                }
+            ],
+            "place_id": "ChIJCe3MWt59HTERW_pPIL9tCzM",
+            "plus_code": {
+                "compound_code": "WJRP+PR ตำบลคูคต อำเภอลำลูกกา ปทุมธานี",
+                "global_code": "7P52WJRP+PR"
+            },
+            "rating": 4.7,
+            "reference": "ChIJCe3MWt59HTERW_pPIL9tCzM",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 368,
+            "vicinity": "462 หมู่ที่ 4 ซ. พหลโยธิน 62 ตำบลคูคต อำเภอลำลูกกา"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.8871529,
+                    "lng": 100.5111063
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.88844737989272,
+                        "lng": 100.5125527298927
+                    },
+                    "southwest": {
+                        "lat": 13.88574772010728,
+                        "lng": 100.5098530701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Bed By Cruise",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 679,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114460388882361795264\">Bed by Cruise at Samakkhi-Tivanont</a>"
+                    ],
+                    "photo_reference": "AUacShirxCRL7bJ7pKQfCi6FlKd-obWomK1lgM2OoN8EZOnXJJgqGMvOgPdsFhEZHxvt_tw0Ym8LQIax_kyCldk1qdExNCjaTXJTboflKjY4KN8EWfH-HzeJhaVaupgKpkYx4glYGuvEXSTiY7n6Z8RGwFmIpFEY6BmG2bVonzfJG3dJfEer",
+                    "width": 1018
+                }
+            ],
+            "place_id": "ChIJrY7rG7mE4jARXvdiH_X2Vvc",
+            "plus_code": {
+                "compound_code": "VGP6+RC เทศบาลนครนนทบุรี อำเภอเมืองนนทบุรี นนทบุรี",
+                "global_code": "7P52VGP6+RC"
+            },
+            "rating": 4,
+            "reference": "ChIJrY7rG7mE4jARXvdiH_X2Vvc",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 374,
+            "vicinity": "169, ท่าทราย, เมือง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.9792323,
+                    "lng": 100.6278031
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.98057557989272,
+                        "lng": 100.6290845798927
+                    },
+                    "southwest": {
+                        "lat": 13.97787592010728,
+                        "lng": 100.6263849201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "PP@Hotel Rangsit",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1363,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113191254167459685393\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShjTZy_WwUoTW3Am-5cBFOZlU7waB1SItyULfSSgiiwZQWjlZdIk9uH4OMfb1tl1gDjHi9_RSeFKsvCkwSrG7bQ05NChWzmRjm_W3pmju6uTfRErbxEnV80cw7CrEuWzBJoh3XRxuEjIkDr47VKMJye1ViQKDCb7tF7Rxj-KOZn-NFCi",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJ3dfgkxh-HTERzB1PaTZDV6g",
+            "plus_code": {
+                "compound_code": "XJHH+M4 เทศบาลนครรังสิต ตำบล ประชาธิปัตย์ อำเภอธัญบุรี ปทุมธานี",
+                "global_code": "7P52XJHH+M4"
+            },
+            "rating": 4,
+            "reference": "ChIJ3dfgkxh-HTERzB1PaTZDV6g",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 574,
+            "vicinity": "117 รังสิต-นครนายก 20 ตำบล ประชาธิปัตย์ อำเภอธัญบุรี"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.8371615,
+                    "lng": 100.5197818
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.83849892989272,
+                        "lng": 100.5210588798927
+                    },
+                    "southwest": {
+                        "lat": 13.83579927010728,
+                        "lng": 100.5183592201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Malizon Hotel & Residences โรงแรมมะลิซ้อน เรสซิเด้นซ์",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2019,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113046274275939320364\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShjUrYSNdHHqUbuMkQBqzASIsVxrnv-P-ToB2E62aiFb4WwOxeUCEviDGMG1WLaJRdhFHvLNCuINDxhvYRDs_3fF9ZhAOaY_tpfE1xrkMwp1YBGOq2CyR6_bSSNj6cDVwgpZxidSajVxsZk99tTEHxEvxmo7xKEWW_7RnOB6du2GXaRc",
+                    "width": 3029
+                }
+            ],
+            "place_id": "ChIJL9eGx3qb4jARMyN8TEKEa0w",
+            "plus_code": {
+                "compound_code": "RGP9+VW เทศบาลนครนนทบุรี อำเภอเมืองนนทบุรี นนทบุรี",
+                "global_code": "7P52RGP9+VW"
+            },
+            "rating": 4.2,
+            "reference": "ChIJL9eGx3qb4jARMyN8TEKEa0w",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 130,
+            "vicinity": "56 ซอย กรุงเทพนนท์ 4 ตำบลบางเขน ตำบลตลาดขวัญ"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.9859709,
+                    "lng": 100.6170001
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.98730882989272,
+                        "lng": 100.6182748798927
+                    },
+                    "southwest": {
+                        "lat": 13.98460917010728,
+                        "lng": 100.6155752201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โรงแรมฮ็อป อินน์ รังสิต",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 5778,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103241628515321680278\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShj-KZpwbLbpxJLF6npR9zqPuoEYmzvAfxqPAiASenWOtO5EXqdLt52p5ia9PvDmxyyetBVELQ790LEqQRQIyVB6Y43lxNUpEXtV4z2hTIlHzMHAZsrMxa0Ll3HU1LkYBcgxKrY3GMQsDyHZTLd78fVAfQAT8FUgs0bhf6vIXjaU0cjF",
+                    "width": 7640
+                }
+            ],
+            "place_id": "ChIJmeDUVo6B4jARj94o0VuQ46M",
+            "plus_code": {
+                "compound_code": "XJP8+9R เทศบาลนครรังสิต ตำบล ประชาธิปัตย์ อำเภอธัญบุรี ปทุมธานี",
+                "global_code": "7P52XJP8+9R"
+            },
+            "rating": 4.4,
+            "reference": "ChIJmeDUVo6B4jARj94o0VuQ46M",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 558,
+            "vicinity": "92 2 ถ. พหลโยธิน ตำบล ประชาธิปัตย์ อำเภอธัญบุรี"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.8446463,
+                    "lng": 100.6637178
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.84600767989272,
+                        "lng": 100.6650301798927
+                    },
+                    "southwest": {
+                        "lat": 13.84330802010728,
+                        "lng": 100.6623305201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Viva Residence",
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110905975166548538429\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShjBWGs_C9iFD9FeH70fpr6Vnic-PGcAm9S7iIU28ggCXoKM-XIZUmGj-fnqj-26g-nAcBJbk6glKZhlAyDdaIg2ovGwb5r-818stVcu6nTKO68Hd6fcdmNBt8ZDfuFha4ADQ_onDuvYDz0fEXjMRVRClTGMYsGbeVAlvSt6fYMwSYWD",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJqVqgU-BiHTERLB_tJN4ze6o",
+            "plus_code": {
+                "compound_code": "RMV7+RG กรุงเทพมหานคร",
+                "global_code": "7P52RMV7+RG"
+            },
+            "rating": 4,
+            "reference": "ChIJqVqgU-BiHTERLB_tJN4ze6o",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 590,
+            "vicinity": "90 ถนน คู้บอน แขวงรามอินทรา เขตคันนายาว"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.9256773,
+                    "lng": 100.5984586
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.92705662989272,
+                        "lng": 100.5997969798927
+                    },
+                    "southwest": {
+                        "lat": 13.92435697010728,
+                        "lng": 100.5970973201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โรงแรมดอนเมือง",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1002,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109298250192621388001\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShjcxVBKxq3kw-Y9Tb_TduZWpmVKCOMWylbHPMxeglLtbDwnzkYtZ4oCLPIzyjQmGQVy8Qv95AaVjzcuJ3wfPBHNNIA5-DhWd9xNdNxKcwHLQQ9kUuAFOzGR14XqYjdiLXR-p_rXvlTUYR3UhqJEZMEKqAgPaxTXtsAeQoWOkcmX9w4",
+                    "width": 1502
+                }
+            ],
+            "place_id": "ChIJnR8I52eC4jARlfcSVhvwCXQ",
+            "plus_code": {
+                "compound_code": "WHGX+79 กรุงเทพมหานคร",
+                "global_code": "7P52WHGX+79"
+            },
+            "rating": 3.9,
+            "reference": "ChIJnR8I52eC4jARlfcSVhvwCXQ",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 496,
+            "vicinity": "5 สรณคมน์3 แยก 2 แขวงสีกัน เขตดอนเมือง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.8706853,
+                    "lng": 100.5586534
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.87198962989272,
+                        "lng": 100.5600046298927
+                    },
+                    "southwest": {
+                        "lat": 13.86928997010728,
+                        "lng": 100.5573049701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โรงแรม เดอะ เจอร์นีย์ โฮเทล หลักสี่",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4266,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112223101771524049242\">The Journey Hotel</a>"
+                    ],
+                    "photo_reference": "AUacShj2DNOW531-cmRLdWw8MT5QGmqxldy1xVelaNFvmYj-6VwpVGCRKlfpz3HOcEGXmzhLEutL48dWOIiw7_98bv4Gxy-6HWkIL5EnzXb6tbS-YqvvrZ_M0wbiI3h6ZL7ZbfyNCmEI6jp0eVSKrMpcNGfOO80BeceWqtXJm5ktCg1SAfZE",
+                    "width": 2844
+                }
+            ],
+            "place_id": "ChIJiwq1TDOD4jARoukgnmGp5og",
+            "plus_code": {
+                "compound_code": "VHC5+7F กรุงเทพมหานคร",
+                "global_code": "7P52VHC5+7F"
+            },
+            "rating": 4.4,
+            "reference": "ChIJiwq1TDOD4jARoukgnmGp5og",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 776,
+            "vicinity": "345, 65 ซอย งามวงศ์วาน 47 แยก 44 แขวงทุ่งสองห้อง เขตหลักสี่"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.8844411,
+                    "lng": 100.6064665
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.88580592989272,
+                        "lng": 100.6077617798927
+                    },
+                    "southwest": {
+                        "lat": 13.88310627010728,
+                        "lng": 100.6050621201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "48 Ville Donmueang Airport",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 998,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104562708308868605269\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShjMbiaOAYFt5zOkKTx1sOmoX8SUMy1hKnVyfju63K2xa-zsT6teOdiputoFNyY-zTFfkYUfyFS8ef0mHquuUZc0nwGayR29JPIyoskPvd6lxBDHd-Bl0hR4LAIhpKru_4muaV7IKnL9N1TdVtiffJzfvpyLhaBZrboXqgHZYahPsMoh",
+                    "width": 1644
+                }
+            ],
+            "place_id": "ChIJx3MBbbuC4jARk3uq5tScDqQ",
+            "plus_code": {
+                "compound_code": "VJM4+QH กรุงเทพมหานคร",
+                "global_code": "7P52VJM4+QH"
+            },
+            "rating": 4.1,
+            "reference": "ChIJx3MBbbuC4jARk3uq5tScDqQ",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1017,
+            "vicinity": "94/1 ซอย พหลโยธิน 48 แยก 2 แขวงอนุสาวรีย์ เขตบางเขน"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.8917905,
+                    "lng": 100.5624943
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.89309997989272,
+                        "lng": 100.5639173798927
+                    },
+                    "southwest": {
+                        "lat": 13.89040032010728,
+                        "lng": 100.5612177201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โรงแรม นารา",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1045,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111511749897829959883\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShjLA5qPXeA-59kAGvISTOHATqIX4DLMFAh0h1JFKt7Zcg2OnjFeXxaxIyekAMlikoweHe2MzGNdlKWnIYaDV97w-u4w0ZMSjZscp1ia95BqSkjnQumtY6WOyaORGD202eWEbgMopeJUf1nZw36PuPRqtDA8WN5mnt9s15wM5oz6Veqc",
+                    "width": 1567
+                }
+            ],
+            "place_id": "ChIJ6adHOD2D4jAR3m45AXfO6Xo",
+            "plus_code": {
+                "compound_code": "VHR6+PX กรุงเทพมหานคร",
+                "global_code": "7P52VHR6+PX"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ6adHOD2D4jAR3m45AXfO6Xo",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 636,
+            "vicinity": "ซอย แจ้งวัฒนะ 13 แขวงทุ่งสองห้อง เขตหลักสี่"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 14.0079691,
+                    "lng": 100.6232756
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 14.00932642989272,
+                        "lng": 100.6246235298927
+                    },
+                    "southwest": {
+                        "lat": 14.00662677010728,
+                        "lng": 100.6219238701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "The Sky Loft Hotel",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103035775181310841104\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShgBp4zbY4hK_YZAm6Uc0VEt5GkvhVxlJkT3OblomsTqlQEwD67a09914wCYo4wYO3lIcDa7eqvuYfphk5_gdBGhno0O54_s6wYKbVigsLIxkTZHKvzkOIKvXh4JY6-BLpmmG6uykg7oMiJNyly-lwiLXLybSdfpqOb3K4Uux2oIu2WJ",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJW5RH-NR_HTEReMt6o29w5YM",
+            "plus_code": {
+                "compound_code": "2J5F+58 ตำบล คลองหนึ่ง อำเภอคลองหลวง ปทุมธานี",
+                "global_code": "7P622J5F+58"
+            },
+            "rating": 4.1,
+            "reference": "ChIJW5RH-NR_HTEReMt6o29w5YM",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 212,
+            "vicinity": "ซอย คลองหลวง 8 ตำบล คลองหนึ่ง อำเภอคลองหลวง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7999209,
+                    "lng": 100.7126281
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.80133692989272,
+                        "lng": 100.7139440798927
+                    },
+                    "southwest": {
+                        "lat": 13.79863727010728,
+                        "lng": 100.7112444201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "OYO 519 B Min Airport",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113680383843440911187\">khunthana wanichanan</a>"
+                    ],
+                    "photo_reference": "AUacShhoT1U_mG_mmMMF__OYjANLs1GvZVUBxq4BxQQdcpwbQg2lbbc7cpqlFYOvEirnQ9ya3AyCnI4gRMRv3QPYf4aqdQrliDx3XFKxVah_XSQHj6cl9xuiyJ6-rN8HkLzCzxZLHRpJ8KfsUBFizyvlhLM-UxT11Xw0kKj9uXMdQVV4yMbu",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJEbHDRdplHTER3baRb45lEpU",
+            "plus_code": {
+                "compound_code": "QPX7+X3 กรุงเทพมหานคร",
+                "global_code": "7P52QPX7+X3"
+            },
+            "rating": 3,
+            "reference": "ChIJEbHDRdplHTER3baRb45lEpU",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 59,
+            "vicinity": "3 B Min Airport ซอย รามคำแหง 187 เขตมีนบุรี"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7723808,
+                    "lng": 100.640731
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.77373697989272,
+                        "lng": 100.6421218298927
+                    },
+                    "southwest": {
+                        "lat": 13.77103732010728,
+                        "lng": 100.6394221701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โรงแรม บารอน โซเทล ลาดพร้าว 117 - บางกะปิ",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 533,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109418850213304866897\">BaronZotel</a>"
+                    ],
+                    "photo_reference": "AUacShhN6k6XUj-qiIQG1p-Yne4UAPp67FFjJEnzRKSjgIcti5CxhN9H5-Ix2h9mg-5edKHMr8yKX26gL4K7_Bqd3crk7F1wSs3ksSgKj5cyNTwYakVClWeNSLwvIZmW9OXpi0XtWbYRr69hTeXHzaYVa0Xcc_OOWHlg5a4ntQ1zCVj-Bp07",
+                    "width": 800
+                }
+            ],
+            "place_id": "ChIJEfre3fRhHTERMIqGugha2YM",
+            "plus_code": {
+                "compound_code": "QJCR+W7 กรุงเทพมหานคร",
+                "global_code": "7P52QJCR+W7"
+            },
+            "rating": 4,
+            "reference": "ChIJEfre3fRhHTERMIqGugha2YM",
+            "scope": "GOOGLE",
+            "types": [
+                "bar",
+                "restaurant",
+                "food",
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 652,
+            "vicinity": "77 ซอย ลาดพร้าว 117 แขวงคลองจั่น เขตบางกะปิ"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7597194,
+                    "lng": 100.6426302
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.76107212989272,
+                        "lng": 100.6440284298927
+                    },
+                    "southwest": {
+                        "lat": 13.75837247010728,
+                        "lng": 100.6413287701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โรงแรมลิโวเทล เอ็กซ์เพรส (รามคำแหง 50)",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3096,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113880715218541832647\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShh82safRM8iqD5a9HT2Yt57H3HpM_wzvFCnszUqM3VN6tzvXa0Xb1L8JggunJKE4hm5eH6RftaV8N0Hndy0unwol5PDEMOFd59Jx5GbMPbM3oZSgzmCfaZkRcpNVmLW6jMsX8AXiviHuCmPEMPVCwvEml2R3pxsFEIBf88zT5bJhlDH",
+                    "width": 4128
+                }
+            ],
+            "place_id": "ChIJk9oH8JFhHTERxwe2BaxA4DI",
+            "plus_code": {
+                "compound_code": "QJ5V+V3 กรุงเทพมหานคร",
+                "global_code": "7P52QJ5V+V3"
+            },
+            "rating": 3.5,
+            "reference": "ChIJk9oH8JFhHTERxwe2BaxA4DI",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 171,
+            "vicinity": "26 ซอย รามคำแหง 50 หัวหมาก เขตบางกะปิ"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7874874,
+                    "lng": 100.6311393
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.78874847989272,
+                        "lng": 100.6325210298927
+                    },
+                    "southwest": {
+                        "lat": 13.78604882010728,
+                        "lng": 100.6298213701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "THE Bedroom Ladprao 101",
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110032927763181689471\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShh6LPxoY9ddYkm6S4Cu-v4wpjyOE5XU8I0T1lUTWsoDkUJST41ebDbLLEcL-ONfFsBFkOtt4WU3Sdrh1OKs6qC3l7jK6w1q3DQtFLym7D7l-dJ-XLQnBNQ-i_hkYafqxGtAmaKr0Ctb2ROotXptdqxIAFcY4ywyBbpqxZq2aQRfmEwY",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ8wrVA_hhHTER9SZk1aTQc8Y",
+            "plus_code": {
+                "compound_code": "QJPJ+XF กรุงเทพมหานคร",
+                "global_code": "7P52QJPJ+XF"
+            },
+            "rating": 4.1,
+            "reference": "ChIJ8wrVA_hhHTER9SZk1aTQc8Y",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 688,
+            "vicinity": "99 Ladprao 101 yak 38 Klongchan Bangkapi"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7548714,
+                    "lng": 100.6432517
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.75621482989272,
+                        "lng": 100.6444997298927
+                    },
+                    "southwest": {
+                        "lat": 13.75351517010728,
+                        "lng": 100.6418000701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "The Home Hotel",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1824,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105451016597226561774\">Khalid Kamaleldin</a>"
+                    ],
+                    "photo_reference": "AUacShgd7A9_E4ZKHbweQmqDWdm-RvQMgMEiYQ2h4K3N7yEzTg6-q6MZKpPD60m-bbpT52KJr0gm7QBc8I4ArP5qWZiCLTaSHTky0zJfPwJSTiHGb7M8xcCvYeNDk41LiFJh6V1FlJ7l4vOyk28ZCg6YA9C5bvjGTmpjW2HoYhaRvWq435dr",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJOW6TnWSf4jAR2TvITdx6ZyI",
+            "plus_code": {
+                "compound_code": "QJ3V+W7 กรุงเทพมหานคร",
+                "global_code": "7P52QJ3V+W7"
+            },
+            "rating": 4.1,
+            "reference": "ChIJOW6TnWSf4jAR2TvITdx6ZyI",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 397,
+            "vicinity": "THE HOME HOTEL 119/1 ซอย รามคำแหง 50 แขวงหัวหมาก เขตบางกะปิ"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 14.0622719,
+                    "lng": 100.6158384
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 14.06359977989272,
+                        "lng": 100.6171101298927
+                    },
+                    "southwest": {
+                        "lat": 14.06090012010728,
+                        "lng": 100.6144104701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Natcha Place Thammasat Rangsit",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4608,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112739675776049678524\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShg9qZaia6U95oo9zhJBBADA-XhnGSFFpxmxSqMME2NtaRTaJxCLELEqSBb8qu3_2lyvikOjGgJT2dzf1f1Dzmoo8AEPCw6bjFPFtDSJtLNSghAYk7EUueg_N225Ho5HGMKIOboK-CyPCGj9NB7HigsQwDGfgymFkvVqxLcfxC2NNSA2",
+                    "width": 3456
+                }
+            ],
+            "place_id": "ChIJ7d5y6ul_4jAR-VsaCkwFTjs",
+            "plus_code": {
+                "compound_code": "3J68+W8 ตำบล คลองหนึ่ง อำเภอคลองหลวง ปทุมธานี",
+                "global_code": "7P623J68+W8"
+            },
+            "rating": 3,
+            "reference": "ChIJ7d5y6ul_4jAR-VsaCkwFTjs",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 88,
+            "vicinity": "37/7 ซอยคลองหลวง 35 ตำบล คลองหนึ่ง อำเภอคลองหลวง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.9658133,
+                    "lng": 100.6207712
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.96709057989272,
+                        "lng": 100.6221347298927
+                    },
+                    "southwest": {
+                        "lat": 13.96439092010728,
+                        "lng": 100.6194350701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Natcha Place Rangsit Donmuang",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109277531956058105541\">Travengler ahmad</a>"
+                    ],
+                    "photo_reference": "AUacShhGTHuKAQt6_rlo6bOf9bsHFvPHhq3F6cIOCBr2MzcnQEGF-f6NkyPzdLd3EWQoznnaI5NlmiPQ190rpMAz76rlqnDeL1BYtFA58gITJFnfcz7UihPhfGLMKD67ArfEYnwqLDM7NePwbUmF7hov7vRDWtvrXShjnUQryqrEvVJrTiVc",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ28L5GwJ-HTEREhqZ1k9olKQ",
+            "plus_code": {
+                "compound_code": "XJ8C+88 ตำบลคูคต อำเภอลำลูกกา ปทุมธานี",
+                "global_code": "7P52XJ8C+88"
+            },
+            "rating": 2.7,
+            "reference": "ChIJ28L5GwJ-HTEREhqZ1k9olKQ",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 57,
+            "vicinity": "733/23 Phahonyothin 80 Road Kukot, อำเภอลำลูกกา"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.9559334,
+                    "lng": 100.6427727
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.95732717989272,
+                        "lng": 100.6441986798927
+                    },
+                    "southwest": {
+                        "lat": 13.95462752010728,
+                        "lng": 100.6414990201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Sena House Lamlukka Klong2",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1356,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102021237824281472946\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShhvBHSQWA4Sn1gUpvCBwKk6rEn6znW904WJ8fWwH_USqGUC8npLTibbitY0UX65we2qUbP2i3cxVtah5qJbdXfwSvs1luFFdJLHWRHyQEFjnLNl5_glip9xIzIcBvG7qATRB5uYo1xUvVVkqWyya9F3be2IrOfj36rj9CzEW5yEzrdm",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJVxJ62guC4jARg0MA9cY83ZE",
+            "plus_code": {
+                "compound_code": "XJ4V+94 ตำบลคูคต อำเภอลำลูกกา ปทุมธานี",
+                "global_code": "7P52XJ4V+94"
+            },
+            "rating": 3.1,
+            "reference": "ChIJVxJ62guC4jARg0MA9cY83ZE",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 34,
+            "vicinity": "39 9 ถนน เสมาฟ้าคราม ตำบลคูคต อำเภอลำลูกกา"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 13.7830986,
+                    "lng": 100.6130945
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 13.78445237989272,
+                        "lng": 100.6144123798927
+                    },
+                    "southwest": {
+                        "lat": 13.78175272010728,
+                        "lng": 100.6117127201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "สินสิริ 2 ลาดพร้าว 98/1",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 768,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110606378631029272247\">Synsiri 2 | สินสิริ 2</a>"
+                    ],
+                    "photo_reference": "AUacShhfV--07P7w-9HONlIzjLjf2wCyTS8zSxLvp4RktQItmqVZzg7dAQhs77kM8nmLOChVENuSH91PN8pBukE7FY620NeLmeSRK-l2HV2CUePJZ1eiWidGjwRt2HdBJ2BxI6oRCW7hFc2Bj8ydNsICuR22IVzd5iSbDBSgik1Zua-Vm7La",
+                    "width": 1152
+                }
+            ],
+            "place_id": "ChIJ1ZmP8fud4jARdkJY_Uy30x0",
+            "plus_code": {
+                "compound_code": "QJM7+67 กรุงเทพมหานคร",
+                "global_code": "7P52QJM7+67"
+            },
+            "rating": 4,
+            "reference": "ChIJ1ZmP8fud4jARdkJY_Uy30x0",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 99,
+            "vicinity": "13 ซอย ลาดพร้าว 98/1 แขวงวังทองหลาง เขตวังทองหลาง"
+        }
+    ],
+    "status": "OK"
+}

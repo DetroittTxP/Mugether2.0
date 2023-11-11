@@ -1,0 +1,240 @@
+{
+    "html_attributions": [],
+    "result": {
+        "address_components": [
+            {
+                "long_name": "19 ม.1",
+                "short_name": "19 ม.1",
+                "types": [
+                    "premise"
+                ]
+            },
+            {
+                "long_name": "ตำบล โพธิ์หมากแข้ง",
+                "short_name": "ตำบล โพธิ์หมากแข้ง",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "อำเภอ บึงโขงหลง",
+                "short_name": "อำเภอ บึงโขงหลง",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "บึงกาฬ",
+                "short_name": "จ. บึงกาฬ",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "ประเทศไทย",
+                "short_name": "TH",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "38220",
+                "short_name": "38220",
+                "types": [
+                    "postal_code"
+                ]
+            }
+        ],
+        "adr_address": "<span class=\"street-address\">19 ม.1</span> <span class=\"extended-address\">ตำบล โพธิ์หมากแข้ง</span> <span class=\"locality\">อำเภอ บึงโขงหลง</span> <span class=\"region\">บึงกาฬ</span> <span class=\"postal-code\">38220</span> <span class=\"country-name\">ประเทศไทย</span>",
+        "business_status": "OPERATIONAL",
+        "formatted_address": "19 ม.1 ตำบล โพธิ์หมากแข้ง อำเภอ บึงโขงหลง บึงกาฬ 38220 ประเทศไทย",
+        "formatted_phone_number": "098 398 9816",
+        "geometry": {
+            "location": {
+                "lat": 17.9539537,
+                "lng": 104.0282428
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 17.9553296302915,
+                    "lng": 104.0296865802915
+                },
+                "southwest": {
+                    "lat": 17.9526316697085,
+                    "lng": 104.0269886197085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+        "icon_background_color": "#909CE1",
+        "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+        "international_phone_number": "+66 98 398 9816",
+        "name": "บ้านชมดาว รีสอร์ท บึงโขงหลง บึงกาฬ",
+        "photos": [
+            {
+                "height": 2268,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/112369176885877734604\">บ้านชมดาว รีสอร์ท บึงโขงหลง บึงกาฬ</a>"
+                ],
+                "photo_reference": "AUacShjUvSP00NwVuHR1-Lj7iiRixflROIkN5iArNGch-QpsRGm3P3ePWYhQmevxjeGpUve9lOe_OohopE2edCeOz1lSMTmPioY-EjL0YJy59QDliIaE1SFk3juE6xujeTgwrQ3XfO4TNDic2JmfQLU65BAXaTZdPBmIAMBdhqLzRWVMEbgM",
+                "width": 4032
+            },
+            {
+                "height": 2268,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/112369176885877734604\">บ้านชมดาว รีสอร์ท บึงโขงหลง บึงกาฬ</a>"
+                ],
+                "photo_reference": "AUacShj-W0Nq0_fppfnRDFZ1uuChkewuX3OX599NcWGcwy6ByMae8YKtydxlRtUwvkGKf_E5aNSxP-3vM_1fA9Pzpoj3J1ER5DRRxEAZ7p0jTtJLCr0WH1OCOKHZw9MuAL_A6lwI4hai7ifY7-BrU0zOKh7mAUFNVLL3XCKvaZvz53r1LZY4",
+                "width": 4032
+            },
+            {
+                "height": 2268,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/112369176885877734604\">บ้านชมดาว รีสอร์ท บึงโขงหลง บึงกาฬ</a>"
+                ],
+                "photo_reference": "AUacShhp57BFvxQkq3mdpCdBieR0yGVsfvrkQPGKaIDBKuDKt9KdLAYA0dGysUQE7jrAys_jU5EMMnLni-xkvQtIpRw0lBHJsx0QsHVmQjr660c4Fe0LxhJiRgceI1Qn2p4lprSOU9WUx_6fwk1hZtruKBcz9AtLwZhC5qmP7iIG9MXs1mjv",
+                "width": 4032
+            },
+            {
+                "height": 2268,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/112369176885877734604\">บ้านชมดาว รีสอร์ท บึงโขงหลง บึงกาฬ</a>"
+                ],
+                "photo_reference": "AUacShgBV2UB39hi0gBTanfutZfejfUtb0XxCeLWu5jjSKjB44RU2aEWNTjz6mPVHR8Cu66W-geUcO6Khj3ZnDF6Ata_lJq2orMDTnpss_YcctjDMvo6lT8M700y0DHFnmP1WZIa72BIXdDwETbQUzHIwO63Vxj_3vzqA8hdXdF-Oei-8JIy",
+                "width": 4032
+            },
+            {
+                "height": 2268,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/112369176885877734604\">บ้านชมดาว รีสอร์ท บึงโขงหลง บึงกาฬ</a>"
+                ],
+                "photo_reference": "AUacShglWTUEe_s6inuPi75fIS7yAb3wWdqQfiFGK4BGOoYTn6IGfXDXHf4wrsb5_Fwi9rchnSMaOaNqkfTIR3JqWLatMLUds7IzSaGx5daPvl9phzm4TAcjoYNx-t2NuC_ygGAQOHeNn-N8XVEzJqj8ksVgoMgCT4-Ib5k5ksb0MtPalrwF",
+                "width": 4032
+            },
+            {
+                "height": 720,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/112369176885877734604\">บ้านชมดาว รีสอร์ท บึงโขงหลง บึงกาฬ</a>"
+                ],
+                "photo_reference": "AUacShjjnidm5jKoAn2w4HK2o1BXcejuVQ0SpUNu9BX0D_j_OBV_UG02CctZVDOyrfTAd8sdJ77u8p94KHpJwut5Uu7QkQXOVRAWRfxTxwkPa7gMo4_TbvSgPIMi2thqDSwPQf9r6kMmUs3z-QzDwS3LMPnNa2l_KduI8jzmLEwBZWFnf8np",
+                "width": 960
+            },
+            {
+                "height": 2268,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/112369176885877734604\">บ้านชมดาว รีสอร์ท บึงโขงหลง บึงกาฬ</a>"
+                ],
+                "photo_reference": "AUacShgRylBYuHydTFctNE1YxypRb3MaxbxJAfgRUAUaKVrsJ-1UIIJaPQ2PJLaQP4cpSw1srJO4iaUlsMhn-1IYjgrLVKucaZnmSv0w-pjE0Yh6LjSbz1RKl8KY9WTT4cvVxS4C46hfw4yTeeKaQGnh3TOn6Bb97EBi9DKv3sGx4JyxFxaj",
+                "width": 4032
+            },
+            {
+                "height": 1500,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/112369176885877734604\">บ้านชมดาว รีสอร์ท บึงโขงหลง บึงกาฬ</a>"
+                ],
+                "photo_reference": "AUacShhYbf4wqVdLVSoqe6FeSmttCxQScqCPa9knRrC8wWJeOcX51ujuEpUxXKAmpuRcXFZHKAQ-uH-cCawo38DeUbZbzLyRuVdYGIRb5a5TtikGDNBZkeIlcDGedUZ1YRQf2qWetuKHSrBr-7r1dHW-Rm3BiwlwAop8wptmYaI1cLuWDUuF",
+                "width": 960
+            },
+            {
+                "height": 1280,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/112369176885877734604\">บ้านชมดาว รีสอร์ท บึงโขงหลง บึงกาฬ</a>"
+                ],
+                "photo_reference": "AUacShh9zeY4Whp8AYGarm9Zb-vLgWDY1XNY69J7zSWuGDbufQv8_JiTfhiGxuzKwKea_aH0gTdA5qU21pNq_XDqWkTo9ayuXm0xXFJMYMlXdpV8pqkOsVuHE5kXg0KLTTBVIQhkUQlhsyFsglRV68tN7y1YdQ0TUbjuuOH5myxC848d2P8p",
+                "width": 720
+            },
+            {
+                "height": 2268,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/112369176885877734604\">บ้านชมดาว รีสอร์ท บึงโขงหลง บึงกาฬ</a>"
+                ],
+                "photo_reference": "AUacShjJjbWUQ4arUpRlHQkzghnvFPutpvwLpnl-FDWbemPRae9BoE7zNnK781OR6mH9yJwFt95uD0EMvntnUg_52b8gb7XJfCjt-ESRoWJwAyERMsY_a79Ha3XkaOUpTfUIMhhWO505Dd7S97fNcRZ95y6oDhLHPxvX5e43wb06jpUYXLkF",
+                "width": 4032
+            }
+        ],
+        "place_id": "ChIJxUhWKwkTOzERM_1FNbdHjEo",
+        "plus_code": {
+            "compound_code": "X23H+H7 ตำบล บึงโขงหลง อำเภอ บึงโขงหลง บึงกาฬ ประเทศไทย",
+            "global_code": "7P96X23H+H7"
+        },
+        "rating": 4.9,
+        "reference": "ChIJxUhWKwkTOzERM_1FNbdHjEo",
+        "reviews": [
+            {
+                "author_name": "Jariya Mannisas",
+                "author_url": "https://www.google.com/maps/contrib/102744309806523798137/reviews",
+                "language": "th",
+                "original_language": "th",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AAcHTtfSwW4Hm-N_bPDo8SJB-7-3bwFV_d3ZZkwf72_Ur8uT=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "2 สัปดาห์ที่แล้ว",
+                "text": "ดีค่ะ ห้องกว้างมาก ราคา 500 ไม่มีอาหารเช้า ถูกมากสำหรับการดูแลที่ดี ห้องที่กว้าง ความสะอาดปานกลาง ห้องน้ำกว้างสะอาด ที่นอนแข็งมากค่ะ หมอนนิ่มเลยพอทำให้นอนสบายได้ มีโซฟาเบดปรับนอนได้ มีตู้เย็น ทีวี ทำเลดีแถวบึงโขงหลง ขับรถไม่ไกล ไปตลาด หาของกิน ไปศาลปู่อืลือ 5 นาที ใกล้เซเว่นขับไปไม่เกิน 5 นาที ใกล้ท่าเรือหลายๆท่า ขับไปถ้ำนาคาไม่เกิน 25 นาที",
+                "time": 1690764085,
+                "translated": false
+            },
+            {
+                "author_name": "Nattarin Chaduang",
+                "author_url": "https://www.google.com/maps/contrib/101934435301985113608/reviews",
+                "language": "th",
+                "original_language": "th",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AD_cMMTOVNzXcTTANe3ANC69leOUREgbBXS8wEvk1NJXPlcwhw=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "ปีที่แล้ว",
+                "text": "ที่พักใหม่สวยงาม น่าอยู่ สะอาด มีที่จอดรถ มีทั้งหมด 5 หลัง คืนละ 500 บาท เงียบสงบห่างจากจุดขึ้นเรือและถ้ำนาคาเพียงแค่ 15 นาทีเท่านั้น แนะนำที่นี่ค่ะ ช่วงหน้าฝนระวังมดมีปีกกัดเจ็บ ชอบแอบเข้ามาในห้องเนื่องจากอยู่ใกล้ธรรมชาติค่ะ",
+                "time": 1658322302,
+                "translated": false
+            },
+            {
+                "author_name": "Natchu da11202",
+                "author_url": "https://www.google.com/maps/contrib/112403607234452470660/reviews",
+                "language": "th",
+                "original_language": "th",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AAcHTtdqDHKRAFsobYATBUqBNfmCaQiJv4Wb88HsNNLubeUc=s128-c0x00000000-cc-rp-mo",
+                "rating": 4,
+                "relative_time_description": "9 เดือนที่แล้ว",
+                "text": "​ การบริการเป็นกันเองดีค่ะ\nห้องพักใหม่สะอาดค่ะ​ แต่แอร์​ไม่ค่อยเย็น​ แนะนำให้ติดพัดลมจะดีมากค่ะ​ แต่​โดยรวมถือว่าดีค่ะ",
+                "time": 1668690157,
+                "translated": false
+            },
+            {
+                "author_name": "Siwarat Pechrung",
+                "author_url": "https://www.google.com/maps/contrib/112207353691239144918/reviews",
+                "language": "th",
+                "original_language": "th",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AAcHTteFR2kfvPyva9tmaSOmm92zG0K6gaobtRRL2CoPH5bA=s128-c0x00000000-cc-rp-mo-ba3",
+                "rating": 5,
+                "relative_time_description": "11 เดือนที่แล้ว",
+                "text": "ที่พักสะอาด สงบมากค่ะสะดวกสบายในการเดินไปถ้ำนะคะหรือสถานที่เที่ยวอื่นๆในบึงโขงหลงค่ะ เจ้าของรีสอร์ทเป็นกันเองบริการน่ารักมากๆค่ะ",
+                "time": 1661752990,
+                "translated": false
+            },
+            {
+                "author_name": "มนตรี เพียรเกาะ",
+                "author_url": "https://www.google.com/maps/contrib/115273011421940948053/reviews",
+                "language": "th",
+                "original_language": "th",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AD_cMMQ1twr7t8kmi-yEM3Moc0DYsUBLhjclyKCcLBXVRyxGCjQ=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "5 เดือนที่แล้ว",
+                "text": "ห้องกว้างสะอาดเจ้าของใจดีเป็นกันเองครับ",
+                "time": 1678955502,
+                "translated": false
+            }
+        ],
+        "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+        ],
+        "url": "https://maps.google.com/?cid=5371747307744525619",
+        "user_ratings_total": 20,
+        "utc_offset": 420,
+        "vicinity": "19 ม.1 ตำบล โพธิ์หมากแข้ง อำเภอ บึงโขงหลง",
+        "website": "http://www.facebook.com/resortbaanchomdaw/"
+    },
+    "status": "OK"
+}
