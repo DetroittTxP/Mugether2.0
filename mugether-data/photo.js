@@ -17,10 +17,9 @@ const downloadPhoto = async (name,photo_ref,i) => {
            let photodir = path.dirname(photo_name)
 
            if(!fs.existsSync(photodir)){
-            fs.mkdirSync(photodir, { recursive: true });
+               fs.mkdirSync(photodir, { recursive: true });
            }
-
-
+           
            res.data.pipe(fs.createWriteStream(photo_name));
            return;
       })
@@ -32,6 +31,7 @@ const downloadPhoto = async (name,photo_ref,i) => {
     }
 }
 
+
 const run= async () => {
     try{
          for(let i = 0 ;i<hotel.length;i++)
@@ -41,7 +41,7 @@ const run= async () => {
                  await downloadPhoto(hotel[i].name,hotel[i].photoref[j],j+1);
                
             }
-            console.log(i, ' จาก ',hotel.length);
+       
          }
         console.log('ok');
         return;

@@ -69,7 +69,7 @@ User.get('/verifytoken',(req,res) => {
 
 //regsiter
 User.post('/register',async(req,res) => {
-    const {username,password,email} = req.body;
+    const {username,password,email,name,sirname,tel,profile_pic} = req.body;
 
 
     bcrypt.hash(password,10,async(err,hash) => {
@@ -92,7 +92,11 @@ User.post('/register',async(req,res) => {
                         .insertOne({
                             username:username,
                             password:hash,
-                            email:email
+                            email:email,
+                            name:name,
+                            sirname:sirname,
+                            tel:tel,
+                            profile_pic:profile_pic
                         })
       return res.send(inserted)
 

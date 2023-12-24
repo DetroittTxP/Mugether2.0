@@ -18,13 +18,12 @@ const getref=async (name,id) => {
         })
 
     
-        let test = res.data
         let ref = test.result.photos.map(e => e.photo_reference)
 
         
         let d = {
             name:name,
-            photoref:ref
+            photoref:ref//this is arrayu
         }
 
         return d;
