@@ -40,7 +40,7 @@ export default function Nearby({ Muplace_name }) {
     const updateIndex = ({ index: current }) =>  setIndex(current);
 
     useEffect(() => {
-        axios.get(`http://localhost:5353/muplace/nearby/multiple/${Muplace_name}`)
+        axios.get(`http://localhost:5353/nearby/multiple/${Muplace_name}`)
             .then(res => {
                 Setnearby([
                     {
