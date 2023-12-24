@@ -8,9 +8,6 @@ nearby.get('/multiple/:muplace_name',async (req,res) => {
      const {muplace_name} = req.params;
 
      try{
-
-     
-
         let food = await mu_food.find(
             {$or:[{mu_place:{$regex:muplace_name}},{mu_place:muplace_name}]}
          )
@@ -22,6 +19,8 @@ nearby.get('/multiple/:muplace_name',async (req,res) => {
         let travel = await mu_travel.find(
             {$or:[{mu_place:{$regex:muplace_name}},{mu_place:muplace_name}]}
         )
+
+        console.log(food);
     
         return res.json({
             status:'ok',

@@ -24,7 +24,7 @@ const models = mongoose.Schema( {
         required:true
      },
      distance_to_mu:{
-        type:Number,
+        type:String,
         required:true
      }
 })
