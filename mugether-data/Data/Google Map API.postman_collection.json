@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "a08e34c6-778b-41f5-8fb9-752c27aeb871",
+		"name": "Google Map API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Nearby-place",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AIzaSyAlmHxm2YePairAUz4ZRgmpGNotWbalHQE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=17.986937908763846, 104.12787198409275&radius=20000&keyword=โรงเเรม&key=AIzaSyCAA86m3sjNW8C1mCXvHtk2_He59BWytCI&language=th&fields=name,formatted_address,geometry,place_id,rating",
+					"protocol": "https",
+					"host": [
+						"maps",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"nearbysearch",
+						"json"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "17.986937908763846, 104.12787198409275"
+						},
+						{
+							"key": "radius",
+							"value": "20000"
+						},
+						{
+							"key": "keyword",
+							"value": "โรงเเรม"
+						},
+						{
+							"key": "key",
+							"value": "AIzaSyCAA86m3sjNW8C1mCXvHtk2_He59BWytCI"
+						},
+						{
+							"key": "language",
+							"value": "th"
+						},
+						{
+							"key": "fields",
+							"value": "name,formatted_address,geometry,place_id,rating"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get place",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "photo",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "place detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJJZ1I_gyvHTERaw8UDrFHvvs  &key=AIzaSyCAA86m3sjNW8C1mCXvHtk2_He59BWytCI&language=th",
+					"protocol": "https",
+					"host": [
+						"maps",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"details",
+						"json"
+					],
+					"query": [
+						{
+							"key": "placeid",
+							"value": "ChIJJZ1I_gyvHTERaw8UDrFHvvs  "
+						},
+						{
+							"key": "key",
+							"value": "AIzaSyCAA86m3sjNW8C1mCXvHtk2_He59BWytCI"
+						},
+						{
+							"key": "language",
+							"value": "th"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "distance",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

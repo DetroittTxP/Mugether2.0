@@ -1,0 +1,961 @@
+{
+    "html_attributions": [],
+    "next_page_token": "AUacShjVKUHt-mVeeF2ctrPzXtLXsXvlQ88KHK1CulgqpxUMpgGdnOSKCI0_cfNAAd8g3DJHjgxuU5rFEruusbq1QeVR-sAf2NUjF5AYbZ61rawYBAg0WJ8N6HRd1e4KUYZOB3Ce_9uQBCOQGmxOGSOZQunxDU2MfyclOAjDhg-SeU2Cblz0tZEkxz4t4kQYTeSTjkFFheLPEAQ6cXGuwqGln1lpR2NZgEOytgA2AbmtsLbKxuFzGOJTB3pU6KA3VDE3VUy0Lrx2sBg9EkbOjkuST9fyXAFUz0h0_2f5kVGwV6sTFk5m_qiH55FNpz-Rxodg7j34tPLp9y1gfYXCi4onHtain71ErCqkJOJvLErQUsGllP2GgM3JP15ZdHH8SOe3YK-ZqhgXltEyVJDZGvuLizz5YjBmbck0gT8LT9172L3mtfK3AdctAP_Y26iq3rn_pwr2RPo",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.961701,
+                    "lng": 104.0448423
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.96311577989272,
+                        "lng": 104.0462137298927
+                    },
+                    "southwest": {
+                        "lat": 17.96041612010728,
+                        "lng": 104.0435140701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โรงแรมพณิชา วิลล์",
+            "photos": [
+                {
+                    "height": 2048,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101585447623993016359\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShhszDVM2Ix2soobZs88PoZjZFmjQokGFSKpyEzgU3o1ABkFKWFHI_rg17vUCH3b3mKBcY4FwPQAX9zkcmjf6lXG1Jl27MPBLwVDgfiMqh839ZgCyQX7JfnolDEWv_L_zpEDvwa6Id7qIcIV8jMB3GBjBb65avqc9LUYmsBeY4CylXGJ",
+                    "width": 1536
+                }
+            ],
+            "place_id": "ChIJJ1nlxXoTOzERdjWfSSpbD54",
+            "plus_code": {
+                "compound_code": "X26V+MW ตำบล บึงโขงหลง อำเภอ บึงโขงหลง บึงกาฬ",
+                "global_code": "7P96X26V+MW"
+            },
+            "rating": 4.5,
+            "reference": "ChIJJ1nlxXoTOzERdjWfSSpbD54",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 84,
+            "vicinity": "65 ตำบล บึงโขงหลง อำเภอ บึงโขงหลง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9981634,
+                    "lng": 104.0412451
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.99949542989272,
+                        "lng": 104.0425955298927
+                    },
+                    "southwest": {
+                        "lat": 17.99679577010728,
+                        "lng": 104.0398958701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Lake House",
+            "photos": [
+                {
+                    "height": 1365,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112636725406335609013\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShgF90BtaCEdzC03kRQpsA240XEObOVKLs1sce3VI4xx5fnW9-JFsxDTjN9hS-RDMQM3C2Ur8TdwVIwDuAbvsKEaSp8dVmNwdIDjz0fZBatx6VRexUrNl0v_19ppKSrB3GE3uVSPn_aLQ9QYEl-dhX_D_cu_XSNGS8WmWiX7up_eZ8aH",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJQSWkIDgTOzERVrf6tYEPiI0",
+            "plus_code": {
+                "compound_code": "X2XR+7F ตำบล บึงโขงหลง อำเภอ บึงโขงหลง บึงกาฬ",
+                "global_code": "7P96X2XR+7F"
+            },
+            "rating": 4.8,
+            "reference": "ChIJQSWkIDgTOzERVrf6tYEPiI0",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 16,
+            "vicinity": "220, 221 M10, Ban Non Sawan, อำเภอ บึงโขงหลง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9378615,
+                    "lng": 103.9448345
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.93920462989272,
+                        "lng": 103.9461834798927
+                    },
+                    "southwest": {
+                        "lat": 17.93650497010728,
+                        "lng": 103.9434838201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โรงแรม ดาธชาลอฟท์วิว อ.เซกา จ.บึงกาฬ",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 844,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103148701331141763612\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShhVuTGEElJzW6Tct-EhFodEZxt9iIDW2-guJPSrH6oRxzgN_4IghmJ9QEKDqGdYTjHQbXM6PmEsTnZu7fZZ0M4dgyoudcxiHvVL7TSnhjxlrLXN7n9Jog5_e5G1P1rkxxKtCASOFV_TdoZeqGIsIp41iRTMu9nP3ESX9hnUNMrcUGHl",
+                    "width": 1500
+                }
+            ],
+            "place_id": "ChIJuzbLwisVOzERHINrcjusGxY",
+            "plus_code": {
+                "compound_code": "WWQV+4W ตำบล เซกา อำเภอ เซกา บึงกาฬ",
+                "global_code": "7P95WWQV+4W"
+            },
+            "rating": 4.4,
+            "reference": "ChIJuzbLwisVOzERHINrcjusGxY",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 151,
+            "vicinity": "7 ม.18 บ.พัฒนาภิบาล อำเภอ เซกา"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9687572,
+                    "lng": 104.0410074
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.97006697989272,
+                        "lng": 104.0423527298927
+                    },
+                    "southwest": {
+                        "lat": 17.96736732010728,
+                        "lng": 104.0396530701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โมวิชญ์นาคาธิบดีรีสอร์ท",
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107970491445002899348\">Ratchata Panyasombat</a>"
+                    ],
+                    "photo_reference": "AUacShi-3QhQHWCLB9jjhJvS3iLKhhaObksrybMRYMYHm6rStDbkpdSd78linDPZeE31huCRNR32OlsSQQzYHMUP8hx2s9eIXfAV_aEU26_A4wXQtb-_GiaHof7t_0g7-EW21D2z1vSn4cz4Fuehgcnpo_SEJKQ82SL4o3KIJOTne3I2EvbX",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJKyGQxh8ROzERB6kPsD1EjVI",
+            "plus_code": {
+                "compound_code": "X29R+GC ตำบล บึงโขงหลง อำเภอ บึงโขงหลง บึงกาฬ",
+                "global_code": "7P96X29R+GC"
+            },
+            "rating": 4.9,
+            "reference": "ChIJKyGQxh8ROzERB6kPsD1EjVI",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 20,
+            "vicinity": "499 ตำบล บึงโขงหลง อำเภอ บึงโขงหลง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9285111,
+                    "lng": 103.9482344
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.92974807989272,
+                        "lng": 103.9495933298927
+                    },
+                    "southwest": {
+                        "lat": 17.92704842010728,
+                        "lng": 103.9468936701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โรงแรมดีดีแกรนด์ อ.เซกา จ.บึงกาฬ",
+            "photos": [
+                {
+                    "height": 1184,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112497552220533954661\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShhCVroypyIBxOThNflHvwihRmS6x6hGQFn-v7u-BoWFNDLMXXKJoImnZv3vPTxTSnk8Ybhp__DFhoKSv92SIP7XngDFwjZedsJQ5l02BMyrFvUtiAlVDFhlltOCHuX3jhODi7pT7nKWeqcJW806Z8AIX7NsY5PypLzNpZXD7X7z8E23",
+                    "width": 1776
+                }
+            ],
+            "place_id": "ChIJtcisxyMVOzERFp7okb5Zreo",
+            "plus_code": {
+                "compound_code": "WWHX+C7 ตำบล เซกา อำเภอ เซกา บึงกาฬ",
+                "global_code": "7P95WWHX+C7"
+            },
+            "rating": 4.5,
+            "reference": "ChIJtcisxyMVOzERFp7okb5Zreo",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 30,
+            "vicinity": "20 ตำบล เซกา อำเภอ เซกา"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9254353,
+                    "lng": 103.952346
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.92676492989272,
+                        "lng": 103.9536569798927
+                    },
+                    "southwest": {
+                        "lat": 17.92406527010728,
+                        "lng": 103.9509573201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "View Inn",
+            "photos": [
+                {
+                    "height": 3120,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105800127724241605977\">Danny Higgons</a>"
+                    ],
+                    "photo_reference": "AUacShhdv4wAfyD9lHKYlWF77mIT84NJg48rXwioLx29Wp3f8bxxwMPWML6SlqRFR1PDXIvOQlGs9cbbP7Oq5SRrASNWH0GZKuUXj5tmUUxIcKEHkRemhxtIEw3Pj7weeBFJeUA64AK2YWBlKdU8Tm7WRFYM1qugoTOPkb7Be5sVNC6x4qUo",
+                    "width": 4160
+                }
+            ],
+            "place_id": "ChIJl28lhy4VOzERBKJG0DbzLj4",
+            "plus_code": {
+                "compound_code": "WXG2+5W ตำบล เซกา อำเภอ เซกา บึงกาฬ",
+                "global_code": "7P95WXG2+5W"
+            },
+            "rating": 4,
+            "reference": "ChIJl28lhy4VOzERBKJG0DbzLj4",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 30,
+            "vicinity": "176/10 Tambon Seka, Seka"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9601577,
+                    "lng": 104.0475
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.96153427989272,
+                        "lng": 104.0487826298927
+                    },
+                    "southwest": {
+                        "lat": 17.95883462010728,
+                        "lng": 104.0460829701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "KP House & Cafe โฮมสเตย์ ที่พักใกล้แหล่งท่องเที่ยว ถ้ำนาคา หาดคำสมบูรณ์ บึงโขงหลง บึงกาฬ",
+            "photos": [
+                {
+                    "height": 1536,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103384925674097638063\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShgAzAiaI66qRVRpMRB2RCXmRWnyd0Oq3lawZ6UTpQzHNGdap45lh6Upremg7PYI8aNb0tAaNKaGYsZIa-5S0mDCm0jVFDgL0NyDQASswZboKMZAqQrRARlW_YRCZb2Gd-aDeoNMx3OPmfoSFF5GVMh-lWTzQNA3ZG2beuxEsIWBozXY",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJV1M_sl4TOzERoVkzTJ4jNhc",
+            "plus_code": {
+                "compound_code": "X26X+32 ตำบล บึงโขงหลง อำเภอ บึงโขงหลง บึงกาฬ",
+                "global_code": "7P96X26X+32"
+            },
+            "rating": 5,
+            "reference": "ChIJV1M_sl4TOzERoVkzTJ4jNhc",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 5,
+            "vicinity": "469 หมู่ 11 บ.โนนสว่างเหนือ ตำบล บึงโขงหลง อำเภอ บึงโขงหลง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9259491,
+                    "lng": 103.9457209
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.92717132989272,
+                        "lng": 103.9473952798927
+                    },
+                    "southwest": {
+                        "lat": 17.92447167010728,
+                        "lng": 103.9446956201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โรงเเรมคิงส์พาเลซ King's Palace HOTEL",
+            "photos": [
+                {
+                    "height": 960,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107327941700156532983\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShgNmP489HFEDydwJPxif3VYI1tLEPtdEArI5CukmhCb8HlsOSxa1M7k4LjQCNedHq7vneA-KLuBnuTnf5SnacHSYdhDyQkJMsm445bmICaOnkv6NQCzpT2SA_DALgf6qn-IKLSoWZQhZ1YkZNcxjcBrHgd3EMTwyXjOuxkyfrjcq9yB",
+                    "width": 1280
+                }
+            ],
+            "place_id": "ChIJibPNqdRqOzERHugeaCHmZ80",
+            "plus_code": {
+                "compound_code": "WWGW+96 ตำบล เซกา อำเภอ เซกา บึงกาฬ",
+                "global_code": "7P95WWGW+96"
+            },
+            "rating": 3.9,
+            "reference": "ChIJibPNqdRqOzERHugeaCHmZ80",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 138,
+            "vicinity": "88/8หมู่ที่ 10 ต.เซกา อ.เซกา, อำเภอ เซกา"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9527505,
+                    "lng": 104.0927872
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.95414787989272,
+                        "lng": 104.0940744798927
+                    },
+                    "southwest": {
+                        "lat": 17.95144822010728,
+                        "lng": 104.0913748201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "แคคตัสโฮมสเตย์",
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117672674130460877184\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShgDG57zmE7gErOs4UrB_6M8nq2sbWrNzEUEuhiLT6Rxtes7o52OrPxpjAQkJc4NmdNTtGjsEDjZfbqG9RWJRpmd3-c6gL5K08eS5PzuGijupCFAwqWJad_CR_r_VrlOPuvrQSrfcslVWeS8vBnaUkOCyRCtjJO1LkRxWuEckqoldInq",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJzSs1dXETOzERCJdV5S8Hkl0",
+            "plus_code": {
+                "compound_code": "X33V+44 ตำบล โพธิ์หมากแข้ง อำเภอ บึงโขงหลง บึงกาฬ",
+                "global_code": "7P96X33V+44"
+            },
+            "rating": 4.4,
+            "reference": "ChIJzSs1dXETOzERCJdV5S8Hkl0",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 7,
+            "vicinity": "333 ตำบล โพธิ์หมากแข้ง อำเภอ บึงโขงหลง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9190124,
+                    "lng": 103.9563426
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.92036592989272,
+                        "lng": 103.9577080298927
+                    },
+                    "southwest": {
+                        "lat": 17.91766627010728,
+                        "lng": 103.9550083701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โรงแรม ไอดี idee hotel & resort",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1280,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117954887389247534859\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShi34rfzkdY4qb_maTSed7m3lRBc4liZ-kVb8QGJ4ImHmLKnU5WgPyAD35hwlIUURLBVWSElVo3lceYK0ipRejHQCDPH_cRhuqSW7wJCAQ-pQ2wTov1Lm6oa57iE9yOsa0b9lDm2JeN7IdyG-kUbHlXzGP-aF5fOeGdPHKLROQ4jJ-VV",
+                    "width": 1280
+                }
+            ],
+            "place_id": "ChIJaQuJSZQVOzERNZB6F2vtcQk",
+            "plus_code": {
+                "compound_code": "WX94+JG ตำบล เซกา อำเภอ เซกา บึงกาฬ",
+                "global_code": "7P95WX94+JG"
+            },
+            "rating": 3.8,
+            "reference": "ChIJaQuJSZQVOzERNZB6F2vtcQk",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 37,
+            "vicinity": "333 ตำบล เซกา อำเภอ เซกา"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9626435,
+                    "lng": 104.2068294
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.96417212989272,
+                        "lng": 104.2083810798927
+                    },
+                    "southwest": {
+                        "lat": 17.96147247010728,
+                        "lng": 104.2056814201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "J.B. Place Hotel",
+            "photos": [
+                {
+                    "height": 2592,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115603325426631562744\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShg13YXBKYiy2rCT_vHq99OMK1E95JeYDpWbZhObMJBiIRJ-TO_hikk9Hje8uTX7XcBbkXrSSiRAAtK2jCeB1PgOrNSCZO2QJG_7DMxziNesJTd3wkiZkGU-2YzuvWfmOXkEi2YDKPr5r36jMH3uRmcHHkgJLdEl1_pTjQKWruutZVlq",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJZ2kLQ5ULOzERTQgGQKZDv-A",
+            "plus_code": {
+                "compound_code": "X674+3P ตำบล บ้านแพง อำเภอ บ้านแพง นครพนม",
+                "global_code": "7P96X674+3P"
+            },
+            "rating": 3.8,
+            "reference": "ChIJZ2kLQ5ULOzERTQgGQKZDv-A",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 222,
+            "vicinity": "388 Moo 4 Nakhonpanom-Nongkai Rd., Tumbon Ban Phaeng, Amphoe Ban Phaeng,, Nakhon Phanom"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9539537,
+                    "lng": 104.0282428
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.95533047989272,
+                        "lng": 104.0296874298927
+                    },
+                    "southwest": {
+                        "lat": 17.95263082010728,
+                        "lng": 104.0269877701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "บ้านชมดาว รีสอร์ท บึงโขงหลง บึงกาฬ",
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112369176885877734604\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShhW5T1EUq4wu5M16tjkb9_qK9DX62DsVXm2VFy_Ljo6hakEP72cREzciALWlpvQDpIT5QbteEOI9PicFVLlnvPVIiJfvL-Nn8cNtJOMgZWo9MEL91H2ey4HcGk8fBpkRJeFrOIwfj_o5n3yIvuNl1vLHKjbqUiLxaTyyE4-UzwXg97I",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJxUhWKwkTOzERM_1FNbdHjEo",
+            "plus_code": {
+                "compound_code": "X23H+H7 ตำบล บึงโขงหลง อำเภอ บึงโขงหลง บึงกาฬ",
+                "global_code": "7P96X23H+H7"
+            },
+            "rating": 4.9,
+            "reference": "ChIJxUhWKwkTOzERM_1FNbdHjEo",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 20,
+            "vicinity": "19 ม.1 ตำบล โพธิ์หมากแข้ง อำเภอ บึงโขงหลง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9584375,
+                    "lng": 104.0269375
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.95978072989272,
+                        "lng": 104.0282665298927
+                    },
+                    "southwest": {
+                        "lat": 17.95708107010728,
+                        "lng": 104.0255668701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "HR รีสอร์ท & ร้านอาหาร",
+            "photos": [
+                {
+                    "height": 1500,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110333448096124591082\">lindarmk</a>"
+                    ],
+                    "photo_reference": "AUacShjZ56oE4eBsqOc7V8wU1OGiSarWIwyKEXQv0mUhFpVorCjvRaB9rlHB8ovIBRc5LCP9Cku26Necx8ACXgVf8qlL4lM1Wk2oxugt13g8iWuyAQ4K_baSnexRV8JIqkmqbJpHrEqN2QFIfeHnG-qV5dU5t8OPaq7C1qj6tP1eeXCdydft",
+                    "width": 2000
+                }
+            ],
+            "place_id": "ChIJ5V41ltwTOzERDvHLSV6l8hQ",
+            "rating": 4.7,
+            "reference": "ChIJ5V41ltwTOzERDvHLSV6l8hQ",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 27,
+            "vicinity": "X25G+9Q ตำบล บึงโขงหลง อำเภอ บึงโขงหลง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9597293,
+                    "lng": 104.0448615
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.96109252989272,
+                        "lng": 104.0461497298927
+                    },
+                    "southwest": {
+                        "lat": 17.95839287010728,
+                        "lng": 104.0434500701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โรงแรมเรือนไทย2 บึงโขงหลง บึงกาฬ",
+            "photos": [
+                {
+                    "height": 630,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113439475745132336933\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShiAgqX5rXG1yz1wlA9iBk7n0TCe_0yfoMi96JoB2ooMjTvFU36RlNjG_fFhHZWIc8H52hDQj7k8ZTdAfsuYjY46-x0ET9k8O9G84TguNiMkS87WGWEMOckXEDMv69wGkOFLsJ5sQO87_eWxUruvIfZSZbFcs6wOb7O-pIouWr7BD4wn",
+                    "width": 945
+                }
+            ],
+            "place_id": "ChIJawtvRScROzERt8hW5c8t8Sk",
+            "plus_code": {
+                "compound_code": "X25V+VW ตำบล บึงโขงหลง อำเภอ บึงโขงหลง บึงกาฬ",
+                "global_code": "7P96X25V+VW"
+            },
+            "rating": 4.6,
+            "reference": "ChIJawtvRScROzERt8hW5c8t8Sk",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 63,
+            "vicinity": "166, อำเภอ บึงโขงหลง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9627739,
+                    "lng": 104.045172
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.96407267989272,
+                        "lng": 104.0464990298927
+                    },
+                    "southwest": {
+                        "lat": 17.96137302010728,
+                        "lng": 104.0437993701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "ณ โขงหลง",
+            "photos": [
+                {
+                    "height": 1109,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101032678415532734386\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShifiXt4QQjZlVACcMNCI5USC1PYu9I0JfmrYoJ9Bbh0-ihTmHpwafdrsq_1kIxIMBIFFhweAvOrJirFTJhm0XAt3jQOGuc0d70A2oW4v5FDR2GScLooZvxTYq4ZKi_nsSjOPkxebSr5q3ewZKxMdTGuyEJGP5LECpaI6QluTeRqPaDt",
+                    "width": 1479
+                }
+            ],
+            "place_id": "ChIJwa7MKewTOzERkkrEj-ZQxRI",
+            "plus_code": {
+                "compound_code": "X27W+43 ตำบล บึงโขงหลง อำเภอ บึงโขงหลง บึงกาฬ",
+                "global_code": "7P96X27W+43"
+            },
+            "rating": 4.7,
+            "reference": "ChIJwa7MKewTOzERkkrEj-ZQxRI",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10,
+            "vicinity": "518 หมู่ 11, บ้านโนนสว่างเหนือ, ตำบล บึงโขงหลง อำเภอ บึงโขงหลง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9603069,
+                    "lng": 104.0447765
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.96164937989272,
+                        "lng": 104.0461632798927
+                    },
+                    "southwest": {
+                        "lat": 17.95894972010728,
+                        "lng": 104.0434636201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "เรือนไทยเกสต์เฮาส์ บึงโขงหลง",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1152,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103108992853434535047\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShjaNzdCYX4-F-xZicG8e8bxC5VaNJFadnb00izJdJV1hBwfHQOgMA87VhDFoT15wSSwlwzEiTni5ThSk1GwPKDG2Z1lbbw6OwU4585Wc0SXRCsDWpUPviTSEndKosIqGPnTgMtHLUVkJrJgvfxPkZA1oWnawUGmCkpe-UavuIul0mv3",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJ25cQxeQTOzER7sEGhBGCimM",
+            "plus_code": {
+                "compound_code": "X26V+4W ตำบล บึงโขงหลง อำเภอ บึงโขงหลง บึงกาฬ",
+                "global_code": "7P96X26V+4W"
+            },
+            "rating": 4.6,
+            "reference": "ChIJ25cQxeQTOzER7sEGhBGCimM",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 142,
+            "vicinity": "195/2 หมู่ 12 ตำบล บึงโขงหลง อำเภอ บึงโขงหลง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9286695,
+                    "lng": 104.1035533
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.93003352989272,
+                        "lng": 104.1048977298927
+                    },
+                    "southwest": {
+                        "lat": 17.92733387010728,
+                        "lng": 104.1021980701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "ชมพูนุชเฮ้าส์",
+            "place_id": "ChIJ0UVSZ-4NOzERY3tcSB05AFA",
+            "plus_code": {
+                "compound_code": "W4H3+FC ตำบล โพธิ์หมากแข้ง อำเภอ บึงโขงหลง บึงกาฬ",
+                "global_code": "7P96W4H3+FC"
+            },
+            "rating": 5,
+            "reference": "ChIJ0UVSZ-4NOzERY3tcSB05AFA",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1,
+            "vicinity": "231 หมู่ 5 บ้านนาอ่าง เส้นไปน้ำตกตาดกินรี ตำบล โพธิ์หมากแข้ง อำเภอ บึงโขงหลง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9253905,
+                    "lng": 103.952413
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.92683507989272,
+                        "lng": 103.9539149298927
+                    },
+                    "southwest": {
+                        "lat": 17.92413542010728,
+                        "lng": 103.9512152701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "โรงแรมเสาวลักษณ์วิลล่า",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 720,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109889801880247691902\">ชัชพิมุข มีแฮด</a>"
+                    ],
+                    "photo_reference": "AUacShhpNb9KzGLnd2QTeMX_xBBVzeLATYv0S8iS1OV40MNh-OytmOGqMpPX4xlwre0Gj9-CNaJ7rNyaKfclu9yDd9U9LOLYQrgh6x2ZzG1qEROnVqQPK93jrnImkPsAqGPgr7APCl0CgwYlCgYvDruDwABiSXcZmvjFM3-pJQcGKuiMsbvH",
+                    "width": 1280
+                }
+            ],
+            "place_id": "ChIJh3BJb9NqOzERF8iIwveWu2w",
+            "rating": 4,
+            "reference": "ChIJh3BJb9NqOzERF8iIwveWu2w",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 114,
+            "vicinity": "WXG2+5X3 2094 ตำบล เซกา อำเภอ เซกา"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9697729,
+                    "lng": 104.1997168
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.97131032989272,
+                        "lng": 104.2012749298927
+                    },
+                    "southwest": {
+                        "lat": 17.96861067010728,
+                        "lng": 104.1985752701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Phu View Resort",
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107447788570809732512\">Surachit Dokson</a>"
+                    ],
+                    "photo_reference": "AUacShhbjV2KD8AZQ09GOVMSCDHdY9ZcV8ru3ywCoun-T3CaDUhZSwALcN-xwLDxt79GUi51BTsvndIv9wH2oA8Dk2TwGDAM4NwXZSJ4BgkM0oMIm_WA7SxgOj2StOlGtcDwU6tGnMo61CW5cKm7NBkIEnrFoI0sj-wOTusEZJb8S354UgYw",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJNfefX-MLOzER89OS1gV9X9E",
+            "plus_code": {
+                "compound_code": "X59X+WV ตำบล ไผ่ล้อม อำเภอ บ้านแพง นครพนม",
+                "global_code": "7P96X59X+WV"
+            },
+            "rating": 4.6,
+            "reference": "ChIJNfefX-MLOzER89OS1gV9X9E",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 14,
+            "vicinity": "ตำบล ไผ่ล้อม อำเภอ บ้านแพง"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+                "location": {
+                    "lat": 17.9474636,
+                    "lng": 103.9407535
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 17.94882707989272,
+                        "lng": 103.9421018298927
+                    },
+                    "southwest": {
+                        "lat": 17.94612742010727,
+                        "lng": 103.9394021701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+            "icon_background_color": "#909CE1",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+            "name": "Yoga Homestay Seka",
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117166352158550908508\">A Google User</a>"
+                    ],
+                    "photo_reference": "AUacShjVhJtEWDiwS-wfytoD44RfBePV7E2x1LARdG1pBqGz_yqnJYX0POLGmLHmY4Jbf_c06Iefiq1scV3qvr2IA64xc9Ln-SYQKkea3PzcUXQdeqFbJYQb91EnzFJejUEBwBDhw15cjyujXaCv8PEedSCsLgbFzXsOiYYHwYHkuaV_qxhP",
+                    "width": 3456
+                }
+            ],
+            "place_id": "ChIJD7UcmvQVOzERmEsQAmad8xo",
+            "plus_code": {
+                "compound_code": "WWWR+X8 ตำบล เซกา อำเภอ เซกา บึงกาฬ",
+                "global_code": "7P95WWWR+X8"
+            },
+            "rating": 5,
+            "reference": "ChIJD7UcmvQVOzERmEsQAmad8xo",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 8,
+            "vicinity": "ตำบล เซกา อำเภอ เซกา"
+        }
+    ],
+    "status": "OK"
+}
