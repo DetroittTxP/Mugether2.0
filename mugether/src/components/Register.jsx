@@ -33,6 +33,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        //if checkPassword() != true
         if( !checkPassword() )
         {
             const sent_data = {
