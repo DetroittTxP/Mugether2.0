@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
-
+import { EyeOutlined,EyeInvisibleOutlined } from "@ant-design/icons";
 
 const Register = () => {
     const navigate = useNavigate();
+    const [visible,setvisible] = useState(false);
     const [User,setUserdata] = useState(
         {
             email: "",
@@ -19,6 +20,9 @@ const Register = () => {
         }
     );
 
+    
+
+
 
     const checkPassword=()=>{
          if(User.password != User.confirmpassword)
@@ -26,9 +30,38 @@ const Register = () => {
             Swal.fire("Password not match");
             return true;
          }
+
+         const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[0-9a-zA-Z!@#$%^&*()_+]{8,}$/;
+         if (!passwordPattern.test(User.password)) {
+            // Swal.fire("รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร\nประกอบด้วย 1 ตัวพิมพ์ใหญ่\n 1 ตัวพิมพ์เล็ก 1 ตัวเลข\nและ 1 ตัวอักขระพิเศษ");
+            // Swal.fire("Password must contain the following:\nAt least 8 characters\n At least one uppercase letter\nAt least one lowercase letter\nAt least one digit\nAt least one special character (!@#$%^&*()_+)");
+            Swal.fire({
+                title: "Password Validation",
+                text: "รหัสผ่านต้องประกอบด้วย: รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร ประกอบด้วย 1 ตัวพิมพ์ใหญ่ 1 ตัวพิมพ์เล็ก 1 ตัวเลข และ 1 ตัวอักขระพิเศษ",
+                icon: "warning",
+                customClass: {
+                    popup: 'custom-font-size',
+                },
+            });
+            
+            // ใส่ CSS ใน JavaScript
+            const customStyle = document.createElement('style');
+            customStyle.innerHTML = `
+                .custom-font-size {
+                    font-size: 16px; 
+                }`;
+            document.head.appendChild(customStyle);
+            
+        
+            
+            return true;
+            
+        }
          return false;
     }
 
+
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -121,16 +154,19 @@ const Register = () => {
                             <Form.Group controlId="password">
                                 <Form.Label>Enter Your Password</Form.Label>
                                 <Form.Control
-                                    type="Password"
+                                    
+                                    type={visible ? "text" : "password"}
                                     placeholder="🔒  Password"
                                     onChange={Change}
+                                    // <div>{visible ? <EyeOutlined/> :<EyeInvisibleOutlined/>}</div>
                                     required
                                 />
                             </Form.Group>
                             <Form.Group controlId="confirmpassword">
                                 <Form.Label>Confirm Your Password</Form.Label>
                                 <Form.Control
-                                    type="Password"
+                                    
+                                    type={visible ? "text" : "password"}
                                     placeholder="🔒  Confirm Your Password"
                                     onChange={Change}
                                     required
