@@ -3,21 +3,61 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./register.css";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
+import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
+
 
 const Register = () => {
-    const [User,setUserdata] = useState([
+    const navigate = useNavigate();
+    const [User,setUserdata] = useState(
         {
             email: "",
             username: "",
             password: "",
             confirmpassword: ""
         }
-    ]);
-    const handleSubmit = (e) => {
+    );
+
+
+    const checkPassword=()=>{
+         if(User.password != User.confirmpassword)
+         {
+            Swal.fire("Password not match");
+            return true;
+         }
+         return false;
+    }
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        //ทำต่อด้วย
-        
+        if( !checkPassword() )
+        {
+            const sent_data = {
+                username:User.username,
+                password:User.password,
+                email:User.email
+            }
+
+            try{
+                let res = await axios.post('http://localhost:5353/user/register',sent_data)
+                console.log(res.data);
+
+                if(res.data.status === 'success')
+                {
+                    await Swal.fire("Register success");
+                    navigate('/login')
+                }
+            }
+            catch(err)
+            {
+                alert(err);
+            }
+        }
+       
+
     };
 
     const Change = (event)=>{
