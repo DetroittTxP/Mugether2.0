@@ -14,7 +14,7 @@ export default function Header() {
     {
       key: '1',
       label: (
-        <a href='/login'>
+        <a href='/login' style={{textDecoration:'none'}}>
           <h6>LOGIN</h6>
         </a>
       )
@@ -22,7 +22,7 @@ export default function Header() {
     {
       key: '2',
       label: (
-        <a href='/register'>
+        <a href='/register' style={{textDecoration:'none'}}>
           <h6>REGISTER</h6>
         </a>
       )
@@ -30,7 +30,7 @@ export default function Header() {
     {
       key: '3',
       label: (
-        <a href='/logout'>
+        <a href='/logout' style={{textDecoration:'none'}}>
           <h6>LOG OUT</h6>
         </a>
       )

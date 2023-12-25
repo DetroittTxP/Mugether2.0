@@ -33,6 +33,7 @@
     "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^6.16.0",
     "reactjs-popup": "^2.0.6",
+    "sweetalert2": "^11.10.1",
     "yet-another-react-lightbox": "^3.14.0"
   },
   "devDependencies": {

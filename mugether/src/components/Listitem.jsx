@@ -4,6 +4,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import { Muplace_Context } from "../context/MuContext";
 import { FaHeart, FaMapMarkerAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 export default function Listitem({ SelectedMuType, SelectedMuplace }) {
   const navigate = useNavigate();
@@ -27,11 +28,20 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
   }, [SelectedMuType]);
 
   const toggleHeart = (name) => {
-    if (HeartCheck.includes(name)) {
-      Setheartcheck((prev) => prev.filter((item) => item !== name));
-    } else {
-      Setheartcheck((prev) => [...prev, name]);
+
+    if(localStorage.getItem("token") !== null)
+    {
+      if (HeartCheck.includes(name)) {
+        Setheartcheck((prev) => prev.filter((item) => item !== name));
+      } else {
+        Setheartcheck((prev) => [...prev, name]);
+      }
     }
+    else
+    {
+      Swal.fire("โปรด Login ก่อน");
+    }
+ 
   };
 
   return (
