@@ -13,7 +13,12 @@ const Register = () => {
             confirmpassword: ""
         }
     ]);
-    const handleSubmit = (e) => e.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        //ทำต่อด้วย
+
+    };
 
     const Change = (event)=>{
         setUserdata((e)=>{

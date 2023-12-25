@@ -6,8 +6,8 @@ const bodyparser = require('body-parser')
 const mu_place = require('../routers/mu_places')
 const nearby = require('../routers/nearby_places')
 const img = require('../routers/images')
+const usr = require('../routers/users')
 const app = express();
-
 
 
 app.use(cors())
@@ -18,16 +18,18 @@ mongoose.connect(process.env.CON_STR)
 .catch(err => console.log(err))
 
 //muplace
-app.use('/muplace', mu_place)
+app.use('/muplace', mu_place);
 
 //nearbyplace
-app.use('/nearby', nearby)
+app.use('/nearby', nearby);
 
 //img for everythin
-app.use('/image', img)
+app.use('/image', img);
 
-//register
-//login
+//register login
+app.use('/user', usr);
+
+
 
 app.get('/',(req,res) => {
     res.send('ok')

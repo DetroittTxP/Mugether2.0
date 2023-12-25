@@ -62,9 +62,6 @@ User.get('/verifytoken',(req,res) => {
                verifedData
           })
      })
-
-
-
 })
 
 //regsiter

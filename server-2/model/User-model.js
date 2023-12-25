@@ -13,10 +13,15 @@ const user_model = mongoose.Schema({
         type:String,
         required:true
     },
+    
     name:String,
     surname:String,
     tel:String,
-    profile_pic:String
+
+    profile_pic:{
+        type:String,
+        default:'profile_temp.png'
+    }
 })
 
 module.exports = mongoose.model(process.env.DB_USER, user_model);
