@@ -12,7 +12,12 @@ export default function Login() {
        password:""
     }
   )
-  const handleSubmit = (e) => e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    //ทำต่อด้วย
+    
+  }
 
 
   const Change2=(event1)=>{

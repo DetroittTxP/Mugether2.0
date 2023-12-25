@@ -16,18 +16,27 @@ usr.post('/login', async (req,res) => {
 
         if(user_data.length == 0)
         {
-            return res.send('user not found')
+            return res.send({
+                status:"error",
+                message:'user not found'
+            })
         }
 
         bcrypt.compare(password, user_data[0].password, (err, result) => {
              if(result)
              {
                 let token = jwt.sign({ username:username }, process.env.SECRET_KEY);
-                return res.send(token);
+                return res.send({
+                    status:"success",
+                    token:token
+                });
              }
              else
              {
-                return res.send('error wrond password')
+                return res.send({
+                    status:"error",
+                    message:'error wrond password'
+                })
              }
         });
 
@@ -60,7 +69,10 @@ usr.post('/register', async (req,res) => {
 
         if(usr.length !== 0)
         {
-            return res.send('มีชื่อซ้ำกัน');
+            return res.send({
+                status:"error",
+                message:"มีชื่อซ้ำกัน"
+            });
         }
 
         //เข้ารหัส password
@@ -77,7 +89,10 @@ usr.post('/register', async (req,res) => {
                 email:email
             })
 
-            return res.send(insert_usr);
+            return res.send({
+                status:"success",
+                insert_usr
+            });
         });
      }
      catch(err)

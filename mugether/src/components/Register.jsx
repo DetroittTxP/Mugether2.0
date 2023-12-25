@@ -17,7 +17,7 @@ const Register = () => {
         e.preventDefault();
 
         //ทำต่อด้วย
-
+        
     };
 
     const Change = (event)=>{
