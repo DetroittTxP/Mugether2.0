@@ -31,37 +31,40 @@ const Register = () => {
             return true;
          }
 
-         const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[0-9a-zA-Z!@#$%^&*()_+]{8,}$/;
-         if (!passwordPattern.test(User.password)) {
-            // Swal.fire("รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร\nประกอบด้วย 1 ตัวพิมพ์ใหญ่\n 1 ตัวพิมพ์เล็ก 1 ตัวเลข\nและ 1 ตัวอักขระพิเศษ");
-            // Swal.fire("Password must contain the following:\nAt least 8 characters\n At least one uppercase letter\nAt least one lowercase letter\nAt least one digit\nAt least one special character (!@#$%^&*()_+)");
-            Swal.fire({
-                title: "Password Validation",
-                text: "รหัสผ่านต้องประกอบด้วย: รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร ประกอบด้วย 1 ตัวพิมพ์ใหญ่ 1 ตัวพิมพ์เล็ก 1 ตัวเลข และ 1 ตัวอักขระพิเศษ",
-                icon: "warning",
-                customClass: {
-                    popup: 'custom-font-size',
-                },
-            });
+        //  const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[0-9a-zA-Z!@#$%^&*()_+]{8,}$/;
+        //  if (!passwordPattern.test(User.password)) {
+        //     // Swal.fire("รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร\nประกอบด้วย 1 ตัวพิมพ์ใหญ่\n 1 ตัวพิมพ์เล็ก 1 ตัวเลข\nและ 1 ตัวอักขระพิเศษ");
+        //     // Swal.fire("Password must contain the following:\nAt least 8 characters\n At least one uppercase letter\nAt least one lowercase letter\nAt least one digit\nAt least one special character (!@#$%^&*()_+)");
+        //     Swal.fire({
+        //         title: "Password Validation",
+        //         text: "รหัสผ่านต้องประกอบด้วย: รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร ประกอบด้วย 1 ตัวพิมพ์ใหญ่ 1 ตัวพิมพ์เล็ก 1 ตัวเลข และ 1 ตัวอักขระพิเศษ",
+        //         icon: "warning",
+        //         customClass: {
+        //             popup: 'custom-font-size',
+        //         },
+        //     });
             
-            // ใส่ CSS ใน JavaScript
-            const customStyle = document.createElement('style');
-            customStyle.innerHTML = `
-                .custom-font-size {
-                    font-size: 16px; 
-                }`;
-            document.head.appendChild(customStyle);
+        //     // ใส่ CSS ใน JavaScript
+        //     const customStyle = document.createElement('style');
+        //     customStyle.innerHTML = `
+        //         .custom-font-size {
+        //             font-size: 16px; 
+        //         }`;
+        //     document.head.appendChild(customStyle);
             
         
             
-            return true;
+        //     return true;
             
-        }
+        // }
          return false;
     }
 
 
+
     
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -201,7 +204,7 @@ const Register = () => {
                             </Form.Group>
                             <Row className="justify-content-center">
                                 <Button variant="primary" type="submit" className="Enter">
-                                        {loading ? "..." : "SIGN UP"}
+                                        SIGN UP
                                 </Button>
                             </Row>
                         </Form>

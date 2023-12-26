@@ -54,10 +54,22 @@ usr.post('/verify',(req,res) => {
     let token = tokenMEbearer.split(' ')[1];
 
     jwt.verify(token, process.env.SECRET_KEY, (err, result) => {
-           return res.send(result);
+          if(err){
+            return res.send({
+                status:"error",
+                err
+            })
+          }
+
+          return res.send({
+            status:'success',
+            result,
+            token:token
+          })
       });
     return res.send(token);
 })
+
 
 usr.post('/register', async (req,res) => {
      const {username,password,email} = req.body;

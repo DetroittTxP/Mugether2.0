@@ -2,20 +2,62 @@ import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 export default function Login() {
-  
+  const navigate = useNavigate();
    const [user,setuserdata] = useState(
     {
-       email:"",
+       username:"",
        password:""
     }
   )
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(user);
+    try{
 
-    //ทำต่อด้วย
+      //check username password
+      let res =  await axios.post('http://localhost:5353/user/login',user);
+      console.log(res.data); 
+
+      if(res.data.status !== 'success')
+      {
+         return Swal.fire({
+          icon:res.data.status,
+          title:res.data.message
+         })
+         
+      }
+
+      //verify token
+      let verify_token = await axios.post('http://localhost:5353/user/verify',{},{
+          headers:{
+            Authorization:`Bearer ${res.data.token}`
+          }
+      })
+
+      if(verify_token.data.status !== 'success'){
+           return Swal.fire('verify token error')
+      }
+
+      localStorage.setItem("usr", verify_token.data.result.username);
+      localStorage.setItem("token", verify_token.data.token);
+
+        await Swal.fire({
+         icon:'success',
+         title:'Login Success'
+      })
+
+      navigate('/')
+    
+    }
+    catch(err)
+    {
+      alert(err)
+    }
     
   }
 
@@ -57,10 +99,10 @@ export default function Login() {
           <h2 className="welcome">Welcome Back!</h2>
           <p className="login-message">login to continue</p>
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="email">
+            <Form.Group controlId="username">
               <Form.Label>Email address</Form.Label>
               <Form.Control
-                type="email"
+                type="text"
                 placeholder="✉️  Email"
                 onChange={Change2}
                 required
