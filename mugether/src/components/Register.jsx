@@ -19,7 +19,6 @@ const Register = () => {
         }
     );
 
-
     const checkPassword=()=>{
          if(User.password != User.confirmpassword)
          {
@@ -42,14 +41,42 @@ const Register = () => {
                 email:User.email
             }
 
+       
+
+            Swal.fire({
+                title: 'Loading...',
+                html: 'Please wait',
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                  },
+            })
+
             try{
                 let res = await axios.post('http://localhost:5353/user/register',sent_data)
-                console.log(res.data);
+                Swal.close();
 
                 if(res.data.status === 'success')
                 {
-                    await Swal.fire("Register success");
-                    navigate('/login')
+                    
+
+                    await Swal.fire({
+                        icon:'success',
+                        title:"Register success",
+                        confirmButtonText: "ไปยังหน้า Login",
+                        showCancelButton: true,
+                        cancelButtonText:"ยกเลิก"
+                    })
+                    .then(result => {
+                        if(result.isConfirmed)
+                        {
+                            navigate('/login')
+                        }
+                        
+                    });
+
+                  
+                    
                 }
             }
             catch(err)
@@ -57,8 +84,7 @@ const Register = () => {
                 alert(err);
             }
         }
-       
-
+    
     };
 
     const Change = (event)=>{
@@ -138,7 +164,7 @@ const Register = () => {
                             </Form.Group>
                             <Row className="justify-content-center">
                                 <Button variant="primary" type="submit" className="Enter">
-                                    SIGN UP
+                                        {loading ? "..." : "SIGN UP"}
                                 </Button>
                             </Row>
                         </Form>
