@@ -5,13 +5,13 @@ import "./register.css";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom'
-import { EyeOutlined,EyeInvisibleOutlined } from "@ant-design/icons";
+import { useNavigate } from 'react-router-dom'
+import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 
 const Register = () => {
     const navigate = useNavigate();
-    const [visible,setvisible] = useState(false);
-    const [User,setUserdata] = useState(
+    const [visible, setvisible] = useState(false);
+    const [User, setUserdata] = useState(
         {
             email: "",
             username: "",
@@ -20,16 +20,15 @@ const Register = () => {
         }
     );
 
-    
 
 
 
-    const checkPassword=()=>{
-         if(User.password != User.confirmpassword)
-         {
+
+    const checkPassword = () => {
+        if (User.password != User.confirmpassword) {
             Swal.fire("Password not match");
             return true;
-         }
+        }
 
         //  const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[0-9a-zA-Z!@#$%^&*()_+]{8,}$/;
         //  if (!passwordPattern.test(User.password)) {
@@ -43,25 +42,25 @@ const Register = () => {
         //             popup: 'custom-font-size',
         //         },
         //     });
-                      //     // ใส่ CSS ใน JavaScript
+        //     // ใส่ CSS ใน JavaScript
         //     const customStyle = document.createElement('style');
         //     customStyle.innerHTML = `
         //         .custom-font-size {
         //             font-size: 16px; 
         //         }`;
         //     document.head.appendChild(customStyle);
-            
-        
-            
+
+
+
         //     return true;
-            
+
         // }
-         return false;
+        return false;
     }
 
 
 
-    
+
 
 
 
@@ -69,15 +68,14 @@ const Register = () => {
         e.preventDefault();
 
         //if checkPassword() != true
-        if( !checkPassword() )
-        {
+        if (!checkPassword()) {
             const sent_data = {
-                username:User.username,
-                password:User.password,
-                email:User.email
+                username: User.username,
+                password: User.password,
+                email: User.email
             }
 
-       
+
 
             Swal.fire({
                 title: 'Loading...',
@@ -85,49 +83,46 @@ const Register = () => {
                 timerProgressBar: true,
                 didOpen: () => {
                     Swal.showLoading();
-                  },
+                },
             })
 
-            try{
-                let res = await axios.post('http://localhost:5353/user/register',sent_data)
+            try {
+                let res = await axios.post('http://localhost:5353/user/register', sent_data)
                 Swal.close();
 
-                if(res.data.status === 'success')
-                {
-                    
+                if (res.data.status === 'success') {
+
 
                     await Swal.fire({
-                        icon:'success',
-                        title:"Register success",
+                        icon: 'success',
+                        title: "Register success",
                         confirmButtonText: "ไปยังหน้า Login",
                         showCancelButton: true,
-                        cancelButtonText:"ยกเลิก"
+                        cancelButtonText: "ยกเลิก"
                     })
-                    .then(result => {
-                        if(result.isConfirmed)
-                        {
-                            navigate('/login')
-                        }
-                        
-                    });
+                        .then(result => {
+                            if (result.isConfirmed) {
+                                navigate('/login')
+                            }
 
-                  
-                    
+                        });
+
+
+
                 }
             }
-            catch(err)
-            {
+            catch (err) {
                 alert(err);
             }
         }
-    
+
     };
 
-    const Change = (event)=>{
-        setUserdata((e)=>{
-            return{
+    const Change = (event) => {
+        setUserdata((e) => {
+            return {
                 ...e,
-                [event.target.id]:event.target.value 
+                [event.target.id]: event.target.value
 
             }
         })
@@ -164,7 +159,7 @@ const Register = () => {
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="email">
                                 <Form.Label>Email address</Form.Label>
-                                <Form.Control 
+                                <Form.Control
                                     type="email"
                                     placeholder="✉️  Email"
                                     onChange={Change}
@@ -180,30 +175,61 @@ const Register = () => {
                                     required
                                 />
                             </Form.Group>
+
                             <Form.Group controlId="password">
                                 <Form.Label>Enter Your Password</Form.Label>
-                                <Form.Control
-                                    
-                                    type={visible ? "text" : "password"}
-                                    placeholder="🔒  Password"
-                                    onChange={Change}
-                                    // <div>{visible ? <EyeOutlined/> :<EyeInvisibleOutlined/>}</div>
-                                    required
-                                />
+                                <Row>
+                                    <Col>
+                                        <Form.Control
+                                            style={{ width: "300px" }}
+                                            type={visible ? "text" : "password"}
+                                            placeholder="🔒  Password"
+                                            onChange={Change}
+                                            required
+
+                                        />
+                                    </Col>
+
+                                    <Col>
+                                        <div className="password-toggle"
+                                            onClick={() => setvisible(!visible)}>
+                                            {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+
+                                        </div>
+                                    </Col>
+                                </Row>
+
+
+
+
                             </Form.Group>
                             <Form.Group controlId="confirmpassword">
                                 <Form.Label>Confirm Your Password</Form.Label>
-                                <Form.Control
-                                    
-                                    type={visible ? "text" : "password"}
-                                    placeholder="🔒  Confirm Your Password"
-                                    onChange={Change}
-                                    required
-                                />
+                                <Row>
+
+                                    <Col>
+                                        <Form.Control
+                                            style={{ width: "300px" }}
+                                            type={visible ? "text" : "password"}
+                                            placeholder="🔒 Confirm Password"
+                                            onChange={Change}
+                                            required
+                                        />
+                                    </Col>
+                                    <Col>
+                                        <div className="password-toggle"
+                                            onClick={() => setvisible(!visible)}>
+                                            {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+
+                                        </div>
+                                    </Col>
+
+                                </Row>
                             </Form.Group>
+
                             <Row className="justify-content-center">
                                 <Button variant="primary" type="submit" className="Enter">
-                                        SIGN UP
+                                    SIGN UP
                                 </Button>
                             </Row>
                         </Form>

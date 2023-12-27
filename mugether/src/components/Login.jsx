@@ -5,72 +5,73 @@ import "./Login.css";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 
 export default function Login() {
   const navigate = useNavigate();
-   const [user,setuserdata] = useState(
+  const [visible, setvisible] = useState(false);
+  const [user, setuserdata] = useState(
     {
-       username:"",
-       password:""
+      username: "",
+      password: ""
     }
   )
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user);
-    try{
+    try {
 
       //check username password
-      let res =  await axios.post('http://localhost:5353/user/login',user);
-      console.log(res.data); 
+      let res = await axios.post('http://localhost:5353/user/login', user);
+      console.log(res.data);
 
-      if(res.data.status !== 'success')
-      {
-         return Swal.fire({
-          icon:res.data.status,
-          title:res.data.message
-         })
-         
+      if (res.data.status !== 'success') {
+        return Swal.fire({
+          icon: res.data.status,
+          title: res.data.message
+        })
+
       }
 
       //verify token
-      let verify_token = await axios.post('http://localhost:5353/user/verify',{},{
-          headers:{
-            Authorization:`Bearer ${res.data.token}`
-          }
+      let verify_token = await axios.post('http://localhost:5353/user/verify', {}, {
+        headers: {
+          Authorization: `Bearer ${res.data.token}`
+        }
       })
 
-      if(verify_token.data.status !== 'success'){
-           return Swal.fire('verify token error')
+      if (verify_token.data.status !== 'success') {
+        return Swal.fire('verify token error')
       }
 
       localStorage.setItem("usr", verify_token.data.result.username);
       localStorage.setItem("token", verify_token.data.token);
 
-        await Swal.fire({
-         icon:'success',
-         title:'Login Success'
+      await Swal.fire({
+        icon: 'success',
+        title: 'Login Success'
       })
 
       navigate('/')
-    
+
     }
-    catch(err)
-    {
+    catch (err) {
       alert(err)
     }
-    
+
   }
 
 
-  const Change2=(event1)=>{
-      setuserdata((e)=>{
-      return{
-         ...e,
-         [event1.target.id]:event1.target.value
+  const Change2 = (event1) => {
+    setuserdata((e) => {
+      return {
+        ...e,
+        [event1.target.id]: event1.target.value
 
       }
-     }
-  )}
+    }
+    )
+  }
 
   return (
     <Container className="login-container">
@@ -110,12 +111,25 @@ export default function Login() {
             </Form.Group>
             <Form.Group controlId="password">
               <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="🔒  Password"
-                onChange={Change2}
-                required
-              />
+              <Row>
+                <Col>
+
+                  <Form.Control
+                    style={{ width: "300px" }}
+                    type={visible ? "text" : "password"}
+                    placeholder="🔒  Password"
+                    onChange={Change2}
+                    required
+                  />
+                </Col>
+                <Col>
+                  <div className="password-toggle-icon"
+                    onClick={() => setvisible(!visible)}>
+                    {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+                  </div>
+
+                </Col>
+              </Row>
             </Form.Group>
             <Row>
               <Button variant="primary" type="submit" className="Enter">
