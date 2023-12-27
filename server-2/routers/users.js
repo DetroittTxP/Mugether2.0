@@ -67,7 +67,7 @@ usr.post('/verify',(req,res) => {
             token:token
           })
       });
-    return res.send(token);
+   
 })
 
 
@@ -86,6 +86,7 @@ usr.post('/register', async (req,res) => {
                 message:"มีชื่อซ้ำกัน"
             });
         }
+
 
         //เข้ารหัส password
         bcrypt.hash(password, 10 , async (err, hash) => {
