@@ -20,7 +20,7 @@ nearby.get('/multiple/:muplace_name',async (req,res) => {
             {$or:[{mu_place:{$regex:muplace_name}},{mu_place:muplace_name}]}
         )
 
-        console.log(food);
+
     
         return res.json({
             status:'ok',

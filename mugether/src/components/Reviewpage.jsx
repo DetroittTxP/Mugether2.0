@@ -1,14 +1,121 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Rating from '@mui/material/Rating';
-import { Button } from 'antd'
+import { Button, Input } from 'antd'
+
 import './ReviewPage.css';
-import {useLocation} from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import { Form } from 'react-bootstrap'
+import Swal from 'sweetalert2'
+
+const Add_Review = ({ Muplace_name, check_finish }) => {
+
+  const [review, Setreview] = useState({
+    muplacename: Muplace_name,
+    reviewdetail: {
+      username: localStorage.getItem('usr'),
+      score: 0,
+      detail: ''
+    }
+  });
+
+
+  const change = (e, newvalue) => {
+
+    let value = e.target.value;
+
+    if (e.target.name === 'score') {
+      value = newvalue
+
+    }
+    console.log(newvalue + e.target.name);
+
+    Setreview(prevReview => ({
+      ...prevReview,
+      reviewdetail: {
+        ...prevReview.reviewdetail,
+        [e.target.name]: value,
+      }
+    }));
+  }
 
 
 
-const Add_Review=()=>{
-   return <h1>THIS IS REVIEW</h1>
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    Swal.fire({
+      title: 'Loading...',
+      html: 'Please wait',
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    })
+    try {
+      if (review.reviewdetail.score <= 0 || review.reviewdetail.score === null) {
+        return alert('rating must > 0')
+      }
+
+
+      let res = await axios.post('http://localhost:5353/muplace/addreviewmuplace', review)
+      Swal.close();
+      
+      await Swal.fire({
+        icon: 'success',
+        title: "เพิ่มรีวิวเรียบร้อย",
+        confirmButtonText: "กลับไปยังหน้า รีวิว",
+        showCancelButton: true,
+        cancelButtonText: "ยกเลิก"
+      })
+        .then(result => {
+          if (result.isConfirmed) {
+            check_finish(false)
+          }
+
+        });
+ 
+    }
+    catch (err) {
+      alert(err)
+    }
+  }
+
+
+
+  return (
+    <div className='form-addreview'>
+
+      <div>
+        <Form onSubmit={onSubmit}>
+          <b style={{ fontSize: 20 }}>โปรดให้คะเเนน</b> <br />
+
+
+
+          <Rating
+            id='score'
+            name="score"
+            style={{ fontSize: 40 }}
+            onChange={change}
+          />
+
+
+
+
+          <Form.Group className="mb-3" controlId="detail" >
+            <Form.Label><b style={{ fontSize: 20 }}>คำอธิบาย</b> </Form.Label>
+            <Form.Control name='detail' onChange={change} as="textarea" rows={4} cols={100} />
+
+          </Form.Group>
+
+          <button type='submit'>Submit</button>
+
+
+        </Form>
+
+      </div>
+    </div>
+
+  )
 }
 
 
@@ -19,7 +126,7 @@ const Add_Review=()=>{
 
 export default function ReviewPage({ Muplace_name }) {
   const [detail, Setdetail] = useState([]);
-  const [addreview,Setaddreview] = useState(false);
+  const [addreview, Setaddreview] = useState(false);
 
   useEffect(() => {
     axios.get(`http://localhost:5353/muplace/mudata/${Muplace_name}`)
@@ -30,18 +137,16 @@ export default function ReviewPage({ Muplace_name }) {
 
   }, [detail]);
 
-
-  const add_review = () => {
-    // ไว้เพิ่มรีวิว
+  const check_finish = (isFinish) => {
+    Setaddreview(isFinish)
   }
-
-
 
   return (
     <div className="review-container">
       {!addreview && <h2 className="review-title">{detail.length} Reviews</h2>}
 
-      {addreview && <Add_Review/>}
+      {addreview && <Add_Review check_finish={check_finish} Muplace_name={Muplace_name} />}
+      <br />
 
       {!addreview && detail.map((data, index) => {
         return (
@@ -57,12 +162,12 @@ export default function ReviewPage({ Muplace_name }) {
         );
       })}
 
-      {!addreview&& <div  className='button-review'>
-          <Button onClick={() => Setaddreview(!addreview)}>
-              <b>เขียนรีวิว</b>
-          </Button>
+      {<div className='button-review'>
+        <Button onClick={() => Setaddreview(!addreview)}>
+          <b>{addreview ? "ย้อนกลับ" : "เขียนรีวิว"}</b>
+        </Button>
       </div>}
-   
+
     </div>
   );
 }

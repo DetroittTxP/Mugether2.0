@@ -45,4 +45,13 @@
 .button-review{
      text-align: center;
 }
+
+.form-addreview{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  
+}
   
