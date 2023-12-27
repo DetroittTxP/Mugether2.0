@@ -43,6 +43,9 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (review.reviewdetail.score <= 0 || review.reviewdetail.score === null) {
+      return alert('rating must > 0')
+    }
     Swal.fire({
       title: 'Loading...',
       html: 'Please wait',
@@ -52,9 +55,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
       },
     })
     try {
-      if (review.reviewdetail.score <= 0 || review.reviewdetail.score === null) {
-        return alert('rating must > 0')
-      }
+     
 
 
       let res = await axios.post('http://localhost:5353/muplace/addreviewmuplace', review)
