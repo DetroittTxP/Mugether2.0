@@ -57,10 +57,11 @@ export default function ReviewPage({ Muplace_name }) {
         );
       })}
 
-      <div  className='button-review'>
-     
-          <Button onClick={() => Setaddreview(!addreview)}>HELLO</Button>
-      </div>
+      {!addreview&& <div  className='button-review'>
+          <Button onClick={() => Setaddreview(!addreview)}>
+              <b>เขียนรีวิว</b>
+          </Button>
+      </div>}
    
     </div>
   );
