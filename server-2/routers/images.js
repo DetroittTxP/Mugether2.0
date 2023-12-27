@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const img = require('express').Router();
-
+const user = require('../model/User-model');
 
 
 img.get('/mu/:place_name/:id',async (req,res) => {
@@ -37,6 +37,21 @@ img.get('/nearby/:type/:name/:id',(req,res) => {
          } 
         return res.sendFile(imagesFile)
 
+    }
+    catch(err){
+        return res.send(err)
+    }
+})
+
+img.get('/user/profile/:username',async(req,res) => {
+    const {username} = req.params;
+
+    try{
+        let userdata =  await user.findOne({username:username});
+        const {profile_pic} = userdata;
+        let dir_ = path.dirname(__dirname);
+        let imagesFile = path.join(dir_,"assets","user",profile_pic);
+        return res.sendFile(imagesFile)
     }
     catch(err){
         return res.send(err)

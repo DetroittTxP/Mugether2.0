@@ -142,6 +142,13 @@ export default function ReviewPage({ Muplace_name }) {
     Setaddreview(isFinish)
   }
 
+  const write_review=()=>{  
+
+    let user = localStorage.getItem('usr') 
+    return user ? Setaddreview(true) : Swal.fire('Login first');
+   
+  }
+//https://media.discordapp.net/attachments/1130047272508465273/1164158784046911498/image.png?ex=6542325b&is=652fbd5b&hm=34d3ee5ae415d18976b94fca7e67358183624112e20a65bfbfcb679cc5cede42&=&width=445&height=385
   return (
     <div className="review-container">
       {!addreview && <h2 className="review-title">{detail.length} Reviews</h2>}
@@ -152,7 +159,7 @@ export default function ReviewPage({ Muplace_name }) {
       {!addreview && detail.map((data, index) => {
         return (
           <div key={index} className="review-item">
-            <img className="avatar" src='https://media.discordapp.net/attachments/1130047272508465273/1164158784046911498/image.png?ex=6542325b&is=652fbd5b&hm=34d3ee5ae415d18976b94fca7e67358183624112e20a65bfbfcb679cc5cede42&=&width=445&height=385' alt={data.username} />
+            <img className="avatar" src={`http://localhost:5353/image/user/profile/${data.username}`} alt={data.username} />
             <div className="review-content">
               <h4 className="username">{data.username}</h4>
               <Rating className="rating" readOnly name='read-only' value={data.score} />
@@ -164,7 +171,7 @@ export default function ReviewPage({ Muplace_name }) {
       })}
 
       {<div className='button-review'>
-        <Button onClick={() => Setaddreview(!addreview)}>
+        <Button onClick={write_review}>
           <b>{addreview ? "ย้อนกลับ" : "เขียนรีวิว"}</b>
         </Button>
       </div>}
@@ -172,3 +179,4 @@ export default function ReviewPage({ Muplace_name }) {
     </div>
   );
 }
+ 
