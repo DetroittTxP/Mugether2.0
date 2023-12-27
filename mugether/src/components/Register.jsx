@@ -20,7 +20,7 @@ const Register = () => {
         }
     );
 
-
+    
 
 
 
@@ -180,21 +180,21 @@ const Register = () => {
                                 <Form.Label>Enter Your Password</Form.Label>
                                 <Row>
                                     <Col>
+                                     <div className="password-input">
                                         <Form.Control
-                                            style={{ width: "300px" }}
+                                            
                                             type={visible ? "text" : "password"}
                                             placeholder="🔒  Password"
                                             onChange={Change}
                                             required
 
                                         />
-                                    </Col>
-
-                                    <Col>
+                                    
                                         <div className="password-toggle"
                                             onClick={() => setvisible(!visible)}>
                                             {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
 
+                                        </div>
                                         </div>
                                     </Col>
                                 </Row>
@@ -208,19 +208,20 @@ const Register = () => {
                                 <Row>
 
                                     <Col>
+                                     <div className="password-input">
                                         <Form.Control
-                                            style={{ width: "300px" }}
+                                            
                                             type={visible ? "text" : "password"}
                                             placeholder="🔒 Confirm Password"
                                             onChange={Change}
                                             required
                                         />
-                                    </Col>
-                                    <Col>
+                                    
                                         <div className="password-toggle"
                                             onClick={() => setvisible(!visible)}>
                                             {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
 
+                                        </div>
                                         </div>
                                     </Col>
 

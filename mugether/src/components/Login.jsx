@@ -109,28 +109,31 @@ export default function Login() {
                 required
               />
             </Form.Group>
+
             <Form.Group controlId="password">
               <Form.Label>Password</Form.Label>
               <Row>
                 <Col>
+                  <div className="input-fields">
+                    <Form.Control
+                      
+                      type={visible ? "text" : "password"}
+                      placeholder="🔒  Password"
+                      onChange={Change2}
+                      required
+                    />
 
-                  <Form.Control
-                    style={{ width: "300px" }}
-                    type={visible ? "text" : "password"}
-                    placeholder="🔒  Password"
-                    onChange={Change2}
-                    required
-                  />
-                </Col>
-                <Col>
-                  <div className="password-toggle-icon"
-                    onClick={() => setvisible(!visible)}>
-                    {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+                    <div className="password-toggle"
+                      onClick={() => setvisible(!visible)}>
+                      {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+                    </div>
                   </div>
 
                 </Col>
               </Row>
+
             </Form.Group>
+
             <Row>
               <Button variant="primary" type="submit" className="Enter">
                 LOGIN

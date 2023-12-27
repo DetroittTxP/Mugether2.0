@@ -103,3 +103,14 @@
 }
 
 
+.input-fields {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 115%;
+  transform: translateY(-150%);
+  cursor: pointer;
+}
