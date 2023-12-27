@@ -55,7 +55,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
             return (
               <Col style={top} md={3} key={data.name}>
                 <a
-                  href="#ken"
+                  href=""
                   style={{
                     position: "relative",
                     borderRadius: 20,

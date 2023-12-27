@@ -11,4 +11,5 @@ const Muplace_Schema = mongoose.Schema({
     review:[]
 })
 
+
 module.exports = mongoose.model(process.env.DB_MU_PLACE, Muplace_Schema)

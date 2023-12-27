@@ -43,8 +43,7 @@ const Register = () => {
         //             popup: 'custom-font-size',
         //         },
         //     });
-            
-        //     // ใส่ CSS ใน JavaScript
+                      //     // ใส่ CSS ใน JavaScript
         //     const customStyle = document.createElement('style');
         //     customStyle.innerHTML = `
         //         .custom-font-size {

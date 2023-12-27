@@ -24,6 +24,13 @@ export default function Header() {
      {
       key: '1',
       label: (
+     
+          <h6>WELCOME {usr_data} </h6>
+      )
+    },
+    {
+      key: '2',
+      label: (
         <a onClick={handleLogout} style={{textDecoration:'none'}}>
           <h6>LOG OUT</h6>
         </a>
