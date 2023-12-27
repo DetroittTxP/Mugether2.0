@@ -100,10 +100,10 @@ export default function Login() {
           <p className="login-message">login to continue</p>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="✉️  Email"
+                placeholder="👤  Username"
                 onChange={Change2}
                 required
               />
