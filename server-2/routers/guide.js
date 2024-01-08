@@ -106,7 +106,7 @@ guide.get('/list-guide', async (req,res) => {
 //detail-guide for guidepage
 guide.get('/detail-guide/:username', async (req,res) => {
     const {username} = req.params;
-    
+
     try{
         let data = await gide.find({username:username}).select('-username -password')
         res.send(data)
@@ -116,6 +116,9 @@ guide.get('/detail-guide/:username', async (req,res) => {
         res.send(err)
     }
 })
+
+//review_guiide
+//
 
 
 module.exports = guide;

@@ -13,7 +13,7 @@ const Guide_model = mongoose.Schema({
     email:{type:String,required:true},
     detail:{type:String,required:true},
     type:{type:String,required:true},
-    profile_pic:{type:String,default:''},
+    profile_pic:{type:String,default:'profile_temp.png'},
     review:[],
     photos:[]
 })

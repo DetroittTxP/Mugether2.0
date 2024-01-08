@@ -1,11 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Nav, Container } from 'react-bootstrap';
 import { useNavigate,useLocation } from 'react-router-dom';
 
-export default function NavType({SelectedTypeMu}) {
+export default function NavType({SelectedTypeMu,show_guide}) {
   const location = useLocation()
+  const [showguide,Setshowguide] = useState(false);
 
+  
 
   const typeMu = [
     {
@@ -42,7 +44,8 @@ export default function NavType({SelectedTypeMu}) {
     {
       type: 'Guide',
       icon: 'https://cdn-icons-png.flaticon.com/128/2953/2953363.png',
-      path: '/guide'
+      path: '/guide',
+      fn:show_guide(showguide)
     },
     {
       type: 'รับจ้างมู',
@@ -80,6 +83,10 @@ export default function NavType({SelectedTypeMu}) {
   >
     {type.map((data, index) => (
       <Nav.Item
+        onClick={() => {
+             Setshowguide(!showguide)
+             data.fn
+        }}
         style={{
           marginRight: index < type.length - 1 ? '110px' : '0', 
           marginTop: '50px', // ขยับ NavType ลงมา

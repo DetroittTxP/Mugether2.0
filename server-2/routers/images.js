@@ -80,6 +80,23 @@ img.get('/guide/detail/:username/:imgname', async (req,res) => {
 
 })
 
+//image of profile_guide
+img.get('/guide/profile/:username/:imgname', async (req,res) => {
+    const {username,imgname} = req.params;
+    
+    try{
+        let dir_ = path.dirname(__dirname);
+        let imagesFile = path.join(dir_,"assets","guide",username,"profile_pic",imgname);
+        res.sendFile(imagesFile)
+        
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+
+})
+
 
 
 

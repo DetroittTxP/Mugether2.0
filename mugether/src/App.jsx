@@ -19,7 +19,7 @@ export default function App() {
   const [global_shop, Setshop] = useState([]);
   const [selectedMuType, Setselectedmutype] = useState('')
   const [selectedMuplace, SetSelecttedMuplace] = useState('');
-
+  const [showguide,Setshowguide] = useState(false);
   //fetch global MUPLACE 
   useEffect(() => {
     axios.get('http://localhost:5353/muplace/mudata')
@@ -40,6 +40,10 @@ export default function App() {
     SetSelecttedMuplace(muplace)
   }
 
+  const show_guide = (showed) =>{
+       Setshowguide(showed);
+  }
+
 
 
   return (
@@ -51,7 +55,7 @@ export default function App() {
       <br />
       <br />
 
-      {location.pathname !== '/shop' &&location.pathname !== '/login'&& location.pathname !== '/register' && location.pathname !== '/logout' &&<NavType SelectedTypeMu={SelectedTypeMu} />}
+      {location.pathname !== '/shop' &&location.pathname !== '/login'&& location.pathname !== '/register' && location.pathname !== '/logout' &&<NavType show_guide={show_guide} SelectedTypeMu={SelectedTypeMu} />}
       <br />
       <br />
 
@@ -60,7 +64,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Listitem SelectedMuplace={SelectedMuplace} SelectedMuType={selectedMuType} />} />
         <Route path='/shop' element={<ShopV2 />} />
-        <Route path='/mudetail' element={<Mudetail />} />
+        <Route path='/mudetail' element={<Mudetail showguide={showguide} />} />
         <Route path='/login' element={<Login />}  />
         <Route path='/register' element={<Register />}  />
         

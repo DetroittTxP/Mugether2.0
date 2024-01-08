@@ -5,10 +5,12 @@ import Reviewpage from "./Reviewpage";
 import ShareButton from "./ShareButton";
 import "./Mudetail.css";
 import Nearby from "./Nearby";
+import List_guide from "./List_guide";
 
-export default function Mudetail() {
+export default function Mudetail({showguide}) {
   const [Muplace, Setmuplace] = useState(localStorage.getItem("muplace"));
   const { per_muplace } = useContext(Muplace_Context);
+
 
   useEffect(() => {
     if (per_muplace !== "") {
@@ -84,15 +86,23 @@ export default function Mudetail() {
       <br />
       <Row>
         <Col md={11} className="review-section">
-          <h2>Reviews</h2>
-          <Reviewpage Muplace_name={Muplace} />
+            {showguide && <List_guide/>}
+        </Col>
+      </Row>
+      {/* <br />
+      <hr />
+      <br /> */}
+      <Row>
+        <Col md={11} className="review-section">
+         
+     { !showguide&&    <Reviewpage Muplace_name={Muplace} />}
         </Col>
       </Row>
       <hr />
       <br />
       <Row>
         <Col md={11}>
-          <Nearby Muplace_name={Muplace} />
+          {!showguide&& <Nearby Muplace_name={Muplace} />}
         </Col>
       </Row>
     </Container>

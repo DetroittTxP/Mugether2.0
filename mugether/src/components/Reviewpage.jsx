@@ -151,6 +151,7 @@ export default function ReviewPage({ Muplace_name }) {
 //https://media.discordapp.net/attachments/1130047272508465273/1164158784046911498/image.png?ex=6542325b&is=652fbd5b&hm=34d3ee5ae415d18976b94fca7e67358183624112e20a65bfbfcb679cc5cede42&=&width=445&height=385
   return (
     <div className="review-container">
+       <h2>Reviews</h2>
       {!addreview && <h2 className="review-title">{detail.length} Reviews</h2>}
 
       {addreview && <Add_Review check_finish={check_finish} Muplace_name={Muplace_name} />}
