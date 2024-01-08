@@ -2,11 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const img = require('express').Router();
 const user = require('../model/User-model');
+const guide = require('../model/Guide-Model')
 const multer = require('multer')
 
 
 
-
+//image of muplace
 img.get('/mu/:place_name/:id',async (req,res) => {
      try{
         const {place_name,id} = req.params;
@@ -28,6 +29,7 @@ img.get('/mu/:place_name/:id',async (req,res) => {
      }
 })
 
+//image of nearbyplace
 img.get('/nearby/:type/:name/:id',(req,res) => {
     const {id,type,name} = req.params;
 
@@ -46,6 +48,7 @@ img.get('/nearby/:type/:name/:id',(req,res) => {
     }
 })
 
+//image of user
 img.get('/user/profile/:username',async(req,res) => {
     const {username} = req.params;
 
@@ -61,6 +64,21 @@ img.get('/user/profile/:username',async(req,res) => {
     }
 })
 
+//image of guide_detail
+img.get('/guide/detail/:username/:imgname', async (req,res) => {
+    const {username,imgname} = req.params;
+    
+    try{
+        let dir_ = path.dirname(__dirname);
+        let imagesFile = path.join(dir_,"assets","guide",username,"detail_img",imgname);
+        res.sendFile(imagesFile)
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+
+})
 
 
 

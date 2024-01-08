@@ -90,10 +90,10 @@ guide.post('/update/img/guide',(req,res) => {
 
 })
 
-//getguide //listguide for list guide page
+//getguide //listguide for listguide page
 guide.get('/list-guide', async (req,res) => {
      try{
-        let data = await gide.find({}).select('firstname lastname profile_pic')
+        let data = await gide.find({}).select('firstname lastname profile_pic username')
         res.send(data);
      }
      catch(err)
@@ -106,7 +106,7 @@ guide.get('/list-guide', async (req,res) => {
 //detail-guide for guidepage
 guide.get('/detail-guide/:username', async (req,res) => {
     const {username} = req.params;
-
+    
     try{
         let data = await gide.find({username:username}).select('-username -password')
         res.send(data)
