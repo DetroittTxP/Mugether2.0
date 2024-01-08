@@ -2,6 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const img = require('express').Router();
 const user = require('../model/User-model');
+const multer = require('multer')
+
+
 
 
 img.get('/mu/:place_name/:id',async (req,res) => {
@@ -57,6 +60,8 @@ img.get('/user/profile/:username',async(req,res) => {
         return res.send(err)
     }
 })
+
+
 
 
 

@@ -7,6 +7,7 @@ const mu_place = require('../routers/mu_places')
 const nearby = require('../routers/nearby_places')
 const img = require('../routers/images')
 const usr = require('../routers/users')
+const guide = require('../routers/guide');
 const app = express();
 
 
@@ -28,6 +29,9 @@ app.use('/image', img);
 
 //register login
 app.use('/user', usr);
+
+//guide
+app.use('/guide', guide);
 
 
 

@@ -6,7 +6,6 @@ const Guide_model = mongoose.Schema({
     firstname:{type:String,required:true},
     lastname:{type:String,required:true},
     aka:{type:String,default:''},
-    email:{type:String,required:true},
 
     mu_location:{type:[String],required:true},
 
