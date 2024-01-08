@@ -16,14 +16,14 @@ export default function List_guide() {
 
 
 
-            <div style={{ display: 'grid', gridTemplateRows: 'repeat(6, auto)', gridTemplateColumns: 'repeat(6, auto)', gap: '100px', justifyContent: 'center' }}>
+            <div style={{ display: 'grid', gridTemplateRows: 'repeat(6, auto)', gridTemplateColumns: 'repeat(6, auto)', gap: '25px', justifyContent: 'center' }}>
                 {guidedata.map((data, index) => (
                     <div key={index} style={{ textAlign: 'center' }}>
                         <img src={`http://localhost:5353/image/guide/profile/${data.username}/${data.profile_pic}`} height={100} width={100} alt={`Profile of ${data.username}`} />
                         <br />
                         <div>
-                            {/* <b>นาย {data.firstname} {data.lastname}</b> */}
-                            <b>{data.username}</b>
+                            <b>นาย {data.firstname} {data.lastname}</b>
+                            {/* <b>{data.username}</b> */}
                             <br />
                             <button type="button" className="btn btn-warning" style={{ color: 'white' }} >เลือก</button>
                             <br /><br />
