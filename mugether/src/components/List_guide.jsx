@@ -16,7 +16,8 @@ export default function List_guide() {
 
             {guidedata.map(data => (
                 <div>
-                    <img src={`http://localhost:5353/image/guide/profile/${data.username}/${data.profile_pic}`} />
+                    <img src={`http://localhost:5353/image/guide/profile/${data.username}/${data.profile_pic}`} height={100} width={100} />
+                    <br/>
                     <b>นาย {data.firstname} {data.lastname}</b>
                 </div>
 
