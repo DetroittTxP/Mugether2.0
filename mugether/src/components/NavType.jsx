@@ -1,11 +1,13 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Nav, Container } from 'react-bootstrap';
 import { useNavigate,useLocation } from 'react-router-dom';
+import { animateScroll as scroll } from 'react-scroll';
 
 export default function NavType({SelectedTypeMu,show_guide}) {
   const location = useLocation()
   const [showguide,Setshowguide] = useState(false);
+  const guideRef = useRef(null);
 
   
 
@@ -45,17 +47,40 @@ export default function NavType({SelectedTypeMu,show_guide}) {
       type: 'Guide',
       icon: 'https://cdn-icons-png.flaticon.com/128/2953/2953363.png',
       path: '/guide',
-      fn:show_guide(showguide)
+      fn: () => {
+        show_guide(showguide);
+        if(showguide && guideRef.current){
+          scroll.scrollTo(guideRef.current.offsetTop + 500 ,{
+            smooth: true,
+          });
+        }
+      }
     },
     {
       type: 'รับจ้างมู',
       icon: 'https://cdn-icons-png.flaticon.com/128/1584/1584911.png',
       path: '/rubjark'
+      // fn: () => {
+      //   show_guide(showguide);
+      //   if(showguide && guideRef.current){
+      //     scroll.scrollTo(guideRef.current.offsetTop + 500 ,{
+      //       smooth: true,
+      //     });
+      //   }
+      // }
     },
     {
       type: 'ร้านค้า',
       icon: 'https://cdn-icons-png.flaticon.com/128/1584/1584911.png',
       path: '/shop'
+      // fn: () => {
+      //   show_guide(showguide);
+      //   if(showguide && guideRef.current){
+      //     scroll.scrollTo(guideRef.current.offsetTop + 500 ,{
+      //       smooth: true,
+      //     });
+      //   }
+      // }
     },
   ]
   
@@ -68,48 +93,50 @@ export default function NavType({SelectedTypeMu,show_guide}) {
      }
   }
 
-  let type = type1()
-  
+  let type = type1();
+
   return (
-    <Nav
-    className='justify-content-center'
-    variant="underline"
-    onSelect={(selectedKey) => {
+    <div>
+        <Nav
+        className='justify-content-center'
+        variant="underline"
+        onSelect={(selectedKey) => {
 
-        SelectedTypeMu(selectedKey);
-        
-    }}
-    style={{  display: 'flex', justifyContent: 'center' }}
-  >
-    {type.map((data, index) => (
-      <Nav.Item
-        onClick={() => {
-             Setshowguide(!showguide)
-             data.fn
+            SelectedTypeMu(selectedKey);
+            
         }}
-        style={{
-          marginRight: index < type.length - 1 ? '110px' : '0', 
-          marginTop: '50px', // ขยับ NavType ลงมา
-        }}
-        key={data.type}
+        style={{  display: 'flex', justifyContent: 'center' }}
       >
-        <div style={{ textAlign: 'center' }}>
+        {type.map((data, index) => (
+          <Nav.Item
+            onClick={() => {
+                Setshowguide(!showguide)
+                data.fn();
+            }}
+            style={{
+              marginRight: index < type.length - 1 ? '110px' : '0', 
+              marginTop: '50px', // ขยับ NavType ลงมา
+            }}
+            key={data.type}
+          >
+            <div style={{ textAlign: 'center' }}>
 
-   
-          
-          <Nav.Link eventKey={data.type} style={{ color: 'black' }}>
-            <img style={{marginBottom:15}} height={30} width={30} src={data.icon} alt={data.type} />    
-            <br/>  
-             
-            {data.type}
-          </Nav.Link>
-          
-        </div>
-      </Nav.Item>
-
-     
-    ))}
-  </Nav>
+      
+              
+              <Nav.Link eventKey={data.type} style={{ color: 'black' }}>
+                <img style={{marginBottom:15}} height={30} width={30} src={data.icon} alt={data.type} />    
+                <br/>  
+                
+                {data.type}
+              </Nav.Link>
+              
+            </div>
+          </Nav.Item>
+        ))}
+      </Nav>
+      <div ref={guideRef}></div>
+    </div>
+    
   );
 }
 
