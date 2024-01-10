@@ -97,6 +97,7 @@ guide.get('/list-guide', async (req,res) => {
         res.send(data);
      }
      catch(err)
+     
      {
         console.log(err);
         res.send(err)
@@ -108,7 +109,7 @@ guide.get('/detail-guide/:username', async (req,res) => {
     const {username} = req.params;
 
     try{
-        let data = await gide.find({username:username}).select('-username -password')
+        let data = await gide.findOne({username:username}).select('-username -password')
         res.send(data)
     }
     catch(err){

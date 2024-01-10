@@ -92,13 +92,15 @@ export default function Mudetail({showguide}) {
       {/* <br />
       <hr />
       <br /> */}
+
+
       <Row>
         <Col md={11} className="review-section">
          
      { !showguide&&    <Reviewpage Muplace_name={Muplace} />}
         </Col>
       </Row>
-      <hr />
+     
       <br />
       <Row>
         <Col md={11}>

@@ -43,10 +43,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import './ReviewPage.css';
+import Guide_detail from './guide_detail';
 
 
 export default function ListGuide() {
     const [guidedata, setGuideData] = useState([]);
+    const [username_guide,Setusername_guide] = useState(''); 
 
     useEffect(() => {
         axios.get('http://localhost:5353/guide/list-guide')
@@ -71,14 +73,16 @@ export default function ListGuide() {
                         <div className="mt-3">
                             <b>นาย {data.firstname} {data.lastname}</b>
                             <br />
-                            <Button variant="warning" style={{ color: 'white' }}>เลือก</Button>
+                            <Button onClick={() => Setusername_guide(data.username)} variant="warning" style={{ color: 'white' }}>เลือก</Button>
                         </div>
                     </Col>
                 ))}
             </Row>
-
+            <hr/>        
             {/* WAIT FOR CSS */}
-            
+
+           { username_guide && <Guide_detail username={username_guide}  />}
+                    
         </Container>
     );
 }
