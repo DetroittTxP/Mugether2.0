@@ -42,6 +42,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import './ReviewPage.css';
+
 
 export default function ListGuide() {
     const [guidedata, setGuideData] = useState([]);
@@ -64,7 +66,7 @@ export default function ListGuide() {
                             height={100}
                             width={100}
                             alt={`Profile of ${data.username}`}
-                            className="img-fluid rounded-circle"
+                            className="avatar"
                         />
                         <div className="mt-3">
                             <b>นาย {data.firstname} {data.lastname}</b>
@@ -76,6 +78,7 @@ export default function ListGuide() {
             </Row>
 
             {/* WAIT FOR CSS */}
+            
         </Container>
     );
 }
