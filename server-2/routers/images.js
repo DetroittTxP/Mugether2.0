@@ -2,8 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const img = require('express').Router();
 const user = require('../model/User-model');
-const guide = require('../model/Guide-Model')
-const multer = require('multer')
+
+
+
 
 
 
@@ -53,10 +54,19 @@ img.get('/user/profile/:username',async(req,res) => {
     const {username} = req.params;
 
     try{
-        let userdata =  await user.findOne({username:username});
+        let userdata =  await user.findOne({username:username}).select('profile_pic');
         const {profile_pic} = userdata;
         let dir_ = path.dirname(__dirname);
+
+        console.log(userdata);
+
         let imagesFile = path.join(dir_,"assets","user",profile_pic);
+
+        if(profile_pic !== 'profile_temp.png')
+        {
+            imagesFile = path.join(dir_,"assets","user",username,"profile_pic",profile_pic);
+        }
+        
         return res.sendFile(imagesFile)
     }
     catch(err){
@@ -103,8 +113,6 @@ img.get('/guide/profile/:username/:imgname', async (req,res) => {
     }
 
 })
-
-
 
 
 module.exports = img;
