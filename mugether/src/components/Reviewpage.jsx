@@ -158,6 +158,11 @@ export default function ReviewPage({ Muplace_name }) {
   const write_review=()=>{  
 
     let user = localStorage.getItem('usr') 
+
+    if(user && addreview)
+    {
+      return Setaddreview(false)
+    }
     return user ? Setaddreview(true) : Swal.fire('Login first');
    
   }
