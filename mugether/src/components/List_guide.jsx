@@ -72,7 +72,7 @@ export default function ListGuide  ()  {
                               roundedCircle
                               className='avatar'
                               />   
-
+                                        
                          <span style={{marginLeft:10}}>
                             <b>นาย {data.firstname} {data.lastname}</b>
                         </span>

@@ -85,8 +85,7 @@ export default function Header() {
   const { muplace } = useContext(Muplace_Context)
   const [Muplace, Setmuplace] = useState([])
 
-
-
+  
 
   const onChange = (e) => {
     let newdata = muplace.sort((a, b) => a.name.localeCompare(b.name, 'th')).filter(data => data.name.toLowerCase().includes(e.target.value))

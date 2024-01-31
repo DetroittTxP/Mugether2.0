@@ -1,5 +1,13 @@
 import React from 'react'
 import { Modal,Button } from 'react-bootstrap'
+
+
+const Edit_form = () =>{
+  
+}
+
+
+
 export default function EditProfile({showedit}) {
   return (
     <Modal show={showedit}  animation={false}>
