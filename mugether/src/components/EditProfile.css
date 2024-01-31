@@ -1,0 +1,6 @@
+.password-toggle-edit {
+    position: absolute;
+    right: 25px;
+    transform: translateY(-130%);
+    cursor: pointer;
+  }

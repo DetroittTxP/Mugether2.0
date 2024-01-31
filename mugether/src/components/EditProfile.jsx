@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { Modal, Button, Form, } from 'react-bootstrap'
+import { Modal, Button, Form, Container, Row, Col } from 'react-bootstrap'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
+import './EditProfile.css'
 
 export default function EditProfile({ showedit, toggle }) {
+  const [visible, setvisible] = useState(false);
 
   const [show, Setshow] = useState(false)
   const [selectedfile, Setfile] = useState(null)
   const username = localStorage.getItem('usr')
-  const [editdata, Seteditdata] = useState({username:username});
+  const [editdata, Seteditdata] = useState({ username: username });
   const submit_edit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
     formData.append('profile_img', selectedfile);
-    
-    try{
+
+    try {
       Swal.fire({
         title: 'Loading...',
         html: 'Please wait',
@@ -24,23 +27,23 @@ export default function EditProfile({ showedit, toggle }) {
           Swal.showLoading();
         },
       })
-        
-        let update_img = await axios.post(`http://localhost:5353/upload-img/user/profile/${username}`,formData);
-        let update_usr = await axios.put(`http://localhost:5353/user/update/profile/`,{editdata})
-        Swal.close();
 
-        await Swal.fire({
-          icon: 'success',
-          title: 'Success'
-        })
+      let update_img = await axios.post(`http://localhost:5353/upload-img/user/profile/${username}`, formData);
+      let update_usr = await axios.put(`http://localhost:5353/user/update/profile/`, { editdata })
+      Swal.close();
 
-        console.log(update_usr.data);
-        console.log(update_img);
+      await Swal.fire({
+        icon: 'success',
+        title: 'Success'
+      })
+
+      console.log(update_usr.data);
+      console.log(update_img);
     }
-    catch(err){
+    catch (err) {
       alert(err)
     }
-  
+
 
 
   }
@@ -48,7 +51,7 @@ export default function EditProfile({ showedit, toggle }) {
 
   const handleFileChange = (event) => {
     Setfile(event.target.files[0])
-    
+
     // let rename = Date.now() +  username + event.target.files[0].name
     // Seteditdata(prev => {
     //   return {
@@ -58,11 +61,11 @@ export default function EditProfile({ showedit, toggle }) {
     // })
   };
 
-  const onFormchange=(e)=>{
+  const onFormchange = (e) => {
     Seteditdata(prev => {
       return {
         ...prev,
-        [e.target.id]:e.target.value
+        [e.target.id]: e.target.value
       }
     })
   }
@@ -76,7 +79,7 @@ export default function EditProfile({ showedit, toggle }) {
   return (
 
 
-    <Modal show={show}  animation={false}>
+    <Modal show={show} animation={false}>
 
       <Form onSubmit={submit_edit}>
         <Modal.Header >
@@ -93,7 +96,7 @@ export default function EditProfile({ showedit, toggle }) {
           </Form.Group>
 
           <br />
-          <Form.Group  controlId="username">
+          <Form.Group controlId="username">
             <Form.Label>Username</Form.Label>
             <Form.Control
               type="text"
@@ -106,28 +109,44 @@ export default function EditProfile({ showedit, toggle }) {
 
           <Form.Group controlId="password">
             <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="👤  "
-              onChange={onFormchange}
-            />
+            <Row>
+              <Col>
+                <Form.Control
+                  type={visible ? "text" : "password"}
+                  placeholder="🔒  "
+                  onChange={onFormchange}
+                />
+                <div className="password-toggle-edit"
+                  onClick={() => setvisible(!visible)}>
+                  {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+
+                </div>
+              </Col>
+            </Row>
           </Form.Group>
 
           <Form.Group controlId="re password">
             <Form.Label>Re-password</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="👤  "
+            <Row>
+              <Col>
+                <Form.Control
+                  type={visible ? "text" : "password"}
+                  placeholder="🔒  "
+                />
+                <div className="password-toggle-edit"
+                  onClick={() => setvisible(!visible)}>
+                  {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
 
-
-            />
+                </div>
+              </Col>
+            </Row>
           </Form.Group>
 
           <Form.Group controlId="email">
             <Form.Label>email</Form.Label>
             <Form.Control
               type="text"
-              placeholder="👤  "
+              placeholder="✉️  "
               onChange={onFormchange}
             />
           </Form.Group>
