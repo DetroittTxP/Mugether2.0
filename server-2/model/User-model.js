@@ -14,10 +14,15 @@ const user_model = mongoose.Schema({
         required:true
     },
     
+
+    
     name:String,
     surname:String,
     tel:String,
-
+    favorite_muplace:{
+        type:[],
+        default:[]
+    },
     profile_pic:{
         type:String,
         default:'profile_temp.png'

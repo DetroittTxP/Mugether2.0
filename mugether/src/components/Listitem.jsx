@@ -82,6 +82,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
                       }}
                     />
                   </div>
+                  
                   <img
                     onClick={() => {
                       SelectedMuplace(data.name);
