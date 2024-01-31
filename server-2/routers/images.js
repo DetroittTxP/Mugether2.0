@@ -57,16 +57,32 @@ img.get('/user/profile/:username',async(req,res) => {
         let userdata =  await user.findOne({username:username}).select('profile_pic');
         const {profile_pic} = userdata;
         let dir_ = path.dirname(__dirname);
-
+        
         console.log(userdata);
 
         let imagesFile = path.join(dir_,"assets","user",profile_pic);
-
+        
         if(profile_pic !== 'profile_temp.png')
         {
             imagesFile = path.join(dir_,"assets","user",username,"profile_pic",profile_pic);
         }
         
+        
+        fs.readdir(path.join(dir_,"assets","user",username,"profile_pic"),
+        (err,file) => {
+             file.forEach((img) => {
+                  if(img !== profile_pic)
+                  {
+                    let deletefile = path.join(dir_,"assets","user",username,"profile_pic",img)
+                    fs.unlink(deletefile, (err) => {
+                        if (err) {
+                            console.error(err);
+                        }
+                    });
+                  }
+             })
+        })
+
         return res.sendFile(imagesFile)
     }
     catch(err){

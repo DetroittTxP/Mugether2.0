@@ -114,14 +114,21 @@ usr.post('/register', async (req,res) => {
      }
 })
 
-usr.put('/update/profile/:user_data/:username',async (req,res) => {
-     const {user_data,username} = req.params;
-     let filter = {username:username}
-     let update_data = {
-        
-     }
-    res.send(req.params)
+usr.put('/update/profile/',async (req,res) => {
+     const {editdata} = req.body
+     let filter = editdata.username
     
+    try{
+        let updatedata= await user.findOneAndUpdate({username:filter},editdata)
+        
+    }
+    catch(err)
+    {
+        console.log(err);return;
+    }
+     
+     
+     res.json(editdata)
      
 })
 
