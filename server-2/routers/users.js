@@ -114,6 +114,17 @@ usr.post('/register', async (req,res) => {
      }
 })
 
+usr.put('/update/profile/:user_data/:username',async (req,res) => {
+     const {user_data,username} = req.params;
+     let filter = {username:username}
+     let update_data = {
+        
+     }
+    res.send(req.params)
+    
+     
+})
+
 
 
 

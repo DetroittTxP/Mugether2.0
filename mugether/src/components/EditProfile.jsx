@@ -3,7 +3,7 @@ import { Modal,Button } from 'react-bootstrap'
 
 
 const Edit_form = () =>{
-  
+
 }
 
 

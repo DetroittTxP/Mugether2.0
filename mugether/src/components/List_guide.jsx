@@ -49,7 +49,6 @@ import { Accordion, AccordionDetails,  AccordionSummary } from '@mui/material'
 
 export default function ListGuide  ()  {
     const [guidedata, setGuideData] = useState([]);
-    const [username_guide, Setusername_guide] = useState('');
 
     useEffect(() => {
         axios.get('http://localhost:5353/guide/list-guide')
@@ -79,7 +78,7 @@ export default function ListGuide  ()  {
                     </AccordionSummary>
 
                     <AccordionDetails>
-                    {username_guide && <Guide_detail username={username_guide} />}
+                    <Guide_detail username={data.username} />
                         </AccordionDetails>
                 </Accordion>
             ))}
