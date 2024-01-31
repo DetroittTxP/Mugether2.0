@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Container, Nav, Navbar, Form,Modal } from 'react-bootstrap'
+import { Container, Nav, Navbar, Form,Modal ,Image} from 'react-bootstrap'
 import { Button, Dropdown, Menu } from 'antd';
 import Logo from '../assets/MuLOGO.png'
 import { SlLogin } from 'react-icons/sl'
@@ -10,11 +10,6 @@ import { useNavigate } from 'react-router-dom'
 import { TbEdit } from "react-icons/tb";
 import { IoMdLogOut } from "react-icons/io";
 import EditProfile from './EditProfile';
-
-
-
-
-
 
 
 
@@ -37,7 +32,7 @@ export default function Header() {
       key: '1',
       label: (
         <div >
-          <img width={50} height={50} src={`http://localhost:5353/image/user/profile/${usr_data}`} />
+          <Image roundedCircle width={50} height={50} src={`http://localhost:5353/image/user/profile/${usr_data}`} />
 
           <span style={{ marginLeft: 10 }}>{usr_data}</span>
 
