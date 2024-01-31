@@ -33,7 +33,6 @@ img.get('/mu/:place_name/:id',async (req,res) => {
 //image of nearbyplace
 img.get('/nearby/:type/:name/:id',(req,res) => {
     const {id,type,name} = req.params;
-
     try{
 
         let dir_ = path.dirname(__dirname);
@@ -65,25 +64,24 @@ img.get('/user/profile/:username',async(req,res) => {
         if(profile_pic !== 'profile_temp.png')
         {
             imagesFile = path.join(dir_,"assets","user",username,"profile_pic",profile_pic);
+
+            
+            fs.readdir(path.join(dir_,"assets","user",username,"profile_pic"),
+            (err,file) => {
+                file.forEach((img) => {
+                    if(img !== profile_pic)
+                    {
+                        let deletefile = path.join(dir_,"assets","user",username,"profile_pic",img)
+                        fs.unlink(deletefile, (err) => {
+                            if (err) {
+                                console.error(err);
+                            }
+                        });
+                    }
+                })
+            })
         }
         
-        
-        
-        fs.readdir(path.join(dir_,"assets","user",username,"profile_pic"),
-        (err,file) => {
-             file.forEach((img) => {
-                  if(img !== profile_pic)
-                  {
-                    let deletefile = path.join(dir_,"assets","user",username,"profile_pic",img)
-                    fs.unlink(deletefile, (err) => {
-                        if (err) {
-                            console.error(err);
-                        }
-                    });
-                  }
-             })
-        })
-
         return res.sendFile(imagesFile)
     }
     catch(err){

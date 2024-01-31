@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container,Button } from "react-bootstrap";
 import { Muplace_Context } from "../context/MuContext";
 import { FaHeart, FaMapMarkerAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
+import {Image} from 'react-bootstrap'
 
 export default function Listitem({ SelectedMuType, SelectedMuplace }) {
   const navigate = useNavigate();
@@ -83,18 +84,22 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
                     />
                   </div>
                   
-                  <img
+
+                  
+                  <Image
+                    
                     onClick={() => {
                       SelectedMuplace(data.name);
                       navigate("/mudetail");
                     }}
-                    style={{ borderRadius: 20 }}
+                    style={{ borderRadius: 20 ,cursor:'pointer'}}
                     width={300}
                     height={300}
                     alt={data.name}
                     src={`http://localhost:5353/image/mu/${data.name}/2`}
                     loading="lazy"
                   />
+               
                 </a>
 
                 <br />

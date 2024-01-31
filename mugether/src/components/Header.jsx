@@ -126,7 +126,7 @@ export default function Header() {
 
           <Navbar.Brand href="#home">
             <a href='/'>
-              <img src={Logo} height={80} width={100} style={{ borderRadius: 50 }} />
+              <Image rounded src={Logo} height={80} width={100} style={{ borderRadius: 50 }} />
             </a>
 
           </Navbar.Brand>
