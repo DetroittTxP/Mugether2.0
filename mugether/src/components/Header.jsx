@@ -92,7 +92,9 @@ export default function Header() {
   ];
   
   
-  
+  const toggle =(status)=>{
+     Setshowedit(status)
+  }
   
 
   const { muplace } = useContext(Muplace_Context)
@@ -117,7 +119,7 @@ export default function Header() {
   return (
     <div >
 
-       { showedit && <EditProfile showedit={showedit} />}
+      <EditProfile showedit={showedit} toggle={toggle} />
 
       <Navbar style={{ borderBottom: '2px solid #ccc', padding: 30, position: 'fixed', width: '100%', top: 0, zIndex: 100 }} bg="light" data-bs-theme="light">
         <Container >
