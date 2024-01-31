@@ -27,6 +27,11 @@ export default function Header() {
     navigate('/')
   }
 
+  const toggle_edit=(status)=>{
+    Setshowedit(status)
+  }
+
+
   const loged_in = [
     {
       key: '1',
@@ -43,8 +48,8 @@ export default function Header() {
     {
       key: '2',
       label: (
-        <div>
-          <a  onClick={() => Setshowedit(true)} style={{ textDecoration: 'none' }}>
+        <div  onClick={() => Setshowedit(true)}>
+          <a  style={{ textDecoration: 'none' }}>
 
              <h6> <TbEdit/>  EDIT PROFILE</h6>
           </a>
@@ -104,7 +109,7 @@ export default function Header() {
   return (
     <div >
 
-       { showedit && <EditProfile showedit={showedit} />}
+       <EditProfile showedit={showedit} toggle={toggle_edit} />
 
       <Navbar style={{ borderBottom: '2px solid #ccc', padding: 30, position: 'fixed', width: '100%', top: 0, zIndex: 100 }} bg="light" data-bs-theme="light">
         <Container >
