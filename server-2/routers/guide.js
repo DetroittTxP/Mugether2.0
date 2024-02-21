@@ -92,13 +92,12 @@ guide.post('/update/img/guide',(req,res) => {
 })
 
 //getguide //listguide for listguide page
-guide.get('/list-guide', async (req,res) => {
+guide.get('/list-guide/:mu_location', async (req,res) => {
      try{
-        let data = await gide.find({}).select('firstname lastname profile_pic username')
-        res.send(data);
+        let data = await gide.find({mu_location:req.params.mu_location}).select('firstname lastname profile_pic username')
+        return res.send(data);
      }
      catch(err)
-     
      {
         console.log(err);
         res.send(err)
@@ -120,7 +119,7 @@ guide.get('/detail-guide/:username', async (req,res) => {
 })
 
 //review_guiide
-//
+
 
 //id_Card and id_guide
 guide.post('/verify/id/:username', async (req,res) => {

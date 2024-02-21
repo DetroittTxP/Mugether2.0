@@ -31,6 +31,7 @@ const userprofile = multer.diskStorage({
 
 const upload_user_profile = multer({storage:userprofile});
 
+
 //upload user profile
 upload_img.post('/user/profile/:username',upload_user_profile.single('profile_img'),
                 async (req,res) => {

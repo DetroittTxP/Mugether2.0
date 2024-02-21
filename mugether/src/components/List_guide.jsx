@@ -51,7 +51,7 @@ export default function ListGuide  ()  {
     const [guidedata, setGuideData] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5353/guide/list-guide')
+        axios.get(`http://localhost:5353/guide/list-guide/${localStorage.getItem('muplace')}`)
             .then(res => setGuideData(res.data))
             .catch(err => alert(err));
     }, []);
