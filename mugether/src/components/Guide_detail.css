@@ -1,0 +1,33 @@
+.text {
+    padding-left: 30px;
+}
+
+.main-image {
+    padding-top: 5px;
+    display: flex;
+    margin: 5px;
+    height: 615px;
+  }
+  .big-image {
+    height: 50px;
+    width: 1000px;
+    border-top-left-radius: 5%;
+    border-bottom-left-radius: 5%;
+  }
+  
+  .small-image:nth-child(1) {
+    height: 300px;
+    width: 450px;
+    margin: 5px;
+    padding-top: 1px;
+    margin-left: -15px;
+  }
+  
+  .small-image.figure-4 {
+    border-bottom-right-radius: 5%;
+  }
+  
+  .small-image.figure-3 {
+    border-top-right-radius: 5%;
+  }
+  
