@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Rating from '@mui/material/Rating';
 import { Button, Input } from 'antd'
-
 import './ReviewPage.css';
 import { useLocation } from 'react-router-dom'
 import { Form } from 'react-bootstrap'
@@ -121,13 +120,11 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
 
 
 
-
-
-
-
 export default function ReviewPage({ Muplace_name }) {
   const [detail, Setdetail] = useState([]);
   const [addreview, Setaddreview] = useState(false);
+  const [visibleReviews, setVisibleReviews] = useState(5);
+
 
   useEffect(() => {
     axios.get(`http://localhost:5353/muplace/mudata/${Muplace_name}`)
@@ -136,7 +133,7 @@ export default function ReviewPage({ Muplace_name }) {
       })
       .catch((err) => alert(err));
 
-  }, [detail]);
+  }, [addreview, Muplace_name]);
 
   const check_finish = (isFinish) => {
     Setaddreview(isFinish)
@@ -166,16 +163,28 @@ export default function ReviewPage({ Muplace_name }) {
     return user ? Setaddreview(true) : Swal.fire('Login first');
    
   }
+
+  const viewMore = () =>{
+    setVisibleReviews(prev => prev + 5);
+  };
+
+  const reviewToShow = detail.slice(0, visibleReviews);
+
 //https://media.discordapp.net/attachments/1130047272508465273/1164158784046911498/image.png?ex=6542325b&is=652fbd5b&hm=34d3ee5ae415d18976b94fca7e67358183624112e20a65bfbfcb679cc5cede42&=&width=445&height=385
   return (
     <div className="review-container">
-       <h2>Reviews  ★{sumreview().toFixed(2)}   </h2>
-      {!addreview && <h2 className="review-title">{detail.length} Reviews     </h2>}
+      <h2 style={{fontWeight: 'bold'}}>Review</h2>
+      <div style={{ display: 'flex', alignItems: 'center', fontSize: '1rem' }}>
+        <div style={{ display: 'flex', alignItems: 'baseline' }}>
+          <span style={{ color: '#faaf00', fontSize: '40px' }}>★</span>
+          <span style={{ margin: '0 0.5rem', fontSize: '30px' }}>{sumreview().toFixed(2)} • {detail.length} Reviews</span>
+        </div>
+      </div>
 
       {addreview && <Add_Review check_finish={check_finish} Muplace_name={Muplace_name} />}
       <br />
 
-      {!addreview && detail.map((data, index) => {
+      {!addreview && reviewToShow.map((data, index) => {
         return (
           <div key={index} className="review-item">
             <img className="avatar" src={`http://localhost:5353/image/user/profile/${data.username}`} alt={data.username} />
@@ -188,6 +197,12 @@ export default function ReviewPage({ Muplace_name }) {
           </div>
         );
       })}
+
+      {visibleReviews < detail.length &&(
+        <div className='button-viewmore'>
+          <Button onClick={viewMore}>View More</Button>
+        </div>
+      )}
 
       {<div className='button-review'>
         <Button onClick={write_review}>

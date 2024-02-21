@@ -10,14 +10,16 @@ import { TbEdit } from "react-icons/tb";
 import { IoMdLogOut } from "react-icons/io";
 import EditProfile from './EditProfile';
 import AppsIcon from '@mui/icons-material/Apps';
-
+import { FaUserEdit } from "react-icons/fa";
+import { LiaUserAstronautSolid } from "react-icons/lia";
+import { MdFavorite } from "react-icons/md";
+import { CiShop } from "react-icons/ci";
 
 
 export default function Header() {
   const usr_data = localStorage.getItem('usr');
   const navigate = useNavigate();
   const [showedit,Setshowedit] = useState(false);
-
 
 
   const handleLogout = async () => {
@@ -27,69 +29,61 @@ export default function Header() {
     navigate('/')
   }
 
-  const loged_in = [
-    {
-      key: '1',
-      label: (
-        <div >
-          <Image roundedCircle width={50} height={50} src={`http://localhost:5353/image/user/profile/${usr_data}`} />
-
-          <span style={{ marginLeft: 10 }}>{usr_data}</span>
-
-          <hr />
-        </div>
-      )
-    },
-    {
-      key: '2',
-      label: (
+  const loged_in = (
+    <Menu>
+      <Menu.Item key="profile">
         <div>
-          <a  onClick={() => Setshowedit(true)} style={{ textDecoration: 'none' }}>
-
-             <h6> <TbEdit/>  EDIT PROFILE</h6>
-          </a>
+          <Image roundedCircle width={50} height={50} src={`http://localhost:5353/image/user/profile/${usr_data}`} />
+          <span style={{ marginLeft: 10 }}>{usr_data}</span>
         </div>
-
-      )
-    },
-
-    {
-      key: '3',
-      label: (
+      </Menu.Item>
+      <Menu.Item key="edit">
+        <a onClick={() => Setshowedit(true)} style={{ textDecoration: 'none' }}>
+          <TbEdit /> Edit Profile
+        </a>
+      </Menu.Item>
+      <Menu.Item key="logout">
         <a onClick={handleLogout} style={{ textDecoration: 'none' }}>
-          <h6> <IoMdLogOut/> LOG OUT</h6>
+          <IoMdLogOut /> Log Out
         </a>
-      )
-    }
-  ]
+      </Menu.Item>
+    </Menu>
+  );
 
-  const non_login = [
-    {
-      key: '1',
-      label: (
-        <a href='/login' style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', marginLeft: '20px' }}>
+  const non_login = (
+    <Menu style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '10px' }}>
+      <Menu.Item key="login">
+        <a href='/login' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <LuLogIn style={{ fontSize: '24px' }} />
-          <h6 style={{ marginBottom: '0' }}>LOGIN</h6>
+          <span>LOGIN</span>
         </a>
-      )
-    },
-    {
-      key: '2',
-      label: (
-        <a href='/register' style={{ textDecoration: 'none', marginLeft: '35px', display: 'inline-block' }}>
-          <h6 style={{ marginBottom: '0' }}>REGISTER</h6>
+      </Menu.Item>
+      <Menu.Item key="register">
+        <a href='/register' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <FaUserEdit style={{ fontSize: '24px' }} />
+          <span>REGISTER</span>
         </a>
-      )
-    },
-    {
-      key: '3',
-      label: (
-        <a href='/guide' style={{ textDecoration: 'none', marginLeft: '35px', display: 'inline-block' }}>
-          <h6 style={{ marginBottom: '0' }}>GUIDE</h6>
+      </Menu.Item>
+      <Menu.Item key="guide">
+        <a href='/guide' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <LiaUserAstronautSolid style={{ fontSize: '24px' }} />
+          <span>GUIDE</span>
         </a>
-      )
-    },
-  ];
+      </Menu.Item>
+      <Menu.Item key="favorite">
+        <a href='#' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <MdFavorite style={{ fontSize: '24px' }} />
+          <span>FAVORITE</span>
+        </a>
+      </Menu.Item>
+      <Menu.Item key="shop">
+        <a href='#' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <CiShop style={{ fontSize: '24px' }} />
+          <span>SHOP</span>
+        </a>
+      </Menu.Item>
+    </Menu>
+  );
   
   
   const toggle =(status)=>{
@@ -101,7 +95,6 @@ export default function Header() {
   const [Muplace, Setmuplace] = useState([])
 
   
-
   const onChange = (e) => {
     let newdata = muplace.sort((a, b) => a.name.localeCompare(b.name, 'th')).filter(data => data.name.toLowerCase().includes(e.target.value))
 
@@ -117,18 +110,12 @@ export default function Header() {
 
 
   return (
-    <div >
-
+    <div>
       <EditProfile showedit={showedit} toggle={toggle} />
-
-      <Navbar style={{ borderBottom: '2px solid #ccc', padding: 30, position: 'fixed', width: '100%', top: 0, zIndex: 100 }} bg="light" data-bs-theme="light">
-        <Container >
-
-          <Navbar.Brand href="#home">
-            <a href='/'>
-              <Image rounded src={Logo} height={80} width={100} style={{ borderRadius: 50 }} />
-            </a>
-
+      <Navbar bg="light" expand="lg" fixed="top" style={{ borderBottom: '2px solid #ccc', padding: '30px', zIndex: '100' }}>
+        <Container>
+          <Navbar.Brand href="/">
+            <Image rounded src={Logo} height={80} width={100} style={{ borderRadius: '50%' }} />
           </Navbar.Brand>
           <div  >
             <Dropdown menu={{ items: Muplace, }}>
@@ -138,21 +125,13 @@ export default function Header() {
 
             </Dropdown>
           </div>
-
-
-          <Dropdown menu={{ items: usr_data ? loged_in : non_login }} >
-            <Button style={{ width: 95, height: 50, textAlign: 'center', border: 'none' }}>
-              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%'}}>
-                <AppsIcon/>
-              </div>
+          <Dropdown overlay={usr_data ? loged_in : non_login} trigger={['click']} placement="bottomRight">
+            <Button>
+              <AppsIcon />
             </Button>
-
           </Dropdown>
         </Container>
       </Navbar>
-
-
-
     </div>
-  )
+  );
 }

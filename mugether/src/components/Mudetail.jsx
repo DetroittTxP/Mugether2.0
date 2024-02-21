@@ -6,6 +6,7 @@ import ShareButton from "./ShareButton";
 import "./Mudetail.css";
 import Nearby from "./Nearby";
 import List_guide from "./List_guide";
+import { FaStar } from "react-icons/fa";
 
 export default function Mudetail({showguide}) {
   const [Muplace, Setmuplace] = useState(localStorage.getItem("muplace"));
@@ -28,6 +29,9 @@ export default function Mudetail({showguide}) {
       <Row>
         <Col md={12} className="header">
           <h1>{Muplace}</h1>
+          <FaStar style={{ fontSize: '24px' }}/>
+          
+          {/* <span>{data.address}</span> */}
         </Col>
       </Row>
       <Row>
