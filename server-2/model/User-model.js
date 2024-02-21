@@ -29,4 +29,5 @@ const user_model = mongoose.Schema({
     }
 })
 
+
 module.exports = mongoose.model(process.env.DB_USER, user_model);

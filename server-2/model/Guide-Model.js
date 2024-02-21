@@ -15,7 +15,19 @@ const Guide_model = mongoose.Schema({
     type:{type:String,required:true},
     profile_pic:{type:String,default:'profile_temp.png'},
     review:[],
-    photos:[]
+    photos:[],
+
+    verify_guide: {
+        type: {
+          verify_pic: { type: String, required: true },
+          id_card: { type: String},
+          id_guide:{type:String}
+
+        },
+        required: true
+      }
+    
+
 })
 
 module.exports = mongoose.model(process.env.DB_GUIDE, Guide_model)

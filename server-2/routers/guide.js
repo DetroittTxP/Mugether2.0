@@ -122,5 +122,25 @@ guide.get('/detail-guide/:username', async (req,res) => {
 //review_guiide
 //
 
+//id_Card and id_guide
+guide.post('/verify/id/:username', async (req,res) => {
+    const {id_card,id_guide} = req.body;
+    try{
+        let add_verfiy_info = await gide.updateOne(
+            {username:req.params.username},
+            {
+                $set:{
+                    "verify_guide.id_card":id_card,
+                    "verify_guide.id_guide":id_guide
+                }
+            }
+        )
+        return res.send({status:'ok',add_verfiy_info})
+    }
+    catch(err)
+    {
+        return res.send(err)
+    }
+})
 
 module.exports = guide;

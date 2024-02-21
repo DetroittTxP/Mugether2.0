@@ -132,7 +132,33 @@ usr.put('/update/profile/',async (req,res) => {
      
 })
 
+usr.post('/add/favorite', async (req,res) =>{
+    const {username,favorite_item,status} = req.body;
 
+ 
+    try{
+        let og_data = await user.findOne({username:username});
+
+
+        let update_item = await user.updateOne({username:username} 
+            ,{$push:{favorite_muplace:favorite_item}}
+            )
+
+
+       return res.send({status:'ok',update_item})     
+
+
+    
+    }
+    catch(err)
+    {
+        return res.send(err);
+    }
+
+
+
+
+})
 
 
 

@@ -107,6 +107,48 @@ upload_img.post('/guide/profile/:username',upload_guide_profile.single('profile_
 
 
 
+//upload verify_guide
+const guide_verity = multer.diskStorage({
+    destination:async(req,file,cb) => {
+        const {username} = req.params;
+        let dir_name = await create_dir(username,"guide","verify_info");
+        cb(null,dir_name)
+  },
+  filename:(req,file,cb)=>{
+      cb(null,Date.now() +  req.params.username + file.originalname);
+  }   
+})
+
+const upload_guide_verify = multer({storage:guide_verity});
+
+upload_img.post('/guide/verify/:username',upload_guide_verify.single('verify_img'),
+     async (req,res) => {
+
+        const {username} = req.params;
+        try{
+            
+            let update_verify = await guide_db.updateOne(
+                {username:username},
+                {$set:{
+                    verify_guide:{
+                        verify_pic:req.file.filename
+                    }
+                }}
+            )
+             res.send({
+                status:'success',
+                update_verify,
+            })
+        }
+        catch(err)
+        {
+         res.send(err);
+         
+        }
+       
+
+})
+
 
 
 
@@ -115,18 +157,6 @@ upload_img.get('/',(req,res) =>{
 })
 
 
-
-// let filep = path.dirname(__dirname);
-
-// let fi = path.join(filep,"assets","guide","test");
-// console.log(fi);
-// fs.mkdir(fi,{recursive:true}, (err) => { 
-//     if (err) { 
-//         return console.error(err); 
-//     } 
-//     console.log('Directory created successfully!'); 
-// }); 
-// console.log(filep);
 
 
 module.exports = upload_img;

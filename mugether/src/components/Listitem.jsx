@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Row, Col, Container,Button } from "react-bootstrap";
+import { Row, Col, Container, Button } from "react-bootstrap";
 import { Muplace_Context } from "../context/MuContext";
 import { FaHeart, FaMapMarkerAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
-import {Image} from 'react-bootstrap'
+import { Image } from 'react-bootstrap'
 
 export default function Listitem({ SelectedMuType, SelectedMuplace }) {
   const navigate = useNavigate();
   const [List_Of_Mu, Setlistofmu] = useState([]);
   const [HeartCheck, Setheartcheck] = useState([]);
   const { muplace } = useContext(Muplace_Context);
+
 
   useEffect(() => {
     // Get mu place here
@@ -28,21 +29,44 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
     );
   }, [SelectedMuType]);
 
-  const toggleHeart = (name) => {
 
-    if(localStorage.getItem("token") !== null)
-    {
+  const toggleHeart = async (name) => {
+
+
+    if (localStorage.getItem("token") !== null) {
       if (HeartCheck.includes(name)) {
         Setheartcheck((prev) => prev.filter((item) => item !== name));
       } else {
         Setheartcheck((prev) => [...prev, name]);
       }
+
+      try {
+        Swal.fire({
+          title: 'Loading...',
+          html: 'Please wait',
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        })
+        let add_fav = await axios.post('http://localhost:5353/user/add/favorite',
+          {
+            username: localStorage.getItem('usr'),
+            favorite_item: name
+          }
+        )
+        console.log(add_fav.data);
+        Swal.close();
+      }
+      catch (err) {
+        return Swal.fire(err)
+      }
     }
-    else
-    {
+    else {
       Swal.fire("โปรด Login ก่อน");
     }
- 
+
+
   };
 
   return (
@@ -56,7 +80,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
             return (
               <Col style={top} md={3} key={data.name}>
                 <a
-           
+
                   style={{
                     position: "relative",
                     borderRadius: 20,
@@ -83,23 +107,23 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
                       }}
                     />
                   </div>
-                  
 
-                  
+
+
                   <Image
-                    
+
                     onClick={() => {
                       SelectedMuplace(data.name);
                       navigate("/mudetail");
                     }}
-                    style={{ borderRadius: 20 ,cursor:'pointer'}}
+                    style={{ borderRadius: 20, cursor: 'pointer' }}
                     width={300}
                     height={300}
                     alt={data.name}
-                    src={`http://localhost:5353/image/mu/${data.name}/2`}
+                    src={`http://localhost:5353/image/mu/${data.name}/7`}
                     loading="lazy"
                   />
-               
+
                 </a>
 
                 <br />
