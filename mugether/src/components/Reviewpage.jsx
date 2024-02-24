@@ -126,15 +126,6 @@ export default function ReviewPage({ Muplace_name }) {
   const [visibleReviews, setVisibleReviews] = useState(5);
 
 
-  // useEffect(() => {
-  //   axios.get(`http://localhost:5353/muplace/mudata/${Muplace_name}`)
-  //     .then((res) => {
-  //       Setdetail(res.data[0].review);
-  //     })
-  //     .catch((err) => alert(err));
-
-  // }, [addreview, Muplace_name]);
-
   useEffect(() => {
     axios.get(`http://localhost:5353/muplace/mudata/${Muplace_name}`)
       .then((res) => {
@@ -142,7 +133,7 @@ export default function ReviewPage({ Muplace_name }) {
       })
       .catch((err) => alert(err));
 
-  },);
+  }, [detail]);
 
   const check_finish = (isFinish) => {
     Setaddreview(isFinish)
@@ -160,7 +151,6 @@ export default function ReviewPage({ Muplace_name }) {
   }
 
 
-
   const write_review=()=>{  
 
     let user = localStorage.getItem('usr') 
@@ -175,11 +165,9 @@ export default function ReviewPage({ Muplace_name }) {
 
   const viewMore = () =>{
     setVisibleReviews(prev => prev + 5);
-    const reviewToShow = detail.slice(0, visibleReviews);
-    Setdetail(reviewToShow)
   };
 
-  
+  const reviewToShow = detail.slice(0, visibleReviews);
 
 //https://media.discordapp.net/attachments/1130047272508465273/1164158784046911498/image.png?ex=6542325b&is=652fbd5b&hm=34d3ee5ae415d18976b94fca7e67358183624112e20a65bfbfcb679cc5cede42&=&width=445&height=385
   return (
@@ -195,7 +183,7 @@ export default function ReviewPage({ Muplace_name }) {
       {addreview && <Add_Review check_finish={check_finish} Muplace_name={Muplace_name} />}
       <br />
 
-      {!addreview && detail.map((data, index) => {
+      {!addreview && reviewToShow.map((data, index) => {
         return (
           <div key={index} className="review-item">
             <img className="avatar" src={`http://localhost:5353/image/user/profile/${data.username}`} alt={data.username} />
@@ -211,7 +199,7 @@ export default function ReviewPage({ Muplace_name }) {
 
       {visibleReviews < detail.length &&(
         <div className='button-viewmore'>
-          <Button onClick={viewMore}>View More</Button>
+          <Button onClick={viewMore} style={{fontSize: '16px', fontWeight: 'bold'}}>View More</Button>
         </div>
       )}
 
