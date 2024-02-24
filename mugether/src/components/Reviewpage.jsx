@@ -123,7 +123,18 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
 export default function ReviewPage({ Muplace_name }) {
   const [detail, Setdetail] = useState([]);
   const [addreview, Setaddreview] = useState(false);
-  const [visibleReviews, setVisibleReviews] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
+  const reviewsPerPage = 5;
+  
+  const indexOfLastReview = currentPage * reviewsPerPage;
+  const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
+  const currentReviews = detail.slice(indexOfFirstReview, indexOfLastReview);
+  const totalReviews = detail.length;
+  const totalPages = Math.ceil(totalReviews / reviewsPerPage);
+  
+  const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
 
   useEffect(() => {
@@ -163,11 +174,21 @@ export default function ReviewPage({ Muplace_name }) {
    
   }
 
-  const viewMore = () =>{
-    setVisibleReviews(prev => prev + 5);
+  const renderPageNumbers = totalPages => {
+    let pages = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push(
+        <button
+          key={i}
+          className={`page-number ${currentPage === i ? "active" : ""}`}
+          onClick={() => handlePageClick(i)}
+        >
+          {i}
+        </button>
+      );
+    }
+    return pages;
   };
-
-  const reviewToShow = detail.slice(0, visibleReviews);
 
 //https://media.discordapp.net/attachments/1130047272508465273/1164158784046911498/image.png?ex=6542325b&is=652fbd5b&hm=34d3ee5ae415d18976b94fca7e67358183624112e20a65bfbfcb679cc5cede42&=&width=445&height=385
   return (
@@ -180,10 +201,11 @@ export default function ReviewPage({ Muplace_name }) {
         </div>
       </div>
 
-      {addreview && <Add_Review check_finish={check_finish} Muplace_name={Muplace_name} />}
-      <br />
-
-      {!addreview && reviewToShow.map((data, index) => {
+      {addreview ? (
+      <Add_Review check_finish={check_finish} Muplace_name={Muplace_name} />
+    ) : (
+      <>
+        {currentReviews.map((data, index) => {
         return (
           <div key={index} className="review-item">
             <img className="avatar" src={`http://localhost:5353/image/user/profile/${data.username}`} alt={data.username} />
@@ -192,16 +214,16 @@ export default function ReviewPage({ Muplace_name }) {
               <Rating className="rating" readOnly name='read-only' value={data.score} />
               <p className="review-text">{data.detail}</p>
             </div>
-
           </div>
         );
-      })}
+        })}
 
-      {visibleReviews < detail.length &&(
-        <div className='button-viewmore'>
-          <Button onClick={viewMore} style={{fontSize: '16px', fontWeight: 'bold'}}>View More</Button>
+        <div className="pagination-controls">
+          {renderPageNumbers(totalPages)}
         </div>
-      )}
+      </>
+    )} 
+
 
       {<div className='button-review'>
         <Button onClick={write_review}>

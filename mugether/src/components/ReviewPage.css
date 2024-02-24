@@ -51,10 +51,39 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  
+}
 
-  
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
-  
-.button-viewmore{
-  text-align: center;
+
+.pagination-controls button {
+  margin: 0 5px;
 }
+
+.pagination-controls button {
+  background-color: white;
+  color: black; 
+  border: 1px solid #ddd;
+  padding: 7px 16px; 
+  margin: 0 5px; 
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer; 
+  transition: background-color 0.2s; 
+  margin-bottom: 20px;
+}
+
+.pagination-controls button.active {
+  background-color: orange;
+  color: white;
+  border: none;
+}
+
+.pagination-controls button:not(.active):hover {
+  background-color: #f0f0f0; 
+}
+
