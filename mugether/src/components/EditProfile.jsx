@@ -7,7 +7,7 @@ import ReactCrop, { centerCrop, convertToPixelCrop } from 'react-image-crop'
 import 'react-image-crop/dist/ReactCrop.css'
 import './EditProfile.css'
 import { makeAspectCrop } from 'react-image-crop';
-import setCanvasPreview from './SetCanvasPreview';
+import setCanvasPreview from './setCanvasPreview';
 
 export default function EditProfile({ showedit, toggle }) {
   const [visible, setvisible] = useState(false);
