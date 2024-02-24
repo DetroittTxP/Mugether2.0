@@ -15,7 +15,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
 
 
   useEffect(() => {
-    // Get mu place here
+   
     axios
       .get("http://localhost:5353/muplace/mudata")
       .then((res) => Setlistofmu(res.data))
@@ -114,7 +114,9 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
 
                     onClick={() => {
                       SelectedMuplace(data.name);
+                      localStorage.setItem('showmap',data.name)
                       navigate("/mudetail");
+                      
                     }}
                     style={{ borderRadius: 20, cursor: 'pointer' }}
                     width={300}

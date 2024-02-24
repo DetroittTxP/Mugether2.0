@@ -101,7 +101,10 @@ export default function Header() {
     Setmuplace(newdata.map(data => ({
       key: data._id.toString(),
       label: (
-        <a onClick={() => localStorage.setItem('muplace', data.name)} href='/mudetail' style={{ textDecoration: 'none' }}>
+        <a onClick={() => {
+          localStorage.setItem('muplace', data.name)
+          localStorage.setItem('showmap',data.name)
+        }} href='/mudetail' style={{ textDecoration: 'none' }}>
           <h6>{data.name}</h6>
         </a>
       )
@@ -114,7 +117,7 @@ export default function Header() {
       <EditProfile showedit={showedit} toggle={toggle} />
       <Navbar bg="light" expand="lg" fixed="top" style={{ borderBottom: '2px solid #ccc', padding: '30px', zIndex: '100' }}>
         <Container>
-          <Navbar.Brand href="/">
+          <Navbar.Brand onClick={() => localStorage.removeItem('showmap')} href="/">
             <Image rounded src={Logo} height={80} width={100} style={{ borderRadius: '50%' }} />
           </Navbar.Brand>
           <div  >

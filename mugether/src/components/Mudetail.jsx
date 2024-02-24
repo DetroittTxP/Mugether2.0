@@ -6,6 +6,7 @@ import ShareButton from "./ShareButton";
 import "./Mudetail.css";
 import Nearby from "./Nearby";
 import List_guide from "./List_guide";
+import Map from "./map";
 import { FaStar } from "react-icons/fa";
 
 export default function Mudetail({showguide}) {
@@ -97,6 +98,12 @@ export default function Mudetail({showguide}) {
       <hr />
       <br /> */}
 
+      <Row>
+          <Col>
+              <Map Muplace_name={Muplace} showmap={true}/>
+          </Col>
+      </Row>
+
 
       <Row>
         <Col md={11} className="review-section">
@@ -106,7 +113,7 @@ export default function Mudetail({showguide}) {
       </Row>
      
       <br />
-      <Row>
+      <Row> 
         <Col md={11}>
           {!showguide&& <Nearby Muplace_name={Muplace} />}
         </Col>
