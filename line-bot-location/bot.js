@@ -11,6 +11,7 @@ const lineConfig = {
 }
 
 
+let food = ['หิวข้าว', 'กินข้าว','ร้านอาหาร','ร้านกับข้าว','ไปกินข้าว'];
 
 let status= '';
 
@@ -21,7 +22,11 @@ const Db_Client = new MongoClient(process.env.CONNECT_STRING)
 const Get_data =async (lat,long,status,event) =>{
     await Db_Client.connect();
 
+    let isStatusFound = food.some(item => item.includes(status));
+    if(isStatusFound)status = 'ร้านอาหาร'
     let str =lat + " " + long + " " + status
+
+ 
 
     return client.replyMessage(event.replyToken,{type:'text',text:str})
  
