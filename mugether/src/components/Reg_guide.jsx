@@ -79,15 +79,6 @@ export default function Reg_guide() {
     )
   }
 
-  const muplaceOptions = [];
-
-  for (let i = 10; i < 36; i++) {
-    muplaceOptions.push({
-      label: i.toString(36) + i,
-      value: i.toString(36) + i,
-    });
-  }
-
   return (
     <Container className="reguide-container">
       <Row className="justify-content-center align-items-center">
@@ -149,6 +140,7 @@ export default function Reg_guide() {
                     placeholder="Please select"
                     optionFilterProp="children"
                     onChange={(values) => {
+                      
                     setguidedata(prevState => ({
                         ...prevState,
                         mu_place: values,
@@ -158,8 +150,8 @@ export default function Reg_guide() {
                     option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                     }
                 >
-                    {muplace.map((mu_place) => (
-                    <Select.Option key={mu_place.value} value={mu_place.value}>
+                    {muplace.map((mu_place,i) => (
+                    <Select.Option key={i} value={mu_place.name}>
                         {mu_place.name}
                     </Select.Option>
                     ))}
