@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Reg_guide.css";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Select } from 'antd';
+import { Muplace_Context } from "../context/MuContext";
 
 export default function Reg_guide() {
   const navigate = useNavigate();
+  const { muplace } = useContext(Muplace_Context);
+
   const [guide, setguidedata] = useState(
     {
       firstName: "",
@@ -154,9 +158,9 @@ export default function Reg_guide() {
                     option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                     }
                 >
-                    {muplaceOptions.map((mu_place) => (
+                    {muplace.map((mu_place) => (
                     <Select.Option key={mu_place.value} value={mu_place.value}>
-                        {mu_place.label}
+                        {mu_place.name}
                     </Select.Option>
                     ))}
                 </Select>
