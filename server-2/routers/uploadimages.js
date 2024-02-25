@@ -103,6 +103,30 @@ upload_img.post('/guide/profile/:username',upload_guide_profile.single('profile_
 //upload mutiple image for guide
 
 
+const post_guide = multer.diskStorage({
+
+    destination:async (req,file,cb)=>{
+
+        let dir = await create_dir(req.params.username,"guide","detail_img");
+        cb(null,dir);
+    },
+    filename:(req,file,cb)=>{
+          cb(null,Date.now() + req.params.username + file.originalname);
+    }
+})
+
+const upload_post_guide = multer({storage:post_guide})
+
+
+upload_img.post('/guide/post/:username',upload_post_guide.array('posts-img',5),async(req,res) => {
+       console.log(req.files);
+       return res.send('ok')
+})
+
+
+
+
+
 
 
 
@@ -160,7 +184,10 @@ upload_img.get('/',(req,res) =>{
 
 
 
-module.exports = upload_img;
+module.exports = {
+    upload_img,
+    create_dir
+};
 
 
 

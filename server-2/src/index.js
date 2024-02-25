@@ -8,8 +8,9 @@ const nearby = require('../routers/nearby_places')
 const img = require('../routers/images')
 const usr = require('../routers/users')
 const guide = require('../routers/guide');
-const upload_img = require('../routers/uploadimages')
+const {upload_img} = require('../routers/uploadimages')
 const latlong = require('../routers/latlong');
+const verify_guide = require('../routers/verifyGuide')
 const app = express();
 
 
@@ -41,6 +42,9 @@ app.use('/upload-img', upload_img);
 
 //llatlong
 app.use('/latlong', latlong);
+
+//verify_guide
+app.use('/verify_guide', verify_guide)
 
 
 
