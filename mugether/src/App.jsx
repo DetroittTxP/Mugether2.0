@@ -10,6 +10,7 @@ import ShopV2 from './components/ShopV2'
 import Mudetail from './components/Mudetail'
 import Login from './components/Login'
 import Register from './components/Register'
+import Regguide from './components/Reg_guide'
 
 
 
@@ -67,6 +68,7 @@ export default function App() {
         <Route path='/mudetail' element={<Mudetail showguide={showguide} />} />
         <Route path='/login' element={<Login />}  />
         <Route path='/register' element={<Register />}  />
+        <Route path='/reg-guide' element={<Regguide />}  />
         
       </Routes>
       <div>

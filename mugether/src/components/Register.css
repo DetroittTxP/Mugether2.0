@@ -1,6 +1,6 @@
-.login-container {
+.register-container {
   width: 800px;
-  height: 500px;
+  height: 550px;
   padding: 20px;
   margin: 0 auto;
   border: 1px solid #ccc;
@@ -91,7 +91,7 @@
   color: orange;
 }
 
-.Login-form {
+.register-form {
   border-left: 1px solid black;
 }
 

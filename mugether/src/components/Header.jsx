@@ -42,6 +42,11 @@ export default function Header() {
           <TbEdit /> Edit Profile
         </a>
       </Menu.Item>
+      <Menu.Item key="reg-guide">
+        <a href='/reg-guide' style={{ textDecoration: 'none' }}>
+          <LiaUserAstronautSolid/> Register Guide
+        </a>
+      </Menu.Item>
       <Menu.Item key="logout">
         <a onClick={handleLogout} style={{ textDecoration: 'none' }}>
           <IoMdLogOut /> Log Out
@@ -62,12 +67,6 @@ export default function Header() {
         <a href='/register' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <FaUserEdit style={{ fontSize: '24px' }} />
           <span>REGISTER</span>
-        </a>
-      </Menu.Item>
-      <Menu.Item key="guide">
-        <a href='/guide' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-          <LiaUserAstronautSolid style={{ fontSize: '24px' }} />
-          <span>GUIDE</span>
         </a>
       </Menu.Item>
       <Menu.Item key="favorite">

@@ -129,7 +129,7 @@ const Register = () => {
     }
     return (
         <div>
-            <Container className="login-container">
+            <Container className="register-container">
                 <Row className="justify-content-center align-items-center">
                     <Col md={6} className="InfoMu">
                         <h1>Mugether</h1>
@@ -147,7 +147,7 @@ const Register = () => {
                             className="custom-img"
                         ></img>
                     </Col>
-                    <Col md={6} className="Login-form">
+                    <Col md={6} className="register-form">
                         <p className="new-user2">
                             Already have account?
                             <Link to="/login" className="new-user3">
