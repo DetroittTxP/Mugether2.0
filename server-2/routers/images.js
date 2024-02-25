@@ -57,7 +57,7 @@ img.get('/user/profile/:username',async(req,res) => {
         const {profile_pic} = userdata;
         let dir_ = path.dirname(__dirname);
         
-        console.log(userdata);
+     
 
         let imagesFile = path.join(dir_,"assets","user",profile_pic);
         
@@ -66,6 +66,8 @@ img.get('/user/profile/:username',async(req,res) => {
             imagesFile = path.join(dir_,"assets","user",username,"profile_pic",profile_pic);
 
             
+            
+
             fs.readdir(path.join(dir_,"assets","user",username,"profile_pic"),
             (err,file) => {
                 file.forEach((img) => {
@@ -81,6 +83,7 @@ img.get('/user/profile/:username',async(req,res) => {
                 })
             })
         }
+
         
         return res.sendFile(imagesFile)
     }
