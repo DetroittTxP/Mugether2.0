@@ -44,12 +44,13 @@ verify_g.post('/img/:id',upload_verify_guide.single('img-guide'),async(req,res) 
 
 //get_guide INFO
 verify_g.post('/info', async (req,res) => {
-     const {firstname,lastname,id_card,id_guide,mu_place} = req.body;
-     
+     const {firstName,lastName,id_card,id_guide,mu_place} = req.body.guide;
+    
     try{
+   
         let insert = await db_verfiy_guide.create({
-            firstname:firstname,
-            lastname:lastname,
+            firstname:firstName,
+            lastname:lastName,
             id_card:id_card,
             id_guide:id_guide,
             mu_place:mu_place

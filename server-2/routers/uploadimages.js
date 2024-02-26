@@ -101,8 +101,6 @@ upload_img.post('/guide/profile/:username',upload_guide_profile.single('profile_
 
 
 //upload mutiple image for guide
-
-
 const post_guide = multer.diskStorage({
 
     destination:async (req,file,cb)=>{
@@ -117,19 +115,10 @@ const post_guide = multer.diskStorage({
 
 const upload_post_guide = multer({storage:post_guide})
 
-
 upload_img.post('/guide/post/:username',upload_post_guide.array('posts-img',5),async(req,res) => {
        console.log(req.files);
-       return res.send('ok')
+       return res.send({status:'ok',msg:'image uploaded'})
 })
-
-
-
-
-
-
-
-
 
 
 //upload verify_guide
@@ -180,7 +169,6 @@ upload_img.post('/guide/verify/:username',upload_guide_verify.single('verify_img
 upload_img.get('/',(req,res) =>{
     res.send('ok kub upload')
 })
-
 
 
 

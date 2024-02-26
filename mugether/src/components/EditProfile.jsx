@@ -59,7 +59,6 @@ export default function EditProfile({ showedit, toggle }) {
     }
 
 
-
   }
 
 
