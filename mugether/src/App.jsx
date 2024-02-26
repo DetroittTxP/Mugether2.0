@@ -32,6 +32,7 @@ const Checktimeout=(timeout,onLogout)=>{
 
     useEffect(() => {
       window.addEventListener('mousemove', resetTime);
+      window.addEventListener('mousemove', resetTime);
       window.addEventListener('keydown', resetTime);
 
       resetTime();
@@ -58,7 +59,7 @@ export default function App() {
 
 
 
-  Checktimeout(3000,() => {
+  Checktimeout(1800000,() => {
     if (!logoutAlertShown) {
       Swal.fire({
         text: 'User logged out due to inactivity',
@@ -67,9 +68,6 @@ export default function App() {
       setLogoutAlertShown(true); // Ensure the alert is only shown once
     }
   });
-
-
-
 
 
 

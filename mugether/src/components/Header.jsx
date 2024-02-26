@@ -114,7 +114,7 @@ export default function Header() {
   return (
     <div>
       <EditProfile showedit={showedit} toggle={toggle} />
-      <Navbar bg="light" expand="lg" fixed="top" style={{ borderBottom: '2px solid #ccc', padding: '30px', zIndex: '100' }}>
+      <Navbar   bg="light" expand="lg" fixed="top" style={{ borderBottom: '2px solid #ccc', padding: '30px', zIndex: '50' }}>
         <Container>
           <Navbar.Brand onClick={() => localStorage.removeItem('showmap')} href="/">
             <Image rounded src={Logo} height={80} width={100} style={{ borderRadius: '50%' }} />

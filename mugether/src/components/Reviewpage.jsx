@@ -190,16 +190,21 @@ export default function ReviewPage({ Muplace_name }) {
     return pages;
   };
 
+
+  let Reviewd = (
+    <div style={{ display: 'flex', alignItems: 'center', fontSize: '1rem' }}>
+    <div style={{ display: 'flex', alignItems: 'baseline' }}>
+      <span style={{ color: '#faaf00', fontSize: '40px' }}>★</span>
+      <span style={{ margin: '0 0.5rem', fontSize: '30px' }}>{sumreview().toFixed(2)} • {detail.length} Reviews</span>
+    </div>
+  </div>
+  )
+
 //https://media.discordapp.net/attachments/1130047272508465273/1164158784046911498/image.png?ex=6542325b&is=652fbd5b&hm=34d3ee5ae415d18976b94fca7e67358183624112e20a65bfbfcb679cc5cede42&=&width=445&height=385
   return (
     <div className="review-container">
       <h2 style={{fontWeight: 'bold'}}>Review</h2>
-      <div style={{ display: 'flex', alignItems: 'center', fontSize: '1rem' }}>
-        <div style={{ display: 'flex', alignItems: 'baseline' }}>
-          <span style={{ color: '#faaf00', fontSize: '40px' }}>★</span>
-          <span style={{ margin: '0 0.5rem', fontSize: '30px' }}>{sumreview().toFixed(2)} • {detail.length} Reviews</span>
-        </div>
-      </div>
+      {detail.length === 0 ? <h2>No review</h2> :  Reviewd}
 
       {addreview ? (
       <Add_Review check_finish={check_finish} Muplace_name={Muplace_name} />
