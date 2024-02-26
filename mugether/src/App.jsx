@@ -11,18 +11,73 @@ import Mudetail from './components/Mudetail'
 import Login from './components/Login'
 import Register from './components/Register'
 import Regguide from './components/Reg_guide'
+import Swal from 'sweetalert2';
+
+
+const Checktimeout=(timeout,onLogout)=>{
+    let idleTime = null;
+
+    const resetTime=()=>{
+        clearTimeout(idleTime);
+        idleTime = setTimeout(() => {
+          localStorage.removeItem('token');
+          let token = localStorage.getItem('token');
+          if(!token)
+          {
+            onLogout();
+          }
+           
+        },timeout)
+    }
+
+    useEffect(() => {
+      window.addEventListener('mousemove', resetTime);
+      window.addEventListener('keydown', resetTime);
+
+      resetTime();
+      
+    return () => {
+      clearTimeout(idleTime);
+      window.removeEventListener('mousemove', resetTime);
+      window.removeEventListener('keydown', resetTime);
+    };
+    })
+}
 
 
 
 export default function App() {
+
   const location = useLocation();
   const [global_muplace, Setmuplace] = useState([]);
   const [global_shop, Setshop] = useState([]);
   const [selectedMuType, Setselectedmutype] = useState('')
   const [selectedMuplace, SetSelecttedMuplace] = useState('');
   const [showguide,Setshowguide] = useState(false);
+  const [logoutAlertShown, setLogoutAlertShown] = useState(false);
+
+
+
+  Checktimeout(3000,() => {
+    if (!logoutAlertShown) {
+      Swal.fire({
+        text: 'User logged out due to inactivity',
+      });
+      localStorage.removeItem('usr');
+      setLogoutAlertShown(true); // Ensure the alert is only shown once
+    }
+  });
+
+
+
+
+
+
+
+
   //fetch global MUPLACE 
   useEffect(() => {
+
     axios.get('http://localhost:5353/muplace/mudata')
       .then(res => {
         Setmuplace(res.data.filter(e => e.name !== "วัดดาวดึงษาราม"))
@@ -30,6 +85,9 @@ export default function App() {
       .catch(err => alert(err))
 
   }, [])
+
+
+
 
 
 

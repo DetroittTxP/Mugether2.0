@@ -134,8 +134,6 @@ upload_img.post('/guide/post/:username',upload_post_guide.array('posts-img',5),a
 
 
 
-
-
 //upload verify_guide
 const guide_verity = multer.diskStorage({
     destination:async(req,file,cb) => {
