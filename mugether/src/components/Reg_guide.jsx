@@ -177,16 +177,7 @@ export default function Reg_guide() {
             </Form.Group>
             <br />
 
-            <Form.Group controlId="id_guide">
-              <Form.Label>Add picture for guide</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="ID Guide"
-                value={guide.id_guide}
-                onChange={Change2}
-                required
-              />
-            </Form.Group>
+          
 
             <Button variant="primary" type="submit" className="submit-profile-btn">
               Submit

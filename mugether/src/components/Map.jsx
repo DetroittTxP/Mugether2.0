@@ -6,6 +6,7 @@ import { MdOutlineTempleBuddhist } from "react-icons/md";
 import { IoRestaurant } from "react-icons/io5";
 import { RiHotelBedFill } from "react-icons/ri";
 import { MdOutlineTravelExplore } from "react-icons/md";
+import MarkerClusterGroup from "react-leaflet-cluster";
 
 import './Map.css'
 import { DivIcon, Icon } from 'leaflet'
@@ -57,6 +58,7 @@ export default function Map() {
 
   return (
     <div>
+      <h1>Map</h1>
       {showmap &&
         <MapContainer center={markers.muplace_latlong.location} zoom={13} scrollWheelZoom={false}>
           <TileLayer
@@ -68,34 +70,39 @@ export default function Map() {
             <Popup>{markers.muplace_latlong.name}</Popup>
           </Marker>
 
-          {markers.hotel_latlong.map((data, index) => (
-            <Marker key={index + 100} icon={hotelIcon} position={data.location}>
-              <Popup>
-                <p>{data.name}</p>
-                <p>ระยะทางจากที่มู {data.distance_to_mu}</p>
-              </Popup>
-            </Marker>
-          ))}
+          <MarkerClusterGroup>
+            {markers.hotel_latlong.map((data, index) => (
+              <Marker key={index + 100} icon={hotelIcon} position={data.location}>
+                <Popup>
+                  <p>{data.name}</p>
+                  <p>ระยะทางจากที่มู {data.distance_to_mu}</p>
+                </Popup>
+              </Marker>
+            ))}
+          </MarkerClusterGroup>
 
 
+          <MarkerClusterGroup>
+            {markers.food_latlong.map((data, index) => (
+              <Marker key={index} icon={foodIcon} position={data.location}>
+                <Popup>
+                  <p>{data.name}</p>
+                  <p>ระยะทางจากที่มู {data.distance_to_mu}</p>
+                </Popup>
+              </Marker>
+            ))}
+          </MarkerClusterGroup>
 
-          {markers.food_latlong.map((data, index) => (
-            <Marker key={index} icon={foodIcon} position={data.location}>
-              <Popup>
-                <p>{data.name}</p>
-                <p>ระยะทางจากที่มู {data.distance_to_mu}</p>
-              </Popup>
-            </Marker>
-          ))}
-
-          {markers.travel_latlong.map((data, index) => (
-            <Marker key={index + 1000} icon={travelIcon} position={data.location}>
-              <Popup>
-                <p>{data.name}</p>
-                <p>ระยะทางจากที่มู {data.distance_to_mu}</p>
-              </Popup>
-            </Marker>
-          ))}
+          <MarkerClusterGroup>
+            {markers.travel_latlong.map((data, index) => (
+              <Marker key={index + 1000} icon={travelIcon} position={data.location}>
+                <Popup>
+                  <p>{data.name}</p>
+                  <p>ระยะทางจากที่มู {data.distance_to_mu}</p>
+                </Popup>
+              </Marker>
+            ))}
+          </MarkerClusterGroup>
 
         </MapContainer>
       }

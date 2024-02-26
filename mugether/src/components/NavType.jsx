@@ -97,6 +97,7 @@ export default function NavType({SelectedTypeMu,show_guide}) {
 
   return (
     <div>
+      <br/>
         <Nav
         className='justify-content-center'
         variant="underline"

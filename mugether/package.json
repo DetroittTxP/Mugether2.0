@@ -35,6 +35,7 @@
     "react-icons": "^4.11.0",
     "react-image-crop": "^11.0.5",
     "react-leaflet": "^4.2.1",
+    "react-leaflet-cluster": "^2.1.0",
     "react-modal-image": "^2.6.0",
     "react-multi-carousel": "^2.8.4",
     "react-rating-stars-component": "^2.2.0",

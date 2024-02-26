@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Container, Nav, Navbar, Form,Modal ,Image} from 'react-bootstrap'
 import { Button, Dropdown, Menu } from 'antd';
-import Logo from '../assets/MuLOGO.png'
+import Logo from '../assets/LogoMugether.png'
 import { LuLogIn } from "react-icons/lu";
 import { Muplace_Context } from '../context/MuContext';
 import Swal from 'sweetalert2'
@@ -117,9 +117,9 @@ export default function Header() {
       <Navbar   bg="light" expand="lg" fixed="top" style={{ borderBottom: '2px solid #ccc', padding: '30px', zIndex: '50' }}>
         <Container>
           <Navbar.Brand onClick={() => localStorage.removeItem('showmap')} href="/">
-            <Image rounded src={Logo} height={80} width={100} style={{ borderRadius: '50%' }} />
+            <Image rounded src={Logo} height={100} width={100} style={{ borderRadius: '50%' }} />
           </Navbar.Brand>
-          <div  >
+          <div>
             <Dropdown menu={{ items: Muplace, }}>
               <Nav  >
                 <Form.Control onChange={onChange} type="text" placeholder="ค้นหาสถานที่มู..." style={{ width: 600 }} />
