@@ -25,6 +25,7 @@ export default function Header() {
   const handleLogout = async () => {
     localStorage.removeItem('usr');
     localStorage.removeItem('token')
+    localStorage.removeItem('usr_id')
     await Swal.fire('logout ok')
     navigate('/')
   }

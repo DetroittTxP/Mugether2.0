@@ -46,11 +46,11 @@ import './List_guide.css';
 import Guide_detail from './Guide_detail';
 
 import { Accordion, AccordionDetails,  AccordionSummary } from '@mui/material'
+import Add_post from './Add_post';
 
 export default function ListGuide  ()  {
     const [guidedata, setGuideData] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    const [selectedFiles, setSelectedFiles] = useState([]);
 
     useEffect(() => {
         axios.get(`http://localhost:5353/guide/list-guide/${localStorage.getItem('muplace')}`)
@@ -58,14 +58,6 @@ export default function ListGuide  ()  {
             .catch(err => alert(err));
     }, []);
 
-    const SelectPicture = (event) => {
-        if (event.target.files.length > 5) {
-          alert("You can only upload a maximum of 5 images.");
-          event.target.value = null; // Reset the file input
-        } else {
-          setSelectedFiles(event.target.files);
-        }
-      };
 
 
     return (
@@ -88,16 +80,7 @@ export default function ListGuide  ()  {
                         <Modal.Title>Add Post</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <Form>
-                            <Form.Group controlId="postContent">
-                                <Form.Label>รายละเอียดกิจกรรม</Form.Label>
-                                <Form.Control as="textarea" rows={3} />
-                            </Form.Group>
-                            <Form.Group controlId="formFile" className="mb-3">
-                                <Form.Label>เพิ่มรูปภาพของคุณ (ไม่เกิน 5 รูป)</Form.Label>
-                                <Form.Control type="file" multiple onChange={SelectPicture} />
-                            </Form.Group>
-                        </Form>
+                        <Add_post/>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={() => setShowModal(false)}>Close</Button>

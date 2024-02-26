@@ -24,7 +24,7 @@ export default function Reg_guide() {
     }
   )
 
-  const [image,setImage] = useState(null);
+   const [image,setImage] = useState(null);
 
   
   const handleSubmit = async (e) => {

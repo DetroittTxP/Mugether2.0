@@ -25,9 +25,10 @@ usr.post('/login', async (req,res) => {
         bcrypt.compare(password, user_data[0].password, (err, result) => {
              if(result)
              {
-                let token = jwt.sign({ username:username }, process.env.SECRET_KEY,{expiresIn:3});
+                let token = jwt.sign({ username:username }, process.env.SECRET_KEY,)
                 return res.send({
                     status:"success",
+                    usr_id:user_data[0]._id,
                     token:token
                 });
              }
@@ -64,6 +65,7 @@ usr.post('/verify',(req,res) => {
           return res.send({
             status:'success',
             result,
+            userID:req.body.usr_id,
             token:token
           })
       });

@@ -105,7 +105,7 @@ const post_guide = multer.diskStorage({
 
     destination:async (req,file,cb)=>{
         try{
-            let dir = await create_dir(req.params.username,"guide","detail_img");
+            let dir = await create_dir(req.params.id,"guide","detail_img");
             cb(null,dir);
         }
         catch(err){
@@ -115,7 +115,7 @@ const post_guide = multer.diskStorage({
     },
     filename:(req,file,cb)=>{
           try{
-            cb(null,Date.now() + req.params.username +file.originalname);
+            cb(null,Date.now() + req.params.id +file.originalname);
           }
           catch(err){
             console.log(err);
@@ -124,12 +124,21 @@ const post_guide = multer.diskStorage({
     }
 })
 
-
 const upload_post_guide = multer({storage:post_guide})
 
-upload_img.post('/guide/post/:username',upload_post_guide.array('posts-img',5),async(req,res) => {
-       console.log(req.files);
-       return res.send({status:'ok',msg:'image uploaded'})
+upload_img.post('/guide/post/:id',upload_post_guide.array('posts-img',5),async(req,res) => {
+     
+       //update image to database
+    try{
+        const photos = req.files.map(file => file.filename);
+        console.log(photos);
+        return res.send({status:'ok',msg:'image uploaded',photos:photos})
+    }
+    catch(err){
+        return res.send({status:'error',err})
+    }
+       
+     
 })
 
 

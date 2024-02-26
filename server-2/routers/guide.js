@@ -120,16 +120,6 @@ guide.get('/detail-guide/:username', async (req,res) => {
 
 
 
-//add_post guide
-guide.post('/add-post/',(req,res) => {
-
-    
-
-
-    return res.send('ok post guide')
-})
-//review_guiide
-
 
 
 //id_Card and id_guide
