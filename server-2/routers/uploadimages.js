@@ -104,15 +104,26 @@ upload_img.post('/guide/profile/:username',upload_guide_profile.single('profile_
 const post_guide = multer.diskStorage({
 
     destination:async (req,file,cb)=>{
-
-        let dir = await create_dir(req.params.username,"guide","detail_img");
-        cb(null,dir);
+        try{
+            let dir = await create_dir(req.params.username,"guide","detail_img");
+            cb(null,dir);
+        }
+        catch(err){
+            console.log(err);
+            return;
+        }
     },
     filename:(req,file,cb)=>{
-          
-          cb(null,Date.now() + req.params.username +file.originalname);
+          try{
+            cb(null,Date.now() + req.params.username +file.originalname);
+          }
+          catch(err){
+            console.log(err);
+            return;
+          }
     }
 })
+
 
 const upload_post_guide = multer({storage:post_guide})
 
