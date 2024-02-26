@@ -65,12 +65,13 @@ img.get('/user/profile/:username',async(req,res) => {
         {
             imagesFile = path.join(dir_,"assets","user",username,"profile_pic",profile_pic);
 
-            
-            
-
             fs.readdir(path.join(dir_,"assets","user",username,"profile_pic"),
             (err,file) => {
-                file.forEach((img) => {
+                if(err)
+                {
+                    console.log(err);
+                }
+                file.forEach((img) => { 
                     if(img !== profile_pic)
                     {
                         let deletefile = path.join(dir_,"assets","user",username,"profile_pic",img)

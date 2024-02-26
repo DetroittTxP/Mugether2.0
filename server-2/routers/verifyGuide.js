@@ -37,7 +37,7 @@ verify_g.post('/img/:id',upload_verify_guide.single('img-guide'),async(req,res) 
     {
         return res.send({status:'error',msg:err})
     }
-   
+
 })
 
 

@@ -100,7 +100,7 @@ export default function Mudetail({showguide}) {
 
       <Row>
           <Col>
-              <Map Muplace_name={Muplace} showmap={true}/>
+             { !showguide&&   <Map Muplace_name={Muplace} showmap={true}/>}
           </Col>
       </Row>
 

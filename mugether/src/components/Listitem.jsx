@@ -116,6 +116,15 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
                       SelectedMuplace(data.name);
                       localStorage.setItem('showmap',data.name)
                       navigate("/mudetail");
+                      Swal.fire({
+                        title: 'Loading...',
+                        html: 'Please wait',
+                        timer:1800,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                          Swal.showLoading();
+                        },
+                      })
                       
                     }}
                     style={{ borderRadius: 20, cursor: 'pointer' }}

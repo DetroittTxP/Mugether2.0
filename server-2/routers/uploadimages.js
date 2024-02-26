@@ -109,7 +109,8 @@ const post_guide = multer.diskStorage({
         cb(null,dir);
     },
     filename:(req,file,cb)=>{
-          cb(null,Date.now() + req.params.username + file.originalname);
+          
+          cb(null,Date.now() + req.params.username +file.originalname);
     }
 })
 
@@ -119,6 +120,9 @@ upload_img.post('/guide/post/:username',upload_post_guide.array('posts-img',5),a
        console.log(req.files);
        return res.send({status:'ok',msg:'image uploaded'})
 })
+
+
+
 
 
 //upload verify_guide
