@@ -10,7 +10,42 @@ Shop.get('/',(req,res) => {
 
 
 
-//add_shop_item
+
+//add_profile_image_shop
+const add_profile_image_shop = multer.diskStorage({
+    destination:async(req,file,cb)=>{
+
+          let dir =  await create_dir(req.params.shop_id,"shop","profile_img");
+          cb(null,dir)
+    },
+    filename:(req,file,cb)=>{
+        cb(null,Date.now() + req.params.shop_id+file.originalname);
+    }
+})
+
+const upload_shop_profile = multer({storage:add_profile_image_shop})
+
+
+Shop.post('/add_profile_img_shop/:shop_id',upload_shop_profile.single('shop-profile'), async (req,res) => {
+    try{
+        let Add_profile_img = await db_shop.findByIdAndUpdate(
+            {_id:req.params.shop_id},
+            {profile_shop_pic:req.file.filename}
+        )
+
+        return res.send({status:'ok',Add_profile_img});
+    }
+    catch(err){
+        return res.send({status:'error',err})
+    }
+ 
+})
+
+
+
+
+
+//add_shop_item_image
 
 const add_item_img = multer.diskStorage({
     destination: async (req,file,cb)=>{
@@ -51,6 +86,25 @@ Shop.get('/post_img/:shop_id/:image_name', async (req,res) => {
         return res.send(err)
      }
 })
+
+
+//get image profile shop
+Shop.get('/profile_img/:shop_id/:image_name',(req,res) => {
+    const shop_id = req.params.shop_id;
+    const image_name = req.params.image_name;
+
+    try{
+        let dir_ = path.dirname(__dirname);
+        let imageFile = path.join(dir_,"assets","shop",shop_id,"profile_img",image_name)
+        res.sendFile(imageFile)
+
+   }
+   catch(err){
+      return res.send(err)
+   }
+})
+
+
 
 
 
