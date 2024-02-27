@@ -3,6 +3,7 @@ const db_shop = require('../model/Shop-Model');
 const multer = require('multer');
 const {create_dir} =require('../routers/uploadimages')
 const path = require('path')
+const usr = require('../model/User-model') 
 
 Shop.get('/',(req,res) => {
     return res.send('ok shop')
@@ -135,6 +136,18 @@ Shop.post('/create-shop', async (req,res) => {
     } = req.body;
 
     try{
+
+        let check_user = await usr.findOne({_id:id_user});
+
+        if(!check_user)
+        {
+            return res.send('something went wrong');
+        }
+
+           await usr.findByIdAndUpdate(
+            {_id:id_user},
+            {shop:true}
+            )
 
         let create_shop = await db_shop.create({
             id_user:id_user,
