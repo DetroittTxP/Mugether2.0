@@ -11,6 +11,7 @@ import Mudetail from './components/Mudetail'
 import Login from './components/Login'
 import Register from './components/Register'
 import Regguide from './components/Reg_guide'
+import Shopdetail from './components/Shopdetail'
 import Swal from 'sweetalert2';
 
 
@@ -128,6 +129,7 @@ export default function App() {
         <Route path='/login' element={<Login />}  />
         <Route path='/register' element={<Register />}  />
         <Route path='/reg-guide' element={<Regguide />}  />
+        <Route path='/shopdetail' element={<Shopdetail />}  />
         
       </Routes>
       <div>

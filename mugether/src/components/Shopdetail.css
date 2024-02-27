@@ -1,0 +1,64 @@
+/* If you want to control the entire carousel's size */
+.carousel {
+    width: 400px;
+    height: 400px; /* Adjust based on your needs */
+    overflow: hidden;
+    margin-left: 200px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%); /* This inverts the colors, making white into black */
+}
+
+.Container {
+    max-width: 1200px;
+    margin: auto;
+}
+  
+.description-box {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+  
+.description-box .price {
+    color: #ff0000;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+  
+.additional-details {
+    padding: 20px;
+    margin-top: 20px;
+}
+  
+@media (max-width: 767px) {
+    .description-box, .additional-details {
+      margin-top: 15px;
+    }
+}
+.reviewshop,
+.description2{
+    border: none;
+    border-radius: 2px;
+    background-color: #F1F8FB;
+}
+
+.description3{
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 500px;
+    height: 200px;
+    margin: auto;
+    padding-top: 20px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+.Buttom-shop{
+    margin-left: 250px;
+    color: white;
+    background-color: orange;
+}

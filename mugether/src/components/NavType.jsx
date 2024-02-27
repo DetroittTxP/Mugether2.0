@@ -59,7 +59,7 @@ export default function NavType({SelectedTypeMu,show_guide}) {
     {
       type: 'รับจ้างมู',
       icon: 'https://cdn-icons-png.flaticon.com/128/1584/1584911.png',
-      path: '/rubjark'
+      path: '/rubjark',
       // fn: () => {
       //   show_guide(showguide);
       //   if(showguide && guideRef.current){
@@ -72,7 +72,7 @@ export default function NavType({SelectedTypeMu,show_guide}) {
     {
       type: 'ร้านค้า',
       icon: 'https://cdn-icons-png.flaticon.com/128/1584/1584911.png',
-      path: '/shop'
+      path: '/shop',
       // fn: () => {
       //   show_guide(showguide);
       //   if(showguide && guideRef.current){
@@ -81,7 +81,7 @@ export default function NavType({SelectedTypeMu,show_guide}) {
       //     });
       //   }
       // }
-    },
+    }
   ]
   
   let type1= () => {

@@ -15,7 +15,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
 
 
   useEffect(() => {
-   
+  
     axios
       .get("http://localhost:5353/muplace/mudata")
       .then((res) => Setlistofmu(res.data))
