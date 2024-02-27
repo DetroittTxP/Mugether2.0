@@ -56,7 +56,8 @@ export default function App() {
   const [selectedMuplace, SetSelecttedMuplace] = useState('');
   const [showguide,Setshowguide] = useState(false);
   const [logoutAlertShown, setLogoutAlertShown] = useState(false);
-
+  const guideStatus = JSON.parse(localStorage.getItem('guide'));
+  const shopStatus = JSON.parse(localStorage.getItem('shop'));
 
 
   Checktimeout(1800000,() => {
@@ -70,9 +71,6 @@ export default function App() {
   });
 
 
-
-
-
   //fetch global MUPLACE 
   useEffect(() => {
 
@@ -84,8 +82,13 @@ export default function App() {
 
   }, [])
 
-
-
+  
+  const data_context = {
+     muplace:global_muplace,
+     per_muplace:selectedMuplace,
+     guideStatus:guideStatus,
+     shopStatus:shopStatus
+  }
 
 
 
@@ -104,7 +107,7 @@ export default function App() {
 
 
   return (
-    <Muplace_Context.Provider value={{ muplace: global_muplace, per_muplace: selectedMuplace }} >
+    <Muplace_Context.Provider value={data_context} >
       <Header />
       <br />
       <br />

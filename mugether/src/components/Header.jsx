@@ -21,6 +21,11 @@ export default function Header() {
   const navigate = useNavigate();
   const [showedit,Setshowedit] = useState(false);
 
+  
+  const { muplace,guideStatus,shopStatus } = useContext(Muplace_Context)
+  const [Muplace, Setmuplace] = useState([])
+  
+
 
   const handleLogout = async () => {
     localStorage.removeItem('usr');
@@ -35,7 +40,11 @@ export default function Header() {
       <Menu.Item key="profile">
         <div>
           <Image roundedCircle width={50} height={50} src={`http://localhost:5353/image/user/profile/${usr_data}`} />
-          <span style={{ marginLeft: 10 }}>{usr_data}</span>
+          <span style={{ marginLeft: 10 }}>
+              {usr_data} <br/>
+              {guideStatus ? <p>(Guide)</p> : null}
+              {shopStatus ? <p>(Shop)</p> : null}
+          </span>
         </div>
       </Menu.Item>
       <Menu.Item key="edit">
@@ -90,9 +99,6 @@ export default function Header() {
      Setshowedit(status)
   }
   
-
-  const { muplace } = useContext(Muplace_Context)
-  const [Muplace, Setmuplace] = useState([])
 
   
   const onChange = (e) => {

@@ -12,6 +12,8 @@ const {upload_img} = require('../routers/uploadimages')
 const latlong = require('../routers/latlong');
 const verify_guide = require('../routers/verifyGuide')
 const Guide_detail = require('../routers/Guides_detail');
+const Shop = require('../routers/Shop');
+
 const app = express();
 
 
@@ -52,8 +54,8 @@ app.use('/verify_guide', verify_guide)
 //Guide_detail
 app.use('/guide_detail', Guide_detail)
 
-
-
+//Shop
+app.use('/shop', Shop)
 
 
 

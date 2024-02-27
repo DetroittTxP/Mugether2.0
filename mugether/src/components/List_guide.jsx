@@ -1,45 +1,7 @@
-// import React, { useEffect, useState } from 'react'
-// import axios from 'axios'
-// export default function List_guide() {
-
-//     const [guidedata, Setguidedata] = useState([]);
-
-//     useEffect(() => {
-//         axios.get('http://localhost:5353/guide/list-guide')
-//             .then(res => Setguidedata(res.data))
-//             .catch(err => alert(err))
-//     }, [])
-
-//     return (
-//         <div>
-//             <h2 style={{ textDecoration: 'underline' }}>CHOOSE YOUR GUIDE</h2>
 
 
 
-//             <div style={{ display: 'grid', gridTemplateRows: 'repeat(6, auto)', gridTemplateColumns: 'repeat(6, auto)', gap: '25px', justifyContent: 'center' }}>
-//                 {guidedata.map((data, index) => (
-//                     <div key={index} style={{ textAlign: 'center' }}>
-//                         <img src={`http://localhost:5353/image/guide/profile/${data.username}/${data.profile_pic}`} height={100} width={100} alt={`Profile of ${data.username}`} />
-//                         <br />
-//                         <div>
-//                             <b>นาย {data.firstname} {data.lastname}</b>
-//                             {/* <b>{data.username}</b> */}
-//                             <br />
-//                             <button type="button" className="btn btn-warning" style={{ color: 'white' }} >เลือก</button>
-//                             <br /><br />
-//                         </div>
-//                     </div>
-//                 ))}
-//             </div>
-
-//             {/* WAIT FOR CSS */}
-
-//         </div>
-//     )
-// }
-
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Button,Image, Modal, Form} from 'react-bootstrap';
 import './List_guide.css';
@@ -47,18 +9,20 @@ import Guide_detail from './Guide_detail';
 
 import { Accordion, AccordionDetails,  AccordionSummary } from '@mui/material'
 import Add_post from './Add_post';
+import { Muplace_Context } from '../context/MuContext';
 
 export default function ListGuide  ()  {
     const [guidedata, setGuideData] = useState([]);
     const [showModal, setShowModal] = useState(false);
-
+    const {guideStatus} = useContext(Muplace_Context)
+    console.log(guideStatus);
     useEffect(() => {
         axios.get(`http://localhost:5353/guide/list-guide/${localStorage.getItem('muplace')}`)
             .then(res => setGuideData(res.data))
             .catch(err => alert(err));
     }, []);
 
-
+    
 
     return (
         <div>
@@ -75,19 +39,19 @@ export default function ListGuide  ()  {
                 </Row>
                 <br/>
 
-                <Modal show={showModal} onHide={() => setShowModal(false)}>
+            { guideStatus &&    <Modal show={showModal} onHide={() => setShowModal(false)}>
                     <Modal.Header closeButton>
                         <Modal.Title>Add Post</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <Add_post/>
+                    <Add_post/>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={() => setShowModal(false)}>Close</Button>
                         <Button variant="primary">Post</Button>
                     </Modal.Footer>
                 </Modal>
-
+}
                 {guidedata.map((data) => (
                     <Accordion onChange={() => Setusername_guide(data.username)}>
                         <AccordionSummary

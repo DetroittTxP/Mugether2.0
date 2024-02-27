@@ -29,6 +29,8 @@ usr.post('/login', async (req,res) => {
                 return res.send({
                     status:"success",
                     usr_id:user_data[0]._id,
+                    guide:user_data[0].guide,
+                    shop:user_data[0].shop,
                     token:token
                 });
              }
@@ -66,6 +68,8 @@ usr.post('/verify',(req,res) => {
             status:'success',
             result,
             userID:req.body.usr_id,
+            guide:req.body.guide,
+            shop:req.body.shop,
             token:token
           })
       });

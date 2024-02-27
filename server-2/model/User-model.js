@@ -26,7 +26,9 @@ const user_model = mongoose.Schema({
     profile_pic:{
         type:String,
         default:'profile_temp.png'
-    }
+    },
+    guide:Boolean,
+    shop:Boolean,
 })
 
 

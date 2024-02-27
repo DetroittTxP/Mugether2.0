@@ -35,7 +35,11 @@ export default function Login() {
       console.log(res.data.usr_id);
 
       //verify token
-      let verify_token = await axios.post('http://localhost:5353/user/verify', {usr_id:res.data.usr_id}, {
+      let verify_token = await axios.post('http://localhost:5353/user/verify', {
+        usr_id:res.data.usr_id,
+        guide:res.data.guide,
+        shop:res.data.shop
+      }, {
         headers: {
           Authorization: `Bearer ${res.data.token}`
         }
@@ -48,6 +52,8 @@ export default function Login() {
       localStorage.setItem("usr", verify_token.data.result.username);
       localStorage.setItem("token", verify_token.data.token);
       localStorage.setItem('usr_id', verify_token.data.userID);
+      localStorage.setItem('guide',verify_token.data.guide);
+      localStorage.setItem('shop',verify_token.data.shop);
 
       await Swal.fire({
         icon: 'success',
