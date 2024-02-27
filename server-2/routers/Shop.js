@@ -2,13 +2,15 @@ const Shop = require('express').Router();
 const db_shop = require('../model/Shop-Model');
 const multer = require('multer');
 const {create_dir} =require('../routers/uploadimages')
-
+const path = require('path')
 
 Shop.get('/',(req,res) => {
     return res.send('ok shop')
 })
 
 
+
+//add_shop_item
 
 const add_item_img = multer.diskStorage({
     destination: async (req,file,cb)=>{
@@ -33,6 +35,37 @@ Shop.post('/add_post_img/:shop_id/',upload_img_post.single('upload_post'),(req,r
 })
 
 
+
+//get image post shop
+Shop.get('/post_img/:shop_id/:image_name', async (req,res) => {
+     const shop_id = req.params.shop_id;
+     const image_name = req.params.image_name;
+
+     try{
+          let dir_ = path.dirname(__dirname);
+          let imageFile = path.join(dir_,"assets","shop",shop_id,"post_img",image_name)
+          res.sendFile(imageFile)
+
+     }
+     catch(err){
+        return res.send(err)
+     }
+})
+
+
+
+
+//get all item of shop
+Shop.get('/shop_item',async (req,res) => {
+
+    try{
+        let data = await db_shop.find({}).select('shop_items');
+        return res.json(data);
+    }
+    catch(err){
+        return res.send(err)
+    }
+})
 
 
 
