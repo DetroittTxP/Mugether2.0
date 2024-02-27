@@ -123,9 +123,7 @@ Shop.get('/shop_item',async (req,res) => {
 })
 
 
-
-
-
+//createshop
 Shop.post('/create-shop', async (req,res) => {
     const {
         id_user,
@@ -164,6 +162,8 @@ Shop.post('/create-shop', async (req,res) => {
     }
 })
 
+
+//add-item shop
 Shop.put('/add-item/:shop_id', async (req,res) => {
      
         const item = req.body;

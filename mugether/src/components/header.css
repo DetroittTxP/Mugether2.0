@@ -1,0 +1,6 @@
+.scroll-dropdown {
+    max-height: 300px; /* Adjust the height as needed */
+    overflow-y: auto; /* Enables vertical scrolling */
+    overflow-x: hidden; /* Hides horizontal scrollbar */
+  }
+  

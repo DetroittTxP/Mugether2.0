@@ -14,6 +14,7 @@ import { FaUserEdit } from "react-icons/fa";
 import { LiaUserAstronautSolid } from "react-icons/lia";
 import { MdFavorite } from "react-icons/md";
 import { CiShop } from "react-icons/ci";
+import './header.css'
 
 
 export default function Header() {
@@ -127,7 +128,7 @@ export default function Header() {
             <Image rounded src={Logo} height={100} width={100} style={{ borderRadius: '50%' }} />
           </Navbar.Brand>
           <div>
-            <Dropdown menu={{ items: Muplace, }}>
+            <Dropdown overlayClassName='scroll-dropdown' menu={{ items: Muplace, }}>
               <Nav  >
                 <Form.Control onChange={onChange} type="text" placeholder="ค้นหาสถานที่มู..." style={{ width: 600 }} />
               </Nav>
