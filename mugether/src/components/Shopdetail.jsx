@@ -13,14 +13,25 @@ import SwalLoading from './SwalLoading';
 
 export default function Shopdetail () {
 
-    const [shopdetail,Setshopdetail] = useState({
-        shop_name:'',
-        shop_items:[{
-            item_photo:'',
-            item_name:'',
-            item_detail:'',
-            item_price:0
-        }]
+    const [shopdetail, Setshopdetail] = useState({
+        shop_name: '',
+        shop_items: [{
+            item_photo: '',
+            item_name: '',
+            item_detail: '',
+            item_price: 0
+        }],
+        contact: {
+            tel: '',
+            address: '',
+            lat: 0,
+            long: 0
+        },
+        shop_detail : {
+            detail: '',
+            opening : '',
+            email: ''
+        },
     });
     
     const shop_id = localStorage.getItem('shop_id');
@@ -66,8 +77,8 @@ export default function Shopdetail () {
             <Col md={6}>
               <div className="description-box">
                   <h2>{shopdetail.shop_items[0].item_name}</h2>
-                  <p className="price">{shopdetail.shop_items[0].item_price}</p>
-                  <p>{shopdetail.shop_items[0].item_detail}</p>
+                  <p className="price">ราคา {shopdetail.shop_items[0].item_price} ฿/ชิ้น</p>
+                  <p>{shopdetail.contact.address}</p>
                   <Button variant="primary" className='Buttom-shop'>ไปยังร้านค้า</Button>
               </div>
             </Col>
@@ -80,7 +91,7 @@ export default function Shopdetail () {
             </div>
             <div className="contact-and-favorite-container">
                 <div className="contact-info">
-                    <h3>{shopdetail.shop_items[0].item_name}</h3>
+                    <h3>{shopdetail.shop_name}</h3>
                     <p>ของขลัง ช็อป</p>
                 </div>
                 <div className="favorite-section">
@@ -113,16 +124,16 @@ export default function Shopdetail () {
         <div className="shop-details">
             <br />
             <div className="shop-detail-item">
-                <FaClock className="icon" /> <span>เปิด - ปิด 9.00-19.00น.</span>
+                <FaClock className="icon" /> <span>เปิด - ปิด {shopdetail.shop_detail.opening} น.</span>
             </div>
             <div className="shop-detail-item">
-                <FaMapMarkerAlt className="icon" /> <span>ที่อยู่ : อังกฤษ xxxxx</span>
+                <FaMapMarkerAlt className="icon" /> <span>ที่อยู่ : {shopdetail.contact.address}</span>
             </div>
             <div className="shop-detail-item">
-                 <FaPhone className="icon" /> <span>เบอร์โทร : 08x-xxx-xxxx</span>
+                 <FaPhone className="icon" /> <span>เบอร์โทร : {shopdetail.contact.tel}</span>
             </div>
             <div className="shop-detail-item">
-                  <FaEnvelope className="icon" /> <span>Email : xxxxxxx@gmail.com</span>
+                  <FaEnvelope className="icon" /> <span>Email : {shopdetail.contact.email}</span>
             </div>
             <div className="map-container">
                 <div className="map-placeholder">MAP</div>
