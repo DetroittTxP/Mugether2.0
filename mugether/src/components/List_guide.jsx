@@ -1,28 +1,37 @@
 
 
 
-import React, { useEffect, useState,useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import { Container, Row, Col, Button,Image, Modal, Form} from 'react-bootstrap';
+import { Container, Row, Col, Button, Image, Modal, Form } from 'react-bootstrap';
 import './List_guide.css';
 import Guide_detail from './Guide_detail';
 
-import { Accordion, AccordionDetails,  AccordionSummary } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 import Add_post from './Add_post_guide';
 import { Muplace_Context } from '../context/MuContext';
 
-export default function ListGuide  ()  {
+export default function ListGuide() {
     const [guidedata, setGuideData] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    const {guideStatus} = useContext(Muplace_Context)
+    const { guideStatus } = useContext(Muplace_Context)
+    const [list_all_guide, Setlistallguide] = useState([]);
+
+
     console.log(guideStatus);
+
     useEffect(() => {
         axios.get(`http://localhost:5353/guide/list-guide/${localStorage.getItem('muplace')}`)
             .then(res => setGuideData(res.data))
             .catch(err => alert(err));
+
+
+        axios.get(`http://localhost:5353/guide_detail/get_list_guide/${localStorage.getItem('muplace')}`)
+            .then(res => Setlistallguide(res.data))
+            .catch(err => alert(err))
     }, []);
 
-    
+
 
     return (
         <div>
@@ -32,24 +41,52 @@ export default function ListGuide  ()  {
                         <h1>CHOOSE YOUR GUIDE</h1>
                     </Col>
                     <Col>
-                    <Button variant='primary' className='add-post' onClick={() => setShowModal(true)}>
-                        ADD POST
-                    </Button>
+                        <Button variant='primary' className='add-post' onClick={() => setShowModal(true)}>
+                            ADD POST
+                        </Button>
                     </Col>
                 </Row>
-                <br/>
+                <br />
 
-            { guideStatus &&    <Modal show={showModal} onHide={() => setShowModal(false)}>
+                {guideStatus && <Modal show={showModal} onHide={() => setShowModal(false)}>
                     <Modal.Header closeButton>
                         <Modal.Title>Add Post</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                    <Add_post/>
+                        <Add_post />
                     </Modal.Body>
-                    
+
                 </Modal>
-}
-                {guidedata.map((data) => (
+
+
+
+                }
+                {list_all_guide.map((data) => (
+                    <Accordion>
+                        <AccordionSummary
+                            aria-controls="panel1-content"
+                            id="panel1-header"
+                        >
+
+                            <Image
+                                src={`http://localhost:5353/image/guide/profile/${data.id_guide}/${data.profile_pic}`}
+                                roundedCircle
+                                className='avatar'
+                            />
+
+                            <span style={{ marginLeft: 10 }}>
+                                <b>นาย {data.firstname} {data.lastname}</b>
+                            </span>
+
+                        </AccordionSummary>
+
+                        <AccordionDetails>
+                                <Guide_detail data={data}/>
+                        </AccordionDetails>
+
+                    </Accordion>
+                ))}
+                {/* {guidedata.map((data) => (
                     <Accordion onChange={() => Setusername_guide(data.username)}>
                         <AccordionSummary
                             aria-controls="panel1-content"
@@ -70,15 +107,15 @@ export default function ListGuide  ()  {
                         <Guide_detail username={data.username} />
                             </AccordionDetails>
                     </Accordion>
-                ))}
+                ))} */}
             </Container>
-            
+
         </div>
 
 
     )
 }
- 
+
 
 // export default function ListGuide() {
 //     const [guidedata, setGuideData] = useState([]);

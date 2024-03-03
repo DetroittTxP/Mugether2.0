@@ -18,18 +18,23 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
 
 
   useEffect(() => {
-  
-    axios
-      .get("http://localhost:5353/muplace/mudata")
-      .then((res) => Setlistofmu(res.data))
-      .catch((err) => alert(err));
+    let usr_id = localStorage.getItem('usr_id')
 
-    axios.get(`http://localhost:5353/user/fav/${usrID}`)
+    if(usr_id)
+    {
+        axios.get(`http://localhost:5353/user/fav/${usrID}`)
        .then(res => {
         Setheartcheck(res.data.favorite_muplace)
         console.log(res.data);
        })
-       .catch(err => alert(err))     
+       .catch(err => alert(err))       
+    }
+
+    axios
+      .get("http://localhost:5353/muplace/mudata")
+      .then((res) => Setlistofmu(res.data))
+      .catch((err) => alert(err));
+    
 
   }, []);
 

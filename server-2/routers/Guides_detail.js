@@ -65,17 +65,25 @@ Guide_detail.post('/create_post/:usr_id',async(req,res) => {
      }
      catch(err){
           
+          
        return res.send({status:'error',err})
      }
+
 
 })
 
 //get guide detail
-Guide_detail.get('/get_list_guide/:muplace',(req,res) => {
+Guide_detail.get('/get_list_guide/:muplace',async(req,res) => {
      const {muplace} = req.params;
 
      try{
+           let data = await db.find({
+               guide_post:{
+                    $elemMatch:{muplace:muplace}
+               }
+           })
 
+           res.json(data);
      }
      catch(err){
           

@@ -11,7 +11,7 @@ const guide_detail = monggose.Schema({
         default:[]
      },
      guide_review:{type:[],default:[]},
-     profile_pic:{type:String,default:''}
+     profile_pic:{type:String,default:'profile_temp.png'}
 })
 
 module.exports =monggose.model('guide_detail', guide_detail);
