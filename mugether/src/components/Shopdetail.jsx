@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import { Button, Container, Row, Col } from 'react-bootstrap';
+import { FaHeart, FaClock, FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -25,6 +26,12 @@ export default function Shopdetail () {
     const shop_id = localStorage.getItem('shop_id');
     const shop_item_id = localStorage.getItem('shop_item_id');
     const [item_img,setitemimage] = useState([]);
+
+    const [isFavorited, setIsFavorited] = useState(false);
+    const toggleFavorite = () => {
+        setIsFavorited(!isFavorited);
+    };
+
     useEffect(()=>{
         SwalLoading();
         axios.get(`http://localhost:5353/shop/get_per_shop/${shop_id}/${shop_item_id}`)
@@ -65,6 +72,26 @@ export default function Shopdetail () {
               </div>
             </Col>
         </Row>
+        <br />
+
+        <div className="store-info">
+            <div className="logo-container">
+                <img src="https://th.bing.com/th/id/R.6c94d3ed5cf6b4decb7823b5b8f45af8?rik=6i75K3xDTLlN%2fQ&pid=ImgRaw&r=0" alt="Logo" className="store-logo" />
+            </div>
+            <div className="contact-and-favorite-container">
+                <div className="contact-info">
+                    <h3>{shopdetail.shop_items[0].item_name}</h3>
+                    <p>ของขลัง ช็อป</p>
+                </div>
+                <div className="favorite-section">
+                    <FaHeart
+                        onClick={toggleFavorite}
+                        className={isFavorited ? "favorite-button favorited" : "favorite-button"}
+                    />
+                    <p>Favorite Shop</p>
+                </div>
+            </div>
+        </div>
 
         <br />
         <br />
@@ -79,6 +106,28 @@ export default function Shopdetail () {
 
         <br />
         <br />
+
+        <div className="info-shop-name">
+            <h2>ข้อมูลร้านค้า</h2>
+        </div>
+        <div className="shop-details">
+            <br />
+            <div className="shop-detail-item">
+                <FaClock className="icon" /> <span>เปิด - ปิด 9.00-19.00น.</span>
+            </div>
+            <div className="shop-detail-item">
+                <FaMapMarkerAlt className="icon" /> <span>ที่อยู่ : อังกฤษ xxxxx</span>
+            </div>
+            <div className="shop-detail-item">
+                 <FaPhone className="icon" /> <span>เบอร์โทร : 08x-xxx-xxxx</span>
+            </div>
+            <div className="shop-detail-item">
+                  <FaEnvelope className="icon" /> <span>Email : xxxxxxx@gmail.com</span>
+            </div>
+            <div className="map-container">
+                <div className="map-placeholder">MAP</div>
+            </div>
+        </div>
 
         <div className='reviewshop'>
             <h2>รีวิว</h2>
