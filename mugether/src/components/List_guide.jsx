@@ -8,7 +8,7 @@ import './List_guide.css';
 import Guide_detail from './Guide_detail';
 
 import { Accordion, AccordionDetails,  AccordionSummary } from '@mui/material'
-import Add_post from './Add_post';
+import Add_post from './Add_post_guide';
 import { Muplace_Context } from '../context/MuContext';
 
 export default function ListGuide  ()  {
@@ -46,10 +46,7 @@ export default function ListGuide  ()  {
                     <Modal.Body>
                     <Add_post/>
                     </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={() => setShowModal(false)}>Close</Button>
-                        <Button variant="primary">Post</Button>
-                    </Modal.Footer>
+                    
                 </Modal>
 }
                 {guidedata.map((data) => (

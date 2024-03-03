@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-import { Form } from 'react-bootstrap'
+import { Form,Modal,Button } from 'react-bootstrap'
+import Swal from 'sweetalert2';
+import SwalLoading from './SwalLoading';
 
 export default function Add_post() {
     const [selectedFiles, setSelectedFiles] = useState([]);
     const muplace = localStorage.getItem('muplace')
-    const [detail,Setdetail] = useState({});
+    const usr_id = localStorage.getItem('usr_id')
+    const [post,Setpost] = useState({muplace:muplace});
 
 
 
@@ -19,13 +22,36 @@ export default function Add_post() {
         }
     };
 
-    const SubmitPost=(event)=>{
+  
+
+    const SubmitPost=async(event)=>{
         event.preventDefault();
-        ////เดะมาทำต่อ
+        const img_data = new FormData();
+
+        for(let i =0 ;i<selectedFiles.length;i++)
+        {
+            img_data.append('posts-img',selectedFiles[i]);
+        }
+
+  
+        try{
+            SwalLoading();
+            let inserted_image = await axios.post(`http://localhost:5353/upload-img/guide/post/${usr_id}`,img_data);
+            const {photos} = inserted_image.data
+            let update_post_detail = await axios.post(`http://localhost:5353/guide_detail/create_post/${usr_id}`,{post,photos})
+           console.log(update_post_detail);
+            Swal.close();
+        }
+        catch(err)
+        {
+            alert(err)
+        }
+        
     }
 
     const onChange = (event) => {
-        Setdetail((data) => {
+        
+        Setpost((data) => {
           return {
             ...data,
             [event.target.id]: event.target.value
@@ -44,10 +70,14 @@ export default function Add_post() {
                 <Form.Label>รายละเอียดกิจกรรม</Form.Label>
                 <Form.Control onChange={onChange} as="textarea" rows={3} />
             </Form.Group>
-            <Form.Group  className="mb-3">
+            <Form.Group  className="mb-3" controlId='postPhotos'>
                 <Form.Label>เพิ่มรูปภาพของคุณ (ไม่เกิน 5 รูป)</Form.Label>
                 <Form.Control type="file" multiple onChange={SelectPicture} />
             </Form.Group>
+            <Modal.Footer>
+                        
+            <Button type='submit' variant="primary">Post</Button>
+            </Modal.Footer>
         </Form>
     )
 }

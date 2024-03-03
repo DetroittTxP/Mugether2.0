@@ -10,7 +10,7 @@ import axios from 'axios'
 
 
 
-export default function ShopV2({selectedShop}) {
+export default function ShopV2() {
 
 
   const [listShop,Setlistshop ] = useState([]);
@@ -208,14 +208,15 @@ export default function ShopV2({selectedShop}) {
                                 <Image
 
                                   onClick={() => {
-                                       selectedShop(shop._id);
+                                       localStorage.setItem('shop_id',shop._id);
+                                       localStorage.setItem('shop_item_id',data._id);
                                        navigate('/shopdetail')
                                   }}
                                   style={{ borderRadius: 20, cursor: 'pointer' }}
                                   width={300}
                                   height={300}
                                   alt={data.item_name}
-                                  src={`http://localhost:5353/shop/post_img/${shop._id}/${data.item_photo}`}
+                                  src={`http://localhost:5353/shop/post_img/${shop._id}/${data.item_photo[0]}`}
                                   loading="lazy"
                                 />
                                 </a>

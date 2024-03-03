@@ -37,20 +37,27 @@ Guide_detail.post('/create_guide', async (req,res)=>{
      }
 })
 
-Guide_detail.post('/create_post/:id',async(req,res) => {
+Guide_detail.post('/create_post/:usr_id',async(req,res) => {
 
-     const { id } = req.params;
-     const {post} = req.body;
+     const { usr_id } = req.params;
+     const {post,photos} = req.body;
+     
+     const newpost = {
+          ...post,
+          postPhotos:photos
+     }
+     console.log(newpost);
+
      try{
 
         
    
           let push_post = await db.findOneAndUpdate(
                {
-                    _id:id
+                    id_guide:usr_id
                },
                {
-                    $push:{guide_post:post}
+                    $push:{guide_post:newpost}
                }
           )
 
@@ -61,6 +68,18 @@ Guide_detail.post('/create_post/:id',async(req,res) => {
        return res.send({status:'error',err})
      }
 
+})
+
+//get guide detail
+Guide_detail.get('/get_list_guide/:muplace',(req,res) => {
+     const {muplace} = req.params;
+
+     try{
+
+     }
+     catch(err){
+          
+     }
 })
 
 

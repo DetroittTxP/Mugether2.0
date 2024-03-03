@@ -9,42 +9,47 @@ import './Shopdetail.css';
 import SwalLoading from './SwalLoading';
 
 
-//ไว้เก็บ
-const images = [
-    "https://down-th.img.susercontent.com/file/th-11134207-7r98o-lkosofyofpwe20",
-    "https://down-th.img.susercontent.com/file/930a3347af2a1cca20fdba87460681f2",
-    "https://down-th.img.susercontent.com/file/4e701f668b5f84dc88a9e4449b16a253",
-];
 
-export default function Shopdetail ({selectedshop}) {
+export default function Shopdetail () {
 
     const [shopdetail,Setshopdetail] = useState({
-    
+        shop_name:'',
+        shop_items:[{
+            item_photo:'',
+            item_name:'',
+            item_detail:'',
+            item_price:0
+        }]
     });
-
-
+    
+    const shop_id = localStorage.getItem('shop_id');
+    const shop_item_id = localStorage.getItem('shop_item_id');
+    const [item_img,setitemimage] = useState([]);
     useEffect(()=>{
         SwalLoading();
-        axios.get(`http://localhost:5353/shop/get_per_shop/${selectedshop}`)
+        axios.get(`http://localhost:5353/shop/get_per_shop/${shop_id}/${shop_item_id}`)
         .then(res => {
+            const {shop_items} =res.data
              Setshopdetail(res.data);
+          
+            setitemimage(shop_items[0].item_photo);
              Swal.close();
         })
-        .catch(err => alert(err))
+        .catch(err => alert("error"))
     },[])
 
-    console.log('HI FROM Shopdetail'  + selectedshop);
+   
 
   return (
     <Container className="mt-3">
         <Row>
             <Col md={6}>
               <Carousel indicators controls>
-                  {images.map((image, index) => (
+                  {item_img.map((image, index) => (
                       <Carousel.Item key={index}>
                       <img
                           className="d-block w-100"
-                          src={image}
+                          src={`http://localhost:5353/shop/post_img/${shop_id}/${image}`}
                           alt={`Product image ${index + 1}`}
                       />
                       </Carousel.Item>
@@ -53,9 +58,9 @@ export default function Shopdetail ({selectedshop}) {
             </Col>
             <Col md={6}>
               <div className="description-box">
-                  <h2>Muteru</h2>
-                  <p className="price">$99.99</p>
-                  <p>เครื่องประดับ มูเตลู สายความเชื่อ ว้าว!!!!</p>
+                  <h2>{shopdetail.shop_items[0].item_name}</h2>
+                  <p className="price">{shopdetail.shop_items[0].item_price}</p>
+                  <p>{shopdetail.shop_items[0].item_detail}</p>
                   <Button variant="primary" className='Buttom-shop'>ไปยังร้านค้า</Button>
               </div>
             </Col>

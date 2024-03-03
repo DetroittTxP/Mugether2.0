@@ -61,11 +61,11 @@ const add_item_img = multer.diskStorage({
 const upload_img_post = multer({storage:add_item_img})
 
 
-Shop.post('/add_post_img/:shop_id/',upload_img_post.single('upload_post'),(req,res) => {
+Shop.post('/add_post_img/:shop_id/',upload_img_post.array('upload_post',5),(req,res) => {
 
-
+        const fileNAME = req.files.map((e) => e.filename);
         return res.send({status:'sucess', 
-                         filename:req.file.filename,
+                         filename:fileNAME,
                          shop_id:req.params.shop_id,
                         });
 })
@@ -189,12 +189,17 @@ Shop.put('/add-item/:shop_id', async (req,res) => {
 })
 
 //get per_shop detail
-Shop.get('/get_per_shop/:id', async(req,res) => {
+Shop.get('/get_per_shop/:shop_id/:shop_item_id', async(req,res) => {
 
     try{
-        const {id} = req.params;
+        const {shop_id,shop_item_id} = req.params;
 
-        let per_shop = await db_shop.findOne({_id:id});
+        let per_shop = await db_shop.findOne({
+            _id:shop_id,
+            shop_items:{
+                $elemMatch:{_id:shop_item_id}
+            }
+        });
         if(!per_shop){
             return res.send('no found');
         }

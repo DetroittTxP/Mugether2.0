@@ -13,7 +13,7 @@ const shop_model = mongoose.Schema({
     shop_items:{
         type:[{
             
-            item_photo:String,
+            item_photo:[],
             item_name:String,
             item_detail:String,
             item_price:Number,
