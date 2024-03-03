@@ -139,16 +139,21 @@ usr.put('/update/profile/',async (req,res) => {
 })
 
 usr.post('/add/favorite', async (req,res) =>{
-    const {username,favorite_item,status} = req.body;
+    const {id,username,favorite_item,status} = req.body;
 
  
     try{
-        let og_data = await user.findOne({username:username});
+     
 
 
-        let update_item = await user.updateOne({username:username} 
-            ,{$push:{favorite_muplace:favorite_item}}
+        // let update_item = await user.updateOne({username:username} 
+        //     ,{$push:{favorite_muplace:favorite_item}}
+        //     )
+            console.log(req.body.favorite_item);
+           let update_item = await user.findByIdAndUpdate({_id:id} 
+            ,{favorite_muplace:favorite_item}
             )
+
 
 
        return res.send({status:'ok',update_item})     
@@ -164,6 +169,22 @@ usr.post('/add/favorite', async (req,res) =>{
 
 
 
+})
+
+//get fav
+usr.get('/fav/:id',async (req,res) => {
+    
+     try{
+          const userID = req.params.id
+
+          let fav_data = await user.findOne({_id:userID}).select('favorite_muplace');
+   ;
+            return res.json(fav_data);
+            
+     }
+     catch(err){
+        return res.send({status:'error',err})
+     }
 })
 
 

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ReviewPage from './Reviewpage';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
 import './Shopdetail.css';
+import SwalLoading from './SwalLoading';
+
 
 //ไว้เก็บ
 const images = [
@@ -12,7 +16,25 @@ const images = [
     "https://down-th.img.susercontent.com/file/4e701f668b5f84dc88a9e4449b16a253",
 ];
 
-export default function Shopdetail () {
+export default function Shopdetail ({selectedshop}) {
+
+    const [shopdetail,Setshopdetail] = useState({
+    
+    });
+
+
+    useEffect(()=>{
+        SwalLoading();
+        axios.get(`http://localhost:5353/shop/get_per_shop/${selectedshop}`)
+        .then(res => {
+             Setshopdetail(res.data);
+             Swal.close();
+        })
+        .catch(err => alert(err))
+    },[])
+
+    console.log('HI FROM Shopdetail'  + selectedshop);
+
   return (
     <Container className="mt-3">
         <Row>
@@ -56,7 +78,7 @@ export default function Shopdetail () {
         <div className='reviewshop'>
             <h2>รีวิว</h2>
         </div>
-        <ReviewPage/>
+      
     </Container>
   );
 }

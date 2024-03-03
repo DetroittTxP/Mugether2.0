@@ -5,10 +5,13 @@ import { Muplace_Context } from "../context/MuContext";
 import { FaHeart, FaMapMarkerAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
+
 import { Image } from 'react-bootstrap'
+import SwalLoading from "./SwalLoading";
 
 export default function Listitem({ SelectedMuType, SelectedMuplace }) {
   const navigate = useNavigate();
+  const usrID = localStorage.getItem('usr_id')
   const [List_Of_Mu, Setlistofmu] = useState([]);
   const [HeartCheck, Setheartcheck] = useState([]);
   const { muplace } = useContext(Muplace_Context);
@@ -20,6 +23,14 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
       .get("http://localhost:5353/muplace/mudata")
       .then((res) => Setlistofmu(res.data))
       .catch((err) => alert(err));
+
+    axios.get(`http://localhost:5353/user/fav/${usrID}`)
+       .then(res => {
+        Setheartcheck(res.data.favorite_muplace)
+        console.log(res.data);
+       })
+       .catch(err => alert(err))     
+
   }, []);
 
   useEffect(() => {
@@ -30,32 +41,35 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
   }, [SelectedMuType]);
 
 
+  const handleHeart=async (name)=>{
+    if (HeartCheck.includes(name)) {
+      Setheartcheck((prev) => prev.filter((item) => item !== name));
+    } else {
+      Setheartcheck((prev) => [...prev, name]);
+    }
+  }
+
+  const addFav_toDB=async( fav )=>{
+     let add_fav = await axios.post('http://localhost:5353/user/add/favorite',
+          {
+            id: localStorage.getItem('usr_id'),
+            favorite_item: fav
+          }
+        )
+        console.log(add_fav.data);
+        return;
+  }
+
+
   const toggleHeart = async (name) => {
 
 
     if (localStorage.getItem("token") !== null) {
-      if (HeartCheck.includes(name)) {
-        Setheartcheck((prev) => prev.filter((item) => item !== name));
-      } else {
-        Setheartcheck((prev) => [...prev, name]);
-      }
+     await handleHeart(name)
 
       try {
-        Swal.fire({
-          title: 'Loading...',
-          html: 'Please wait',
-          timerProgressBar: true,
-          didOpen: () => {
-            Swal.showLoading();
-          },
-        })
-        let add_fav = await axios.post('http://localhost:5353/user/add/favorite',
-          {
-            username: localStorage.getItem('usr'),
-            favorite_item: name
-          }
-        )
-        console.log(add_fav.data);
+        SwalLoading();
+        await addFav_toDB(HeartCheck)
         Swal.close();
       }
       catch (err) {
@@ -72,6 +86,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
   return (
     <Container style={{ display: "flex", justifyContent: "center" }}>
       <Row style={{ justifyContent: "center" }}>
+        
         {List_Of_Mu.filter((data) => data.name !== "วัดดาวดึงษาราม")
           .sort((a, b) => a.name.localeCompare(b.name, "th"))
           .map((data, index) => {

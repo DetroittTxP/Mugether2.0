@@ -57,6 +57,7 @@ export default function App() {
   const [selectedMuplace, SetSelecttedMuplace] = useState('');
   const [showguide,Setshowguide] = useState(false);
   const [logoutAlertShown, setLogoutAlertShown] = useState(false);
+  const [selectedShop,Setselectedshop] = useState('');
   const guideStatus = JSON.parse(localStorage.getItem('guide'));
   const shopStatus = JSON.parse(localStorage.getItem('shop'));
 
@@ -105,6 +106,9 @@ export default function App() {
        Setshowguide(showed);
   }
 
+  const Selectedshop=(shop)=>{
+     Setselectedshop(shop);
+  }
 
 
   return (
@@ -121,15 +125,14 @@ export default function App() {
       <br />
 
 
-
       <Routes>
         <Route path='/' element={<Listitem SelectedMuplace={SelectedMuplace} SelectedMuType={selectedMuType} />} />
-        <Route path='/shop' element={<ShopV2 />} />
+        <Route path='/shop' element={<ShopV2 selectedShop={Selectedshop} />} />
         <Route path='/mudetail' element={<Mudetail showguide={showguide} />} />
         <Route path='/login' element={<Login />}  />
         <Route path='/register' element={<Register />}  />
         <Route path='/reg-guide' element={<Regguide />}  />
-        <Route path='/shopdetail' element={<Shopdetail />}  />
+        <Route path='/shopdetail' element={<Shopdetail  selectedshop={selectedShop} />}  />
         
       </Routes>
       <div>

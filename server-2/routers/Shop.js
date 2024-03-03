@@ -188,6 +188,26 @@ Shop.put('/add-item/:shop_id', async (req,res) => {
 
 })
 
+//get per_shop detail
+Shop.get('/get_per_shop/:id', async(req,res) => {
+
+    try{
+        const {id} = req.params;
+
+        let per_shop = await db_shop.findOne({_id:id});
+        if(!per_shop){
+            return res.send('no found');
+        }
+
+        return res.json(per_shop);
+        
+    }
+    catch(err)
+    {
+        return res.send(err);
+    }
+})
+
 
 
 module.exports = Shop;

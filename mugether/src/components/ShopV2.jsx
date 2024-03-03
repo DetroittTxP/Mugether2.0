@@ -1,11 +1,30 @@
-import React from 'react'
-import { Nav, Container, Col,Row } from 'react-bootstrap';
+import React,{useEffect, useState} from 'react'
+import { Nav, Container, Col, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaHeart, FaMapMarkerAlt } from 'react-icons/fa';
+import { Image } from 'react-bootstrap'
+import {useNavigate} from 'react-router-dom'
+import axios from 'axios'
 
 
-export default function ShopV2() {
+
+
+export default function ShopV2({selectedShop}) {
+
+
+  const [listShop,Setlistshop ] = useState([]);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get('http://localhost:5353/shop/shop_item')
+    .then(res => {
+        
+        Setlistshop(res.data)
+    })
+    .catch(err => alert(err))
+  },[])
 
   const type = [
     {
@@ -96,7 +115,8 @@ export default function ShopV2() {
     },
   ]
 
-
+  
+  
 
 
   return (
@@ -106,14 +126,14 @@ export default function ShopV2() {
         variant="underline"
         onSelect={(selectedKey) => {
           alert(`selected ${selectedKey}`);
-          SelectedType(selectedKey);
+
 
 
 
         }}
         style={{ display: 'flex', justifyContent: 'center' }}
       >
-   
+
         {/* nav type */}
         {type.map((data, index) => (
           <Nav.Item
@@ -128,7 +148,7 @@ export default function ShopV2() {
 
 
               <Nav.Link eventKey={data.type} style={{ color: 'black' }}>
-                <img style={{ marginBottom: 15 }} height={30} width={30} src={data.icon} alt={data.type} />
+                <img  style={{ marginBottom: 15 }} height={30} width={30} src={data.icon} alt={data.type} />
                 <br />
 
                 {data.type}
@@ -138,94 +158,147 @@ export default function ShopV2() {
           </Nav.Item>
         ))}
       </Nav>
-      <br/>
+      <br />
 
       <br />
       <br />
-
-
-
-
       {/*  SHOP LIST   */}
 
 
       <Container style={{ display: 'flex', justifyContent: 'center' }}>
 
         <Row style={{ justifyContent: 'center' }}>
-          {shoplist.map((data,index) => {
-            let top = index > 3 ? { marginTop: 100 } : {};
 
-            return (
-              <Col style={top} md={3}>
-                <a href='#ken'>
-                  <img onClick={() => alert(`มึงกำลังคลิก ${data.productName}`)} style={{ borderRadius: 20 }} width={300} height={300} alt={data.name} src={data.productImage} />
-                </a>
+                {listShop.map((shop,index) => (
+                    <React.Fragment key={index}>
+                       {shop.shop_items.map((data,i) => {
+                          let top = i > 3 ? { marginTop: 100 } : {};
 
-                <br />
-                <br />
+                          return (
+                              <Col style={top} md={3} key={data._id}>
+                                   <a
 
-                <div style={{ fontFamily: "Sarabun" }}>
-                  <h5>{data.productName}</h5>
-                  <FaHeart style={{ color: 'red' }} />
-                </div>
+                                    style={{
+                                      position: "relative",
+                                      borderRadius: 20,
+                                      overflow: "hidden",
+                                      display: "inline-block",
+                                    }}
+                                    >
+                                 <div
+                                  style={{
+                                    position: "absolute",
+                                    top: "10px",
+                                    right: "10px",
+                                    zIndex: 1,
+                                  }}
+                                >
+                                  <FaHeart
+                                  
+                                    style={{
+                                      color: 'red',
+                                      cursor: "pointer",
+                                      fontSize: "24px",
+                                    }}
+                                  />
+                                </div>
 
 
-              </Col>
-            )
-          })}
+
+                                <Image
+
+                                  onClick={() => {
+                                       selectedShop(shop._id);
+                                       navigate('/shopdetail')
+                                  }}
+                                  style={{ borderRadius: 20, cursor: 'pointer' }}
+                                  width={300}
+                                  height={300}
+                                  alt={data.item_name}
+                                  src={`http://localhost:5353/shop/post_img/${shop._id}/${data.item_photo}`}
+                                  loading="lazy"
+                                />
+                                </a>
+
+                                <br />
+
+                                <div style={{ fontFamily: "Sarabun" }}>
+                                  <h5>{data.item_detail}</h5>
+                                </div>
+
+                              </Col>
+                          )
+                       })}
+                    </React.Fragment>
+                ))}
+
+
         </Row>
+
 
 
       </Container>
 
-      {/* <div className='card_container'>
-         <Card style={{ width: '15em' }}>
-      <Card.Img variant="top" src="https://down-th.img.susercontent.com/file/th-11134207-7r98o-lkosofyofpwe20" />
-      <Card.Body>
-        <Card.Title>พระพิฆเนศปางเสวยสุข แถมฟรี❗️หนูมุสิกะ 1 ตัว</Card.Title>
-        <Card.Text>
-          จังหวัดลำปาง
-        </Card.Text>
-        <Button variant="primary">More</Button>
-      </Card.Body>
-    </Card>
-
-    <Card style={{ width: '15em' }}>
-      <Card.Img variant="top" src="https://down-th.img.susercontent.com/file/930a3347af2a1cca20fdba87460681f2" />
-      <Card.Body>
-        <Card.Title>ท้าวเวสสุวรรณโณ พร้อมตลับ วัดจุฬามณี </Card.Title>
-        <Card.Text>
-          จังหวัดนครนายก
-        </Card.Text>
-        <Button variant="primary">More</Button>
-      </Card.Body>
-    </Card>
-
-    <Card style={{ width: '15em' }}>
-      <Card.Img variant="top" src="https://down-th.img.susercontent.com/file/th-11134207-7qukw-leqpqvb565ha9d" />
-      <Card.Body>
-        <Card.Title>เท้าเวสสุวรรณโน วัดจุฬามณี</Card.Title>
-        <Card.Text>
-           จังหวัดเลย
-        </Card.Text>
-        <Button variant="primary">More</Button>
-      </Card.Body>
-    </Card>
-
-    <Card style={{ width: '15em' }}>
-      <Card.Img variant="top" src="https://down-th.img.susercontent.com/file/4e701f668b5f84dc88a9e4449b16a253" />
-      <Card.Body>
-        <Card.Title>องค์พระพิฆเนศประทับพญานาค องค์พระพิฆเนศ</Card.Title>
-        <Card.Text>
-            จังหวัดอ่างทอง
-        </Card.Text>
-        <Button variant="primary">More</Button>
-      </Card.Body>
-    </Card>
-      
-    </div> */}
 
 
     </div>
   )
 }
+
+
+
+
+
+
+
+// <Col style={top} md={3} key={data.productName}>
+//                 <a
+
+//                   style={{
+//                     position: "relative",
+//                     borderRadius: 20,
+//                     overflow: "hidden",
+//                     display: "inline-block",
+//                   }}
+//                 >
+//                   <div
+//                     style={{
+//                       position: "absolute",
+//                       top: "10px",
+//                       right: "10px",
+//                       zIndex: 1,
+//                     }}
+//                   >
+
+//                     <FaHeart
+                      
+//                       style={{
+//                         color: "red",
+//                         cursor: "pointer",
+//                         fontSize: "24px",
+//                       }}
+//                     />
+
+//                   </div>
+
+//                   <Image
+//                     onClick={() => {
+//                          navigate('/shopdetail')
+//                          selectedShop(data.productName);
+//                     }}
+//                      style={{ borderRadius: 20, cursor: 'pointer' }}
+//                      width={300}
+//                      height={300}
+//                      alt={data.productName}
+//                      src={data.productImage}
+//                      loading="lazy"
+//                   />
+//                 </a>
+                
+//                 <br />
+                
+//                 <div style={{ fontFamily: "Sarabun" }}>
+//                   <h5>{data.productName}</h5>
+//                 </div>
+
+//               </Col>
