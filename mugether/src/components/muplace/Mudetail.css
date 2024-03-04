@@ -25,3 +25,21 @@
 .small-image.figure-3 {
   border-top-right-radius: 5%;
 }
+
+.header-row {
+  display: flex;
+  align-items: center;
+}
+
+.header-title {
+  flex-grow: 1;
+}
+
+.share-button-col {
+  white-space: nowrap;
+  margin-right: 200px;
+}
+
+.image-list1{
+  margin-left: 10px;
+}

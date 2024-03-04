@@ -27,23 +27,22 @@ export default function Mudetail({showguide}) {
 
   return (
     <Container>
-      <Row>
-        <Col md={12} className="header">
+      <Row className="header-row">
+        <Col className="header-title">
           <h1>{Muplace}</h1>
-          <FaStar style={{ fontSize: '24px' }}/>
-          
-          {/* <span>{data.address}</span> */}
+        </Col>
+        <Col xs="auto" className="share-button-col">
+          <ShareButton url={pageUrl}/>
         </Col>
       </Row>
       <Row>
-        <Col md={4} className="main-image">
+        <Col md={5} className="main-image">
           <Image
             src={`http://localhost:5353/image/mu/${Muplace}/1`}
             alt="Main Image"
             className="big-image"
             fluid
           />
-          <ShareButton url={pageUrl} />
         </Col>
         <Col md={3} className="image-list">
           <Row>
