@@ -161,7 +161,67 @@ export default function EditProfile({ showedit, toggle, editType }) {
             />
           </Form.Group>
         </>
-        )  
+        )
+
+        case 'shop':
+          return(
+            <>
+            <Form.Group controlId="shop_name">
+              <Form.Label>shopname</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="🛍️  "
+                onChange={onShopchange}
+              />
+            </Form.Group>
+  
+            <Form.Group controlId="shop_detail">
+              <Form.Label>shopdetail</Form.Label>
+              <Form.Control
+                as = "textarea" rows={3}
+                placeholder="📃 รายละเอียดของร้านค้า "
+                onChange={onShopchange}
+              />
+            </Form.Group>
+  
+            <Form.Group controlId="shop_detail_opening">
+              <Form.Label>opening</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="🕐 เวลาเปิด - ปิด "
+                onChange={onShopchange}
+              />
+            </Form.Group>
+  
+            <Form.Group controlId="shop_contact_tel">
+              <Form.Label>telephone</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="☎️ หมายเลขโทรศัพท์ "
+                onChange={onShopchange}
+              />
+            </Form.Group>
+  
+            <Form.Group controlId="shop_contact_address">
+              <Form.Label>address</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="📍 ที่อยู่ "
+                onChange={onShopchange}
+              />
+            </Form.Group>
+  
+            <Form.Group controlId="shop_contact_email">
+              <Form.Label>email</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="✉️ อีเมล์ "
+                onChange={onShopchange}
+              />
+            </Form.Group>
+   
+          </>
+          )
     }
   }
 
