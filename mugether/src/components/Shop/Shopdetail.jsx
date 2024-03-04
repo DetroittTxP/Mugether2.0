@@ -79,7 +79,8 @@ export default function Shopdetail() {
                         <h2>{shopdetail.shop_items[0].item_name}</h2>
                         <p className="price">ราคา {shopdetail.shop_items[0].item_price} ฿/ชิ้น</p>
                         <p>{shopdetail.contact.address}</p>
-                        <Button variant="primary" className='Buttom-shop'>ไปยังร้านค้า</Button>
+                        <Button variant="primary" className='Buttom-shop' href={shopdetail.contact.link_url}>ไปยังร้านค้า</Button>
+                        
                     </div>
                 </Col>
             </Row>

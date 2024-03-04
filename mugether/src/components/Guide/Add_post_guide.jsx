@@ -13,8 +13,17 @@ export default function Add_post() {
 
 
     const SelectPicture = (event) => {
-        
-        if (event.target.files.length > 5) {
+        for(let i =0;i<event.target.files.length;i++){
+            let file = event.target.files[i];
+
+            if(!file.type.startsWith('image/'))
+            {
+                event.target.value = null;
+                return alert('please upload image only')
+            }
+
+    }
+        if (event.target.files.length != 5) {
             alert("You can only upload a maximum of 5 images.");
             event.target.value = null; // Reset the file input
         } else {
@@ -28,9 +37,9 @@ export default function Add_post() {
         event.preventDefault();
         const img_data = new FormData();
         
-        if(selectedFiles.length === 0)
+        if(selectedFiles.length === 0 || selectedFiles.length !=5)
         {
-            return alert('โปรดอัพรูปก่อนโพสไกด์')
+            return alert('โปรดอัพรูปก่อนโพสต์ไกด์')
         }
         for(let i =0 ;i<selectedFiles.length;i++)
         {
@@ -77,7 +86,7 @@ export default function Add_post() {
             </Form.Group>
             <Form.Group  className="mb-3" controlId='postPhotos'>
                 <Form.Label>เพิ่มรูปภาพของคุณ (ไม่เกิน 5 รูป)</Form.Label>
-                <Form.Control type="file" multiple onChange={SelectPicture} />
+                <Form.Control type="file" accept='image/jpeg' multiple onChange={SelectPicture} />
             </Form.Group>
             <Modal.Footer>
                         
