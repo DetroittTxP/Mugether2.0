@@ -224,7 +224,7 @@ export default function ShopV2() {
                                 <br />
 
                                 <div style={{ fontFamily: "Sarabun" }}>
-                                  <h5>{data.item_detail}</h5>
+                                  <h5>{data.item_name}</h5>
                                 </div>
 
                               </Col>

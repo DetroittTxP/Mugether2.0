@@ -215,4 +215,50 @@ Shop.get('/get_per_shop/:shop_id/:shop_item_id', async(req,res) => {
 
 
 
+//upload shop profile
+const edit_shop_img = multer.diskStorage({
+     destination:async(req,file,cb)=>{
+        try{
+          let dir = await create_dir(req.params.id_user,"shop","profile_img");
+          cb(null,dir);
+        }
+        catch(err)
+        {
+            console.log(err);
+            return;
+        }
+     },
+     filename:(req,file,cb) =>{
+          cb(null,Date.now() + req.params.id_user + file.originalname);  
+     }
+})
+
+
+const upload_edit = multer({storage:edit_shop_img})
+
+Shop.post('/upload-edit-profile/:id_user', upload_edit.single('profile_img'),
+    async (req,res) => {
+          return res.json({
+            status:'ok',
+            id_user:req.params.id_user,
+            filename:req.file.filename
+          })
+     }
+)
+
+
+//edit shop
+Shop.put('/edit-profile/:usrid',async (req,res) => {
+      const {editdata} = req.body;
+      const {usrid} = req.params
+            
+
+      return res.send('ok edit')
+} )
+
+
+
+
+
+
 module.exports = Shop;

@@ -27,7 +27,11 @@ export default function Add_post() {
     const SubmitPost=async(event)=>{
         event.preventDefault();
         const img_data = new FormData();
-
+        
+        if(selectedFiles.length === 0)
+        {
+            return alert('โปรดอัพรูปก่อนโพสไกด์')
+        }
         for(let i =0 ;i<selectedFiles.length;i++)
         {
             img_data.append('posts-img',selectedFiles[i]);
@@ -36,6 +40,7 @@ export default function Add_post() {
   
         try{
             SwalLoading();
+            
             let inserted_image = await axios.post(`http://localhost:5353/upload-img/guide/post/${usr_id}`,img_data);
             const {photos} = inserted_image.data
             let update_post_detail = await axios.post(`http://localhost:5353/guide_detail/create_post/${usr_id}`,{post,photos})
