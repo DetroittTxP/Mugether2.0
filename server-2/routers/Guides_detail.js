@@ -3,6 +3,8 @@ const Guide_detail_Model = require('../model/Guide_detail-Model');
 const user = require('../model/User-model')
 const multer = require('multer');
 const {create_dir} = require('./uploadimages')
+const fs = require('fs')
+const path = require('path')
 const db = Guide_detail_Model;
 
 
@@ -48,21 +50,48 @@ Guide_detail.post('/create_post/:usr_id',async(req,res) => {
           ...post,
           postPhotos:photos
      }
-     console.log(newpost);
+     
 
      try{
 
-        
-   
-          let push_post = await db.findOneAndUpdate(
-               {
-                    id_guide:usr_id
-               },
-               {
-                    $push:{guide_post:newpost}
-               }
-          )
 
+
+          let og = await db.findOne({id_guide:usr_id}).select('guide_post');
+         
+          let filterMU = await og.guide_post.filter(e => e.muplace !== newpost.muplace);
+
+          let push_post;    
+      
+          if(filterMU.length !== 0)
+          {
+                push_post = await db.findOneAndUpdate(
+                    {
+                         id_guide:usr_id
+                         
+                    },
+                    {
+                         $push:{guide_post:newpost}
+                    }
+               )
+          }
+          else{
+              await filterMU.push(newpost);
+
+               push_post = await db.findOneAndUpdate(
+                    {
+                         id_guide:usr_id
+                    },
+                    {
+                         guide_post:newpost
+                    }
+               )
+          }
+
+          let dir = path.dirname(__dirname);
+          let imagedir = path.join(dir,"assets","guide",usr_id,"detail_img")
+           
+          await check_unuse_image(usr_id,imagedir,newpost.muplace)
+        
           return res.send(push_post)
      }
      catch(err){
@@ -74,10 +103,47 @@ Guide_detail.post('/create_post/:usr_id',async(req,res) => {
 
 })
 
+
+const check_unuse_image=async(id_guide,imagedir,muplace)=>{
+       try{
+            let dataindb = await db.findOne({id_guide:id_guide}).select('guide_post');
+            dataindb = dataindb.guide_post.filter((e) => e.muplace === muplace);
+
+            let db_data = dataindb[0].postPhotos;
+
+            fs.readdir(imagedir,(err,files) => {
+                  if (err) {
+                         console.log(err);
+                         return;
+                  }
+              
+               files.forEach(img => {
+                    if(!db_data.includes(img))
+                    {
+                         let filedir = path.join(imagedir,img);  
+                         console.log(filedir); 
+                         fs.unlink(filedir,(err)=>{
+                              if(err){
+                                console.log(err);
+                                return;
+                              }
+                         }) 
+                    }
+               })
+               
+            })
+            return;
+       }
+       catch(err){
+           console.log(err);
+           return;
+       }
+}
+
 //get guide detail
 Guide_detail.get('/get_list_guide/:muplace',async(req,res) => {
      const {muplace} = req.params;
-     console.log(muplace);
+   
      try{
          
           let data = await db.find({'guide_post.muplace':muplace});
@@ -115,13 +181,14 @@ const profile_img = multer.diskStorage({
      filename:(req,file,cb)=>{
           cb(null,Date.now() + req.params.id_guide + file.originalname);
      }
-})
+}) 
+
 
 const upload_guide_pic = multer({storage:profile_img})
 
 Guide_detail.post('/upload_profile_guide/:id_guide',upload_guide_pic.single('profile_img'),
                 async (req,res)=>{
-          console.log('ok');
+         
           return res.send({
                status:'success',
                id_guide:req.params.id_guide,
@@ -142,7 +209,7 @@ Guide_detail.put('/update_profile/:id_guide',async (req,res) => {
 
           let Og = await db.findOne({id_guide:id_guide});
 
-          console.log(Og);
+        
 
           const data = {
                profile_pic:profile_pic || Og.profile_pic,

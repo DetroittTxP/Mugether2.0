@@ -90,7 +90,7 @@ export default function App() {
      guideStatus:guideStatus,
      shopStatus:shopStatus
   }
-
+ 
 
 
   const SelectedTypeMu = (type) => {

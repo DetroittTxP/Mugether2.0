@@ -11,19 +11,20 @@ export default function Add_post() {
     const [post,Setpost] = useState({muplace:muplace});
 
 
+    const SelectPicture =async (event) => {
+        
+        
+      for(let i =0;i<event.target.files.length;i++){
+                let file = event.target.files[i];
 
-    const SelectPicture = (event) => {
-        for(let i =0;i<event.target.files.length;i++){
-            let file = event.target.files[i];
-
-            if(!file.type.startsWith('image/'))
-            {
-                event.target.value = null;
-                return alert('please upload image only')
-            }
-
-    }
-        if (event.target.files.length != 5) {
+                if(!file.type.startsWith('image/'))
+                {   
+                    event.target.value = null;
+                    return alert('please upload image only')
+                }
+        }
+        
+        if (event.target.files.length > 5) {
             alert("You can only upload a maximum of 5 images.");
             event.target.value = null; // Reset the file input
         } else {
@@ -86,7 +87,7 @@ export default function Add_post() {
             </Form.Group>
             <Form.Group  className="mb-3" controlId='postPhotos'>
                 <Form.Label>เพิ่มรูปภาพของคุณ (ไม่เกิน 5 รูป)</Form.Label>
-                <Form.Control type="file" accept='image/jpeg' multiple onChange={SelectPicture} />
+                <Form.Control type="file" accept='image/*' multiple onChange={SelectPicture} />
             </Form.Group>
             <Modal.Footer>
                         

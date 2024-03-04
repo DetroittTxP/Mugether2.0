@@ -93,10 +93,11 @@ Shop.get('/post_img/:shop_id/:image_name', async (req,res) => {
 Shop.get('/profile_img/:shop_id/:image_name',(req,res) => {
     const shop_id = req.params.shop_id;
     const image_name = req.params.image_name;
-
+  
     try{
         let dir_ = path.dirname(__dirname);
         let imageFile = path.join(dir_,"assets","shop",shop_id,"profile_img",image_name)
+        console.log(imageFile);
         res.sendFile(imageFile)
 
    }
@@ -153,6 +154,8 @@ Shop.post('/create-shop', async (req,res) => {
             shop_detail:shop_detail,
             contact:contact
         })
+
+        
 
         return res.json({status:"success",create_shop});
 
@@ -249,11 +252,43 @@ Shop.post('/upload-edit-profile/:id_user', upload_edit.single('profile_img'),
 
 //edit shop
 Shop.put('/edit-profile/:usrid',async (req,res) => {
-      const {editdata} = req.body;
+      const {shop_name,detail,opening,tel,address,email} = req.body.editShop;
+      const {filename} = req.body;
       const {usrid} = req.params
-            
 
-      return res.send('ok edit')
+     
+      try{
+            let og = await db_shop.findOne({id_user:usrid});
+            let filter = {id_user:usrid}
+            console.log(req.body.editShop);
+            let updated_data = {
+                
+                shop_name:shop_name || og.shop_name,
+                shop_detail:{
+                    detail:detail || og.shop_detail.detail,
+                    opening:opening || og.shop_detail.opening
+                },
+                contact:{
+                    tel:tel || og.contact.tel,
+                    address:address || og.contact.address,
+                    email:email || og.contact.email
+                },
+                profile_shop_pic:filename || og.profile_shop_pic
+            }
+
+            console.log(og.contact.email);
+
+            let updating = await db_shop.findOneAndUpdate(filter,updated_data);
+
+            return res.json(updating)
+
+      }
+      catch(err)
+      {
+        return res.send(err)
+      }
+
+    
 } )
 
 

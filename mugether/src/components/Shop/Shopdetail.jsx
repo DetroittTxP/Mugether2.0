@@ -32,10 +32,12 @@ export default function Shopdetail() {
             opening: '',
             email: ''
         },
+        profile_shop_pic:''
     });
 
     const shop_id = localStorage.getItem('shop_id');
     const shop_item_id = localStorage.getItem('shop_item_id');
+    const usr_id = localStorage.getItem('usr_id');
     const [item_img, setitemimage] = useState([]);
 
     const [isFavorited, setIsFavorited] = useState(false);
@@ -88,7 +90,7 @@ export default function Shopdetail() {
 
             <div className="store-info">
                 <div className="logo-container">
-                    <img src="https://th.bing.com/th/id/R.6c94d3ed5cf6b4decb7823b5b8f45af8?rik=6i75K3xDTLlN%2fQ&pid=ImgRaw&r=0" alt="Logo" className="store-logo" />
+                    <img src={`http://localhost:5353/shop/profile_img/${shop_id}/${shopdetail.profile_shop_pic}`} alt="Logo" className="store-logo" />
                 </div>
                 <div className="contact-and-favorite-container">
                     <div className="contact-info">

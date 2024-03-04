@@ -14,15 +14,32 @@ import setCanvasPreview from '../util/setCanvasPreview';
 
 export default function EditProfile({ showedit, toggle, editType }) {
   const [visible, setvisible] = useState(false);
-  const userID = localStorage.getItem('usr_id')
+  const userID = localStorage.getItem('usr_id');
+  const shopID = localStorage.getItem('shop_id');
   const [show, Setshow] = useState(false)
 
   const [selectedfile, Setfile] = useState(null)
   const username = localStorage.getItem('usr')
   const [editdata, Seteditdata] = useState({ username: username });
 
-  const [editGuide,setEditguide] = useState({user_id:userID});
-  const [editShop,setShop] = useState({user_id:userID});
+  const [editGuide, setEditguide] = useState({ user_id: userID });
+
+
+
+  const [editShop, setShop] = useState({ 
+    user_id: userID,
+    shop_name:null ,
+    shop_detail:{
+        detail:null ,
+        opening:null
+    },
+    contact:{
+        tel:null ,
+        address:null ,
+        email:null
+    },
+    profile_shop_pic:null
+   });
 
 
   const [imgSrc, SetImgSrc] = useState('')
@@ -47,6 +64,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
     const formData = new FormData();
     formData.append('profile_img', selectedfile);
 
+
     try {
       Swal.fire({
         title: 'Loading...',
@@ -59,18 +77,34 @@ export default function EditProfile({ showedit, toggle, editType }) {
 
       let update_img, update_usr
       if (editType === 'user') {
-        update_img = await axios.post(`http://localhost:5353/upload-img/user/profile/${username}`, formData);
-        console.log(formData);
+
+          if(selectedfile){
+          update_img = await axios.post(`http://localhost:5353/upload-img/user/profile/${username}`, formData);
+          }
+     
         update_usr = await axios.put(`http://localhost:5353/user/update/profile/`, { editdata })
       }
       else if (editType === 'guide') {
-         update_img = await axios.post(`http://localhost:5353/guide_detail/upload_profile_guide/${userID}`, formData);
-         console.log(update_img.data.filename);
-         update_usr = await axios.put(`http://localhost:5353/guide_detail/update_profile/${userID}`, {
-            editGuide,
-            profile_pic:update_img.data.filename
-         })
-      }
+        if(selectedfile){
+        update_img = await axios.post(`http://localhost:5353/guide_detail/upload_profile_guide/${userID}`, formData);
+         }
+        update_usr = await axios.put(`http://localhost:5353/guide_detail/update_profile/${userID}`, {
+          editGuide,
+          profile_pic: update_img.data.filename
+        })
+      } else if (editType === 'shop') {
+            let filenamne = null;
+           if(selectedfile){
+                update_img = await axios.post(`http://localhost:5353/shop/upload-edit-profile/${shopID}`, formData)
+                filenamne = update_img.data.filename
+           }
+       
+           update_usr = await axios.put(`http://localhost:5353/shop/edit-profile/${userID}`, {
+            editShop,
+            filename:filenamne
+           })
+           console.log(update_usr);
+      }  
 
 
       Swal.close();
@@ -141,16 +175,16 @@ export default function EditProfile({ showedit, toggle, editType }) {
           </>
         )
       case 'guide':
-        return(
+        return (
           <>
-           <Form.Group controlId="firstname">
-            <Form.Label>Firstname</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="✉️  "
-              onChange={onGuideChange}
-            />
-          </Form.Group>
+            <Form.Group controlId="firstname">
+              <Form.Label>Firstname</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="✉️  "
+                onChange={onGuideChange}
+              />
+            </Form.Group>
 
           <Form.Group controlId="lastname">
             <Form.Label>lastname</Form.Label>
@@ -162,8 +196,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
           </Form.Group>
         </>
         )
-
-        case 'shop':
+      case 'shop':
           return(
             <>
             <Form.Group controlId="shop_name">
@@ -175,7 +208,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
               />
             </Form.Group>
   
-            <Form.Group controlId="shop_detail">
+            <Form.Group controlId="detail">
               <Form.Label>shopdetail</Form.Label>
               <Form.Control
                 as = "textarea" rows={3}
@@ -184,7 +217,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
               />
             </Form.Group>
   
-            <Form.Group controlId="shop_detail_opening">
+            <Form.Group controlId="opening">
               <Form.Label>opening</Form.Label>
               <Form.Control
                 type="text"
@@ -193,7 +226,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
               />
             </Form.Group>
   
-            <Form.Group controlId="shop_contact_tel">
+            <Form.Group controlId="tel">
               <Form.Label>telephone</Form.Label>
               <Form.Control
                 type="text"
@@ -202,7 +235,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
               />
             </Form.Group>
   
-            <Form.Group controlId="shop_contact_address">
+            <Form.Group controlId="address">
               <Form.Label>address</Form.Label>
               <Form.Control
                 type="text"
@@ -211,7 +244,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
               />
             </Form.Group>
   
-            <Form.Group controlId="shop_contact_email">
+            <Form.Group controlId="email">
               <Form.Label>email</Form.Label>
               <Form.Control
                 type="text"
@@ -226,19 +259,19 @@ export default function EditProfile({ showedit, toggle, editType }) {
   }
 
 
-  const onGuideChange=(e)=>{
-      setEditguide((prev) => ({
-          ...prev,
-          [e.target.id]:e.target.value
-      }))
+  const onGuideChange = (e) => {
+    setEditguide((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value
+    }))
   }
 
 
-  const onShopchange=(e)=>{
+  const onShopchange = (e) => {
     setShop((prev) => ({
       ...prev,
-      [e.target.id]:e.target.value
-  }))
+      [e.target.id]: e.target.value
+    }))
   }
 
 

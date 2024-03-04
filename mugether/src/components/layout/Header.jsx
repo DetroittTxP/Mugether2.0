@@ -73,6 +73,11 @@ export default function Header() {
           <LiaUserAstronautSolid/> Register Guide
         </a>
       </Menu.Item>}
+      { !shopStatus && <Menu.Item key="reg-shop">
+        <a href='/req-shop' style={{ textDecoration: 'none' }}>
+          <LiaUserAstronautSolid/> Register Shop
+        </a>
+      </Menu.Item>}
       <Menu.Item key="logout">
         <a onClick={handleLogout} style={{ textDecoration: 'none' }}>
           <IoMdLogOut /> Log Out

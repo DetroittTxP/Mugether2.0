@@ -35,7 +35,9 @@ const shop_model = mongoose.Schema({
             lat:Number,
             long:Number,
             Ig_shop:String,
-            LineID:String
+            LineID:String,
+            email:String
+
         }
     },
     profile_shop_pic:String,

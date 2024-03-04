@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useRef } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
@@ -13,7 +13,7 @@ import { Muplace_Context } from "../../context/MuContext";
 export default function Reg_guide() {
   const navigate = useNavigate();
   const { muplace } = useContext(Muplace_Context);
-
+  const file = useRef(null);
   const [guide, setguidedata] = useState(
     {
       firstName: "",
@@ -54,7 +54,19 @@ export default function Reg_guide() {
         title: 'Success'
       })
 
-      console.log(add_image);
+      setguidedata({
+        firstName: "",
+        lastName: "",
+        id_card: "",
+        id_guide: "",
+        mu_place: [],
+      });
+      setImage(null);
+
+      if(file.current){
+        file.current.value = '';
+      }
+    
 
     }
     catch (err) {
@@ -64,8 +76,6 @@ export default function Reg_guide() {
         icon: 'error'
       });
     }
-
-
   }
 
   const Change2 = (event1) => {
@@ -82,8 +92,7 @@ export default function Reg_guide() {
   const onImageChange = (event) => {
     setImage(event.target.files[0]);
   }
-
-
+  
   return (
     <Container className="reguide-container">
       <Row className="justify-content-center align-items-center">
@@ -96,17 +105,19 @@ export default function Reg_guide() {
 
           <Form onSubmit={handleSubmit}>
 
-            <Form.Group>
+          <Form.Group>
 
               <Form.Label>โปรดเเนบรูปประจำตัวของคุณ</Form.Label>
               <Form.Control
+                ref={file}
                 type="file"
                 accept='image/*'
                 onChange={onImageChange}
+             
               />
 
-            </Form.Group>
-
+          </Form.Group>
+          
             <Form.Group controlId="firstName">
               <Form.Label>ชื่อ</Form.Label>
               <Form.Control
@@ -133,7 +144,7 @@ export default function Reg_guide() {
               <Form.Label>รหัสบัตรประชาชน</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="🪪 ID Card"
+                placeholder="ID Card"
                 value={guide.id_card}
                 onChange={Change2}
                 required
@@ -159,6 +170,7 @@ export default function Reg_guide() {
                 style={{ width: '100%' }}
                 placeholder="🗺️ Please select"
                 optionFilterProp="children"
+                    value={guide.mu_place}
                 onChange={(values) => {
 
                   setguidedata(prevState => ({
@@ -179,7 +191,7 @@ export default function Reg_guide() {
             </Form.Group>
             <br />
 
-
+          
 
             <Button variant="primary" type="submit" className="submit-profile-btn">
               Submit

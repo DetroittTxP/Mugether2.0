@@ -45,76 +45,6 @@ export default function ShopV2() {
     },
   ]
 
-  const shoplist = [
-    {
-      productImage: "https://down-th.img.susercontent.com/file/th-11134207-7r98o-lkosofyofpwe20",
-      productName: "พระพิฆเนศปางเสวยสุข แถมฟรี❗️หนูมุสิกะ 1 ตัว"
-    },
-    {
-      productImage: "https://down-th.img.susercontent.com/file/930a3347af2a1cca20fdba87460681f2",
-      productName: "ท้าวเวสสุวรรณโณ พร้อมตลับ วัดจุฬามณี"
-    },
-    {
-      productImage: "https://down-th.img.susercontent.com/file/4e701f668b5f84dc88a9e4449b16a253",
-      productName: "องค์พระพิฆเนศประทับพญานาค องค์พระพิฆเนศ"
-    },
-    {
-      productImage: "https://down-th.img.susercontent.com/file/th-11134207-7qukw-leqpqvb565ha9d",
-      productName: "เท้าเวสสุวรรณโน วัดจุฬามณี"
-    },
-    // ----------------------------------------
-    {
-      productImage: "https://down-th.img.susercontent.com/file/th-11134207-7qukz-lkfchlc6uvzvf4",
-      productName: "ของไหว้ถวายพระพิฆเนศ ชุดคู่เนยกี +น้ำผึ้งป่า ถวายองค์เทพ"
-    },
-    {
-      productImage: "https://down-th.img.susercontent.com/file/th-11134207-7qul2-lkf7qkdmo0or9c",
-      productName: "ของไหว้ถวายพระพิฆเนศ ชุดคู่ธัญพืช 9 ชนิด+ข้าวมลคล 9 สี"
-    },
-    {
-      productImage: "https://down-th.img.susercontent.com/file/68d7a455631f7cd9e1e5b6b3afedf71b",
-      productName: "พานของไหว้ ขนมโมทกะ ลาดู พานดินปั้น ถวายบูชาพระพิฆเนษ"
-    },
-    {
-      productImage: "https://down-th.img.susercontent.com/file/51ed71b3b425121303ceb6c95abc64d3",
-      productName: "แผ่นยันต์ทองแดง ยันต์มงกุฎพระพุทธเจ้า สุดยอดแห่งมหายันต์"
-    },
-    // ----------------------------------------
-    {
-      productImage: "https://down-th.img.susercontent.com/file/e3d2da81774733c1a035b2a81c494632",
-      productName: "แผ่นเหล็กท้าวเวสสุวรรณ ท้าวเวสสุวัณ แผ่นโลหะองค์ท้าวเวสสุวรรณ"
-    },
-    {
-      productImage: "https://down-th.img.susercontent.com/file/0e84bea9f3308414e61d81a991f7353f",
-      productName: "น้ำมันอิ้นคู่ ปลุกเสก❤️‍🔥"
-    },
-    {
-      productImage: "https://down-th.img.susercontent.com/file/80e4602ba5d5361d7f4def7471a833bc",
-      productName: "พระวางหน้ารถ พระ ครอบแก้ว ท้าวเวสสุวรรณ"
-    },
-    {
-      productImage: "https://down-th.img.susercontent.com/file/3cb8f41ae41711aacfc05b5450e3c9f0",
-      productName: "ธนบดีเซรามิค ชุดบูชาพระ บายศรี ล้านนา 2 White ชุดสำหรับหิ้งพระ ชุดจัดโต๊ะหมู่บูชา"
-    },
-    // ----------------------------------------
-    {
-      productImage: "https://down-th.img.susercontent.com/file/th-11134207-23010-v0o7ikuronmv46",
-      productName: "เบี้ยแก้สแตนเลสแท้ บรรจุ ปรอทปลุกเสก กันของเข้าตัว"
-    },
-    {
-      productImage: "https://down-th.img.susercontent.com/file/sg-11134201-22110-sbjz3ma2aekvce",
-      productName: "ดาบเหล็กน้ำพี้แท้จิ๋ว"
-    },
-    {
-      productImage: "https://down-th.img.susercontent.com/file/th-11134207-7r991-llagdoremp7w9f",
-      productName: "บ่วงนาคบาศ 2 เศียรทองเหลืองแท้ ราคาส่ง"
-    },
-    {
-      productImage: "https://down-th.img.susercontent.com/file/d96beaffda811e1af006fc435753c5b5",
-      productName: "พญานาคราช พญานาค องค์เล็กจิ๋ว ขนาด 1 นิ้ว พกพาได้ เนื้อทองเหลือง รายละเอียดครบ"
-    },
-  ]
-
   
   
 
@@ -126,9 +56,6 @@ export default function ShopV2() {
         variant="underline"
         onSelect={(selectedKey) => {
           alert(`selected ${selectedKey}`);
-
-
-
 
         }}
         style={{ display: 'flex', justifyContent: 'center' }}
@@ -232,7 +159,6 @@ export default function ShopV2() {
                        })}
                     </React.Fragment>
                 ))}
-
 
         </Row>
 
