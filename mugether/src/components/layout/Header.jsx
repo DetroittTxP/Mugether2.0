@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Container, Nav, Navbar, Form,Modal ,Image} from 'react-bootstrap'
 import { Button, Dropdown, Menu } from 'antd';
-import Logo from '../assets/LogoMugether.png'
+import Logo from '../../assets/LogoMugether.png'
 import { LuLogIn } from "react-icons/lu";
-import { Muplace_Context } from '../context/MuContext';
+import { Muplace_Context } from '../../context/MuContext';
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
 import { TbEdit } from "react-icons/tb";
 import { IoMdLogOut } from "react-icons/io";
-import EditProfile from './EditProfile';
+import EditProfile from '../user/EditProfile';
 import AppsIcon from '@mui/icons-material/Apps';
 import { FaUserEdit } from "react-icons/fa";
 import { LiaUserAstronautSolid } from "react-icons/lia";
@@ -21,12 +21,16 @@ export default function Header() {
   const usr_data = localStorage.getItem('usr');
   const navigate = useNavigate();
   const [showedit,Setshowedit] = useState(false);
-
+  const [editType,Setedittype] = useState(null);
   
   const { muplace,guideStatus,shopStatus } = useContext(Muplace_Context)
   const [Muplace, Setmuplace] = useState([])
   
 
+  const onEditClick=(type)=>{
+     Setshowedit(true);
+     Setedittype(type)
+  }
 
   const handleLogout = async () => {
     localStorage.removeItem('usr');
@@ -49,15 +53,26 @@ export default function Header() {
         </div>
       </Menu.Item>
       <Menu.Item key="edit">
-        <a onClick={() => Setshowedit(true)} style={{ textDecoration: 'none' }}>
+        <a onClick={() => onEditClick('user')} style={{ textDecoration: 'none' }}>
           <TbEdit /> Edit Profile
         </a>
       </Menu.Item>
-      <Menu.Item key="reg-guide">
+      {guideStatus &&  <Menu.Item key="editGuide">
+        <a onClick={() => onEditClick('guide')}  style={{ textDecoration: 'none' }}>
+          <TbEdit /> Edit Guide Profile
+        </a>
+      </Menu.Item>}
+      {shopStatus && <Menu.Item key="editShop">
+        <a  onClick={() => onEditClick('shop')} style={{ textDecoration: 'none' }}>
+          <TbEdit /> Edit Shop profile
+        </a>
+      </Menu.Item>}
+
+    { !guideStatus && <Menu.Item key="reg-guide">
         <a href='/reg-guide' style={{ textDecoration: 'none' }}>
           <LiaUserAstronautSolid/> Register Guide
         </a>
-      </Menu.Item>
+      </Menu.Item>}
       <Menu.Item key="logout">
         <a onClick={handleLogout} style={{ textDecoration: 'none' }}>
           <IoMdLogOut /> Log Out
@@ -121,7 +136,7 @@ export default function Header() {
 
   return (
     <div>
-      <EditProfile showedit={showedit} toggle={toggle} />
+      <EditProfile showedit={showedit} toggle={toggle} editType={editType} />
       <Navbar   bg="light" expand="lg" fixed="top" style={{ borderBottom: '2px solid #ccc', padding: '30px', zIndex: '50' }}>
         <Container>
           <Navbar.Brand onClick={() => localStorage.removeItem('showmap')} href="/">

@@ -9,7 +9,7 @@ import Guide_detail from './Guide_detail';
 
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 import Add_post from './Add_post_guide';
-import { Muplace_Context } from '../context/MuContext';
+import { Muplace_Context } from '../../context/MuContext';
 
 export default function ListGuide() {
     const [guidedata, setGuideData] = useState([]);

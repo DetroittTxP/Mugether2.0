@@ -5,6 +5,10 @@ const user = require('../model/User-model');
 
 
 
+const checkIMG=()=>{
+    
+}
+
 
 
 
@@ -100,6 +104,7 @@ img.get('/guide/detail/:username/:imgname', async (req,res) => {
     try{
         let dir_ = path.dirname(__dirname);
         let imagesFile = path.join(dir_,"assets","guide",username,"detail_img",imgname);
+       
         res.sendFile(imagesFile)
     }
     catch(err)

@@ -7,7 +7,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 import './Shopdetail.css';
-import SwalLoading from './SwalLoading';
+import SwalLoading from '../util/SwalLoading';
 
 
 

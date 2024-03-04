@@ -146,9 +146,15 @@ upload_img.post('/guide/post/:usr_id',upload_post_guide.array('posts-img',5),asy
 //upload verify_guide
 const guide_verity = multer.diskStorage({
     destination:async(req,file,cb) => {
-        const {username} = req.params;
-        let dir_name = await create_dir(username,"guide","verify_info");
-        cb(null,dir_name)
+        try{
+            const {username} = req.params;
+            let dir_name = await create_dir(username,"guide","verify_info");
+            cb(null,dir_name)
+        }
+        catch(err){
+
+        }
+       
   },
   filename:(req,file,cb)=>{
       cb(null,Date.now() +  req.params.username + file.originalname);

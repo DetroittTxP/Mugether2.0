@@ -1,6 +1,8 @@
 const Guide_detail = require('express').Router();
 const Guide_detail_Model = require('../model/Guide_detail-Model');
 const user = require('../model/User-model')
+const multer = require('multer');
+const {create_dir} = require('./uploadimages')
 const db = Guide_detail_Model;
 
 
@@ -65,7 +67,7 @@ Guide_detail.post('/create_post/:usr_id',async(req,res) => {
      }
      catch(err){
           
-          
+
        return res.send({status:'error',err})
      }
 
@@ -75,19 +77,90 @@ Guide_detail.post('/create_post/:usr_id',async(req,res) => {
 //get guide detail
 Guide_detail.get('/get_list_guide/:muplace',async(req,res) => {
      const {muplace} = req.params;
-
+     console.log(muplace);
      try{
-           let data = await db.find({
-               guide_post:{
-                    $elemMatch:{muplace:muplace}
-               }
-           })
-
-           res.json(data);
-     }
-     catch(err){
+         
+          let data = await db.find({'guide_post.muplace':muplace});
+        
+          
+           return res.send(data);
           
      }
+     catch(err){
+          res.send(err)
+     }
+})
+
+
+
+
+
+
+
+
+
+//upload image profile guide
+const profile_img = multer.diskStorage({
+     destination:async(req,file,cb)=>{
+          try{
+               let dir = await create_dir(req.params.id_guide,"guide","profile_pic");
+               cb(null,dir);
+          }
+          catch(err){
+               console.log(err);
+               return;
+          }
+         
+     },
+     filename:(req,file,cb)=>{
+          cb(null,Date.now() + req.params.id_guide + file.originalname);
+     }
+})
+
+const upload_guide_pic = multer({storage:profile_img})
+
+Guide_detail.post('/upload_profile_guide/:id_guide',upload_guide_pic.single('profile_img'),
+                async (req,res)=>{
+          console.log('ok');
+          return res.send({
+               status:'success',
+               id_guide:req.params.id_guide,
+               filename:req.file.filename
+          })
+
+})
+
+
+//edit profile guide
+Guide_detail.put('/update_profile/:id_guide',async (req,res) => {
+
+
+          // const {firstname,lastname,profile_pic} = req.body.editGuide;
+          const {id_guide} = req.params;
+          const {firstname,lastname} = req.body.editGuide
+          const {profile_pic} = req.body;
+
+          let Og = await db.findOne({id_guide:id_guide});
+
+          console.log(Og);
+
+          const data = {
+               profile_pic:profile_pic || Og.profile_pic,
+               firstname:firstname || Og.firstname,
+               lastname:lastname || Og.lastname
+          }
+        
+           try{
+                const filter = {id_guide:id_guide};
+               
+            
+               let res = await db.findOneAndUpdate(filter,data);
+               return res.send(res);
+
+           }catch(err){
+               return res.send({status:'error',err})
+           }
+
 })
 
 

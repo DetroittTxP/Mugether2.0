@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Muplace_Context } from "../context/MuContext";
+import { Muplace_Context } from "../../context/MuContext";
 import { Container, Row, Col, Image, Button, Badge } from "react-bootstrap";
-import Reviewpage from "./Reviewpage";
-import ShareButton from "./ShareButton";
+import Reviewpage from "../Reviewpage";
+import ShareButton from "../layout/ShareButton";
 import "./Mudetail.css";
-import Nearby from "./Nearby";
-import List_guide from "./List_guide";
-import Map from "./map";
+import Nearby from "../nearby/Nearby";
+import List_guide from "../Guide/List_guide";
+import Map from "../util/Map";
 import { FaStar } from "react-icons/fa";
 
 export default function Mudetail({showguide}) {

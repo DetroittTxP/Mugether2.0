@@ -8,7 +8,7 @@ import "./Reg_guide.css";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Select } from 'antd';
-import { Muplace_Context } from "../context/MuContext";
+import { Muplace_Context } from "../../context/MuContext";
 
 export default function Reg_guide() {
   const navigate = useNavigate();

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { Form,Modal,Button } from 'react-bootstrap'
 import Swal from 'sweetalert2';
-import SwalLoading from './SwalLoading';
+import SwalLoading from '../util/SwalLoading';
 
 export default function Add_post() {
     const [selectedFiles, setSelectedFiles] = useState([]);
