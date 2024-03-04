@@ -74,6 +74,15 @@ export default function Add_shop() {
                     />
                 </Form.Group>
 
+                <Form.Group controlId="shop_contact_item_photo">
+                    <Form.Label>Image of product</Form.Label>
+                    <Form.Control
+                        type="file"
+                        // placeholder="📎 รูปภาพ "
+                        onChange={onShopchange}
+                    />
+                </Form.Group>
+
 
                 <Modal.Footer>
 

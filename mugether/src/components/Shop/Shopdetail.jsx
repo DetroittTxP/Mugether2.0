@@ -93,7 +93,7 @@ export default function Shopdetail() {
                 <div className="contact-and-favorite-container">
                     <div className="contact-info">
                         <h3>{shopdetail.shop_name}</h3>
-                        <p>ของขลัง ช็อป</p>
+                        <p>{shopdetail.shop_detail.detail}</p>
                     </div>
                     <div className="favorite-section">
                         <FaHeart

@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
@@ -19,22 +19,22 @@ export default function Reg_guide() {
       firstName: "",
       lastName: "",
       id_card: "", //รหัสบัตรปชช
-      id_guide: "", 
+      id_guide: "",
       mu_place: [], //เลือกโลเคชั่น
     }
   )
 
-   const [image,setImage] = useState(null);
+  const [image, setImage] = useState(null);
 
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
 
     const image_form = new FormData();
-    image_form.append('img-guide',image);
+    image_form.append('img-guide', image);
 
-    try{
+    try {
       Swal.fire({
         title: 'Loading...',
         html: 'Please wait',
@@ -44,9 +44,9 @@ export default function Reg_guide() {
         },
       })
 
-      let res = await axios.post('http://localhost:5353/verify_guide/info',{guide})
-      let id_user =  res.data.msg._id;
-      let add_image = await axios.post(`http://localhost:5353/verify_guide/img/${id_user}`,image_form)
+      let res = await axios.post('http://localhost:5353/verify_guide/info', { guide })
+      let id_user = res.data.msg._id;
+      let add_image = await axios.post(`http://localhost:5353/verify_guide/img/${id_user}`, image_form)
       Swal.close();
 
       await Swal.fire({
@@ -55,14 +55,13 @@ export default function Reg_guide() {
       })
 
       console.log(add_image);
-      
+
     }
-    catch(err)
-    {
+    catch (err) {
       Swal.fire({
         title: "Error",
         text: err,
-        icon:'error'
+        icon: 'error'
       });
     }
 
@@ -80,10 +79,10 @@ export default function Reg_guide() {
     )
   }
 
-  const onImageChange = (event)=>{
-      setImage(event.target.files[0]);
+  const onImageChange = (event) => {
+    setImage(event.target.files[0]);
   }
-  
+
 
   return (
     <Container className="reguide-container">
@@ -92,19 +91,22 @@ export default function Reg_guide() {
           <div className="profile-header">
 
           </div>
+          <h2 className="head">Register Guide🧳</h2> 
+          
+
           <Form onSubmit={handleSubmit}>
 
-          <Form.Group>
+            <Form.Group>
 
-            <Form.Label>โปรดเเนบรูปประจำตัวของคุณ</Form.Label>
+              <Form.Label>โปรดเเนบรูปประจำตัวของคุณ</Form.Label>
               <Form.Control
                 type="file"
                 accept='image/*'
                 onChange={onImageChange}
               />
 
-          </Form.Group>
-          
+            </Form.Group>
+
             <Form.Group controlId="firstName">
               <Form.Label>ชื่อ</Form.Label>
               <Form.Control
@@ -131,7 +133,7 @@ export default function Reg_guide() {
               <Form.Label>รหัสบัตรประชาชน</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="ID Card"
+                placeholder="🪪 ID Card"
                 value={guide.id_card}
                 onChange={Change2}
                 required
@@ -142,7 +144,7 @@ export default function Reg_guide() {
               <Form.Label>รหัสไกด์</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="ID Guide"
+                placeholder="🪪 ID Guide"
                 value={guide.id_guide}
                 onChange={Change2}
                 required
@@ -150,34 +152,34 @@ export default function Reg_guide() {
             </Form.Group>
 
             <Form.Group controlId="muplace">
-                <Form.Label>สถานที่สะดวก</Form.Label>
-                <Select
-                    mode="multiple"
-                    showSearch
-                    style={{ width: '100%' }}
-                    placeholder="Please select"
-                    optionFilterProp="children"
-                    onChange={(values) => {
-                      
-                    setguidedata(prevState => ({
-                        ...prevState,
-                        mu_place: values,
-                    }));
-                    }}
-                    filterOption={(input, option) =>
-                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                    }
-                >
-                    {muplace.map((mu_place,i) => (
-                    <Select.Option key={i} value={mu_place.name}>
-                        {mu_place.name}
-                    </Select.Option>
-                    ))}
-                </Select>
+              <Form.Label>สถานที่สะดวก</Form.Label>
+              <Select
+                mode="multiple"
+                showSearch
+                style={{ width: '100%' }}
+                placeholder="🗺️ Please select"
+                optionFilterProp="children"
+                onChange={(values) => {
+
+                  setguidedata(prevState => ({
+                    ...prevState,
+                    mu_place: values,
+                  }));
+                }}
+                filterOption={(input, option) =>
+                  option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                }
+              >
+                {muplace.map((mu_place, i) => (
+                  <Select.Option key={i} value={mu_place.name}>
+                    {mu_place.name}
+                  </Select.Option>
+                ))}
+              </Select>
             </Form.Group>
             <br />
 
-          
+
 
             <Button variant="primary" type="submit" className="submit-profile-btn">
               Submit
