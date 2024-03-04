@@ -57,12 +57,13 @@ Guide_detail.post('/create_post/:usr_id',async(req,res) => {
 
 
           let og = await db.findOne({id_guide:usr_id}).select('guide_post');
-         
-          let filterMU = await og.guide_post.filter(e => e.muplace !== newpost.muplace);
+          let oggg = await og.guide_post.filter(e => e.muplace !== newpost.muplace)
+          let filterMU = await og.guide_post.filter(e => e.muplace === newpost.muplace);
 
+          console.log(filterMU);
           let push_post;    
       
-          if(filterMU.length !== 0)
+          if(filterMU.length === 0)
           {
                 push_post = await db.findOneAndUpdate(
                     {
@@ -75,14 +76,14 @@ Guide_detail.post('/create_post/:usr_id',async(req,res) => {
                )
           }
           else{
-              await filterMU.push(newpost);
-
+              await oggg.push(newpost);
+               
                push_post = await db.findOneAndUpdate(
                     {
                          id_guide:usr_id
                     },
                     {
-                         guide_post:newpost
+                         guide_post:oggg
                     }
                )
           }
@@ -90,7 +91,7 @@ Guide_detail.post('/create_post/:usr_id',async(req,res) => {
           let dir = path.dirname(__dirname);
           let imagedir = path.join(dir,"assets","guide",usr_id,"detail_img")
            
-          await check_unuse_image(usr_id,imagedir,newpost.muplace)
+          //await check_unuse_image(usr_id,imagedir,newpost.muplace)
         
           return res.send(push_post)
      }
@@ -121,7 +122,7 @@ const check_unuse_image=async(id_guide,imagedir,muplace)=>{
                     if(!db_data.includes(img))
                     {
                          let filedir = path.join(imagedir,img);  
-                         console.log(filedir); 
+                        
                          fs.unlink(filedir,(err)=>{
                               if(err){
                                 console.log(err);
