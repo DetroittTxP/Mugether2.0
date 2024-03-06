@@ -6,6 +6,10 @@ import './ReviewPage.css';
 import { useLocation } from 'react-router-dom'
 import { Form } from 'react-bootstrap'
 import Swal from 'sweetalert2'
+import { IconButton } from '@mui/material';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+
 
 const Add_Review = ({ Muplace_name, check_finish }) => {
 
@@ -171,25 +175,58 @@ export default function ReviewPage({ Muplace_name }) {
       return Setaddreview(false)
     }
     return user ? Setaddreview(true) : Swal.fire('Login first');
-   
   }
 
   const renderPageNumbers = totalPages => {
     let pages = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pages.push(
-        <button
-          key={i}
-          className={`page-number ${currentPage === i ? "active" : ""}`}
-          onClick={() => handlePageClick(i)}
-        >
-          {i}
-        </button>
-      );
+    const maxVisiblePages = 5;
+    if (totalPages <= maxVisiblePages) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(
+          <button
+            key={i}
+            className={`page-number ${currentPage === i ? "active" : ""}`}
+            onClick={() => handlePageClick(i)}
+          >
+            {i}
+          </button>
+        );
+      }
+    } else {
+      const startPage = Math.max(currentPage-2, 1);
+      const endPage = Math.min(currentPage+2, totalPages);
+      if (startPage > 1) {
+        pages.push(
+          <IconButton key="prev" onClick={() => handlePageClick(currentPage - 1)}>
+          <ChevronLeftIcon />
+          </IconButton>
+        );
+      }
+      for (let i = startPage; i <= endPage; i++) {
+        pages.push(
+          <button
+            key={i}
+            className={`page-number ${currentPage === i ? "active" : ""}`}
+            onClick={() => handlePageClick(i)}
+          >
+            {i}
+          </button>
+        );
+      }
+      if (endPage < totalPages) {
+        pages.push(
+        <IconButton key="next" onClick={() => handlePageClick(currentPage + 1)}>
+        <ChevronRightIcon />
+        </IconButton>
+        );
+      }
     }
-    return pages;
-  };
-
+    return (
+      <div className="carousel-pagination">
+        {pages}
+      </div>
+    );
+};
 
   let Reviewd = (
     <div style={{ display: 'flex', alignItems: 'center', fontSize: '1rem' }}>
