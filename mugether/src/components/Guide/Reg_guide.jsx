@@ -12,10 +12,12 @@ import { Muplace_Context } from "../../context/MuContext";
 
 export default function Reg_guide() {
   const navigate = useNavigate();
+  const userID = localStorage.getItem('usr_id');
   const { muplace } = useContext(Muplace_Context);
   const file = useRef(null);
   const [guide, setguidedata] = useState(
     {
+      userID:userID,
       firstName: "",
       lastName: "",
       id_card: "", //รหัสบัตรปชช
@@ -46,7 +48,7 @@ export default function Reg_guide() {
 
       let res = await axios.post('http://localhost:5353/verify_guide/info', { guide })
       let id_user = res.data.msg._id;
-      let add_image = await axios.post(`http://localhost:5353/verify_guide/img/${id_user}`, image_form)
+      let add_image = await axios.post(`http://localhost:5353/verify_guide/img/${userID}`, image_form)
       Swal.close();
 
       await Swal.fire({
@@ -106,6 +108,7 @@ export default function Reg_guide() {
           <Form onSubmit={handleSubmit}>
 
           <Form.Group>
+             
 
               <Form.Label>โปรดเเนบรูปประจำตัวของคุณ</Form.Label>
               <Form.Control
@@ -162,10 +165,11 @@ export default function Reg_guide() {
               />
             </Form.Group>
 
-            <Form.Group controlId="muplace">
+            <Form.Group controlId="muplace" >
               <Form.Label>สถานที่สะดวก</Form.Label>
               <Select
                 mode="multiple"
+                
                 showSearch
                 style={{ width: '100%' }}
                 placeholder="🗺️ Please select"
@@ -183,7 +187,7 @@ export default function Reg_guide() {
                 }
               >
                 {muplace.map((mu_place, i) => (
-                  <Select.Option key={i} value={mu_place.name}>
+                  <Select.Option  key={i} value={mu_place.name}>
                     {mu_place.name}
                   </Select.Option>
                 ))}

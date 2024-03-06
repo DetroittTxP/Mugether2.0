@@ -20,10 +20,6 @@ const Register = () => {
         }
     );
 
-    
-
-
-
     const checkPassword = () => {
         if (User.password != User.confirmpassword) {
             Swal.fire("Password not match");
@@ -88,8 +84,9 @@ const Register = () => {
 
             try {
                 let res = await axios.post('http://localhost:5353/user/register', sent_data)
+                console.log(res.data);
                 Swal.close();
-
+          
                 if (res.data.status === 'success') {
 
 
@@ -106,9 +103,12 @@ const Register = () => {
                             }
 
                         });
-
-
-
+                }
+                else{
+                    await Swal.fire({
+                         icon:'error',
+                         title:'Error duplicate username'
+                    })
                 }
             }
             catch (err) {

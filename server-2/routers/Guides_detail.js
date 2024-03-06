@@ -107,7 +107,7 @@ Guide_detail.post('/create_post/:usr_id',async(req,res) => {
 
 const check_unuse_image=async(id_guide,imagedir,muplace)=>{
        try{
-            let dataindb = await db.findOne({id_guide:id_guide}).select('guide_post');
+            let dataindb = await db.find({id_guide:id_guide}).select('guide_post');
             dataindb = dataindb.guide_post.filter((e) => e.muplace === muplace);
 
             let db_data = dataindb[0].postPhotos;
