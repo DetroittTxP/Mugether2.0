@@ -20,23 +20,23 @@
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
   
 .description-box .price {
     color: #ff0000;
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
   
 .additional-details {
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 5px;
 }
   
 @media (max-width: 767px) {
     .description-box, .additional-details {
-      margin-top: 15px;
+      margin-top: 5px;
     }
 }
 .reviewshop,
@@ -44,17 +44,28 @@
 .description2{
     border: none;
     border-radius: 2px;
+
+}
+.description2 h2{
+    background-color: #F1F8FB
+}
+
+.info-shop-name h2{
+    background-color: #F1F8FB;
+    margin-top: 200px;
+}
+
+.reviewshop h2{
     background-color: #F1F8FB;
 }
 
 .description3{
-    border: 1px solid black;
-    border-radius: 20px;
+    /* border: 1px solid black;
+    border-radius: 20px; */
     width: 1000px;
     height: 400px;
-    margin: auto;
+    padding-left: 5px;
     padding-top: 20px;
-    padding-left: 10px;
     font-size: 18px;
 }
 
@@ -150,6 +161,7 @@
 
 .shop-details {
     flex-grow: 1;
+    margin-bottom: 20px;
 }
 
 .shop-detail-item {

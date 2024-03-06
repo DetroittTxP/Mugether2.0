@@ -19,7 +19,8 @@ export default function Shopdetail() {
             item_photo: '',
             item_name: '',
             item_detail: '',
-            item_price: 0
+            item_price: 0,
+            item_linkurl: ''
         }],
         contact: {
             tel: '',
@@ -32,7 +33,7 @@ export default function Shopdetail() {
             opening: '',
             email: ''
         },
-        profile_shop_pic:''
+        profile_shop_pic: ''
     });
 
     const shop_id = localStorage.getItem('shop_id');
@@ -87,6 +88,7 @@ export default function Shopdetail() {
                                     src={`http://localhost:5353/shop/post_img/${shop_id}/${image}`}
                                     alt={`Product image ${index + 1}`}
                                 />
+
                             </Carousel.Item>
                         ))}
                     </Carousel>
@@ -96,8 +98,8 @@ export default function Shopdetail() {
                         <h2>{selectedShop[0].item_name}</h2>
                         <p className="price">ราคา {selectedShop[0].item_price} ฿/ชิ้น</p>
                         <p>{shopdetail.contact.address}</p>
-                        <Button variant="primary" className='Buttom-shop' href={shopdetail.contact.link_url}>ไปยังร้านค้า</Button>
-                        
+                        <Button variant="primary" className='Buttom-shop' href={shopdetail.shop_items[0].item_linkurl}>ไปยังร้านค้า</Button>
+
                     </div>
                 </Col>
             </Row>
@@ -125,45 +127,46 @@ export default function Shopdetail() {
             <br />
             <br />
 
-            <div className='description2'>
-                <h2>รายละเอียดสินค้า</h2>
-            </div>
-            <br />
 
             <div className='description3'>
                 <h3>{selectedShop[0].item_detail}</h3>
                 
             </div>
 
-            <br />
-            <br />
-
-            <div className="info-shop-name">
-                <h2>ข้อมูลร้านค้า</h2>
-            </div>
-            <div className="shop-details">
                 <br />
-                <div className="shop-detail-item">
-                    <FaClock className="icon" /> <span>เปิด - ปิด {shopdetail.shop_detail.opening} น.</span>
-                </div>
-                <div className="shop-detail-item">
-                    <FaMapMarkerAlt className="icon" /> <span>ที่อยู่ : {shopdetail.contact.address}</span>
-                </div>
-                <div className="shop-detail-item">
-                    <FaPhone className="icon" /> <span>เบอร์โทร : {shopdetail.contact.tel}</span>
-                </div>
-                <div className="shop-detail-item">
-                    <FaEnvelope className="icon" /> <span>Email : {shopdetail.contact.email}</span>
-                </div>
-                <div className="map-container">
-                    <div className="map-placeholder">MAP</div>
-                </div>
-            </div>
 
-            <div className='reviewshop'>
-                <h2>รีวิว</h2>
-            </div>
+                
 
+                <br />
+                <br />
+
+                <div className="info-shop-name">
+                    <h2>ข้อมูลร้านค้า</h2>
+                </div>
+
+                <div className="shop-details">
+                    <br />
+                    <div className="shop-detail-item">
+                        <FaClock className="icon" /> <span>เปิด - ปิด {shopdetail.shop_detail.opening} น.</span>
+                    </div>
+                    <div className="shop-detail-item">
+                        <FaMapMarkerAlt className="icon" /> <span>ที่อยู่ : {shopdetail.contact.address}</span>
+                    </div>
+                    <div className="shop-detail-item">
+                        <FaPhone className="icon" /> <span>เบอร์โทร : {shopdetail.contact.tel}</span>
+                    </div>
+                    <div className="shop-detail-item">
+                        <FaEnvelope className="icon" /> <span>Email : {shopdetail.contact.email}</span>
+                    </div>
+                    <div className="map-container">
+                        <div className="map-placeholder">MAP</div>
+                    </div>
+                </div>
+
+                <div className='reviewshop'>
+                    <h2>รีวิว</h2>
+                </div>
+            
         </Container>
     );
 }
