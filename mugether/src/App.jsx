@@ -13,6 +13,7 @@ import Register from './components/user/Register'
 import Regguide from './components/Guide/Reg_guide'
 import Shopdetail from './components/Shop/Shopdetail'
 import Swal from 'sweetalert2';
+import Add_Shop from './components/Shop/Add_shop'
 
 
 const Checktimeout=(timeout,onLogout)=>{
@@ -129,6 +130,7 @@ export default function App() {
         <Route path='/register' element={<Register />}  />
         <Route path='/reg-guide' element={<Regguide />}  />
         <Route path='/shopdetail' element={<Shopdetail  />}  />
+        <Route path='/add-shop' element={<Add_Shop/>}/>
         
       </Routes>
       <div>

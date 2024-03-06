@@ -46,8 +46,9 @@ Shop.post('/add_profile_img_shop/:shop_id',upload_shop_profile.single('shop-prof
 
 
 
-//add_shop_item_image
 
+//frist
+//add_shop_item_image
 const add_item_img = multer.diskStorage({
     destination: async (req,file,cb)=>{
         let dir = await create_dir(req.params.shop_id,"shop","post_img");
@@ -166,17 +167,24 @@ Shop.post('/create-shop', async (req,res) => {
 })
 
 
+
+//second
 //add-item shop
 Shop.put('/add-item/:shop_id', async (req,res) => {
-     
-        const item = req.body;
-        const shop_id = req.params.shop_id
+         
+         const {shop_item,filename} = req.body
         try{
             
+            let postdata = {
+                 ...shop_item,
+                 item_photo:filename,
+            }
+
+         
             let add_item = await db_shop.findByIdAndUpdate(
-                {_id:shop_id},
+                {_id:req.params.shop_id},
                 {
-                    $push:{shop_items:item}
+                    $push:{shop_items:postdata}
                 }
                 
                 )

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Row, Col, Container, Button, Carousel } from "react-bootstrap";
+import { Row, Col, Container, Button, Carousel,Card } from "react-bootstrap";
 import { Muplace_Context } from "../../context/MuContext";
 import { FaHeart, FaMapMarkerAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import Swal from 'sweetalert2'
 
 import { Image } from 'react-bootstrap'
 import SwalLoading from "../util/SwalLoading";
+
 
 export default function Listitem({ SelectedMuType, SelectedMuplace }) {
   const navigate = useNavigate();
@@ -93,16 +94,17 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
   };
 
   return (
-    <Container style={{ display: "flex", justifyContent: "center" }}>
-      <Row style={{ justifyContent: "center" }}>
+    <Container >
+      <Row  className="g-5" >
 
         {List_Of_Mu.filter((data, i) => data.name !== "วัดดาวดึงษาราม")
           .sort((a, b) => a.name.localeCompare(b.name, "th"))
           .map((data, index) => {
-            let top = index > 3 ? { marginTop: 100 } : {};
+            
 
             return (
-              <Col style={top} md={3} key={data.name}>
+              <Col xs={6} md={4} lg={3} key={data.name}>
+                
                 <a
 
                   style={{
@@ -177,3 +179,88 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
     </Container>
   );
 }
+
+
+
+{/* <Container style={{ display: "flex", justifyContent: "center" }}>
+<Row style={{ justifyContent: "center" }}>
+
+  {List_Of_Mu.filter((data, i) => data.name !== "วัดดาวดึงษาราม")
+    .sort((a, b) => a.name.localeCompare(b.name, "th"))
+    .map((data, index) => {
+      let top = index > 3 ? { marginTop: 100 } : {};
+
+      return (
+        <Col style={top} md={3} key={data.name}>
+          <a
+
+            style={{
+              position: "relative",
+              borderRadius: 20,
+              overflow: "hidden",
+              display: "inline-block",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+                zIndex: 1,
+              }}
+            >
+              <FaHeart
+                onClick={() => {
+                  toggleHeart(data.name);
+                }}
+                style={{
+                  color: HeartCheck.includes(data.name) ? "red" : "white",
+                  cursor: "pointer",
+                  fontSize: "24px",
+                }}
+              />
+            </div>
+
+
+
+            <Image
+                  onClick={() => {
+                    SelectedMuplace(data.name);
+                    localStorage.setItem('showmap', data.name)
+                    navigate("/mudetail");
+                    Swal.fire({
+                      title: 'Loading...',
+                      html: 'Please wait',
+                      timer: 1800,
+                      timerProgressBar: true,
+                      didOpen: () => {
+                        Swal.showLoading();
+                      },
+                    })
+
+                  }}
+                  style={{ borderRadius: 20, cursor: 'pointer' }}
+                  width={300}
+                  height={300}
+                  alt={data.name}
+                  src={`http://localhost:5353/image/mu/${data.name}/7`}
+                  loading="lazy"
+                />
+
+          </a>
+
+          <br />
+
+          <div style={{ fontFamily: "Sarabun" }}>
+            <h5>{data.name}</h5>
+          </div>
+
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <FaMapMarkerAlt style={{ marginRight: "10px" }} />
+            <span>{data.address}</span>
+          </div>
+        </Col>
+      );
+    })}
+</Row>
+</Container> */}

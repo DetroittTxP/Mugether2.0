@@ -4,6 +4,7 @@ const user = require('../model/User-model')
 const multer = require('multer');
 const {create_dir} = require('./uploadimages')
 const fs = require('fs')
+const dbusr = require('../model/User-model')
 const path = require('path')
 const db = Guide_detail_Model;
 
@@ -21,7 +22,7 @@ Guide_detail.post('/create_guide', async (req,res)=>{
      try{
           let check_id = await user.findOne({_id:_id});
           let check_guide = await db.findOne({id_guide:_id});
-       
+          
           if(!check_id || check_guide){
                return res.send({status:'error',msg:'duplicate guide or not user found'});
           }
@@ -33,6 +34,15 @@ Guide_detail.post('/create_guide', async (req,res)=>{
                lastname:lastname,
                mu_location:mu_location
           })
+               
+          
+
+           await dbusr.findByIdAndUpdate({_id:_id},
+                    {
+                         guide:true,
+                    }                    
+               )
+
   
           return res.json({status:'success',result:create_guide});
      }
