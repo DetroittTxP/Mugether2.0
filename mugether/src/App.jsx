@@ -59,6 +59,7 @@ export default function App() {
   const [selectedMuplace, SetSelecttedMuplace] = useState('');
   const [showguide,Setshowguide] = useState(false);
   const [logoutAlertShown, setLogoutAlertShown] = useState(false);
+
   const guideStatus = JSON.parse(localStorage.getItem('guide'));
   const shopStatus = JSON.parse(localStorage.getItem('shop'));
 
@@ -82,13 +83,12 @@ export default function App() {
 
   //fetch global MUPLACE 
   useEffect(() => {
-
+  
     axios.get('http://localhost:5353/muplace/mudata')
       .then(res => {
         Setmuplace(res.data.filter(e => e.name !== "วัดดาวดึงษาราม"))
       })
       .catch(err => alert(err))
-    
       
   }, [])
 

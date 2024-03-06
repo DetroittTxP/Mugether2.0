@@ -56,6 +56,10 @@ export default function Add_post() {
             let update_post_detail = await axios.post(`http://localhost:5353/guide_detail/create_post/${usr_id}`,{post,photos})
            console.log(update_post_detail);
             Swal.close();
+            Swal.fire({
+                icon:'success',
+                text:'เพิ่มโพสสำเร็จ'
+            })
         }
         catch(err)
         {

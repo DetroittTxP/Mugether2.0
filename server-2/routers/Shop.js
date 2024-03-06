@@ -11,7 +11,6 @@ Shop.get('/',(req,res) => {
 
 
 
-
 //add_profile_image_shop
 const add_profile_image_shop = multer.diskStorage({
     destination:async(req,file,cb)=>{
@@ -307,6 +306,18 @@ Shop.put('/edit-profile/:usrid',async (req,res) => {
 
     
 } )
+
+
+Shop.get('/:userID',async(req,res) => {
+
+    try{
+        let id = await db_shop.findOne({id_user:req.params.userID}).select('_id');
+        return res.json(id);
+    }
+    catch(err){
+        return res.send({status:"error",err})
+    }
+})
 
 
 

@@ -6,13 +6,13 @@ const {create_dir} = require('./uploadimages')
 const fs = require('fs')
 const dbusr = require('../model/User-model')
 const path = require('path')
+const {checkunuse_guide } = require('../util/checkunuse')
 const db = Guide_detail_Model;
-
-
 
 Guide_detail.get('/',(req,res) => {
      res.send('ok')
 })
+
 
 
 
@@ -101,7 +101,14 @@ Guide_detail.post('/create_post/:usr_id',async(req,res) => {
           let dir = path.dirname(__dirname);
           let imagedir = path.join(dir,"assets","guide",usr_id,"detail_img")
            
-          //await check_unuse_image(usr_id,imagedir,newpost.muplace)
+          let deletet_unuse_image = await checkunuse_guide(usr_id);
+          const {status} = deletet_unuse_image;
+          if(status !== 'sucees'){
+                return {
+                    status:'error',
+                    msg:deletet_unuse_image.err
+                }
+          }
         
           return res.send(push_post)
      }
@@ -114,42 +121,6 @@ Guide_detail.post('/create_post/:usr_id',async(req,res) => {
 
 })
 
-
-const check_unuse_image=async(id_guide,imagedir,muplace)=>{
-       try{
-            let dataindb = await db.find({id_guide:id_guide}).select('guide_post');
-            dataindb = dataindb.guide_post.filter((e) => e.muplace === muplace);
-
-            let db_data = dataindb[0].postPhotos;
-
-            fs.readdir(imagedir,(err,files) => {
-                  if (err) {
-                         console.log(err);
-                         return;
-                  }
-              
-               files.forEach(img => {
-                    if(!db_data.includes(img))
-                    {
-                         let filedir = path.join(imagedir,img);  
-                        
-                         fs.unlink(filedir,(err)=>{
-                              if(err){
-                                console.log(err);
-                                return;
-                              }
-                         }) 
-                    }
-               })
-               
-            })
-            return;
-       }
-       catch(err){
-           console.log(err);
-           return;
-       }
-}
 
 //get guide detail
 Guide_detail.get('/get_list_guide/:muplace',async(req,res) => {

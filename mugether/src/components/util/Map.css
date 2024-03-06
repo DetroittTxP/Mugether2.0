@@ -1,4 +1,6 @@
 .leaflet-container{
     height: 60vh;
     z-index: 1;
+    display: flex;
+    justify-content: center;
 }

@@ -48,13 +48,39 @@ const Reg_Guide_Mail = async (email)=>{
 }
 
 
-const reg_user_mail=(email)=>{
-       
+const Reg_User_mail=async(email)=>{
+       const mailOptions = {
+            from:process.env.EMAIL,
+            to:email,
+            subject:'ขอบคุณสำหรับการสมัครสมาชิก Mugether',
+            html:`
+                <h1>Thank you for your registration with Mugether</h1>
+                <br/> 
+                <h3>ขอให้สนุกกับการมูของคุณ</h3>
+                <br/>  <br/> 
+                <h3>ขอบคุณครับ</h3>
+             `
+       }
+
+       transporter.sendMail(mailOptions,(err,info) => {
+          if(err){
+               return {
+                  stauts:'error',
+                  err
+               }
+          }
+          else{
+             return {
+                   status:'success',
+                   msg:'email was send'
+             }
+          }
+       })
 }
 
 
 
 module.exports = {
      Reg_Guide_Mail,
-     reg_user_mail
+     Reg_User_mail
 };

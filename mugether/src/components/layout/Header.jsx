@@ -96,27 +96,21 @@ export default function Header() {
   );
 
   const non_login = (
-    <Menu style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '10px' }}>
+    <Menu style={{textDecoration:'none',  display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '10px' }}>
       <Menu.Item key="login">
-        <a href='/login' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <a href='/login' style={{textDecoration:'none',  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <LuLogIn style={{ fontSize: '24px' }} />
           <span>LOGIN</span>
         </a>
       </Menu.Item>
       <Menu.Item key="register">
-        <a href='/register' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <a href='/register' style={{ textDecoration:'none',display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <FaUserEdit style={{ fontSize: '24px' }} />
           <span>REGISTER</span>
         </a>
       </Menu.Item>
-      <Menu.Item key="favorite">
-        <a href='#' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-          <MdFavorite style={{ fontSize: '24px' }} />
-          <span>FAVORITE</span>
-        </a>
-      </Menu.Item>
       <Menu.Item key="shop">
-        <a href='#' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <a href='/shop' style={{textDecoration:'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <CiShop style={{ fontSize: '24px' }} />
           <span>SHOP</span>
         </a>

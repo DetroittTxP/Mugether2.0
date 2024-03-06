@@ -11,11 +11,30 @@ import { Select } from 'antd';
 import { Muplace_Context } from "../../context/MuContext";
 import SwalLoading from "../util/SwalLoading";
 
+
+
+
+
 export default function Add_Shop() {
 
-
-
+  const usrid = localStorage.getItem('usr_id');
   const file = useRef(null);
+
+  const getIDshop=async(iduser)=>{
+      
+     let res = await axios.get(`http://localhost:5353/shop/${iduser}`);
+     if(!res.data){
+          return "you not user";
+     }
+     else{
+      return res.data._id;
+     }
+    
+}
+
+
+
+
   const [shop_item, setshopitem] = useState(
     {
       item_name:'',
@@ -24,7 +43,7 @@ export default function Add_Shop() {
     }
   )
 
-
+   
 
   const [image, setImage] = useState([]);
 
@@ -52,9 +71,9 @@ export default function Add_Shop() {
 
   const formSubmit=async(event)=>{
        event.preventDefault();
-
+       const shop_id = await getIDshop(usrid);
         const img = new FormData();
-
+        console.log(shop_id);
         image.forEach((file => {
                img.append('upload_post', file);
         }))
@@ -66,7 +85,7 @@ export default function Add_Shop() {
            const {filename} = upload_post_image.data;
             
            let add_item = await axios.put(`http://localhost:5353/shop/add-item/${shop_id}`, {shop_item,filename});
-           console.log(add_item);
+           Swal.fire({icon:'success',text:'เพิ่มรายการสินค้าเเล้ว'})
         }
        catch(err){
           Swal.fire({text:err})

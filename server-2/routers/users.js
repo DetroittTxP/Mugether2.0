@@ -2,7 +2,7 @@ const user = require('../model/User-model');
 const usr = require('express').Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const {Reg_User_mail} = require('../mail/sendmail')
 usr.get('/',(req,res) => {
     res.send('ok')
 })
@@ -108,10 +108,13 @@ usr.post('/register', async (req,res) => {
                 email:email
             })
 
+            await Reg_User_mail(email);
             return res.send({
                 status:"success",
                 insert_usr
             });
+
+
         });
      }
      catch(err)
