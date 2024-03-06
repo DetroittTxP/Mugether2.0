@@ -49,12 +49,14 @@ export default function Login() {
         return Swal.fire('verify token error')
       }
 
+      
+
       localStorage.setItem("usr", verify_token.data.result.username);
       localStorage.setItem("token", verify_token.data.token);
       localStorage.setItem('usr_id', verify_token.data.userID);
       localStorage.setItem('guide',verify_token.data.guide);
       localStorage.setItem('shop',verify_token.data.shop);
-
+      
       await Swal.fire({
         icon: 'success',
         title: 'Login Success'

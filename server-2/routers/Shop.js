@@ -42,6 +42,49 @@ Shop.post('/add_profile_img_shop/:shop_id',upload_shop_profile.single('shop-prof
  
 })
 
+Shop.post('/create-shop', async (req,res) => {
+    const {
+        id_user,
+        shop_name,
+        shop_detail,
+        contact
+
+    } = req.body;
+
+    console.log(req.body);
+
+    try{
+
+        let check_user = await usr.findOne({_id:id_user});
+        let check_shop = await db_shop.findOne({id_user:id_user});
+
+        if(!check_user && check_shop)
+        {
+            return res.send('something went wrong');
+        }
+
+           await usr.findByIdAndUpdate(
+            {_id:id_user},
+            {shop:true}
+            )
+
+        let create_shop = await db_shop.create({
+            id_user:id_user,
+            shop_name:shop_name,
+            shop_detail:shop_detail,
+            contact:contact
+        })
+
+        
+
+        return res.json({status:"success",create_shop});
+
+    }
+    catch(err){
+        return res.send({status:'error',err})
+    }
+})
+
 
 
 
@@ -112,6 +155,8 @@ Shop.get('/profile_img/:shop_id/:image_name',(req,res) => {
 
 
 
+
+
 //get all item of shop
 Shop.get('/shop_item',async (req,res) => {
 
@@ -126,45 +171,7 @@ Shop.get('/shop_item',async (req,res) => {
 
 
 //createshop
-Shop.post('/create-shop', async (req,res) => {
-    const {
-        id_user,
-        shop_name,
-        shop_detail,
-        contact
 
-    } = req.body;
-
-    try{
-
-        let check_user = await usr.findOne({_id:id_user});
-
-        if(!check_user)
-        {
-            return res.send('something went wrong');
-        }
-
-           await usr.findByIdAndUpdate(
-            {_id:id_user},
-            {shop:true}
-            )
-
-        let create_shop = await db_shop.create({
-            id_user:id_user,
-            shop_name:shop_name,
-            shop_detail:shop_detail,
-            contact:contact
-        })
-
-        
-
-        return res.json({status:"success",create_shop});
-
-    }
-    catch(err){
-        return res.send({status:'error',err})
-    }
-})
 
 
 
@@ -173,6 +180,7 @@ Shop.post('/create-shop', async (req,res) => {
 Shop.put('/add-item/:shop_id', async (req,res) => {
          
          const {shop_item,filename} = req.body
+         console.log(req.body);
         try{
             
             let postdata = {
@@ -180,7 +188,7 @@ Shop.put('/add-item/:shop_id', async (req,res) => {
                  item_photo:filename,
             }
 
-         
+            
             let add_item = await db_shop.findByIdAndUpdate(
                 {_id:req.params.shop_id},
                 {
@@ -214,7 +222,6 @@ Shop.get('/get_per_shop/:shop_id/:shop_item_id', async(req,res) => {
         if(!per_shop){
             return res.send('no found');
         }
-
         return res.json(per_shop);
         
     }
@@ -245,6 +252,7 @@ const edit_shop_img = multer.diskStorage({
 })
 
 
+
 const upload_edit = multer({storage:edit_shop_img})
 
 Shop.post('/upload-edit-profile/:id_user', upload_edit.single('profile_img'),
@@ -256,6 +264,7 @@ Shop.post('/upload-edit-profile/:id_user', upload_edit.single('profile_img'),
           })
      }
 )
+
 
 
 //edit shop

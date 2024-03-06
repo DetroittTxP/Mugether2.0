@@ -16,7 +16,7 @@ export default function Regis_shop() {
   const file = useRef(null);
 
   const [shop, setshopdata] = useState({
-    id_user: "",
+    id_user: userID,
     shop_name: "",
     shop_detail: {
       detail: "",
@@ -37,7 +37,7 @@ export default function Regis_shop() {
 
 
     const image_form = new FormData();
-    image_form.append('profile_shop_pic', image);
+    image_form.append('profile_pic', image);
 
     try {
       Swal.fire({
@@ -49,8 +49,24 @@ export default function Regis_shop() {
         },
       })
 
-    //   let id_user = res.data.msg._id;
-    //   let add_image = await axios.post(`http://localhost:5353/verify_guide/img/${userID}`, image_form)
+      let createshop = await axios.post('http://localhost:5353/shop/create-shop', shop)
+ 
+      const {_id} = createshop.data.create_shop
+     
+      
+      if(image){
+         await axios.post(`http://localhost:5353/shop/upload-edit-profile/${_id}` , image_form)
+         .then(res => {
+               
+         } )
+         .catch(err => Swal.fire({text:err}))
+      }
+
+
+
+
+
+
       Swal.close();
 
       await Swal.fire({
@@ -138,7 +154,7 @@ export default function Regis_shop() {
           <Form onSubmit={handleSubmit}>
 
           <Form.Group>
-              <Form.Label>โปรดเเนบรูปร้านค้าของคุณ</Form.Label>
+              <Form.Label>โปรดเเนบรูปร้านค้าของคุณ (Optional) </Form.Label>
               <Form.Control
                 ref={file}
                 type="file"

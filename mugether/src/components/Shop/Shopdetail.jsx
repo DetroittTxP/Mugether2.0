@@ -39,6 +39,12 @@ export default function Shopdetail() {
     const shop_item_id = localStorage.getItem('shop_item_id');
     const usr_id = localStorage.getItem('usr_id');
     const [item_img, setitemimage] = useState([]);
+    const [selectedShop,Setselectedshop] = useState([{
+         item_name:'',
+         item_price:'',
+         item_detail:'',
+
+    }]);
 
     const [isFavorited, setIsFavorited] = useState(false);
     const toggleFavorite = () => {
@@ -52,7 +58,16 @@ export default function Shopdetail() {
                 const { shop_items } = res.data
                 Setshopdetail(res.data);
 
-                setitemimage(shop_items[0].item_photo);
+                let filter = res.data.shop_items.filter(data => data._id === shop_item_id);
+                Setselectedshop(res.data.shop_items.filter((data) => data._id === shop_item_id))
+             
+             
+                setitemimage(() => {
+                     let data = res.data.shop_items.filter((data) => data._id === shop_item_id);
+                     return data[0].item_photo
+                     
+                })
+                
                 Swal.close();
             })
             .catch(err => alert("error"))
@@ -78,8 +93,8 @@ export default function Shopdetail() {
                 </Col>
                 <Col md={6}>
                     <div className="description-box">
-                        <h2>{shopdetail.shop_items[0].item_name}</h2>
-                        <p className="price">ราคา {shopdetail.shop_items[0].item_price} ฿/ชิ้น</p>
+                        <h2>{selectedShop[0].item_name}</h2>
+                        <p className="price">ราคา {selectedShop[0].item_price} ฿/ชิ้น</p>
                         <p>{shopdetail.contact.address}</p>
                         <Button variant="primary" className='Buttom-shop' href={shopdetail.contact.link_url}>ไปยังร้านค้า</Button>
                         
@@ -116,7 +131,7 @@ export default function Shopdetail() {
             <br />
 
             <div className='description3'>
-                <h3>{shopdetail.shop_items[0].item_detail}</h3>
+                <h3>{selectedShop[0].item_detail}</h3>
                 
             </div>
 

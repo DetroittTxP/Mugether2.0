@@ -69,6 +69,12 @@ export default function App() {
         text: 'User logged out due to inactivity',
       });
       localStorage.removeItem('usr');
+      localStorage.removeItem('token')
+      localStorage.removeItem('usr_id')
+      localStorage.removeItem('shop_id');
+      localStorage.removeItem('shop_item_id');
+      localStorage.removeItem('shop');
+      localStorage.removeItem('guide');
       setLogoutAlertShown(true); // Ensure the alert is only shown once
     }
   });
@@ -82,7 +88,8 @@ export default function App() {
         Setmuplace(res.data.filter(e => e.name !== "วัดดาวดึงษาราม"))
       })
       .catch(err => alert(err))
-
+    
+      
   }, [])
 
   

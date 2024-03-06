@@ -92,9 +92,9 @@ export default function ShopV2() {
       {/*  SHOP LIST   */}
 
 
-      <Container style={{ display: 'flex', justifyContent: 'center' }}>
+      <Container  >
 
-        <Row style={{ justifyContent: 'center' }}>
+        <Row className="g-5">
 
                 {listShop.map((shop,index) => (
                     <React.Fragment key={index}>
@@ -102,7 +102,7 @@ export default function ShopV2() {
                           let top = i > 3 ? { marginTop: 100 } : {};
 
                           return (
-                              <Col style={top} md={3} key={data._id}>
+                              <Col  xs={6} md={4} lg={3} key={data._id}>
                                    <a
 
                                     style={{
@@ -137,6 +137,7 @@ export default function ShopV2() {
                                   onClick={() => {
                                        localStorage.setItem('shop_id',shop._id);
                                        localStorage.setItem('shop_item_id',data._id);
+                                      
                                        navigate('/shopdetail')
                                   }}
                                   style={{ borderRadius: 20, cursor: 'pointer' }}

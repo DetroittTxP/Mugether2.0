@@ -36,6 +36,10 @@ export default function Header() {
     localStorage.removeItem('usr');
     localStorage.removeItem('token')
     localStorage.removeItem('usr_id')
+    localStorage.removeItem('shop_id');
+    localStorage.removeItem('shop_item_id');
+    localStorage.removeItem('shop');
+    localStorage.removeItem('guide');
     await Swal.fire('logout ok')
     navigate('/')
   }
