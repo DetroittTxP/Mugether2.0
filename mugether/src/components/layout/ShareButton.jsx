@@ -5,19 +5,19 @@ import "./ShareButton.css";
 
 
 
-const ShareButton = () => {
+const ShareButton = ({url}) => {
 
   return (
     <>
-      <FacebookShareButton className='share-icon'>
+      <FacebookShareButton url={url} className='share-icon'>
         <FacebookIcon size={32} round={true} />
       </FacebookShareButton>
 
-      <TwitterShareButton  className='share-icon'>
+      <TwitterShareButton url={url}  className='share-icon'>
         <TwitterIcon size={32} round={true} />
       </TwitterShareButton>
 
-      <LineShareButton className='share-icon'>
+      <LineShareButton url={url}  className='share-icon'>
         <LineIcon size={32} round={true} />
       </LineShareButton>
 

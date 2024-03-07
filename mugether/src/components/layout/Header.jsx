@@ -61,11 +61,11 @@ export default function Header() {
           <TbEdit /> Edit Profile
         </a>
       </Menu.Item>
-      {guideStatus &&  <Menu.Item key="editGuide">
-        <a onClick={() => onEditClick('guide')}  style={{ textDecoration: 'none' }}>
-          <TbEdit /> Edit Guide Profile
-        </a>
-      </Menu.Item>}
+      {guideStatus &&  <Menu.SubMenu icon={<TbEdit />} title="Edit Guide" key="editGuide">
+        <Menu.Item onClick={ () => onEditClick('guide')} key="edit guide profile">
+           edit guide profile
+        </Menu.Item>
+      </Menu.SubMenu>}
       {shopStatus && <Menu.SubMenu title="Edit shop"  icon={ <TbEdit />} key="editShop">
               <Menu.Item key='editShopProfile' onClick={() => onEditClick('shop')}> 
               Edit Shop profile
