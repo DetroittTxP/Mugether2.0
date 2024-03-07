@@ -50,14 +50,21 @@ export default function Regis_shop() {
       })
 
       let createshop = await axios.post('http://localhost:5353/shop/create-shop', shop)
- 
+      console.log(createshop.data);
       const {_id} = createshop.data.create_shop
      
       
       if(image){
-         await axios.post(`http://localhost:5353/shop/upload-edit-profile/${_id}` , image_form)
+         await axios.post(`http://localhost:5353/shop/upload-register-profile/${_id}` , image_form)
          .then(res => {
-               
+                console.log(res.data , 'from upload profile');
+                if(res.data.status === 'ok'){
+                    Swal.fire({
+                    icon: 'success',
+                    title: 'Success'
+                  })
+            
+                }
          } )
          .catch(err => Swal.fire({text:err}))
       }

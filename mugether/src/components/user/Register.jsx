@@ -71,8 +71,6 @@ const Register = () => {
                 email: User.email
             }
 
-
-
             Swal.fire({
                 title: 'Loading...',
                 html: 'Please wait',
@@ -88,8 +86,6 @@ const Register = () => {
                 Swal.close();
           
                 if (res.data.status === 'success') {
-
-
                     await Swal.fire({
                         icon: 'success',
                         title: "Register success",
@@ -107,8 +103,9 @@ const Register = () => {
                 else{
                     await Swal.fire({
                          icon:'error',
-                         title:'Error duplicate username'
+                        
                     })
+                    console.log(res.data);
                 }
             }
             catch (err) {

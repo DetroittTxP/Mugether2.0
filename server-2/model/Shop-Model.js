@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+ const mongoose = require('mongoose');
 
 
 const shop_model = mongoose.Schema({
@@ -40,7 +40,10 @@ const shop_model = mongoose.Schema({
 
         }
     },
-    profile_shop_pic:String,
+    profile_shop_pic:{
+        type:String,
+        default:'profile_temp.png'
+    },
 
 })
 

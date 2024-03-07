@@ -232,6 +232,7 @@ Shop.get('/get_per_shop/:shop_id/:shop_item_id', async(req,res) => {
 
 
 
+
 //upload shop profile
 const edit_shop_img = multer.diskStorage({
      destination:async(req,file,cb)=>{
@@ -254,7 +255,8 @@ const edit_shop_img = multer.diskStorage({
 
 const upload_edit = multer({storage:edit_shop_img})
 
-Shop.post('/upload-edit-profile/:id_user', upload_edit.single('profile_img'),
+//from edit
+Shop.post('/upload-edit-profile/:id_user', upload_edit.single('profile_pic'),
     async (req,res) => {
           return res.json({
             status:'ok',
@@ -263,6 +265,26 @@ Shop.post('/upload-edit-profile/:id_user', upload_edit.single('profile_img'),
           })
      }
 )
+
+
+//from registarf if have
+Shop.post('/upload-register-profile/:id_user',upload_edit.single('profile_pic'),
+ async   (req,res) => {
+
+      try{ 
+            console.log(req.file.originalname);
+            let filter = {_id:req.params.id_guide}
+            let data = {
+                    profile_shop_pic:req.file.filename
+            }
+            let regispic = await db_shop.findByIdAndUpdate(filter,data);
+
+            return res.json({status:'ok',regispic});
+      }
+      catch(err){
+          return res.send(err)
+      }
+}) 
 
 
 

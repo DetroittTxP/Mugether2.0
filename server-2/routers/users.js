@@ -87,6 +87,7 @@ usr.post('/register', async (req,res) => {
 
         if(usr.length !== 0)
         {
+            console.log(usr);
             return res.send({
                 status:"error",
                 message:"มีชื่อซ้ำกัน"
