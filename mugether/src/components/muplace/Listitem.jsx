@@ -17,6 +17,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
   const [List_Of_Mu, Setlistofmu] = useState([]);
   const [HeartCheck, Setheartcheck] = useState([]);
   const { muplace } = useContext(Muplace_Context);
+  
   const carouselImg = [];
 
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
       axios.get(`http://localhost:5353/user/fav/${usrID}`)
         .then(res => {
           Setheartcheck(res.data.favorite_muplace)
+          
           console.log(res.data);
         })
         .catch(err => alert(err))
@@ -52,46 +54,36 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
 
 
   const handleHeart = async (name) => {
-    if (HeartCheck.includes(name)) {
-      Setheartcheck((prev) => prev.filter((item) => item !== name));
-    } else {
-      Setheartcheck((prev) => [...prev, name]);
-    }
+    let updateFav;
+     Setheartcheck(prev => {
+          if(prev.includes(name)){
+              
+            updateFav = prev.filter(item => item !== name);;
+            return updateFav;
+          }
+          else{
+               updateFav = [...prev,name];
+              return updateFav;
+          }
+     })
+
+     setTimeout(async () => {
+      try{
+          SwalLoading();
+          let {data} = await axios.put('http://localhost:5353/user/add/favorite',{updateFav,usrID})
+          if(data.status === 'ok'){
+              Swal.close();
+          }
+      }
+      catch(err){
+          Swal.fire({icon:'error',text:err})
+   }
+     },0)
+     
+
   }
 
-  const addFav_toDB = async (fav) => {
-    let add_fav = await axios.post('http://localhost:5353/user/add/favorite',
-      {
-        id: localStorage.getItem('usr_id'),
-        favorite_item: fav
-      }
-    )
-    console.log(add_fav.data);
-    return;
-  }
-
-
-  const toggleHeart = async (name) => {
-
-
-    if (localStorage.getItem("token") !== null) {
-      await handleHeart(name)
-
-      try {
-        SwalLoading();
-        await addFav_toDB(HeartCheck)
-        Swal.close();
-      }
-      catch (err) {
-        return Swal.fire(err)
-      }
-    }
-    else {
-      Swal.fire("โปรด Login ก่อน");
-    }
-
-
-  };
+  
 
   return (
     <Container >
@@ -122,16 +114,17 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
                       zIndex: 1,
                     }}
                   >
-                    <FaHeart
+                    {usrID && <FaHeart
+                      
                       onClick={() => {
-                        toggleHeart(data.name);
+                        handleHeart(data.name);
                       }}
                       style={{
                         color: HeartCheck.includes(data.name) ? "red" : "white",
                         cursor: "pointer",
                         fontSize: "24px",
                       }}
-                    />
+                    />}
                   </div>
 
 

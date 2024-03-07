@@ -142,24 +142,18 @@ usr.put('/update/profile/',async (req,res) => {
      
 })
 
-usr.post('/add/favorite', async (req,res) =>{
-    const {id,username,favorite_item,status} = req.body;
+usr.put('/add/favorite', async (req,res) =>{
+    const {usrID,updateFav} = req.body;
+
 
  
     try{
      
-
-
-        // let update_item = await user.updateOne({username:username} 
-        //     ,{$push:{favorite_muplace:favorite_item}}
-        //     )
-            console.log(req.body.favorite_item);
-           let update_item = await user.findByIdAndUpdate({_id:id} 
-            ,{favorite_muplace:favorite_item}
+           let update_item = await user.findByIdAndUpdate({_id:usrID} 
+            ,{favorite_muplace:updateFav}
             )
 
-
-
+            console.log('inserted');
        return res.send({status:'ok',update_item})     
 
 
