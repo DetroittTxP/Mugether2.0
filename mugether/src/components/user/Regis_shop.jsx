@@ -161,13 +161,13 @@ export default function Regis_shop() {
           <Form onSubmit={handleSubmit}>
 
           <Form.Group>
-              <Form.Label>โปรดเเนบรูปร้านค้าของคุณ (Optional) </Form.Label>
+              <Form.Label>โปรดเเนบรูปร้านค้าของคุณ </Form.Label>
               <Form.Control
                 ref={file}
                 type="file"
                 accept='image/*'
                 onChange={onImageChange}
-             
+                required
               />
           </Form.Group>
           

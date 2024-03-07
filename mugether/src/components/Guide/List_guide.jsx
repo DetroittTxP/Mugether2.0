@@ -41,9 +41,9 @@ export default function ListGuide() {
                         <h1>CHOOSE YOUR GUIDE</h1>
                     </Col>
                     <Col>
-                        <Button variant='primary' className='add-post' onClick={() => setShowModal(true)}>
+                       { guideStatus && <Button variant='primary' className='add-post' onClick={() => setShowModal(true)}>
                             ADD POST
-                        </Button>
+                        </Button>}
                     </Col>
                 </Row>
                 <br />
@@ -57,9 +57,6 @@ export default function ListGuide() {
                     </Modal.Body>
 
                 </Modal>
-
-
-
                 }
                 {list_all_guide.map((data) => (
                     <Accordion>
