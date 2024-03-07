@@ -3,7 +3,6 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-// Define SwalLoading function to display loading indicator
 const SwalLoading = () => {
   Swal.fire({
     title: 'Loading...',
@@ -66,19 +65,18 @@ export default function Add_Shop() {
     try {
       SwalLoading();
 
-      // let upload_post_image = await axios.post(`http://localhost:5353/shop/add_post_img/${shop_id}`, img);
-      // const { filename } = upload_post_image.data;
+      let upload_post_image = await axios.post(`http://localhost:5353/shop/add_post_img/${shop_id}`, img);
+      const { filename } = upload_post_image.data;
 
-      // let add_item = await axios.put(`http://localhost:5353/shop/add-item/${shop_id}`, { shop_item, filename });
+      let add_item = await axios.put(`http://localhost:5353/shop/add-item/${shop_id}`, { shop_item, filename });
 
-      // Reset form fields on successful submission
       setShopItem({
         item_name: '',
         item_detail: '',
         item_price: 0,
       });
-      file.current.value = null; // Clear file input
-      setImage([]); // Clear selected images
+      file.current.value = null;
+      setImage([]);
 
       Swal.fire({ icon: 'success', text: 'เพิ่มรายการสินค้าแล้ว' });
     } catch (err) {
