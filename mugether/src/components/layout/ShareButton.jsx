@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { FacebookShareButton, TwitterShareButton, LineShareButton, FacebookIcon, TwitterIcon, LineIcon } from 'react-share';
+import { FacebookShareButton, TwitterShareButton, LineShareButton, FacebookIcon, TwitterIcon, LineIcon,VKShareButton,VKIcon } from 'react-share';
 import "./ShareButton.css";
 
 
@@ -20,6 +20,10 @@ const ShareButton = ({url}) => {
       <LineShareButton url={url}  className='share-icon'>
         <LineIcon size={32} round={true} />
       </LineShareButton>
+
+      <VKShareButton url={url}  className='share-icon'>
+        <VKIcon size={32} round={true} />
+      </VKShareButton>
 
     </>
   );
