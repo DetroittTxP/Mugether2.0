@@ -35,7 +35,10 @@ export default function Mudetail({showguide}) {
           <ShareButton url={pageUrl}/>
         </Col>
       </Row>
-      <Row>
+      <Row >
+     
+
+   
         <Col md={5} className="main-image">
           <Image
             src={`http://localhost:5353/image/mu/${Muplace}/1`}
@@ -44,9 +47,9 @@ export default function Mudetail({showguide}) {
             fluid
           />
         </Col>
-        <Col md={3} className="image-list">
+        <Col md={3} className="image-list" >
           <Row>
-            <Col md={12}>
+            <Col md={12} >
               <Image
                 src={`http://localhost:5353/image/mu/${Muplace}/2`}
                 alt="Image 2"
@@ -84,6 +87,7 @@ export default function Mudetail({showguide}) {
             </Col>
           </Row>
         </Col>
+    
       </Row>
       <br />
       <hr />
@@ -113,7 +117,7 @@ export default function Mudetail({showguide}) {
      
       <br />
       <Row> 
-        <Col md={11}>
+        <Col md={11} className="review-section">
           {!showguide&& <Nearby Muplace_name={Muplace} />}
         </Col>
       </Row>

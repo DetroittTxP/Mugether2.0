@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Modal, Button, Form, Container, Row, Col } from 'react-bootstrap'
+import { Modal, Button, Form, Container, Row, Col ,Tab,Tabs} from 'react-bootstrap'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
@@ -177,23 +177,24 @@ export default function EditProfile({ showedit, toggle, editType }) {
       case 'guide':
         return (
           <>
+            
             <Form.Group controlId="firstname">
-              <Form.Label>Firstname</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="✉️  "
-                onChange={onGuideChange}
-              />
-            </Form.Group>
+                  <Form.Label>Firstname</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="✉️  "
+                    onChange={onGuideChange}
+                  />
+                </Form.Group>
 
-          <Form.Group controlId="lastname">
-            <Form.Label>lastname</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="✉️  "
-              onChange={onGuideChange}
-            />
-          </Form.Group>
+              <Form.Group controlId="lastname">
+                <Form.Label>lastname</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="✉️  "
+                  onChange={onGuideChange}
+                />
+              </Form.Group>
         </>
         )
       case 'shop':
@@ -390,8 +391,9 @@ export default function EditProfile({ showedit, toggle, editType }) {
               <img onLoad={onImageLoad} ref={imgRef} src={imgSrc} alt='upload' />
 
             </ReactCrop>}
-
-            <Button variant='warning' onClick={() => {
+             <br/>
+             
+            { crop && <Button variant='warning' onClick={() => {
               setCanvasPreview(
                 imgRef.current,
                 canvasRef.current,
@@ -407,10 +409,10 @@ export default function EditProfile({ showedit, toggle, editType }) {
               Setfile(imagefile);
             }}>
               Crop image
-            </Button>
-
+            </Button>}
+            
             {crop &&
-              <canvas ref={canvasRef} className='mt-4'
+              <canvas ref={canvasRef} className='mt-4 ms-5'
                 style={{
                   border: "1px solid black",
                   objectFit: "contain",
@@ -420,10 +422,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 }} />
 
             }
-
-
-
-
+        
           </Form.Group>
 
           <br />

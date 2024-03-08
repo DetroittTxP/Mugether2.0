@@ -32,8 +32,6 @@ export default function ListGuide() {
             .catch(err => alert(err))
     }, []);
 
-
-
     const onDelete=(id_guide)=>{
            Swal.fire({
                 title:'ต้องการลบโพสใช่หรือไม่',
@@ -47,13 +45,14 @@ export default function ListGuide() {
                       Setlistallguide(prev => prev.filter(data => data.id_guide !== id_guide));
 
                             let deletedata = await axios.delete(`http://localhost:5353/guide_detail/delete-post/${id_guide}/${muplace}`);
-
-                            
-                    
+                           return Swal.fire({icon:'success',text:'ลบโพสเเล้ว'})
+                }
+                else{
+                    return;
                 }
            })
            .catch(err => Swal.fire({icon:'error', text:err}))
-           .finally(() => Swal.fire({icon:'success',text:'ลบโพสเเล้ว'}))
+      
            
     }
 
@@ -82,7 +81,11 @@ export default function ListGuide() {
 
                 </Modal>
                 }
-                {list_all_guide.map((data) => (
+                
+                {list_all_guide == 0 && 
+                    <h1>ยังไม่มีไกด์ในขณะนี้ครับ</h1>
+                }
+                {list_all_guide.length != 0 && list_all_guide.map((data) => (
                    <Accordion>
                    <AccordionSummary
                        aria-controls="panel1-content"

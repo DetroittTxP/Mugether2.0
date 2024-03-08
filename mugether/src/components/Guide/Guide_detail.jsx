@@ -20,7 +20,8 @@ export default function Guide_detail({ data }) {
   },[])
   return (
     <div>
-      <h2>{data.firstname} {data.lastname}</h2> <br />
+      <h2><b>{data.firstname} {data.lastname} TOUR</b></h2> <br />
+      
       <Container>
 
 
@@ -76,8 +77,21 @@ export default function Guide_detail({ data }) {
       <div className='text'>
         <h5>{newdata.guide_post[0].postDetail}</h5>
         <br />
-        <h3>รายละเอียดกิจกรรม</h3>
+        <h2><b>รายละเอียดกิจกรรม</b></h2>
+        <br/>
+        <ul>
 
+      
+        {newdata.guide_post[0].postActivity.map((data,i) =>{
+            return (
+                <li>
+                    <h5>{data}</h5>
+                </li>
+            )
+        })}
+        </ul>
+        <br/>
+        <h2><b>ประสบการณ์ (Experience)</b></h2>
 
       </div>
 
