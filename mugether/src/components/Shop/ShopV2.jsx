@@ -120,14 +120,7 @@ export default function ShopV2() {
                                     zIndex: 1,
                                   }}
                                 >
-                                  <FaHeart
-                                  
-                                    style={{
-                                      color: 'red',
-                                      cursor: "pointer",
-                                      fontSize: "24px",
-                                    }}
-                                  />
+                               
                                 </div>
 
 

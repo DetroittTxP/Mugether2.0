@@ -59,6 +59,7 @@ export default function App() {
   const [selectedMuplace, SetSelecttedMuplace] = useState('');
   const [showguide,Setshowguide] = useState(false);
   const [logoutAlertShown, setLogoutAlertShown] = useState(false);
+  const [favoriteStatus,setfavoritestatus] = useState(false);
 
   const guideStatus = JSON.parse(localStorage.getItem('guide'));
   const shopStatus = JSON.parse(localStorage.getItem('shop'));
@@ -99,6 +100,11 @@ export default function App() {
      guideStatus:guideStatus,
      shopStatus:shopStatus
   }
+
+  
+  const Handlefav=(fav)=>{
+    setfavoritestatus(fav); 
+  }
  
 
 
@@ -118,7 +124,7 @@ export default function App() {
 
   return (
     <Muplace_Context.Provider value={data_context} >
-      <Header />
+      <Header handleFav={Handlefav}/>
       <br />
       <br />
       <br />
@@ -131,7 +137,7 @@ export default function App() {
 
 
       <Routes>
-        <Route path='/' element={<Listitem SelectedMuplace={SelectedMuplace} SelectedMuType={selectedMuType} />} />
+        <Route path='/' element={<Listitem favstatus={favoriteStatus} SelectedMuplace={SelectedMuplace} SelectedMuType={selectedMuType} />} />
         <Route path='/shop' element={<ShopV2  />} />
         <Route path='/mudetail' element={<Mudetail showguide={showguide} />} />
         <Route path='/login' element={<Login />}  />

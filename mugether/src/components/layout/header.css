@@ -4,3 +4,10 @@
     overflow-x: hidden; /* Hides horizontal scrollbar */
   }
   
+
+.loged-in-menu{
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 10px;
+}

@@ -213,4 +213,41 @@ Guide_detail.put('/update_profile/:id_guide',async (req,res) => {
 })
 
 
+//delte post
+Guide_detail.delete('/delete-post/:id_user/:muplace',async(req,res) => {
+       const {muplace,id_user} = req.params
+
+       try{
+          let filter = {id_guide:id_user};
+          let deletedata= {
+                 $pull:{
+                    guide_post:{muplace:muplace}
+                 }
+          }
+          let deletepost = await db.findOneAndUpdate(filter,deletedata,{new:true});
+
+          
+          let deletet_unuse_image = await checkunuse_guide(id_user);
+          const {status} = deletet_unuse_image;
+          if(status !== 'sucees'){
+                return {
+                    status:'error',
+                    msg:deletet_unuse_image.err
+                }
+          }
+         
+          return res.json({status:'ok',deletepost})
+       }
+       
+       catch(err){
+           return res.json({status:'err',err})
+       }
+
+   
+})
+
+
+
+
+
 module.exports = Guide_detail;

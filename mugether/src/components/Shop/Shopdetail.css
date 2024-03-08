@@ -60,13 +60,17 @@
 }
 
 .description3{
-    /* border: 1px solid black;
-    border-radius: 20px; */
-    width: 1000px;
-    height: 400px;
+    
+    max-width: 1000px; 
+ 
     padding-left: 5px;
     padding-top: 20px;
     font-size: 18px;
+    overflow: auto; 
+    margin: auto; 
+    box-sizing: border-box; 
+    border: 1px solid black;
+    border-radius: 20px;
 }
 
 .Buttom-shop{

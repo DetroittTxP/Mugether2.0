@@ -391,7 +391,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
 
             </ReactCrop>}
 
-            <Button onClick={() => {
+            <Button variant='warning' onClick={() => {
               setCanvasPreview(
                 imgRef.current,
                 canvasRef.current,
@@ -450,7 +450,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
             Close
           </Button>
 
-          <Button type="submit" variant="primary" >
+          <Button type="submit"  variant='warning'  >
             Save Changes
           </Button >
 

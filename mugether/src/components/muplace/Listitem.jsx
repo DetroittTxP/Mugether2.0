@@ -11,7 +11,7 @@ import { Image } from 'react-bootstrap'
 import SwalLoading from "../util/SwalLoading";
 
 
-export default function Listitem({ SelectedMuType, SelectedMuplace }) {
+export default function Listitem({ SelectedMuType, SelectedMuplace,favstatus }) {
   const navigate = useNavigate();
   const usrID = localStorage.getItem('usr_id')
   const [List_Of_Mu, Setlistofmu] = useState([]);
@@ -52,6 +52,15 @@ export default function Listitem({ SelectedMuType, SelectedMuplace }) {
     );
   }, [SelectedMuType]);
 
+
+  useEffect(() => {
+    if(favstatus){
+       Setlistofmu( prev => prev.filter(data =>HeartCheck.includes(data.name)))
+    }
+  },[favstatus,HeartCheck])
+
+
+  
 
   const handleHeart = async (name) => {
     let updateFav;

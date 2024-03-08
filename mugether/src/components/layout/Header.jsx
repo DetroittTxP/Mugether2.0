@@ -17,7 +17,7 @@ import { CiShop } from "react-icons/ci";
 import './header.css'
 
 
-export default function Header() {
+export default function Header({handleFav}) {
   const usr_data = localStorage.getItem('usr');
   const navigate = useNavigate();
   const [showedit,Setshowedit] = useState(false);
@@ -44,6 +44,17 @@ export default function Header() {
     navigate('/')
   }
 
+  const googleMenu = {
+    textDecoration:'none',  
+    display: 'grid', 
+    gridTemplateColumns: 'repeat(3, 1fr)', 
+    gridGap: '10px' 
+  }
+
+  const googleMenuItem = {
+       
+  }
+
   const loged_in = (
     <Menu>
       <Menu.Item key="profile">
@@ -56,53 +67,63 @@ export default function Header() {
           </span>
         </div>
       </Menu.Item>
+      <Menu.Item key='go to shop'>
+            <a onClick={() => navigate('/shop')}  style={{ textDecoration: 'none' }}>
+                GO TO SHOP
+            </a>
+      </Menu.Item>
       <Menu.Item key="edit">
         <a onClick={() => onEditClick('user')} style={{ textDecoration: 'none' }}>
         <img src="https://cdn-icons-png.flaticon.com/512/3845/3845895.png" style={{ width: '30px'}} />
-        <span>edit profile</span>
+        <span>EDIT PROFILE</span>
         </a>
       </Menu.Item>
-      {guideStatus &&  <Menu.SubMenu icon={<img src="https://cdn-icons-png.flaticon.com/512/2268/2268568.png" style={{ width: '30px'}}/>} title="Edit Guide" key="editGuide">
+      {guideStatus &&  <Menu.SubMenu icon={<img src="https://cdn-icons-png.flaticon.com/512/2268/2268568.png" style={{ width: '30px'}}/>} title="EDIT GUIDE" key="editGuide">
         <Menu.Item onClick={ () => onEditClick('guide')} key="edit guide profile">
           <img src="https://cdn-icons-png.flaticon.com/512/3284/3284607.png" style={{ width: '30px'}} />
-          <span>edit guide</span>
+          <span>EDIT GUIDE PROFILE</span>
         </Menu.Item>
       </Menu.SubMenu>}
-      {shopStatus && <Menu.SubMenu title="Edit shop"  icon={<img src="https://cdn-icons-png.flaticon.com/512/3176/3176363.png" style={{ width: '30px'}}/>} key="editShop">
+      {shopStatus && <Menu.SubMenu title="EDIT SHOP"  icon={<img src="https://cdn-icons-png.flaticon.com/512/3176/3176363.png" style={{ width: '30px'}}/>} key="editShop">
               <Menu.Item key='editShopProfile' onClick={() => onEditClick('shop')}>
               <img src="https://cdn-icons-png.flaticon.com/512/1043/1043450.png" style={{ width: '30px'}} />
-              Edit Shop profile
+              EDIT SHOP PROFILE
             </Menu.Item>
             <Menu.Item key='editShopList'>
             <img src="https://cdn-icons-png.flaticon.com/512/4334/4334942.png" style={{ width: '30px'}} />
-              Edit Shop list
+              EDIT SHOP LIST
             </Menu.Item>
       </Menu.SubMenu>}
       {shopStatus && <Menu.Item key="addshoplist">
         <a onClick={() => navigate('/add-shop')}  style={{ textDecoration: 'none' }}>
         <img src="https://cdn-icons-png.flaticon.com/512/5956/5956828.png" style={{ width: '30px'}} />
-          <span>Add Shop list</span>
+          <span>ADD SHOP LIST</span>
         </a>
       </Menu.Item>}
 
     { !guideStatus && <Menu.Item key="reg-guide">
         <a href='/reg-guide' style={{ textDecoration: 'none' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/3284/3284607.png" style={{ width: '30px'}} />
-          Register Guide
+          REGISTER GUIDE
         </a>
       </Menu.Item>}
       { !shopStatus && <Menu.Item key="reg-shop">
         <a href='/req-shop' style={{ textDecoration: 'none' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/5956/5956828.png" style={{ width: '30px'}} />
-          Register Shop
+          <span>REGISTER SHOP</span> 
         </a>
       </Menu.Item>}
+      <Menu.Item onClick={() => handleFav(true)} key="favorite" >
+           <img src='https://cdn-icons-png.flaticon.com/128/4340/4340223.png' style={{ width: '30px'}} />
+           <span>FAVORITE</span>
+      </Menu.Item>
       <Menu.Item key="logout">
         <a onClick={handleLogout} style={{ textDecoration: 'none' }}>
         <img src="https://cdn-icons-png.flaticon.com/512/1828/1828490.png" style={{ width: '30px'}} />
-        Log Out
+        <span>LOG OUT</span>
         </a>
       </Menu.Item>
+  
     </Menu>
   );
 

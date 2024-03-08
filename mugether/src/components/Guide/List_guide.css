@@ -5,3 +5,9 @@
     font-weight: bold;
     border: none;
 }
+
+.push-actity{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}

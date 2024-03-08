@@ -6,7 +6,7 @@ import axios from 'axios';
 import { Container, Row, Col, Button, Image, Modal, Form } from 'react-bootstrap';
 import './List_guide.css';
 import Guide_detail from './Guide_detail';
-
+import Swal from 'sweetalert2';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 import Add_post from './Add_post_guide';
 import { Muplace_Context } from '../../context/MuContext';
@@ -16,7 +16,8 @@ export default function ListGuide() {
     const [showModal, setShowModal] = useState(false);
     const { guideStatus } = useContext(Muplace_Context)
     const [list_all_guide, Setlistallguide] = useState([]);
-
+    const usrID = localStorage.getItem('usr_id');
+    const muplace = localStorage.getItem('muplace')
 
     console.log(guideStatus);
 
@@ -33,6 +34,29 @@ export default function ListGuide() {
 
 
 
+    const onDelete=(id_guide)=>{
+           Swal.fire({
+                title:'ต้องการลบโพสใช่หรือไม่',
+                icon:'warning',
+                showCancelButton:true,
+                confirmButtonText:'ใช่',
+                cancelButtonText:'ไม่'
+           })
+           .then(async result => {
+                if(result.isConfirmed){
+                      Setlistallguide(prev => prev.filter(data => data.id_guide !== id_guide));
+
+                            let deletedata = await axios.delete(`http://localhost:5353/guide_detail/delete-post/${id_guide}/${muplace}`);
+
+                            
+                    
+                }
+           })
+           .catch(err => Swal.fire({icon:'error', text:err}))
+           .finally(() => Swal.fire({icon:'success',text:'ลบโพสเเล้ว'}))
+           
+    }
+
     return (
         <div>
             <Container>
@@ -41,7 +65,7 @@ export default function ListGuide() {
                         <h1>CHOOSE YOUR GUIDE</h1>
                     </Col>
                     <Col>
-                       { guideStatus && <Button variant='primary' className='add-post' onClick={() => setShowModal(true)}>
+                       { guideStatus && <Button variant='warning' className='add-post' onClick={() => setShowModal(true)}>
                             ADD POST
                         </Button>}
                     </Col>
@@ -59,29 +83,36 @@ export default function ListGuide() {
                 </Modal>
                 }
                 {list_all_guide.map((data) => (
-                    <Accordion>
-                        <AccordionSummary
-                            aria-controls="panel1-content"
-                            id="panel1-header"
-                        >
+                   <Accordion>
+                   <AccordionSummary
+                       aria-controls="panel1-content"
+                       id="panel1-header"
+                       style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+                   >
+                       <div style={{ display: 'flex', alignItems: 'center' }}>
+                           <Image
+                               src={`http://localhost:5353/image/guide/profile/${data.id_guide}/${data.profile_pic}`}
+                               roundedCircle
+                               className='avatar'
+                           />
+               
+                           <span style={{ marginLeft: 10 }}>
+                               <b>นาย {data.firstname} {data.lastname}</b>
+                           </span>
+                       </div>
+               
+                      { usrID && usrID === data.id_guide && 
+                      <Button onClick={() => onDelete(data.id_guide)} variant='danger' style={{ marginLeft: 'auto', padding: '5px 10px' }}>
+                            Delete
+                       </Button>}
 
-                            <Image
-                                src={`http://localhost:5353/image/guide/profile/${data.id_guide}/${data.profile_pic}`}
-                                roundedCircle
-                                className='avatar'
-                            />
-
-                            <span style={{ marginLeft: 10 }}>
-                                <b>นาย {data.firstname} {data.lastname}</b>
-                            </span>
-
-                        </AccordionSummary>
-
-                        <AccordionDetails>
-                                <Guide_detail data={data}/>
-                        </AccordionDetails>
-
-                    </Accordion>
+                   </AccordionSummary>
+               
+                   <AccordionDetails>
+                       <Guide_detail data={data}/>
+                   </AccordionDetails>
+               </Accordion>
+               
                 ))}
                 {/* {guidedata.map((data) => (
                     <Accordion onChange={() => Setusername_guide(data.username)}>

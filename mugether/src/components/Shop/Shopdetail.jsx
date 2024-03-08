@@ -133,13 +133,6 @@ export default function Shopdetail() {
                 
             </div>
 
-                <br />
-
-                
-
-                <br />
-                <br />
-
                 <div className="info-shop-name">
                     <h2>ข้อมูลร้านค้า</h2>
                 </div>
