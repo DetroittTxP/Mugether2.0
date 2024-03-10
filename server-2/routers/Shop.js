@@ -257,7 +257,7 @@ const edit_shop_img = multer.diskStorage({
 const upload_edit = multer({storage:edit_shop_img})
 
 //from edit
-Shop.post('/upload-edit-profile/:id_user', upload_edit.single('profile_pic'),
+Shop.post('/upload-edit-profile/:id_user', upload_edit.single('profile_img'),
     async (req,res) => {
           return res.json({
             status:'ok',

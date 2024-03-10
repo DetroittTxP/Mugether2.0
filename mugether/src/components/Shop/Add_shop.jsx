@@ -93,7 +93,7 @@ export default function Add_Shop() {
 
           <Form onSubmit={formSubmit}>
             <Form.Group>
-              <Form.Label>โปรดเเนบรูปประจำตัวของคุณ</Form.Label>
+              <Form.Label>โปรดเเนบรูปสินค้าของคุณ</Form.Label>
               <Form.Control
                 ref={file}
                 type="file"

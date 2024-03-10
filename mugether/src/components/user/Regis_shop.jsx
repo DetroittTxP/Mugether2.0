@@ -214,6 +214,7 @@ export default function Regis_shop() {
                 required
               />
             </Form.Group>
+         
 
             <Form.Group controlId="contact.address">
               <Form.Label>ที่อยู่ของร้านค้า</Form.Label>

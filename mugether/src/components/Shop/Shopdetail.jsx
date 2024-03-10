@@ -47,6 +47,8 @@ export default function Shopdetail() {
          item_name:'',
          item_price:'',
          item_detail:'',
+         item_linkurl:''
+        
 
     }]);
 
@@ -83,7 +85,7 @@ export default function Shopdetail() {
         
               Swal.fire({
                   icon:'question',
-                  text:'ต้องลบสินค้านี้ใช่หรือไม่',
+                  text:'ต้องการลบสินค้านี้ใช่หรือไม่',
                   showCancelButton:true,
               
                   confirmButtonText:'ใช่',
@@ -122,7 +124,7 @@ export default function Shopdetail() {
                         { Owner &&  <Button variant='warning' onClick={handleDelete} className='button-delete'>ลบสินค้า</Button>}
                         <p className="price">ราคา {selectedShop[0].item_price} ฿/ชิ้น</p>
                         <p>{shopdetail.contact.address}</p>
-                        <Button  className='Buttom-shop' href={shopdetail.shop_items[0].item_linkurl}>ไปยังร้านค้า</Button>
+                        <Button  className='Buttom-shop' href={selectedShop[0].item_linkurl}>ไปยังร้านค้า</Button>
 
                     </div>
                 </Col>
