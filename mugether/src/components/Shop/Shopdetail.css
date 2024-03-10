@@ -17,10 +17,17 @@
 }
   
 .description-box {
+    position: relative; /* Add this line */
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-top: 15px;
+}
+
+.button-delete { /* Assuming you add a class to your delete button for targeting */
+    position: absolute; /* Position the button absolutely within the .description-box */
+    top: 10px; /* Adjust this value as needed */
+    right: 10px; /* Adjust this value as needed */
 }
   
 .description-box .price {

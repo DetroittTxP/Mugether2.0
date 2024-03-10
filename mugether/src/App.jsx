@@ -60,7 +60,7 @@ export default function App() {
   const [showguide,Setshowguide] = useState(false);
   const [logoutAlertShown, setLogoutAlertShown] = useState(false);
   const [favoriteStatus,setfavoritestatus] = useState(false);
-
+const [listshop,Setlistshop] = useState([]);
   const guideStatus = JSON.parse(localStorage.getItem('guide'));
   const shopStatus = JSON.parse(localStorage.getItem('shop'));
 
@@ -90,6 +90,10 @@ export default function App() {
         Setmuplace(res.data.filter(e => e.name !== "วัดดาวดึงษาราม"))
       })
       .catch(err => alert(err))
+
+    axios.get('http://localhost:5353/shop/shop_item')
+    .then(res => Setlistshop(res.data))
+    .catch(err => alert(err))  
       
   }, [])
 
@@ -98,7 +102,8 @@ export default function App() {
      muplace:global_muplace,
      per_muplace:selectedMuplace,
      guideStatus:guideStatus,
-     shopStatus:shopStatus
+     shopStatus:shopStatus,
+     shopList:listshop
   }
 
   

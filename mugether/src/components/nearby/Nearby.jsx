@@ -35,14 +35,14 @@ export default function Nearby({ Muplace_name }) {
    
     const [nearby, Setnearby] = useState([])
     const [open, setOpen] = useState(false);
-    const [imageinfo, Setimageinfo] = useState({ key: '', name: '' })
+    const [imageinfo, Setimageinfo] = useState([{ key: '', name: '' }])
     const [index, setIndex] = useState(0);
     const updateIndex = ({ index: current }) =>  setIndex(current);
 
     useEffect(() => {
         axios.get(`http://localhost:5353/nearby/multiple/${Muplace_name}`)
             .then(res => {
-              
+      
                 Setnearby([
                     {
                         key: 'travel',
@@ -71,7 +71,7 @@ export default function Nearby({ Muplace_name }) {
                     <h2>{data.type}</h2>
 
                     <Carousel responsive={responsive}>
-                        {data.data.map((e) => (
+                        {data.data.sort((a,b) => parseFloat(a.distance_to_mu) - parseFloat(b.distance_to_mu)).map((e) => (
                             <div className='Card'>
                                 <img onClick={() => {
                                     setOpen(true)
@@ -97,17 +97,18 @@ export default function Nearby({ Muplace_name }) {
                 </>
             ))}
 
-            <Lightbox
+            {/* <Lightbox
                 open={open}
                 close={() => setOpen(false)}
                 slides={[
                     { src: `http://localhost:5353/image/nearby/${imageinfo.key}/${imageinfo.name}/1` },
                     { src: `http://localhost:5353/image/nearby/${imageinfo.key}/${imageinfo.name}/2` },
                     { src: `http://localhost:5353/image/nearby/${imageinfo.key}/${imageinfo.name}/3` },
+                    { src: `http://localhost:5353/image/nearby/${imageinfo.key}/${imageinfo.name}/4` },
                 ]}
                 index={index}
                 on={{ view: updateIndex }}
-            />
+            /> */}
 
 
             {/* <h2>สถานที่ท่องเที่ยวใกล้เคียง</h2>

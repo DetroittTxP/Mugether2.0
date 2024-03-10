@@ -160,7 +160,7 @@ Shop.get('/profile_img/:shop_id/:image_name',(req,res) => {
 Shop.get('/shop_item',async (req,res) => {
 
     try{
-        let data = await db_shop.find({}).select('shop_items');
+        let data = await db_shop.find({}).select('shop_items id_user');
         return res.json(data);
     }
     catch(err){
@@ -339,6 +339,12 @@ Shop.get('/:userID',async(req,res) => {
     catch(err){
         return res.send({status:"error",err})
     }
+})
+
+
+//delete product
+Shop.delete('/:id_user',async (req,res) => {
+       
 })
 
 

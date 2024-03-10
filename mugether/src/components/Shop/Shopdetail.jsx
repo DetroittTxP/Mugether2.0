@@ -13,6 +13,8 @@ import SwalLoading from '../util/SwalLoading';
 
 export default function Shopdetail() {
 
+   
+
     const [shopdetail, Setshopdetail] = useState({
         shop_name: '',
         shop_items: [{
@@ -39,6 +41,7 @@ export default function Shopdetail() {
     const shop_id = localStorage.getItem('shop_id');
     const shop_item_id = localStorage.getItem('shop_item_id');
     const usr_id = localStorage.getItem('usr_id');
+    const id_user_shop = localStorage.getItem('id_user')
     const [item_img, setitemimage] = useState([]);
     const [selectedShop,Setselectedshop] = useState([{
          item_name:'',
@@ -46,6 +49,8 @@ export default function Shopdetail() {
          item_detail:'',
 
     }]);
+
+    const Owner = usr_id === id_user_shop
 
     const [isFavorited, setIsFavorited] = useState(false);
     const toggleFavorite = () => {
@@ -96,9 +101,10 @@ export default function Shopdetail() {
                 <Col md={6}>
                     <div className="description-box">
                         <h2>{selectedShop[0].item_name}</h2>
+                        { Owner &&  <Button variant='warning' onClick={() => alert('selected dlete')} className='button-delete'>ลบสินค้า</Button>}
                         <p className="price">ราคา {selectedShop[0].item_price} ฿/ชิ้น</p>
                         <p>{shopdetail.contact.address}</p>
-                        <Button variant="primary" className='Buttom-shop' href={shopdetail.shop_items[0].item_linkurl}>ไปยังร้านค้า</Button>
+                        <Button  className='Buttom-shop' href={shopdetail.shop_items[0].item_linkurl}>ไปยังร้านค้า</Button>
 
                     </div>
                 </Col>

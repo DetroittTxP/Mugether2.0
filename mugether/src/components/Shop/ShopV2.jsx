@@ -130,6 +130,7 @@ export default function ShopV2() {
                                   onClick={() => {
                                        localStorage.setItem('shop_id',shop._id);
                                        localStorage.setItem('shop_item_id',data._id);
+                                       localStorage.setItem('id_user', shop.id_user)
                                       
                                        navigate('/shopdetail')
                                   }}
