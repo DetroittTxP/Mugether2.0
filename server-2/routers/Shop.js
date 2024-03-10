@@ -344,8 +344,21 @@ Shop.get('/:userID',async(req,res) => {
 
 
 //delete product
-Shop.delete('/:id_user',async (req,res) => {
-       
+Shop.delete('/delete/:id_user/:shop_item_id',async (req,res) => {
+     const {id_user,shop_item_id} = req.params;
+
+     try{
+            
+            let data = await db_shop.findOne({id_user:id_user})
+     
+            console.log(shop_item_id);
+            console.log(data.shop_items[0]._id.to_String());
+            return res.send(data.shop_items[0]._id)
+
+     }
+     catch(err){  
+          return res.json(err)
+     }
 })
 
 

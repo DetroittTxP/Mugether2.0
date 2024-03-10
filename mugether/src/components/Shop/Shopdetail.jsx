@@ -79,6 +79,24 @@ export default function Shopdetail() {
             .catch(err => alert("error"))
     }, [])
 
+    const handleDelete=()=>{
+        
+              Swal.fire({
+                  icon:'question',
+                  text:'ต้องลบสินค้านี้ใช่หรือไม่',
+                  showCancelButton:true,
+              
+                  confirmButtonText:'ใช่',
+                  cancelButtonText:'ไม่'
+              }).then( async result=>{
+                  if(result.isConfirmed){
+                         console.log(id_user_shop);
+                         let deleteproduct = await axios.delete(`http://localhost:5353/shop/delete/${usr_id}/${shop_item_id}`) 
+                         console.log(deleteproduct.data);
+                  } 
+              })
+    }
+
 
 
     return (
@@ -101,7 +119,7 @@ export default function Shopdetail() {
                 <Col md={6}>
                     <div className="description-box">
                         <h2>{selectedShop[0].item_name}</h2>
-                        { Owner &&  <Button variant='warning' onClick={() => alert('selected dlete')} className='button-delete'>ลบสินค้า</Button>}
+                        { Owner &&  <Button variant='warning' onClick={handleDelete} className='button-delete'>ลบสินค้า</Button>}
                         <p className="price">ราคา {selectedShop[0].item_price} ฿/ชิ้น</p>
                         <p>{shopdetail.contact.address}</p>
                         <Button  className='Buttom-shop' href={shopdetail.shop_items[0].item_linkurl}>ไปยังร้านค้า</Button>
