@@ -104,6 +104,7 @@ const add_item_img = multer.diskStorage({
 const upload_img_post = multer({storage:add_item_img})
 
 
+
 Shop.post('/add_post_img/:shop_id/',upload_img_post.array('upload_post',5),(req,res) => {
 
         const fileNAME = req.files.map((e) => e.filename);

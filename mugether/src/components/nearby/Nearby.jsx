@@ -85,8 +85,6 @@ export default function Nearby({ Muplace_name }) {
                                 <p><IoIosStar /> {e.rating}</p>
                                 <p className='detail'>{e.address}</p>
                                 <br /><br />{e.distance_to_mu} จากสถานที่มู<br />
-
-
                             </div>
                         ))}
                     </Carousel>

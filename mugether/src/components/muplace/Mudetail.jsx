@@ -12,6 +12,8 @@ import { FaStar } from "react-icons/fa";
 export default function Mudetail({showguide}) {
   const [Muplace, Setmuplace] = useState(localStorage.getItem("muplace"));
   const { per_muplace } = useContext(Muplace_Context);
+  const [show, setShow] = useState(false);
+
 
 
   useEffect(() => {
@@ -22,6 +24,11 @@ export default function Mudetail({showguide}) {
       Setmuplace(localStorage.getItem("muplace"));
     }
   }, [per_muplace]);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
 
   const pageUrl = window.location.href;
 

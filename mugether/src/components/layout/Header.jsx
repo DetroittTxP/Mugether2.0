@@ -208,7 +208,7 @@ export default function Header({ handleFav }) {
           <div>
             <Dropdown overlayClassName='scroll-dropdown' menu={{ items: (pathname === '/shop' || pathname === '/shopdetail' ? Shoplist : Muplace), }}>
               <Nav  >
-                <Form.Control onChange={onChange} type="text" style={{ width: 600 }} />
+                <Form.Control onChange={onChange} placeholder={(pathname === '/shop' || pathname === '/shopdetail' ? 'ค้นหาสินค้า...' : 'ค้นหาสถานที่มู...')} type="text" style={{ width: 600 }} />
               </Nav>
 
             </Dropdown>

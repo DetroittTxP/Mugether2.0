@@ -65,31 +65,32 @@ img.get('/user/profile/:username',async(req,res) => {
 
         let imagesFile = path.join(dir_,"assets","user",profile_pic);
         
-        if(profile_pic !== 'profile_temp.png')
+        if( profile_pic !== 'profile_temp.png')
         {
             imagesFile = path.join(dir_,"assets","user",username,"profile_pic",profile_pic);
 
-            fs.readdir(path.join(dir_,"assets","user",username,"profile_pic"),
-            (err,file) => {
-                if(err)
-                {
-                    console.log(err);
-                }
-                file.forEach((img) => { 
-                    if(img !== profile_pic)
-                    {
-                        let deletefile = path.join(dir_,"assets","user",username,"profile_pic",img)
-                        fs.unlink(deletefile, (err) => {
-                            if (err) {
-                                console.error(err);
-                            }
-                        });
-                    }
-                })
-            })
+            // fs.readdir(path.join(dir_,"assets","user",username,"profile_pic"),
+            // (err,file) => {
+            //     if(err)
+            //     {
+            //         console.log(err);
+            //     }
+            
+            //     file.forEach((img) => { 
+            //         if(img !== profile_pic)
+            //         {
+            //             let deletefile = path.join(dir_,"assets","user",username,"profile_pic",img)
+            //             fs.unlink(deletefile, (err) => {
+            //                 if (err) {
+            //                     console.error(err);
+            //                 }
+            //             });
+            //         }
+            //     })
+            // })
         }
 
-        
+    
         return res.sendFile(imagesFile)
     }
     catch(err){
