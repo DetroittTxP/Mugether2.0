@@ -35,7 +35,7 @@ export default function ListGuide() {
     }, []);
 
     const onDelete=(id_guide)=>{
-           navigate('/shop')            
+                      
            Swal.fire({
                 title:'ต้องการลบโพสใช่หรือไม่',
                 icon:'warning',
@@ -50,9 +50,7 @@ export default function ListGuide() {
                             let deletedata = await axios.delete(`http://localhost:5353/guide_detail/delete-post/${id_guide}/${muplace}`);
                            return Swal.fire({icon:'success',text:'ลบโพสเเล้ว'})
                 }
-                else{
-                    return;
-                }
+                
            })
            .catch(err => Swal.fire({icon:'error', text:err}))
       

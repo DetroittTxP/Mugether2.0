@@ -67,6 +67,15 @@ export default function Guide_detail({ data }) {
                   fluid
                 />
               </Col>
+              <Col md={12}>
+                <Image
+                  src={`http://localhost:5353/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[4]}`}
+                  alt="Image 4"
+                  className="small-image figure-3"
+                  fluid
+                />
+              </Col>
+            
             </Row>
           </Col> 
         </Row>
