@@ -48,8 +48,7 @@ export default function Shopdetail() {
          item_price:'',
          item_detail:'',
          item_linkurl:''
-        
-
+    
     }]);
 
     const Owner = usr_id === id_user_shop
@@ -87,7 +86,6 @@ export default function Shopdetail() {
                   icon:'question',
                   text:'ต้องการลบสินค้านี้ใช่หรือไม่',
                   showCancelButton:true,
-              
                   confirmButtonText:'ใช่',
                   cancelButtonText:'ไม่'
               }).then( async result=>{
@@ -98,8 +96,6 @@ export default function Shopdetail() {
                   } 
               })
     }
-
-
 
     return (
         <Container className="mt-3">

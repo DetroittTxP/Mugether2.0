@@ -202,8 +202,8 @@ export default function Header({ handleFav }) {
       <EditProfile showedit={showedit} toggle={toggle} editType={editType} />
       <Navbar bg="light" expand="lg" fixed="top" style={{ borderBottom: '2px solid #ccc', padding: '30px', zIndex: '50' }}>
         <Container>
-          <Navbar.Brand onClick={() => localStorage.removeItem('showmap')} href="/">
-            <Image rounded src={Logo} height={100} width={100} style={{ borderRadius: '50%' }} />
+          <Navbar.Brand onClick={() => localStorage.removeItem('showmap')} href="/" >
+            <Image rounded src={Logo} height={100} width={100} style={{ borderRadius: '50%'}} />
           </Navbar.Brand>
           <div>
             <Dropdown overlayClassName='scroll-dropdown' menu={{ items: (pathname === '/shop' || pathname === '/shopdetail' ? Shoplist : Muplace), }}>

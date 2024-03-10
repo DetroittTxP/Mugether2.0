@@ -50,7 +50,8 @@ Shop.post('/create-shop', async (req,res) => {
 
     } = req.body;
 
-    console.log(req.body);
+   
+    console.log(contact);
 
     try{
 
@@ -67,11 +68,19 @@ Shop.post('/create-shop', async (req,res) => {
             {shop:true}
             )
 
+           let newcontact = {
+                ...contact,
+                email:check_user.email
+          }
+
+          
+
         let create_shop = await db_shop.create({
             id_user:id_user,
             shop_name:shop_name,
             shop_detail:shop_detail,
-            contact:contact
+            
+            contact:newcontact
         })
 
         
@@ -274,7 +283,7 @@ Shop.post('/upload-register-profile/:id_user',upload_edit.single('profile_pic'),
 
       try{ 
             console.log(req.file.originalname);
-            let filter = {_id:req.params.id_guide}
+            let filter = {_id:req.params.id_user}
             let data = {
                     profile_shop_pic:req.file.filename
             }
@@ -331,6 +340,7 @@ Shop.put('/edit-profile/:usrid',async (req,res) => {
 } )
 
 
+
 Shop.get('/:userID',async(req,res) => {
 
     try{
@@ -350,9 +360,12 @@ Shop.delete('/delete/:id_user/:shop_item_id',async (req,res) => {
      try{
             
             let data = await db_shop.findOne({id_user:id_user})
-     
-            console.log(shop_item_id);
-            console.log(data.shop_items[0]._id.to_String());
+
+            if(id_user && id_user === data.id_user){
+                  console.log(data.id_user);
+                  console.log(id_user);
+            }
+
             return res.send(data.shop_items[0]._id)
 
      }

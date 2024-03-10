@@ -10,12 +10,14 @@ import Swal from 'sweetalert2';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 import Add_post from './Add_post_guide';
 import { Muplace_Context } from '../../context/MuContext';
+import {useNavigate} from 'react-router-dom'
 
 export default function ListGuide() {
     const [guidedata, setGuideData] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const { guideStatus } = useContext(Muplace_Context)
     const [list_all_guide, Setlistallguide] = useState([]);
+    const navigate = useNavigate()
     const usrID = localStorage.getItem('usr_id');
     const muplace = localStorage.getItem('muplace')
 
@@ -33,6 +35,7 @@ export default function ListGuide() {
     }, []);
 
     const onDelete=(id_guide)=>{
+           navigate('/shop')            
            Swal.fire({
                 title:'ต้องการลบโพสใช่หรือไม่',
                 icon:'warning',
@@ -53,7 +56,6 @@ export default function ListGuide() {
            })
            .catch(err => Swal.fire({icon:'error', text:err}))
       
-           
     }
 
     return (

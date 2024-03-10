@@ -52,7 +52,7 @@ export default function Mudetail({ showguide }) {
           <ShareButton url={pageUrl} />
         </Col>
       </Row>
-      <Popover content={detail} title={<h4>{Muplace}</h4>}>
+      <Popover placement='bottomLeft'  content={detail} title={<h4>{Muplace}</h4>}>
       <Row >
 
        
