@@ -86,11 +86,11 @@ export default function EditProfile({ showedit, toggle, editType }) {
       }
       else if (editType === 'guide') {
         if(selectedfile){
-        update_img = await axios.post(`http://localhost:5353/guide_detail/upload_profile_guide/${userID}`, formData);
+             update_img = await axios.post(`http://localhost:5353/guide_detail/upload_profile_guide/${userID}`, formData);
          }
         update_usr = await axios.put(`http://localhost:5353/guide_detail/update_profile/${userID}`, {
           editGuide,
-          profile_pic: update_img.data.filename
+          profile_pic: (selectedfile ? update_img.data.filename : null)
         })
       } else if (editType === 'shop') {
             let filenamne = null;
@@ -101,7 +101,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
        
            update_usr = await axios.put(`http://localhost:5353/shop/edit-profile/${userID}`, {
             editShop,
-            filename:filenamne
+            filename:filenamne || null
            })
            console.log(update_usr);
       }  
@@ -114,11 +114,11 @@ export default function EditProfile({ showedit, toggle, editType }) {
         title: 'Success'
       })
 
-      console.log(update_usr.data);
+      
       console.log(update_img);
     }
     catch (err) {
-      alert(err)
+      alert(err,'123123')
     }
 
 

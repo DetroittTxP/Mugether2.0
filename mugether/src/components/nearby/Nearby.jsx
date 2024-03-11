@@ -79,7 +79,7 @@ export default function Nearby({ Muplace_name }) {
                                         key:data.key,
                                         name:e.name
                                     })
-                                }} height={200} width={200} src={`http://localhost:5353/image/nearby/${data.key}/${e.name}/1`} alt={data.name} />
+                                }} height={200} width={200} src={`http://localhost:5353/image/nearby/${data.key}/${e.name}/4`} alt={data.name} />
                                 <br /><br />
                                 <h6><b>{e.name}</b></h6>
                                 <p><IoIosStar /> {e.rating}</p>
@@ -95,7 +95,7 @@ export default function Nearby({ Muplace_name }) {
                 </>
             ))}
 
-            {/* <Lightbox
+            <Lightbox
                 open={open}
                 close={() => setOpen(false)}
                 slides={[
@@ -106,7 +106,7 @@ export default function Nearby({ Muplace_name }) {
                 ]}
                 index={index}
                 on={{ view: updateIndex }}
-            /> */}
+            />
 
 
             {/* <h2>สถานที่ท่องเที่ยวใกล้เคียง</h2>

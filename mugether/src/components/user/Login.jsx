@@ -145,7 +145,7 @@ export default function Login() {
             </Form.Group>
 
             <Row>
-              <Button variant="primary" type="submit" className="Enter">
+              <Button variant="warning" type="submit" className="Enter">
                 LOGIN
               </Button>
               <a className="forget" href="#">
