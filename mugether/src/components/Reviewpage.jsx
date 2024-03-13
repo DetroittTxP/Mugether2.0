@@ -3,24 +3,26 @@ import axios from 'axios';
 import Rating from '@mui/material/Rating';
 import { Button, Input } from 'antd'
 import './ReviewPage.css';
-import { useLocation } from 'react-router-dom'
-import { Form } from 'react-bootstrap'
+import { Form,Image } from 'react-bootstrap'
 import Swal from 'sweetalert2'
 import { IconButton } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-
+import ButtonBo from 'react-bootstrap/Button'
+import Carousel from 'react-bootstrap/Carousel';
 
 const Add_Review = ({ Muplace_name, check_finish }) => {
-
+  const username = localStorage.getItem('usr')
   const [review, Setreview] = useState({
     muplacename: Muplace_name,
     reviewdetail: {
       username: localStorage.getItem('usr'),
       score: 0,
-      detail: ''
+      detail: '',
     }
   });
+  const [image,Setimage] = useState(null);
+  const [imgsrc,Setimagesrc] = useState([]);  
 
 
   const change = (e, newvalue) => {
@@ -42,6 +44,34 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
     }));
   }
 
+  const onimage=(event)=>{
+    const files = Array.from(event.target.files);
+
+    if(files.length === 0 || files.length > 5){
+       return;
+    }
+
+    Setimage(files)
+    // Setreview(prev => ({
+    //       ...prev,
+    //       reviewdetail:{
+    //            ...prev.reviewdetail,
+    //            [event.target.id]:files
+    //       }
+    // }))
+
+    files.forEach(img => {
+         const reader = new FileReader();
+
+         reader.onload = (load) => {
+              const url = load.target.result;
+              Setimagesrc(prev => [...prev,url]);
+         }
+
+         reader.readAsDataURL(img);
+    })
+  }
+
 
 
   const onSubmit = async (e) => {
@@ -57,11 +87,27 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
         Swal.showLoading();
       },
     })
+
+    const formData = new FormData();
+
+
     try {
-     
+      
+      let imagedata = null;
+      if(image && username){
+        //api upload / review / image
+         
+         for(let i = 0;i<image.length;i++){
+             formData.append('reviewImage', image[i]);
+         }
+         let uplaodimage = await axios.post(`http://localhost:5353/muplace/addreviewmuplace/image/${username}`, formData).catch(err => console.log(errr));
+         imagedata = uplaodimage.data.imageName
+         
+      }
 
+   
 
-      let res = await axios.post('http://localhost:5353/muplace/addreviewmuplace', review)
+      let res = await axios.post('http://localhost:5353/muplace/addreviewmuplace', {review:review,image:imagedata});
       Swal.close();
       
       await Swal.fire({
@@ -91,9 +137,26 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
 
       <div>
         <Form onSubmit={onSubmit}>
+
+        <Form.Group className='mb-3' controlId='reviewImg'>
+              <Form.Label><b style={{ fontSize: 20 }}>เพิ่มรูปประกอบการรีวิว</b> </Form.Label>
+              <Form.Control onChange={onimage}  multiple accept='image/*' type='file'  rows={4} cols={100}/>
+          </Form.Group>
+
+          {imgsrc.length !== 0 && 
+              <Carousel indicators controls>
+                     {imgsrc.map(img => (
+                         <Carousel.Item>
+                                <Image  className="d-block w-100" src={img} />
+                         </Carousel.Item>
+                     ))}
+              </Carousel>
+          
+          }
+
           <b style={{ fontSize: 20 }}>โปรดให้คะเเนน</b> <br />
 
-
+          
 
           <Rating
             id='score'
@@ -101,21 +164,18 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
             style={{ fontSize: 40 }}
             onChange={change}
           />
-
-
-
-
           <Form.Group className="mb-3" controlId="detail" >
             <Form.Label><b style={{ fontSize: 20 }}>คำอธิบาย</b> </Form.Label>
             <Form.Control name='detail' onChange={change} as="textarea" rows={4} cols={100} />
 
           </Form.Group>
 
-          <button type='submit'>Submit</button>
-
+       
+         <ButtonBo variant='warning' type='submit'>เพิ่มรีวิว</ButtonBo>
+         <br/>  <br/>
 
         </Form>
-
+      
       </div>
     </div>
 
@@ -135,7 +195,7 @@ export default function ReviewPage({ Muplace_name }) {
   const currentReviews = detail.slice(indexOfFirstReview, indexOfLastReview);
   const totalReviews = detail.length;
   const totalPages = Math.ceil(totalReviews / reviewsPerPage);
-  
+  const usr = localStorage.getItem('usr')
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -236,11 +296,11 @@ export default function ReviewPage({ Muplace_name }) {
     </div>
   </div>
   )
-
+   
 //https://media.discordapp.net/attachments/1130047272508465273/1164158784046911498/image.png?ex=6542325b&is=652fbd5b&hm=34d3ee5ae415d18976b94fca7e67358183624112e20a65bfbfcb679cc5cede42&=&width=445&height=385
   return (
     <div className="review-container">
-      <h2 style={{fontWeight: 'bold'}}>Review</h2>
+      <h2 style={{fontWeight: 'bold'}}>รีวิว</h2>
       {detail.length === 0 ? <h2>No review</h2> :  Reviewd}
 
       {addreview ? (
@@ -248,12 +308,28 @@ export default function ReviewPage({ Muplace_name }) {
     ) : (
       <>
         {currentReviews.map((data, index) => {
+          console.log();
         return (
           <div key={index} className="review-item">
             <img className="avatar" src={`http://localhost:5353/image/user/profile/${data.username}`} alt={data.username} />
             <div className="review-content">
               <h4 className="username">{data.username}</h4>
+              
+        
               <Rating className="rating" readOnly name='read-only' value={data.score} />
+         
+              {/* { data.reviewImage &&  
+                 <span className='span-review'>
+                    <Carousel controls indicators>
+                           {data.reviewImage.map((image,i) => (
+                              <Carousel.Item key={i}>
+
+                                  <Image className="d-block w-50" src={`http://localhost:5353/muplace/reviewimage/${usr}/${image}`}/>
+                              </Carousel.Item>
+                           ))}
+                    </Carousel>
+               </span>} */}
+           
               <p className="review-text">{data.detail}</p>
             </div>
           </div>

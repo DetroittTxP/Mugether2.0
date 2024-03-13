@@ -42,6 +42,10 @@
     line-height: 1.4;
   }
 
+  .span-review{
+    display: inline-block;
+    margin-left: 25rem;
+  }
 .button-review{
      text-align: center;
 }

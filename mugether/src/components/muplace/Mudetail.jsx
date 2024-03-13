@@ -111,6 +111,7 @@ export default function Mudetail({ showguide }) {
       <br />
       <hr />
       <br />
+      accordion is here
       <Row>
         <Col md={11} className="review-section">
           {showguide && <List_guide />}

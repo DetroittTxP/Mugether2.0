@@ -68,7 +68,7 @@ export default function Nearby({ Muplace_name }) {
 
             {nearby.map((data) => (
                 <>
-                    <h2>{data.type}</h2>
+                    <h2><b>{data.type}</b></h2>
 
                     <Carousel responsive={responsive}>
                         {data.data.sort((a,b) => parseFloat(a.distance_to_mu) - parseFloat(b.distance_to_mu)).map((e) => (

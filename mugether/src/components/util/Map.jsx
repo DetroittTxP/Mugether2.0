@@ -16,6 +16,7 @@ export default function Map() {
   const [muplace_name, Setmuplace_name] = useState(localStorage.getItem('showmap'))
   const [markers, setMarkers] = useState({});
   const [showmap, Setshowmap] = useState(false);
+  const [popup,Setpopup] = useState(false)
 
   const templeIcon = new Icon({
     iconUrl: 'https://cdn-icons-png.flaticon.com/512/898/898151.png',
@@ -41,6 +42,7 @@ export default function Map() {
 
 
 
+
   useEffect(() => {
 
     axios.get(`http://localhost:5353/latlong/mu/nearby/${muplace_name}`)
@@ -58,7 +60,7 @@ export default function Map() {
 
   return (
     <div>
-      <h1>Map</h1>
+      <h1>เเผนที่</h1>
       {showmap &&
         <MapContainer  center={markers.muplace_latlong.location} zoom={13} scrollWheelZoom={false}>
           <TileLayer
@@ -66,8 +68,8 @@ export default function Map() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
 
-          <Marker icon={templeIcon} position={markers.muplace_latlong.location} >
-            <Popup>{markers.muplace_latlong.name}</Popup>
+          <Marker  icon={templeIcon} position={markers.muplace_latlong.location} >
+            { popup&& <Popup > {markers.muplace_latlong.name}</Popup>}
           </Marker>
 
           <MarkerClusterGroup>
