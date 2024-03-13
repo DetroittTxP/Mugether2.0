@@ -51,6 +51,10 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
        return;
     }
 
+    if(files.length > 5){
+       return alert('ต้องไม่เกิน 5 รูป')
+    }
+
     Setimage(files)
     // Setreview(prev => ({
     //       ...prev,
@@ -139,7 +143,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
         <Form onSubmit={onSubmit}>
 
         <Form.Group className='mb-3' controlId='reviewImg'>
-              <Form.Label><b style={{ fontSize: 20 }}>เพิ่มรูปประกอบการรีวิว</b> </Form.Label>
+              <Form.Label><b style={{ fontSize: 20 }}>เพิ่มรูปประกอบการรีวิว (ไม่เกิน 5 รูป)</b> </Form.Label>
               <Form.Control onChange={onimage}  multiple accept='image/*' type='file'  rows={4} cols={100}/>
           </Form.Group>
 
@@ -184,7 +188,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
 
 
 
-export default function ReviewPage({ Muplace_name }) {
+export default function ReviewPage({ Muplace_name}) {
   const [detail, Setdetail] = useState([]);
   const [addreview, Setaddreview] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);

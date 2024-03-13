@@ -4,6 +4,8 @@ const multer = require('multer');
 const {create_dir} =require('../routers/uploadimages')
 const path = require('path')
 const usr = require('../model/User-model') 
+const fs = require('fs');
+
 
 Shop.get('/',(req,res) => {
     return res.send('ok shop')
@@ -374,6 +376,54 @@ Shop.delete('/delete/:id_user/:shop_item_id',async (req,res) => {
      }
 })
 
+//addphotoreview shop
+const shopReviewImg = multer.diskStorage({
+      destination:async(req,file,cb)=>{
+          let dir =  await create_dir(req.params.shop_id,"shop","reviewImage");
+          cb(null,dir);
+      },
+      filename:(req,file,cb)=>{
+          cb(null,Date.now() + req.params.shop_id+file.originalname);
+      }
+})
+
+const UploadReview = multer({storage:shopReviewImg})
+
+Shop.post('/review/image/:shop_id', UploadReview.array('reviewImage', 5),
+       async (req,res) =>{
+        if(req.files.length > 0){
+              return res.json({
+                status:'ok',
+                shop_id:req.params.shop_id,
+                imageName:req.files.map((image => image.filename))
+              })
+        }
+})
+
+
+//addreview shop
+Shop.post('/review/:id_user', async (req,res) => {
+    const {id_user} = req.params;
+    const {reviewdetail} = req.body;
+
+    try{
+        let addreview = await db_shop.updateOne(
+            {
+                id_user:id_user,
+            },
+            {
+                $push:{shop_review:reviewdetail} 
+            }
+        )
+
+        if(!addreview){
+            return res.send('no data found');
+        }
+    }
+    catch(err){
+        return res.send(err)
+    }
+})
 
 
 

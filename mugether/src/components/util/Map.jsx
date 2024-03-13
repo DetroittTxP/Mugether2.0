@@ -60,7 +60,7 @@ export default function Map() {
 
   return (
     <div>
-      <h1>เเผนที่</h1>
+      <h1><b>เเผนที่</b></h1>
       {showmap &&
         <MapContainer  center={markers.muplace_latlong.location} zoom={13} scrollWheelZoom={false}>
           <TileLayer

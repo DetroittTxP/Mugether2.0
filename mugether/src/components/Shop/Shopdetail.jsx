@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 
 import './Shopdetail.css';
 import SwalLoading from '../util/SwalLoading';
+import Shopreview from './Shopreview';
 
 
 
@@ -180,6 +181,8 @@ export default function Shopdetail() {
 
                 <div className='reviewshop'>
                     <h2>รีวิว</h2>
+                  
+                    <Shopreview/>
                 </div>
             
         </Container>

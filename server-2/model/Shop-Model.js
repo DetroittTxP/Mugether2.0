@@ -24,7 +24,8 @@ const shop_model = mongoose.Schema({
         type:[{
             review_username:String,
             review_score:Number,
-            review_detail:String
+            review_detail:String,
+            review_image:[String]
         }],
         default:[]
     },
