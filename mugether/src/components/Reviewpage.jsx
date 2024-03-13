@@ -200,6 +200,9 @@ export default function ReviewPage({ Muplace_name }) {
     setCurrentPage(pageNumber);
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [currentImage, setCurrentImage] = useState('');
+
 
   useEffect(() => {
     axios.get(`http://localhost:5353/muplace/mudata/${Muplace_name}`)
@@ -213,6 +216,7 @@ export default function ReviewPage({ Muplace_name }) {
   const check_finish = (isFinish) => {
     Setaddreview(isFinish)
   }
+
 
 
   const sumreview=()=>{
@@ -296,6 +300,29 @@ export default function ReviewPage({ Muplace_name }) {
     </div>
   </div>
   )
+
+  const openModal = (imageUrl) => {
+    setCurrentImage(imageUrl);
+    setIsModalOpen(true);
+    document.querySelector('.modal').style.display = 'flex';
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(true);
+    document.querySelector('.modal').style.display = 'none';
+  };
+
+  const renderModal = () => {
+    if (!isModalOpen) return null;
+    
+    return (
+      <div className="modal" onClick={closeModal}>
+        <span className="close" onClick={closeModal}>&times;</span>
+        <img className="modal-content" src={currentImage} alt="Enlarged review" />
+      </div>
+    );
+  };
+
    
 //https://media.discordapp.net/attachments/1130047272508465273/1164158784046911498/image.png?ex=6542325b&is=652fbd5b&hm=34d3ee5ae415d18976b94fca7e67358183624112e20a65bfbfcb679cc5cede42&=&width=445&height=385
   return (
@@ -308,36 +335,34 @@ export default function ReviewPage({ Muplace_name }) {
     ) : (
       <>
         {currentReviews.map((data, index) => {
-          console.log();
-        return (
-          <div key={index} className="review-item">
-            <img className="avatar" src={`http://localhost:5353/image/user/profile/${data.username}`} alt={data.username} />
-            <div className="review-content">
-              <h4 className="username">{data.username}</h4>
-              
-        
-              <Rating className="rating" readOnly name='read-only' value={data.score} />
-         
-              {/* { data.reviewImage &&  
-                 <span className='span-review'>
-                    <Carousel controls indicators>
-                           {data.reviewImage.map((image,i) => (
-                              <Carousel.Item key={i}>
-
-                                  <Image className="d-block w-50" src={`http://localhost:5353/muplace/reviewimage/${usr}/${image}`}/>
-                              </Carousel.Item>
-                           ))}
-                    </Carousel>
-               </span>} */}
-           
-              <p className="review-text">{data.detail}</p>
-            </div>
-          </div>
-        );
+          return (
+            <> 
+              <div key={index} className="review-item">
+                <img className="avatar" src={`http://localhost:5353/image/user/profile/${data.username}`} alt={data.username} />
+                <div className="review-content">
+                  <h4 className="username">{data.username}</h4>
+                  <Rating className="rating" readOnly name='read-only' value={data.score} />
+                  <p className="review-text">{data.detail}</p>
+                </div>
+              </div>
+              {data.reviewImage && (
+                <div className='review-img'>
+                    {data.reviewImage.map((image, i) => (
+                      <img 
+                        style={{width: '140px', height: '140px', cursor: 'zoom-in'}} 
+                        key={i} 
+                        src={`http://localhost:5353/muplace/reviewimage/${data.username}/${image}`} 
+                        alt={`Review ${i}`}
+                        onClick={() => openModal(`http://localhost:5353/muplace/reviewimage/${data.username}/${image}`)}
+                      />
+                    ))}
+                    
+                </div>
+              )}
+            </>
+          );
         })}
-
-
-
+        
 
         <div className="pagination-controls">
           {renderPageNumbers(totalPages)}
@@ -351,8 +376,21 @@ export default function ReviewPage({ Muplace_name }) {
           <b>{addreview ? "ย้อนกลับ" : "เขียนรีวิว"}</b>
         </Button>
       </div>}
-
+      {renderModal()}
     </div>
   );
 }
+
+
+// {data.reviewImage && (
+//   <div className='review-img'>
+//     <Carousel controls indicators>
+//       {data.reviewImage.map((image, i) => (
+//         <Carousel.Item key={i}>
+//           <Image className="d-block w-100" src={`http://localhost:5353/muplace/reviewimage/${usr}/${image}`}/>
+//         </Carousel.Item>
+//       ))}
+//     </Carousel>
+//   </div>
+// )}
  
