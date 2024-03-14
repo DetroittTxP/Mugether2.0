@@ -51,6 +51,7 @@ export default function Shopdetail() {
          item_linkurl:''
     
     }]);
+    const [reviewThisItem,Setreviewthis] = useState([])
 
     const Owner = usr_id === id_user_shop
 
@@ -75,6 +76,8 @@ export default function Shopdetail() {
                      return data[0].item_photo
                      
                 })
+
+                Setreviewthis(res.data.shop_review);
                 
                 Swal.close();
             })
@@ -182,7 +185,7 @@ export default function Shopdetail() {
                 <div className='reviewshop'>
                     <h2>รีวิว</h2>
                   
-                    <Shopreview/>
+                     { reviewThisItem.length != 0 &&  <Shopreview reviewdata={reviewThisItem}/>}
                 </div>
             
         </Container>

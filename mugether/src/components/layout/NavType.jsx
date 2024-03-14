@@ -36,10 +36,7 @@ export default function NavType({SelectedTypeMu,show_guide}) {
       type: 'การเรียน',
       icon: 'https://cdn-icons-png.flaticon.com/128/29/29302.png'
     },
-    {
-      type: 'การเดินทาง',
-      icon: 'https://cdn-icons-png.flaticon.com/128/3097/3097136.png'
-    },
+
   ]
 
   const typeMudetail = [

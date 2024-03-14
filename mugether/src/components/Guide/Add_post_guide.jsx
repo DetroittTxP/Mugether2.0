@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Form, Modal, Button, InputGroup } from 'react-bootstrap'
+import { Form, Modal, Button, InputGroup,Image,Carousel } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 import SwalLoading from '../util/SwalLoading';
 
@@ -10,13 +10,27 @@ export default function Add_post() {
     const usr_id = localStorage.getItem('usr_id')
     const [post, Setpost] = useState({ muplace: muplace });
     const [activity, setactivity] = useState(Array.from({ length: 1 }).fill(''));
+    const [imagePreview,SetimagePreview] = useState([]);
 
     useEffect(() => {
         setactivity(activity)
     }, [activity])
 
     const SelectPicture = async (event) => {
+        const files = Array.from(event.target.files)
 
+        if(files){
+             files.forEach(img => {
+                const reader = new FileReader();
+
+                reader.onload = (load) => {
+                     const url = load.target.result;
+                        SetimagePreview(prev => [...prev,url])
+                }
+       
+                reader.readAsDataURL(img);
+             })
+        }
 
         for (let i = 0; i < event.target.files.length; i++) {
             let file = event.target.files[i];
@@ -100,11 +114,26 @@ export default function Add_post() {
 
 
     return (
+        <div >
+
+      
         <Form onSubmit={SubmitPost}>
             <Form.Group className="mb-3" controlId='postPhotos'>
                 <Form.Label>เพิ่มรูปภาพของคุณ (ไม่เกิน 5 รูป)</Form.Label>
                 <Form.Control type="file" accept='image/*' multiple onChange={SelectPicture} />
             </Form.Group>
+
+            {imagePreview.length !== 0 && 
+              <Carousel indicators controls>
+                     {imagePreview.map(img => (
+                         <Carousel.Item>
+                                <Image  className="d-block w-100" src={img} />
+                         </Carousel.Item>
+                     ))}
+              </Carousel>
+          
+          }
+                
             <Form.Group controlId='muPlace'>
                 <Form.Control type='hidden' value={muplace} />
             </Form.Group>
@@ -161,6 +190,7 @@ export default function Add_post() {
                 <Button type='submit' variant="warning">Post</Button>
             </Modal.Footer>
         </Form>
+        </div>
     )
 }
 

@@ -407,9 +407,9 @@ Shop.post('/review/:id_user', async (req,res) => {
     const {reviewdetail} = req.body;
 
     try{
-        let addreview = await db_shop.updateOne(
+        let addreview = await db_shop.findByIdAndUpdate(
             {
-                id_user:id_user,
+                _id:id_user,
             },
             {
                 $push:{shop_review:reviewdetail} 
@@ -418,6 +418,9 @@ Shop.post('/review/:id_user', async (req,res) => {
 
         if(!addreview){
             return res.send('no data found');
+        }
+        else{
+            return res.send('updated')
         }
     }
     catch(err){
