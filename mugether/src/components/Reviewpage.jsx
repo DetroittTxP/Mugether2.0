@@ -300,7 +300,7 @@ export default function ReviewPage({ Muplace_name}) {
     <div style={{ display: 'flex', alignItems: 'center', fontSize: '1rem' }}>
     <div style={{ display: 'flex', alignItems: 'baseline' }}>
       <span style={{ color: '#faaf00', fontSize: '40px' }}>★</span>
-      <span style={{ margin: '0 0.5rem', fontSize: '30px' }}>{sumreview().toFixed(2)} • {detail.length} Reviews</span>
+      <span style={{ margin: '0 0.5rem', fontSize: '30px' }}>{sumreview().toFixed(2)} • {detail.length} รีวิว</span>
     </div>
   </div>
   )
@@ -332,7 +332,7 @@ export default function ReviewPage({ Muplace_name}) {
   return (
     <div className="review-container">
       <h2 style={{fontWeight: 'bold'}}>รีวิว</h2>
-      {detail.length === 0 ? <h2>No review</h2> :  Reviewd}
+      {detail.length === 0 ? <h2>ไม่มีรีวิวขณะนี้</h2> :  Reviewd}
 
       {addreview ? (
       <Add_Review check_finish={check_finish} Muplace_name={Muplace_name} />

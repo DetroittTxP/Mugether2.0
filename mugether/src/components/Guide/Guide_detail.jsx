@@ -1,7 +1,7 @@
-import axios from 'axios';
+
 import React, { useEffect, useState } from 'react'
 import { Row, Col, Container, Image } from 'react-bootstrap'
-import swal from 'sweetalert2'
+
 import './Guide_detail.css'
 
 export default function Guide_detail({ data }) {

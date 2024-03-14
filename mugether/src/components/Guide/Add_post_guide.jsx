@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Form, Modal, Button, InputGroup,Image,Carousel } from 'react-bootstrap'
+import { Form, Modal, Button,Image,Carousel } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 import SwalLoading from '../util/SwalLoading';
 

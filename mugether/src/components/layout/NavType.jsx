@@ -1,7 +1,7 @@
 
-import React, { useState, useEffect, useRef } from 'react';
-import { Nav, Container } from 'react-bootstrap';
-import { useNavigate,useLocation } from 'react-router-dom';
+import React, { useState, useRef } from 'react';
+import { Nav, } from 'react-bootstrap';
+import {useLocation } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
 
 export default function NavType({SelectedTypeMu,show_guide}) {
@@ -41,7 +41,7 @@ export default function NavType({SelectedTypeMu,show_guide}) {
 
   const typeMudetail = [
     {
-      type: 'Guide',
+      type: 'ไกด์',
       icon: 'https://cdn-icons-png.flaticon.com/128/2953/2953363.png',
       path: '/guide',
       fn: () => {
@@ -53,19 +53,7 @@ export default function NavType({SelectedTypeMu,show_guide}) {
         }
       }
     },
-    {
-      type: 'รับจ้างมู',
-      icon: 'https://cdn-icons-png.flaticon.com/128/1584/1584911.png',
-      path: '/rubjark',
-      // fn: () => {
-      //   show_guide(showguide);
-      //   if(showguide && guideRef.current){
-      //     scroll.scrollTo(guideRef.current.offsetTop + 500 ,{
-      //       smooth: true,
-      //     });
-      //   }
-      // }
-    },
+   
     {
       type: 'ร้านค้า',
       icon: 'https://cdn-icons-png.flaticon.com/128/1584/1584911.png',
@@ -101,7 +89,7 @@ export default function NavType({SelectedTypeMu,show_guide}) {
         onSelect={(selectedKey) => {
 
             SelectedTypeMu(selectedKey);
-            
+          
         }}
         style={{  display: 'flex', justifyContent: 'center' }}
       >

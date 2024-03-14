@@ -1,7 +1,7 @@
 import React, { useState, useContext,useRef } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Reg_guide.css";

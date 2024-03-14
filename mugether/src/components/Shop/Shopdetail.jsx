@@ -158,7 +158,7 @@ export default function Shopdetail() {
                 <h3>{selectedShop[0].item_detail}</h3>
                 
             </div>
-
+                            
                 <div className="info-shop-name">
                     <h2>ข้อมูลร้านค้า</h2>
                 </div>

@@ -2,23 +2,20 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Container, Nav, Navbar, Form, Modal, Image } from 'react-bootstrap'
 import { Button, Dropdown, Menu } from 'antd';
 import Logo from '../../assets/LogoMugether.png'
-import { LuLogIn } from "react-icons/lu";
+
 import { Muplace_Context } from '../../context/MuContext';
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
-import { TbEdit } from "react-icons/tb";
-import { IoMdLogOut } from "react-icons/io";
+
 import EditProfile from '../user/EditProfile';
 import AppsIcon from '@mui/icons-material/Apps';
-import { FaUserEdit } from "react-icons/fa";
-import { LiaUserAstronautSolid } from "react-icons/lia";
-import { MdFavorite } from "react-icons/md";
-import { CiShop } from "react-icons/ci";
+
 import { useLocation } from 'react-router-dom'
 import './header.css'
 
 
 export default function Header({ handleFav }) {
+  
   const usr_data = localStorage.getItem('usr');
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -105,7 +102,11 @@ export default function Header({ handleFav }) {
           <span>REGISTER SHOP</span>
         </a>
       </Menu.Item>}
-      <Menu.Item onClick={() => handleFav(true)} key="favorite" >
+      <Menu.Item onClick={() => {
+        const fav  = JSON.parse(localStorage.getItem('fav'));
+        fav ?  localStorage.setItem('fav',false) :  localStorage.setItem('fav',true);;
+        return handleFav(!fav)
+      }} key="favorite" >
         <img src='https://cdn-icons-png.flaticon.com/128/4340/4340223.png' style={{ width: '30px' }} />
         <span>FAVORITE</span>
       </Menu.Item>
