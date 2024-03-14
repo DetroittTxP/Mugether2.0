@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Muplace_Schema = mongoose.Schema({
     place_id:String,
     name:{type:String,required:true},
+    place_detail:String,
     address:{type:String,required:true},
     rating:Number,
     type:String,

@@ -14,8 +14,11 @@ import { FaStar } from "react-icons/fa";
 
 export default function Mudetail({ showguide }) {
   const [Muplace, Setmuplace] = useState(localStorage.getItem("muplace"));
-  const { per_muplace } = useContext(Muplace_Context);
+  const { per_muplace, muplace } = useContext(Muplace_Context);
   const [show, setShow] = useState(false);
+
+
+
 
 
 
@@ -29,16 +32,25 @@ export default function Mudetail({ showguide }) {
   }, [per_muplace]);
 
   const detail = () => {
-    return (
-      <div>
-       
-        <div className="detail" style={{ zIndex: 0 }}>
-          <h5>ถ้ำนาคาตั้งอยู่ในอุทยานแห่งชาติภูลังกา จังหวัดบึงกาฬ ถูกค้นพบเมื่อประมาณ พ.ศ. 2563 โดยกลุ่มนักท่องเที่ยวซึ่งเป็นลูกศิษย์ของพระอาจารย์วินิจ สุเมโทร จากวัดถ้ำชัยมงคล​​.</h5>
-          <br />
-          <h5>จุดเด่นของถ้ำนี้คือลักษณะหินที่เกิดจากการกัดกร่อน มีลวดลายคล้ายเกล็ดงู ซึ่งตำนานเล่าว่าถ้ำนาคาคือพญานาคหรืองูยักษ์ที่ถูกสาปให้กลายเป็นหิน​​.</h5>
-        </div>
-      </div>
-    )
+
+    const detail = muplace.filter(data => data.name === Muplace);
+    console.log(detail);
+    console.log(detail[0].place_detail);
+
+    if (detail[0].place_detail !== undefined) {
+        return (
+          <div>
+
+            <div className="detail" style={{ zIndex: 0 }}>
+              <h5>{detail[0].place_detail}</h5>
+            </div>
+          </div>
+        )
+      
+    }else{
+       return <h5>No detail yet</h5>
+    }
+
   }
 
 
@@ -113,7 +125,7 @@ export default function Mudetail({ showguide }) {
       <br />
       <hr />
       <br />
-     {!showguide && <Accordion>
+      {!showguide && <Accordion>
         <AccordionSummary expandIcon={<ArrowDropDown />}
           aria-controls="panel1-content"
           id="panel1-header"
@@ -122,7 +134,7 @@ export default function Mudetail({ showguide }) {
           <h2><b>รายละเอียดสถานที่</b></h2>
         </AccordionSummary>
         <AccordionDetails>
-         {detail()}
+          {detail()}
         </AccordionDetails>
 
       </Accordion>}
