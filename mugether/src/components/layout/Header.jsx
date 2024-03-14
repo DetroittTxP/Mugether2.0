@@ -187,7 +187,8 @@ export default function Header({ handleFav }) {
             <a onClick={() => {
               localStorage.setItem('muplace', data.name)
               localStorage.setItem('showmap', data.name)
-            }} href='/mudetail' style={{ textDecoration: 'none' }} >
+              navigate('/mudetail')
+            }}  style={{ textDecoration: 'none' }} >
               <h6>{data.name}</h6>
             </a>
           )

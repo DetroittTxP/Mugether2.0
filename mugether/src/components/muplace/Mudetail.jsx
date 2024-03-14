@@ -7,7 +7,7 @@ import "./Mudetail.css";
 import Nearby from "../nearby/Nearby";
 import List_guide from "../Guide/List_guide";
 import Map from "../util/Map";
-import { Popover } from 'antd';
+import { Popover,Collapse } from 'antd';
 import { Accordion, AccordionSummary, Typography, AccordionDetails } from '@mui/material'
 import { ArrowDownward, ArrowDropDown } from '@mui/icons-material'
 import { FaStar } from "react-icons/fa";
@@ -34,8 +34,10 @@ export default function Mudetail({ showguide }) {
   const detail = () => {
 
     const detail = muplace.filter(data => data.name === Muplace);
-    console.log(detail);
+    
     console.log(detail[0].place_detail);
+    
+    
 
     if (detail[0].place_detail !== undefined) {
         return (
@@ -125,19 +127,25 @@ export default function Mudetail({ showguide }) {
       <br />
       <hr />
       <br />
-      {!showguide && <Accordion>
+      {/* {!showguide && <Accordion>
         <AccordionSummary expandIcon={<ArrowDropDown />}
           aria-controls="panel1-content"
           id="panel1-header"
           style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
         >
-          <h2><b>รายละเอียดสถานที่</b></h2>
+          <h2><b>ประวัติความเป็นมา</b></h2>
         </AccordionSummary>
         <AccordionDetails>
           {detail()}
         </AccordionDetails>
 
-      </Accordion>}
+      </Accordion>} */}
+
+
+      {!showguide && <Collapse size="large" items={[{key:1,label:<h2><b>ประวัติความเป็นมา</b></h2>,children:detail()}]}/>}
+
+
+      
 
       <br />
       <Row>
