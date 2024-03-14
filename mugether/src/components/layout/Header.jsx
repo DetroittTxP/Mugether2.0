@@ -91,13 +91,13 @@ export default function Header({ handleFav }) {
       </Menu.Item>}
 
       {!guideStatus && <Menu.Item key="reg-guide">
-        <a href='/reg-guide' style={{ textDecoration: 'none' }}>
+        <a onClick={() => navigate('/reg-guide')} style={{ textDecoration: 'none' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/3284/3284607.png" style={{ width: '30px' }} />
           REGISTER GUIDE
         </a>
       </Menu.Item>}
       {!shopStatus && <Menu.Item key="reg-shop">
-        <a href='/req-shop' style={{ textDecoration: 'none' }}>
+        <a  onClick={() => navigate('/reg-shop')} style={{ textDecoration: 'none' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/5956/5956828.png" style={{ width: '30px' }} />
           <span>REGISTER SHOP</span>
         </a>
@@ -123,19 +123,19 @@ export default function Header({ handleFav }) {
   const non_login = (
     <Menu style={{ textDecoration: 'none', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '10px' }}>
       <Menu.Item key="login">
-        <a href='/login' style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <a onClick={() => navigate('/login')} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/1828/1828466.png" style={{ width: '30px' }} />
           <span>LOGIN</span>
         </a>
       </Menu.Item>
       <Menu.Item key="register">
-        <a href='/register' style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <a onClick={() => navigate('/register')} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/3456/3456426.png" style={{ width: '30px' }} />
           <span>REGISTER</span>
         </a>
       </Menu.Item>
       <Menu.Item key="shop">
-        <a href='/shop' style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <a onClick={() => navigate('/shop')} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/1356/1356559.png" style={{ width: '30px' }} />
           <span>SHOP</span>
         </a>
@@ -172,7 +172,8 @@ export default function Header({ handleFav }) {
           <a onClick={() => {
             localStorage.setItem('shop_id', data.shop_id);
             localStorage.setItem('shop_item_id', data.item_id);
-          }} href='/shopdetail' style={{ textDecoration: 'none' }}>
+            return navigate('/shopdetail')
+          }}  style={{ textDecoration: 'none' }}>
             <h6>{data.item_name}</h6>
           </a>
         )
@@ -204,7 +205,10 @@ export default function Header({ handleFav }) {
       <EditProfile showedit={showedit} toggle={toggle} editType={editType} />
       <Navbar bg="light" expand="lg" fixed="top" style={{ borderBottom: '2px solid #ccc', padding: '30px', zIndex: '50' }}>
         <Container>
-          <Navbar.Brand onClick={() => localStorage.removeItem('showmap')} href="/" >
+          <Navbar.Brand onClick={() => {
+             localStorage.removeItem('showmap');
+             navigate('/')
+          }} >
             <Image rounded src={Logo} height={100} width={100} style={{ borderRadius: '50%'}} />
           </Navbar.Brand>
           <div>
