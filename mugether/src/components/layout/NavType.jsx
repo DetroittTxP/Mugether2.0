@@ -75,6 +75,7 @@ export default function NavType({SelectedTypeMu,show_guide}) {
   return (
     <div>
       <br/>
+       {!location.pathname.includes('/ForgottenPassword') && (
         <Nav
         className='justify-content-center'
         variant="underline"
@@ -112,6 +113,7 @@ export default function NavType({SelectedTypeMu,show_guide}) {
           </Nav.Item>
         ))}
       </Nav>
+      )}
       <div ref={guideRef}></div>
     </div>
     

@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link ,useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
+
 
 export default function Login() {
   const navigate = useNavigate();
@@ -83,6 +84,11 @@ export default function Login() {
     )
   }
 
+  const handleForgottenPassword = () =>{
+    navigate('/ForgottenPassword');
+
+  }
+
   return (
     <Container className="login-container">
       <Row className="justify-content-center align-items-center">
@@ -149,7 +155,8 @@ export default function Login() {
                 LOGIN
               </Button>
               <a className="forget" href="#">
-                <h6 className="forget-message">FORGET PASSWORD?</h6>
+                <h6 className="forget-message" onClick={handleForgottenPassword}>FORGET PASSWORD?</h6>
+                
               </a>
             </Row>
           </Form>

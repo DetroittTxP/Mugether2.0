@@ -15,7 +15,7 @@ import Shopdetail from './components/Shop/Shopdetail'
 import Regis_shop from './components/user/Regis_shop'
 import Swal from 'sweetalert2';
 import Add_Shop from './components/Shop/Add_shop'
-
+import Forgottenpassword from './components/user/ForgottenPassword'
 
 const Checktimeout=(timeout,onLogout)=>{
     let idleTime = null;
@@ -151,6 +151,7 @@ const [listshop,Setlistshop] = useState([]);
         <Route path='/shopdetail' element={<Shopdetail  />}  />
         <Route path='/req-shop' element={<Regis_shop/>}/>
         <Route path='/add-shop' element={<Add_Shop/>} />
+        <Route path='/Forgottenpassword' element={<Forgottenpassword/>} />
       </Routes>
       <div>
 

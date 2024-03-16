@@ -13,6 +13,10 @@ const user_model = mongoose.Schema({
         type:String,
         required:true
     },
+    resetpassword:{
+        type:String,
+        require:true
+    },
     
 
     
