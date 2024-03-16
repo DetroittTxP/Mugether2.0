@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Form, Modal, Button,Image,Carousel } from 'react-bootstrap'
+import { Form, Modal, Button, Image, Carousel } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 import SwalLoading from '../util/SwalLoading';
 
@@ -10,7 +10,7 @@ export default function Add_post() {
     const usr_id = localStorage.getItem('usr_id')
     const [post, Setpost] = useState({ muplace: muplace });
     const [activity, setactivity] = useState(Array.from({ length: 1 }).fill(''));
-    const [imagePreview,SetimagePreview] = useState([]);
+    const [imagePreview, SetimagePreview] = useState([]);
 
     useEffect(() => {
         setactivity(activity)
@@ -19,17 +19,17 @@ export default function Add_post() {
     const SelectPicture = async (event) => {
         const files = Array.from(event.target.files)
 
-        if(files){
-             files.forEach(img => {
+        if (files) {
+            files.forEach(img => {
                 const reader = new FileReader();
 
                 reader.onload = (load) => {
-                     const url = load.target.result;
-                        SetimagePreview(prev => [...prev,url])
+                    const url = load.target.result;
+                    SetimagePreview(prev => [...prev, url])
                 }
-       
+
                 reader.readAsDataURL(img);
-             })
+            })
         }
 
         for (let i = 0; i < event.target.files.length; i++) {
@@ -100,96 +100,88 @@ export default function Add_post() {
         setactivity(newdata);
 
         Setpost(prev => {
-             return {
+            return {
                 ...prev,
-                [e.target.id]:activity
-             }
+                [e.target.id]: activity
+            }
         })
 
     }
 
-    const onDeleteActivty=(i)=>{
-        setactivity(prev => prev.filter((v,index) => index !== i));
+    const onDeleteActivty = (i) => {
+        setactivity(prev => prev.filter((v, index) => index !== i));
     }
 
 
     return (
         <div >
 
-      
-        <Form onSubmit={SubmitPost}>
-            <Form.Group className="mb-3" controlId='postPhotos'>
-                <Form.Label>เพิ่มรูปภาพของคุณ (ไม่เกิน 5 รูป)</Form.Label>
-                <Form.Control type="file" accept='image/*' multiple onChange={SelectPicture} />
-            </Form.Group>
 
-            {imagePreview.length !== 0 && 
-              <Carousel indicators controls>
-                     {imagePreview.map(img => (
-                         <Carousel.Item>
-                                <Image  className="d-block w-100" src={img} />
-                         </Carousel.Item>
-                     ))}
-              </Carousel>
-          
-          }
+            <Form onSubmit={SubmitPost}>
+                <Form.Group className="mb-3" controlId='postPhotos'>
+                    <Form.Label>เพิ่มรูปภาพของคุณ (ไม่เกิน 5 รูป)</Form.Label>
+                    <Form.Control type="file" accept='image/*' multiple onChange={SelectPicture} />
+                </Form.Group>
+
+
                 
-            <Form.Group controlId='muPlace'>
-                <Form.Control type='hidden' value={muplace} />
-            </Form.Group>
 
-            <Form.Group controlId="postDetail">
-                <Form.Label>รายละเอียด</Form.Label>
-                <Form.Control onChange={onChange} as="textarea" rows={3} />
-            </Form.Group>
-            <br />
-            <Form.Group className="mb-3" controlId='postActivity'>
-                <Form.Label>กิจกรรม</Form.Label>
-                {activity.map((data, index) => (
-                    <div>
+                <Form.Group controlId='muPlace'>
+                    <Form.Control type='hidden' value={muplace} />
+                </Form.Group>
 
-                        <div className="input-fields">
-                            <Form.Control
+                <Form.Group controlId="postDetail">
+                    <Form.Label>รายละเอียด</Form.Label>
+                    <Form.Control onChange={onChange} as="textarea" rows={3} />
+                </Form.Group>
+                <br />
+                <Form.Group className="mb-3" controlId='postActivity'>
+                    <Form.Label>กิจกรรม</Form.Label>
+                    {activity.map((data, index) => (
+                        <div>
 
-                                value={data}
-                                placeholder={index === 0 ? "เช่น พาไปดูลิงวัด" : null}
-                                onChange={(event) => onAcitityChange(event,index)}
-                                required
-                            />
+                            <div className="input-fields">
+                                <Form.Control
 
-                            { index !== 0 && 
-                            <div key={index} onClick={() => onDeleteActivty(index)}  className="password-toggle" >
-                                ลบ
-                            </div>}
+                                    value={data}
+                                    placeholder={index === 0 ? "เช่น พาไปดูลิงวัด" : null}
+                                    onChange={(event) => onAcitityChange(event, index)}
+                                    required
+                                />
+
+                                {index !== 0 &&
+                                    <div key={index} onClick={() => onDeleteActivty(index)} className="password-toggle" >
+                                        ลบ
+                                    </div>}
+                            </div>
+
+
+
+
+
+
+
+
+                            {index !== activity.length - 1 && <br />}
                         </div>
+                    ))}
+                </Form.Group>
+
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Button onClick={() => setactivity([...activity, ''])} style={{ width: 75 }} variant='warning' className='push-actity'>+</Button>
+                </div>
+
+                <br />
 
 
 
 
 
+                <Modal.Footer>
 
-
-
-                        {index !== activity.length - 1 && <br />}
-                    </div>
-                ))}
-            </Form.Group>
-
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Button onClick={() => setactivity([...activity, ''])} style={{ width: 75 }} variant='warning' className='push-actity'>+</Button>
-            </div>
-
-            <br />
-
-
-
-
-
-            <Modal.Footer>
-
-                <Button type='submit' variant="warning">Post</Button>
-            </Modal.Footer>
-        </Form>
+                    <Button type='submit' variant="warning">Post</Button>
+                </Modal.Footer>
+            </Form>
         </div>
     )
 }

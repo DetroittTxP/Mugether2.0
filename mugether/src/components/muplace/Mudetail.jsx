@@ -7,7 +7,7 @@ import "./Mudetail.css";
 import Nearby from "../nearby/Nearby";
 import List_guide from "../Guide/List_guide";
 import Map from "../util/Map";
-import { Accordion, AccordionSummary, Typography, AccordionDetails } from '@mui/material'
+import { Accordion, AccordionSummary,AccordionDetails } from '@mui/material'
 import {  ArrowDropDown } from '@mui/icons-material'
 
 export default function Mudetail({ showguide }) {
@@ -28,8 +28,6 @@ export default function Mudetail({ showguide }) {
             </div>
           </div>
         )
-
-
       } else {
         return Setmudetail(
           <h5>No detail yet</h5>
@@ -37,7 +35,7 @@ export default function Mudetail({ showguide }) {
       }
 
     }
-  }, [muplace])
+  }, [Muplace])
 
 
 

@@ -138,13 +138,6 @@ Guide_detail.get('/get_list_guide/:muplace',async(req,res) => {
 })
 
 
-
-
-
-
-
-
-
 //upload image profile guide
 const profile_img = multer.diskStorage({
      destination:async(req,file,cb)=>{
@@ -242,6 +235,25 @@ Guide_detail.delete('/delete-post/:id_user/:muplace',async(req,res) => {
        }
 
    
+})
+
+
+//experince photo
+const guide_exp = multer.diskStorage({
+      destination:async (req,file,cb) => {
+           let dir = await create_dir(req.params.id_guide,"guide","exp_img");
+           console.log(file.fieldname);
+           cb(null,dir);
+      },
+      filename:(req,file,cb) => {
+            cb(null,Date.now()+file.originalname);
+      }
+})
+
+const upload_guide_exp = multer({storage:guide_exp});
+
+Guide_detail.post('/upload/exp/:id_guide',upload_guide_exp.array('guide_exp',5),async (req,res) => {
+      return res.send('image uplaoded')
 })
 
 

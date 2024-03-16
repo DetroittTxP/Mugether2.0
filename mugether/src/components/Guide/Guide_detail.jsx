@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import { Row, Col, Container, Image } from 'react-bootstrap'
+import { Row, Col, Container, Image,Carousel } from 'react-bootstrap'
 
 import './Guide_detail.css'
 
@@ -102,6 +102,10 @@ export default function Guide_detail({ data }) {
         </ul>
         <br/>
         <h2><b>ประสบการณ์ (Experience)</b></h2>
+        
+        
+
+        <h2><b>ติดต่อ</b></h2>
 
       </div>
 

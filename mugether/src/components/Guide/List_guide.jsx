@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import { Container, Row, Col, Button, Image, Modal, Form } from 'react-bootstrap';
+import { Container, Row, Col, Button, Image, Modal, Form, Carousel } from 'react-bootstrap';
 import './List_guide.css';
 import Guide_detail from './Guide_detail';
 import Swal from 'sweetalert2';
@@ -72,13 +72,14 @@ export default function ListGuide() {
                 <br />
 
                 {guideStatus && <Modal show={showModal} onHide={() => setShowModal(false)}>
-                    <Modal.Header closeButton>
+                    <Modal.Header closeButton >
                         <Modal.Title>Add Post</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
+                       
                         <Add_post />
                     </Modal.Body>
-
+                    
                 </Modal>
                 }
                 

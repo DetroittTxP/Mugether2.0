@@ -6,12 +6,14 @@ const guide_detail = monggose.Schema({
      lastname:{type:String,required:true},
      guide_detail:String,
      mu_location:{type:[],required:true},
+
      guide_post:{
         type:[{
              muplace:String,
              postDetail:String,
              postPhotos:[String],
-             postActivity:[String]
+             postActivity:[String],
+             experience_img:[String],
         }],
         default:[]
      },

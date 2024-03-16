@@ -105,7 +105,9 @@ const post_guide = multer.diskStorage({
 
     destination:async (req,file,cb)=>{
         try{
+            
             let dir = await create_dir(req.params.usr_id,"guide","detail_img");
+            
             cb(null,dir);
         }
         catch(err){
@@ -125,6 +127,8 @@ const post_guide = multer.diskStorage({
 })
 
 const upload_post_guide = multer({storage:post_guide})
+
+
 
 upload_img.post('/guide/post/:usr_id',upload_post_guide.array('posts-img',5),async(req,res) => {
      
