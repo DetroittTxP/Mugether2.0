@@ -7,38 +7,29 @@ import "./Mudetail.css";
 import Nearby from "../nearby/Nearby";
 import List_guide from "../Guide/List_guide";
 import Map from "../util/Map";
-import { Accordion, AccordionSummary,AccordionDetails } from '@mui/material'
-import {  ArrowDropDown } from '@mui/icons-material'
+import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
+import { ArrowDropDown } from '@mui/icons-material'
 
 export default function Mudetail({ showguide }) {
   const [Muplace, Setmuplace] = useState(localStorage.getItem("muplace"));
   const { per_muplace, muplace } = useContext(Muplace_Context);
-  const [mudetail, Setmudetail] = useState(null);
-
-
-  useEffect(() => {
-    if (muplace.length!==0 ) {
+  const [mudetail, Setmudetail] = useState(() => {
+    const storedDetail = localStorage.getItem("mudetail");
+    return storedDetail !== null ? storedDetail : "Mai me data";
+  });
+  
+  useEffect(() =>{
+    if(muplace.length !== 0){
       let detail = muplace.filter(data => data.name === Muplace);
       if (detail[0].place_detail !== undefined) {
-        return Setmudetail(
-          <div>
-
-            <div className="detail" style={{ zIndex: 0 }}>
-              <h5>{detail[0].place_detail}</h5>
-            </div>
-          </div>
-        )
-      } else {
-        return Setmudetail(
-          <h5>No detail yet</h5>
-        )
+        Setmudetail(detail[0].place_detail);
+        localStorage.setItem("mudetail", detail[0].place_detail);
+      }else{
+        Setmudetail("Mai me data"); 
+        localStorage.setItem("mudetail", "Mai me data");
       }
-
     }
-  }, [Muplace])
-
-
-
+  },[Muplace, muplace]);
 
   useEffect(() => {
     if (per_muplace !== "") {
@@ -61,61 +52,57 @@ export default function Mudetail({ showguide }) {
           <ShareButton url={pageUrl} />
         </Col>
       </Row>
-    
-        <Row >
 
-
-
-          <Col md={5} className="main-image">
-            <Image
-              src={`http://localhost:5353/image/mu/${Muplace}/1`}
-              alt="Main Image"
-              className="big-image"
-              fluid
-            />
-          </Col>
-          <Col md={3} className="image-list" >
-            <Row>
-              <Col md={12} >
-                <Image
-                  src={`http://localhost:5353/image/mu/${Muplace}/2`}
-                  alt="Image 2"
-                  className="small-image"
-                  fluid
-                />
-              </Col>
-              <Col md={12}>
-                <Image
-                  src={`http://localhost:5353/image/mu/${Muplace}/3`}
-                  alt="Image 3"
-                  className="small-image"
-                  fluid
-                />
-              </Col>
-            </Row>
-          </Col>
-          <Col md={3} className="image-list">
-            <Row>
-              <Col md={12}>
-                <Image
-                  src={`http://localhost:5353/image/mu/${Muplace}/4`}
-                  alt="Image 4"
-                  className="small-image figure-3"
-                  fluid
-                />
-              </Col>
-              <Col md={12}>
-                <Image
-                  src={`http://localhost:5353/image/mu/${Muplace}/5`}
-                  alt="Image 5"
-                  className="small-image figure-4"
-                  fluid
-                />
-              </Col>
-            </Row>
-          </Col>
-
-        </Row>
+      <Row>
+        <Col md={5} className="main-image">
+          <Image
+            src={`http://localhost:5353/image/mu/${Muplace}/1`}
+            alt="Main Image"
+            className="big-image"
+            fluid
+          />
+        </Col>
+        <Col md={3} className="image-list" >
+          <Row>
+            <Col md={12} >
+              <Image
+                src={`http://localhost:5353/image/mu/${Muplace}/2`}
+                alt="Image 2"
+                className="small-image"
+                fluid
+              />
+            </Col>
+            <Col md={12}>
+              <Image
+                src={`http://localhost:5353/image/mu/${Muplace}/3`}
+                alt="Image 3"
+                className="small-image"
+                fluid
+              />
+            </Col>
+          </Row>
+        </Col>
+        <Col md={3} className="image-list">
+          <Row>
+            <Col md={12}>
+              <Image
+                src={`http://localhost:5353/image/mu/${Muplace}/4`}
+                alt="Image 4"
+                className="small-image figure-3"
+                fluid
+              />
+            </Col>
+            <Col md={12}>
+              <Image
+                src={`http://localhost:5353/image/mu/${Muplace}/5`}
+                alt="Image 5"
+                className="small-image figure-4"
+                fluid
+              />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
 
       <br />
       <hr />
@@ -129,16 +116,11 @@ export default function Mudetail({ showguide }) {
           <h2><b>ประวัติความเป็นมา</b></h2>
         </AccordionSummary>
         <AccordionDetails>
-          {mudetail}
+          <div className="detail" style={{ zIndex: 0 }}>
+            <h5>{mudetail}</h5>
+          </div>
         </AccordionDetails>
-
       </Accordion>}
-
-
-
-
-
-
 
       <br />
       <Row>
@@ -146,9 +128,6 @@ export default function Mudetail({ showguide }) {
           {showguide && <List_guide />}
         </Col>
       </Row>
-      {/* <br />
-      <hr />
-      <br /> */}
 
       <Row>
         <Col>
@@ -156,10 +135,8 @@ export default function Mudetail({ showguide }) {
         </Col>
       </Row>
 
-
       <Row>
         <Col md={11} className="review-section">
-
           {!showguide && <Reviewpage Muplace_name={Muplace} />}
         </Col>
       </Row>
