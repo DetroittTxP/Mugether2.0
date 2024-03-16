@@ -2,10 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { Row, Col, Container, Image,Carousel } from 'react-bootstrap'
 import './Guide_detail.css'
 import BookingForm from './Booking_guide';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Guide_detail({ data }) {
- const muplace = localStorage.getItem('muplace');
- const [newdata,Setnewdata] = useState(data);
+  const muplace = localStorage.getItem('muplace');
+  const [newdata,Setnewdata] = useState(data);
+  const images = [
+    "https://down-th.img.susercontent.com/file/th-11134207-7r98o-lkosofyofpwe20",
+    "https://down-th.img.susercontent.com/file/930a3347af2a1cca20fdba87460681f2",
+    "https://down-th.img.susercontent.com/file/4e701f668b5f84dc88a9e4449b16a253",
+  ];
  
   console.log(data);
   useEffect(() => {
@@ -13,6 +19,7 @@ export default function Guide_detail({ data }) {
     let newdata = {
           firstname:data.firstname,
           lastname:data.lastname,
+          // email:data.eamil,
           guide_post:data.guide_post.filter((e) => e.muplace === muplace)
     }
     Setnewdata(newdata);
@@ -101,20 +108,25 @@ export default function Guide_detail({ data }) {
         </ul>
         <br/>
         <h2><b>ประสบการณ์ (Experience)</b></h2>
-        {/* <Col md={6}>
+        <Col md={6} style={{marginLeft: "100px"}}>
           <Carousel indicators controls>
-            {item_img.map((image, index) => (
+            {images.map((image, index) => (
               <Carousel.Item key={index}>
-                <img></img>
+                <img
+                  className="d-block w-100"
+                  src={image}
+                  alt={`Product image ${index + 1}`}
+                />
               </Carousel.Item>
             ))}
           </Carousel>
-        </Col> */}
+        </Col>
         
         
 
         <h2><b>ติดต่อ</b></h2>
-        <BookingForm/>
+          <h3>เบอร์โทร: 08123456789 {data.email}</h3>
+          <h3>ที่อยู่: 123/123 </h3>
       </div>
 
     </div>

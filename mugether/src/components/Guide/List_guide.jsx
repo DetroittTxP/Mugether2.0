@@ -102,6 +102,7 @@ export default function ListGuide() {
                
                            <span style={{ marginLeft: 10 }}>
                                <b>นาย {data.firstname} {data.lastname}</b>
+                               
                            </span>
                        </div>
                
