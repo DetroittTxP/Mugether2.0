@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Container, Navbar, Form, Image } from 'react-bootstrap';
+import { Container, Navbar, Form, Image,Nav } from 'react-bootstrap';
 import { Dropdown, Menu } from 'antd';
 import Logo from '../../assets/LogoMugether.png';
 import { Muplace_Context } from '../../context/MuContext';
@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import EditProfile from '../user/EditProfile';
 import AppsIcon from '@mui/icons-material/Apps';
 import { useLocation } from 'react-router-dom';
-
+import './header.css'
 
 export default function Header({ handleFav,showguide }) {
   
@@ -207,13 +207,12 @@ export default function Header({ handleFav,showguide }) {
           }}>
             <Image rounded src={Logo} height={100} width={100} style={{ borderRadius: '50%'}} />
           </Navbar.Brand>
-          <div className="search-wrapper">
-          
-
-           
+          <div className="search-wrapper">           
             {isMobileSearchVisible || isDesktopView ? (
-              <Dropdown menu={{ items: Muplace, }}>
+              <Dropdown overlayClassName='scroll-dropdown' menu={{ items: Muplace, }}>
+                    <Nav>
                     <Form.Control onChange={onChange} placeholder={(pathname === '/shop' || pathname === '/shopdetail' ? 'ค้นหาสินค้า...' : 'ค้นหาสถานที่มู...')} type="text" style={{ width: isDesktopView ? '600px' : '100%' }} />
+                    </Nav>
               </Dropdown>
             ) : null}
             {!isDesktopView && (
