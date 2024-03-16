@@ -1,17 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { Container, Nav, Navbar, Form, Modal, Image } from 'react-bootstrap'
-import { Button, Dropdown, Menu } from 'antd';
-import Logo from '../../assets/LogoMugether.png'
-
+import React, { useState, useContext } from 'react';
+import { Container, Navbar, Form, Image } from 'react-bootstrap';
+import { Dropdown, Menu } from 'antd';
+import Logo from '../../assets/LogoMugether.png';
 import { Muplace_Context } from '../../context/MuContext';
-import Swal from 'sweetalert2'
-import { useNavigate } from 'react-router-dom'
-
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 import EditProfile from '../user/EditProfile';
 import AppsIcon from '@mui/icons-material/Apps';
-
-import { useLocation } from 'react-router-dom'
-import './header.css'
+import { useLocation } from 'react-router-dom';
 
 
 export default function Header({ handleFav }) {
@@ -21,6 +17,12 @@ export default function Header({ handleFav }) {
   const { pathname } = useLocation();
   const [showedit, Setshowedit] = useState(false);
   const [editType, Setedittype] = useState(null);
+  const [isMobileSearchVisible, setIsMobileSearchVisible] = useState(false);
+  const [isDesktopView, setIsDesktopView] = useState(window.innerWidth > 768);
+  
+  window.addEventListener('resize', () => {
+    setIsDesktopView(window.innerWidth > 768);
+  });
 
   const { muplace, guideStatus, shopStatus, shopList } = useContext(Muplace_Context)
   const [Muplace, Setmuplace] = useState([])
@@ -30,6 +32,9 @@ export default function Header({ handleFav }) {
     Setshowedit(true);
     Setedittype(type)
   }
+  const toggleMobileSearch = () => {
+    setIsMobileSearchVisible((prevState) => !prevState);
+  };
 
   const handleLogout = async () => {
     localStorage.removeItem('usr');
@@ -143,16 +148,11 @@ export default function Header({ handleFav }) {
     </Menu>
   );
 
-
   const toggle = (status) => {
     Setshowedit(status)
   }
 
-
-
   const onChange = (e) => {
-
-
     switch (pathname) {
       case '/shop':
       case '/shopdetail':
@@ -178,8 +178,6 @@ export default function Header({ handleFav }) {
           </a>
         )
       })))
-     
-     
       default:
         let newdata = muplace.sort((a, b) => a.name.localeCompare(b.name, 'th')).filter(data => data.name.toLowerCase().includes(e.target.value))
 
@@ -198,31 +196,31 @@ export default function Header({ handleFav }) {
        
     }
   }
-
-
   return (
     <div>
       <EditProfile showedit={showedit} toggle={toggle} editType={editType} />
       <Navbar bg="light" expand="lg" fixed="top" style={{ borderBottom: '2px solid #ccc', padding: '30px', zIndex: '50' }}>
         <Container>
           <Navbar.Brand onClick={() => {
-             localStorage.removeItem('showmap');
-             navigate('/')
-          }} >
+            localStorage.removeItem('showmap');
+            navigate('/');
+          }}>
             <Image rounded src={Logo} height={100} width={100} style={{ borderRadius: '50%'}} />
           </Navbar.Brand>
-          <div>
-            <Dropdown overlayClassName='scroll-dropdown' menu={{ items: (pathname === '/shop' || pathname === '/shopdetail' ? Shoplist : Muplace), }}>
-              <Nav  >
-                <Form.Control onChange={onChange} placeholder={(pathname === '/shop' || pathname === '/shopdetail' ? 'ค้นหาสินค้า...' : 'ค้นหาสถานที่มู...')} type="text" style={{ width: 600 }} />
-              </Nav>
-
-            </Dropdown>
+          <div className="search-wrapper">
+            {isMobileSearchVisible || isDesktopView ? (
+              <Form.Control onChange={onChange} placeholder={(pathname === '/shop' || pathname === '/shopdetail' ? 'ค้นหาสินค้า...' : 'ค้นหาสถานที่มู...')} type="text" style={{ width: isDesktopView ? '600px' : '100%' }} />
+            ) : null}
+            {!isDesktopView && (
+              <button className="search-icon" onClick={toggleMobileSearch}>
+                <img src="https://cdn.discordapp.com/attachments/1130047272508465273/1218588605304541324/search-interface-symbol.png?ex=66083613&is=65f5c113&hm=a03b369df92cd68ac1a5517fa71a852442ff1160dfb65f22f0a7117446937969&" alt="Search" style={{ width: '30px' }} />
+              </button>
+            )}
           </div>
           <Dropdown overlay={usr_data ? loged_in : non_login} trigger={['click']} placement="bottomRight">
-            <Button>
+            <button>
               <AppsIcon />
-            </Button>
+            </button>
           </Dropdown>
         </Container>
       </Navbar>

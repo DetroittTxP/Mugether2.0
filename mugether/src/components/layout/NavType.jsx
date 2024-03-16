@@ -1,7 +1,6 @@
-
 import React, { useState, useRef } from 'react';
-import { Nav, } from 'react-bootstrap';
-import {useLocation } from 'react-router-dom';
+import { Nav, Navbar, Container } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
 
 export default function NavType({SelectedTypeMu,show_guide}) {
@@ -57,15 +56,7 @@ export default function NavType({SelectedTypeMu,show_guide}) {
     {
       type: 'ร้านค้า',
       icon: 'https://cdn-icons-png.flaticon.com/128/1584/1584911.png',
-      path: '/shop',
-      // fn: () => {
-      //   show_guide(showguide);
-      //   if(showguide && guideRef.current){
-      //     scroll.scrollTo(guideRef.current.offsetTop + 500 ,{
-      //       smooth: true,
-      //     });
-      //   }
-      // }
+      path: '/shop'
     }
   ]
   
@@ -79,6 +70,7 @@ export default function NavType({SelectedTypeMu,show_guide}) {
   }
 
   let type = type1();
+  
 
   return (
     <div>
