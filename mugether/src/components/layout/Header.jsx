@@ -10,7 +10,7 @@ import AppsIcon from '@mui/icons-material/Apps';
 import { useLocation } from 'react-router-dom';
 
 
-export default function Header({ handleFav }) {
+export default function Header({ handleFav,showguide }) {
   
   const usr_data = localStorage.getItem('usr');
   const navigate = useNavigate();
@@ -208,14 +208,20 @@ export default function Header({ handleFav }) {
             <Image rounded src={Logo} height={100} width={100} style={{ borderRadius: '50%'}} />
           </Navbar.Brand>
           <div className="search-wrapper">
+          
+
+           
             {isMobileSearchVisible || isDesktopView ? (
-              <Form.Control onChange={onChange} placeholder={(pathname === '/shop' || pathname === '/shopdetail' ? 'ค้นหาสินค้า...' : 'ค้นหาสถานที่มู...')} type="text" style={{ width: isDesktopView ? '600px' : '100%' }} />
+              <Dropdown menu={{ items: Muplace, }}>
+                    <Form.Control onChange={onChange} placeholder={(pathname === '/shop' || pathname === '/shopdetail' ? 'ค้นหาสินค้า...' : 'ค้นหาสถานที่มู...')} type="text" style={{ width: isDesktopView ? '600px' : '100%' }} />
+              </Dropdown>
             ) : null}
             {!isDesktopView && (
               <button className="search-icon" onClick={toggleMobileSearch}>
                 <img src="https://cdn.discordapp.com/attachments/1130047272508465273/1218588605304541324/search-interface-symbol.png?ex=66083613&is=65f5c113&hm=a03b369df92cd68ac1a5517fa71a852442ff1160dfb65f22f0a7117446937969&" alt="Search" style={{ width: '30px' }} />
               </button>
             )}
+        
           </div>
           <Dropdown overlay={usr_data ? loged_in : non_login} trigger={['click']} placement="bottomRight">
             <button>
