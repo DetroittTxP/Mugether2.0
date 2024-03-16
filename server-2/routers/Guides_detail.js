@@ -241,7 +241,7 @@ Guide_detail.delete('/delete-post/:id_user/:muplace',async(req,res) => {
 //experince photo
 const guide_exp = multer.diskStorage({
       destination:async (req,file,cb) => {
-           let dir = await create_dir(req.params.id_guide,"guide","exp_img");
+           let dir = await create_dir(req.params.id_guide,"guide","experinceImg");
            console.log(file.fieldname);
            cb(null,dir);
       },
@@ -253,11 +253,10 @@ const guide_exp = multer.diskStorage({
 const upload_guide_exp = multer({storage:guide_exp});
 
 Guide_detail.post('/upload/exp/:id_guide',upload_guide_exp.array('guide_exp',5),async (req,res) => {
-      return res.send('image uplaoded')
+     const photos = req.files.map(file => file.filename);
+     console.log(photos);
+     return res.send({status:'ok',msg:'exp image uploaded',photos:photos,usr_id:req.params.usr_id})
 })
-
-
-
 
 
 module.exports = Guide_detail;

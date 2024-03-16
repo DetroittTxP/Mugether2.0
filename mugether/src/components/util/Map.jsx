@@ -7,7 +7,7 @@ import { IoRestaurant } from "react-icons/io5";
 import { RiHotelBedFill } from "react-icons/ri";
 import { MdOutlineTravelExplore } from "react-icons/md";
 import MarkerClusterGroup from "react-leaflet-cluster";
-
+import Image from 'react-bootstrap/Image'
 import './Map.css'
 import { DivIcon, Icon } from 'leaflet'
 
@@ -69,7 +69,11 @@ export default function Map() {
           />
 
           <Marker  icon={templeIcon} position={markers.muplace_latlong.location} >
-            { popup&& <Popup > {markers.muplace_latlong.name}</Popup>}
+            <Popup > 
+                  {markers.muplace_latlong.name} 
+                  <br/>
+                  <Image rounded width={200} height={200} src={`http://localhost:5353/image/mu/${markers.muplace_latlong.name}/1`}/>
+              </Popup>
           </Marker>
 
           <MarkerClusterGroup>
@@ -77,6 +81,7 @@ export default function Map() {
               <Marker key={index + 100} icon={hotelIcon} position={data.location}>
                 <Popup>
                   <p>{data.name}</p>
+                   <Image rounded width={200} height={200} src={`http://localhost:5353/image/nearby/hotel/${data.name}/1`}/>
                   <p>ระยะทางจากที่มู {data.distance_to_mu}</p>
                 </Popup>
               </Marker>

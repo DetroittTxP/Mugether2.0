@@ -10,43 +10,85 @@ export default function Add_post() {
     const usr_id = localStorage.getItem('usr_id')
     const [post, Setpost] = useState({ muplace: muplace });
     const [activity, setactivity] = useState(Array.from({ length: 1 }).fill(''));
+    const [experinceImg, setexperinceImg] = useState([]);
     const [imagePreview, SetimagePreview] = useState([]);
 
     useEffect(() => {
         setactivity(activity)
     }, [activity])
 
+
     const SelectPicture = async (event) => {
+        
         const files = Array.from(event.target.files)
+        switch (event.target.id) {
+            case 'postPhotos':
+        
+                if (files) {
+                    files.forEach(img => {
+                        const reader = new FileReader();
 
-        if (files) {
-            files.forEach(img => {
-                const reader = new FileReader();
+                        reader.onload = (load) => {
+                            const url = load.target.result;
+                            SetimagePreview(prev => [...prev, url])
+                        }
 
-                reader.onload = (load) => {
-                    const url = load.target.result;
-                    SetimagePreview(prev => [...prev, url])
+                        reader.readAsDataURL(img);
+                    })
                 }
 
-                reader.readAsDataURL(img);
-            })
+                for (let i = 0; i < event.target.files.length; i++) {
+                    let file = event.target.files[i];
+
+                    if (!file.type.startsWith('image/')) {
+                        event.target.value = null;
+                        return alert('please upload image only')
+                    }
+                }
+
+                if (event.target.files.length > 5) {
+                    alert("You can only upload a maximum of 5 images.");
+                    event.target.value = null; // Reset the file input
+                } else {
+                    setSelectedFiles([...event.target.files]);
+                }
+
+                break;
+            case 'experinceImg' :
+                    
+                if (files) {
+                    files.forEach(img => {
+                        const reader = new FileReader();
+
+                        reader.onload = (load) => {
+                            const url = load.target.result;
+                            SetimagePreview(prev => [...prev, url])
+                        }
+
+                        reader.readAsDataURL(img);
+                    })
+                }
+
+                
+                for (let i = 0; i < event.target.files.length; i++) {
+                    let file = event.target.files[i];
+
+                    if (!file.type.startsWith('image/')) {
+                        event.target.value = null;
+                        return alert('please upload image only')
+                    }
+                }
+
+                if (event.target.files.length > 5) {
+                    alert("You can only upload a maximum of 5 images.");
+                    event.target.value = null; // Reset the file input
+                } else {
+                    setexperinceImg([...event.target.files]);
+                }
+            default:
+                return;
         }
 
-        for (let i = 0; i < event.target.files.length; i++) {
-            let file = event.target.files[i];
-
-            if (!file.type.startsWith('image/')) {
-                event.target.value = null;
-                return alert('please upload image only')
-            }
-        }
-
-        if (event.target.files.length > 5) {
-            alert("You can only upload a maximum of 5 images.");
-            event.target.value = null; // Reset the file input
-        } else {
-            setSelectedFiles([...event.target.files]);
-        }
     };
 
 
@@ -54,7 +96,7 @@ export default function Add_post() {
     const SubmitPost = async (event) => {
         event.preventDefault();
         const img_data = new FormData();
-
+        const exp_data = new FormData();
         if (selectedFiles.length === 0 || selectedFiles.length != 5) {
             return alert('โปรดอัพรูปก่อนโพสต์ไกด์')
         }
@@ -62,13 +104,19 @@ export default function Add_post() {
             img_data.append('posts-img', selectedFiles[i]);
         }
 
-
+        for(let i =0;i< experinceImg.length;i++){
+            exp_data.append('guide_exp', experinceImg[i])
+        }
+        
         try {
             SwalLoading();
 
             let inserted_image = await axios.post(`http://localhost:5353/upload-img/guide/post/${usr_id}`, img_data);
+            //let insert_exp = await axios.post(`http://localhost:5353/guide_detail/upload/exp/${usr_id}`)
             const { photos } = inserted_image.data
+            
             let update_post_detail = await axios.post(`http://localhost:5353/guide_detail/create_post/${usr_id}`, { post, photos })
+            
             console.log(update_post_detail);
             Swal.close();
             Swal.fire({
@@ -123,9 +171,6 @@ export default function Add_post() {
                     <Form.Control type="file" accept='image/*' multiple onChange={SelectPicture} />
                 </Form.Group>
 
-
-                
-
                 <Form.Group controlId='muPlace'>
                     <Form.Control type='hidden' value={muplace} />
                 </Form.Group>
@@ -155,13 +200,6 @@ export default function Add_post() {
                                     </div>}
                             </div>
 
-
-
-
-
-
-
-
                             {index !== activity.length - 1 && <br />}
                         </div>
                     ))}
@@ -185,16 +223,3 @@ export default function Add_post() {
         </div>
     )
 }
-
-
-
-{/* <Form.Control type='text' 
-                                        placeholder={index === 0 ? "เช่น พาไปดูลิงวัด" : null}  
-                                        onChange={event => onAcitityChange(event,index)} >
-
-                                            
-                                          
-                                        </Form.Control>
-
-                
-                          { index !== activity.length -1 && <br/>} */}
