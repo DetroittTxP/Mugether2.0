@@ -6,7 +6,7 @@ import { FaHeart, FaMapMarkerAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import SwalLoading from "../util/SwalLoading";
-
+import './listitem.css'
 export default function Listitem({ SelectedMuType, SelectedMuplace, favstatus }) {
   const navigate = useNavigate();
   const usrID = localStorage.getItem('usr_id')
@@ -106,6 +106,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace, favstatus })
                     {data.address}
                   </Card.Text>
                   {usrID && (
+                    <div className="fav-icon">
                     <Button variant="link" onClick={() => handleHeart(data.name)}>
                       <FaHeart
                         style={{
@@ -115,6 +116,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace, favstatus })
                         }}
                       />
                     </Button>
+                    </div>
                   )}
                 </Card.Body>
               </Card>
