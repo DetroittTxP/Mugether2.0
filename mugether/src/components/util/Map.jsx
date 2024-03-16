@@ -62,7 +62,7 @@ export default function Map() {
     <div>
       <h1><b>เเผนที่</b></h1>
       {showmap &&
-        <MapContainer  center={markers.muplace_latlong.location} zoom={13} scrollWheelZoom={false}>
+        <MapContainer  center={markers.muplace_latlong.location} zoom={13} scrollWheelZoom={true} minZoom={5} maxZoom={18}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -72,7 +72,8 @@ export default function Map() {
             <Popup > 
                   {markers.muplace_latlong.name} 
                   <br/>
-                  <Image rounded width={200} height={200} src={`http://localhost:5353/image/mu/${markers.muplace_latlong.name}/1`}/>
+                  <br/>
+                  <Image rounded width={250} height={250} src={`http://localhost:5353/image/mu/${markers.muplace_latlong.name}/1`}/>
               </Popup>
           </Marker>
 
@@ -81,7 +82,7 @@ export default function Map() {
               <Marker key={index + 100} icon={hotelIcon} position={data.location}>
                 <Popup>
                   <p>{data.name}</p>
-                   <Image rounded width={200} height={200} src={`http://localhost:5353/image/nearby/hotel/${data.name}/1`}/>
+                   <Image rounded width={250} height={250} src={`http://localhost:5353/image/nearby/hotel/${data.name}/1`}/>
                   <p>ระยะทางจากที่มู {data.distance_to_mu}</p>
                 </Popup>
               </Marker>
@@ -94,6 +95,7 @@ export default function Map() {
               <Marker key={index} icon={foodIcon} position={data.location}>
                 <Popup>
                   <p>{data.name}</p>
+                  <Image rounded width={250} height={250} src={`http://localhost:5353/image/nearby/food/${data.name}/1`}/>
                   <p>ระยะทางจากที่มู {data.distance_to_mu}</p>
                 </Popup>
               </Marker>
@@ -105,6 +107,7 @@ export default function Map() {
               <Marker key={index + 1000} icon={travelIcon} position={data.location}>
                 <Popup>
                   <p>{data.name}</p>
+                  <Image rounded width={250} height={250} src={`http://localhost:5353/image/nearby/travel/${data.name}/1`}/>
                   <p>ระยะทางจากที่มู {data.distance_to_mu}</p>
                 </Popup>
               </Marker>
