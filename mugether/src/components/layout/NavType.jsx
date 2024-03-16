@@ -6,7 +6,7 @@ import { animateScroll as scroll } from 'react-scroll';
 
 export default function NavType({SelectedTypeMu,show_guide}) {
   const location = useLocation()
-  const [showguide,Setshowguide] = useState(false);
+  const [showguide,Setshowguide] = useState(true);
   const guideRef = useRef(null);
 
   
@@ -48,7 +48,7 @@ export default function NavType({SelectedTypeMu,show_guide}) {
         show_guide(showguide);
         if(showguide && guideRef.current){
           scroll.scrollTo(guideRef.current.offsetTop + 500 ,{
-            smooth: true,
+            smooth: false,
           });
         }
       }

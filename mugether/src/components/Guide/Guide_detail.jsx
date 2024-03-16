@@ -1,8 +1,7 @@
-
 import React, { useEffect, useState } from 'react'
 import { Row, Col, Container, Image,Carousel } from 'react-bootstrap'
-
 import './Guide_detail.css'
+import BookingForm from './Booking_guide';
 
 export default function Guide_detail({ data }) {
  const muplace = localStorage.getItem('muplace');
@@ -28,7 +27,7 @@ export default function Guide_detail({ data }) {
         
 
         <Row>
-          <Col md={4} className="main-image">
+          <Col md={5} className="main-image">
             <Image
               src={`http://localhost:5353/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[0]}`}
               alt="Main Image"
@@ -72,7 +71,7 @@ export default function Guide_detail({ data }) {
                 <Image
                   src={`http://localhost:5353/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[4]}`}
                   alt="Image 4"
-                  className="small-image figure-3"
+                  className="small-image figure-4"
                   fluid
                 />
               </Col>
@@ -102,11 +101,20 @@ export default function Guide_detail({ data }) {
         </ul>
         <br/>
         <h2><b>ประสบการณ์ (Experience)</b></h2>
+        {/* <Col md={6}>
+          <Carousel indicators controls>
+            {item_img.map((image, index) => (
+              <Carousel.Item key={index}>
+                <img></img>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        </Col> */}
         
         
 
         <h2><b>ติดต่อ</b></h2>
-
+        <BookingForm/>
       </div>
 
     </div>
