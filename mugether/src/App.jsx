@@ -129,7 +129,7 @@ const [listshop,Setlistshop] = useState([]);
 
   return (
     <Muplace_Context.Provider value={data_context} >
-      <Header handleFav={Handlefav}/>
+      <Header showguide={show_guide} handleFav={Handlefav}/>
       <br />
       <br />
       <br />

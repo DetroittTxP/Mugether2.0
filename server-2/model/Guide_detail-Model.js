@@ -4,6 +4,7 @@ const guide_detail = monggose.Schema({
      id_guide:{type:String,required:true},
      firstname:{type:String,required:true},
      lastname:{type:String,required:true},
+     tel:String,
      guide_detail:String,
      mu_location:{type:[],required:true},
 
@@ -18,7 +19,13 @@ const guide_detail = monggose.Schema({
         default:[]
      },
     
-     guide_review:{type:[],default:[]},
+     guide_review:{type:[{
+          username:String,
+          score:Number,
+          detail:String,
+          review_img:[] 
+     }],
+     default:[]},
      profile_pic:{type:String,default:'profile_temp.png'}
 })
 

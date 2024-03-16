@@ -189,6 +189,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
 
 
 export default function ReviewPage({ Muplace_name}) {
+  const pageStatus = localStorage.getItem('reviewStatus')
   const [detail, Setdetail] = useState([]);
   const [addreview, Setaddreview] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);

@@ -148,7 +148,7 @@ usr.put('/add/favorite', async (req,res) =>{
 
  
     try{
-     
+            console.log(req.body.updateFav);
            let update_item = await user.findByIdAndUpdate({_id:usrID} 
             ,{favorite_muplace:updateFav}
             )

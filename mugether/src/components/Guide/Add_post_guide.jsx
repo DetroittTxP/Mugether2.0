@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Form, Modal, Button, Image, Carousel } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 import SwalLoading from '../util/SwalLoading';
-
+import './addpostguide.css'
 export default function Add_post() {
     const [selectedFiles, setSelectedFiles] = useState([]);
     const muplace = localStorage.getItem('muplace')
@@ -54,8 +54,8 @@ export default function Add_post() {
                 }
 
                 break;
-            case 'experinceImg' :
-                    
+            case 'experience_img' :
+
                 if (files) {
                     files.forEach(img => {
                         const reader = new FileReader();
@@ -112,10 +112,13 @@ export default function Add_post() {
             SwalLoading();
 
             let inserted_image = await axios.post(`http://localhost:5353/upload-img/guide/post/${usr_id}`, img_data);
-            //let insert_exp = await axios.post(`http://localhost:5353/guide_detail/upload/exp/${usr_id}`)
-            const { photos } = inserted_image.data
+            let insert_exp = await axios.post(`http://localhost:5353/guide_detail/upload/exp/${usr_id}` , exp_data);
             
-            let update_post_detail = await axios.post(`http://localhost:5353/guide_detail/create_post/${usr_id}`, { post, photos })
+            let dataphoto = {
+                post:inserted_image.data.photos,
+                exp:insert_exp.data.photos
+            }
+            let update_post_detail = await axios.post(`http://localhost:5353/guide_detail/create_post/${usr_id}`, { post, dataphoto })
             
             console.log(update_post_detail);
             Swal.close();
@@ -167,21 +170,34 @@ export default function Add_post() {
 
             <Form onSubmit={SubmitPost}>
                 <Form.Group className="mb-3" controlId='postPhotos'>
-                    <Form.Label>เพิ่มรูปภาพของคุณ (ไม่เกิน 5 รูป)</Form.Label>
+                    <Form.Label><h5><b>เพิ่มรูปภาพสถานที่ของของคุณ (ไม่เกิน 5 รูป)</b></h5></Form.Label>
                     <Form.Control type="file" accept='image/*' multiple onChange={SelectPicture} />
                 </Form.Group>
+                
+                {imagePreview.length !== 0 &&
+                    
+                    <Carousel controls className='carousel-container'>
+                          {imagePreview.map((image,i)=> (
+                            <Carousel.Item key={i}>
+                                   <Image className='d-block w-100' src={image}/>
+                            </Carousel.Item>
+                          ) )}
+                    </Carousel>
+                   
+                } 
+                <br/>
 
                 <Form.Group controlId='muPlace'>
                     <Form.Control type='hidden' value={muplace} />
                 </Form.Group>
 
                 <Form.Group controlId="postDetail">
-                    <Form.Label>รายละเอียด</Form.Label>
+                    <Form.Label><h5><b>รายละเอียด</b></h5></Form.Label>
                     <Form.Control onChange={onChange} as="textarea" rows={3} />
                 </Form.Group>
                 <br />
                 <Form.Group className="mb-3" controlId='postActivity'>
-                    <Form.Label>กิจกรรม</Form.Label>
+                    <Form.Label><h5><b>กิจกรรม</b></h5></Form.Label>
                     {activity.map((data, index) => (
                         <div>
 
@@ -205,9 +221,16 @@ export default function Add_post() {
                     ))}
                 </Form.Group>
 
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Button onClick={() => setactivity([...activity, ''])} style={{ width: 75 }} variant='warning' className='push-actity'>+</Button>
-                </div>
+                <div id='button-plus'>
+                    <Button id='button-plus' onClick={() => setactivity([...activity, ''])} style={{ width: 75 }} variant='warning' className='push-actity'>+</Button>
+                </div>                    
+                <br/>
+                <Form.Group  className="mb-3" controlId='experience_img'>
+                      <Form.Label><h5><b>เพิ่มรูปตัวอย่างการพามู</b></h5></Form.Label>
+                      <Form.Control type='file' multiple onChange={SelectPicture}/>
+                </Form.Group>
+
+                
 
                 <br />
 

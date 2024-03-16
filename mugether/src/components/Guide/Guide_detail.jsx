@@ -123,7 +123,7 @@ export default function Guide_detail({ data }) {
         </Col>
         
         
-
+        <br/>
         <h2><b>ติดต่อ</b></h2>
           <h3>เบอร์โทร: 08123456789 {data.email}</h3>
           <h3>ที่อยู่: 123/123 </h3>

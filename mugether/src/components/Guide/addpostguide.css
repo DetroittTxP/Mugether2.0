@@ -1,0 +1,22 @@
+.carousel-container {
+    display: flex;      
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;     
+    padding: 20px;       
+}
+
+.carousel-item img {
+    width: 100%;         
+    height: auto;          
+}
+#button-plus{
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        padding: 10px;   
+    }
+}

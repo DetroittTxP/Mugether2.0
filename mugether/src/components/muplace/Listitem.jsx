@@ -63,6 +63,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace, favstatus })
     try {
       SwalLoading();
       let { data } = await axios.put('http://localhost:5353/user/add/favorite', { updateFav, usrID })
+      console.log(data);
       if (data.status === 'ok') {
         Swal.close();
       }

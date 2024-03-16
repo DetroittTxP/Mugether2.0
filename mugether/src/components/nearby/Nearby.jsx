@@ -67,10 +67,10 @@ export default function Nearby({ Muplace_name }) {
         <div>
 
             {nearby.map((data) => (
-                <>
+                <div >
                     <h2><b>{data.type}</b></h2>
-
-                    <Carousel responsive={responsive}>
+                    
+                    <Carousel   responsive={responsive}>
                         {data.data.sort((a,b) => parseFloat(a.distance_to_mu) - parseFloat(b.distance_to_mu)).map((e) => (
                             <div className='Card'>
                                 <img onClick={() => {
@@ -92,7 +92,7 @@ export default function Nearby({ Muplace_name }) {
                     <hr />
 
 
-                </>
+                </div>
             ))}
 
             <Lightbox
@@ -109,23 +109,6 @@ export default function Nearby({ Muplace_name }) {
             />
 
 
-            {/* <h2>สถานที่ท่องเที่ยวใกล้เคียง</h2>
-        
-            <Carousel responsive={responsive}>
-
-                {nearby.travel.map((data, index) => {
-                    return (
-                        <div className='Card'>
-                            <img style={{borderRadius:20}}  height={200} width={200} src={`http://localhost:5353/image/nearby/travel/${data.name}/1`} alt={data.name} />
-                            <br/><br/>
-                            <h6><b>{data.name}</b></h6>
-                            <p className='detail'>{data.address}</p>
-                        </div>
-                    )
-                })}
-
-
-            </Carousel> */}
         </div>
     )
 }

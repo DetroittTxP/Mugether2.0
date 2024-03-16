@@ -52,11 +52,12 @@ Guide_detail.post('/create_guide', async (req,res)=>{
 Guide_detail.post('/create_post/:usr_id',async(req,res) => {
 
      const { usr_id } = req.params;
-     const {post,photos} = req.body;
+     const {post,dataphoto} = req.body;
      
      const newpost = {
           ...post,
-          postPhotos:photos
+          postPhotos:dataphoto.post,
+          experience_img:dataphoto.exp
      }
      
 
@@ -256,6 +257,66 @@ Guide_detail.post('/upload/exp/:id_guide',upload_guide_exp.array('guide_exp',5),
      const photos = req.files.map(file => file.filename);
      console.log(photos);
      return res.send({status:'ok',msg:'exp image uploaded',photos:photos,usr_id:req.params.usr_id})
+})
+
+
+
+//review photos gudie
+const reviewguideStorage = multer.diskStorage({
+     destination:async(req,file,cb) => {
+          let dir = await create_dir(req.params.id_guide,"guide","reviewImg");
+          cb(null,dir);        
+     },
+     filename:(req,file,cb) => {
+          cb(null,Date.now() + file.originalname);
+     }
+})
+
+
+const upload_review_guide = multer({storage:reviewguideStorage})
+
+Guide_detail.post('/review/upload/:id_guide',upload_review_guide.array('reviewImg',5),
+     async (req,res) => {
+           if(req.files.length !== 0){
+                const photos = req.files.map(file => file.filename);
+                return res.send({status:'ok',msg:'review image uploaded',photos:photos,usr_id:req.params.usr_id})
+           }
+     }
+)
+
+
+
+
+
+//review api for guide
+Guide_detail.post('/review/:id_guide', async (req,res) =>{
+     try{
+         
+          const {review,photos} = req.body;
+          let datatoinset = {
+                username:review.username,
+                score:review.score,
+                detail:review.detail,
+                review_img:photos 
+          }
+          
+          console.log(datatoinset);
+          let filter = {id_guide: req.params.id_guide}
+
+          let pushreview = await db.findOneAndUpdate(filter,{
+               $push:{guide_review:datatoinset}
+          })
+
+          console.log(pushreview);
+          return res.json(pushreview)
+
+     }
+     catch(err){
+          return res.send({stattus:'error',err})
+     }
+
+
+    
 })
 
 
