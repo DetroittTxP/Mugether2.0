@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState,useContext } from 'react'
 import { Modal, Button, Form, Container, Row, Col ,Tab,Tabs} from 'react-bootstrap'
 import axios from 'axios'
 import Swal from 'sweetalert2'
@@ -8,11 +8,12 @@ import 'react-image-crop/dist/ReactCrop.css'
 import './EditProfile.css'
 import { makeAspectCrop } from 'react-image-crop';
 import setCanvasPreview from '../util/setCanvasPreview';
-
+import {Muplace_Context} from '../../context/MuContext'
 
 
 
 export default function EditProfile({ showedit, toggle, editType }) {
+  const {SERVER_URL} = useContext(Muplace_Context)
   const [visible, setvisible] = useState(false);
   const userID = localStorage.getItem('usr_id');
   const shopID = localStorage.getItem('shop_id');
@@ -79,27 +80,27 @@ export default function EditProfile({ showedit, toggle, editType }) {
       if (editType === 'user') {
 
           if(selectedfile){
-          update_img = await axios.post(`http://localhost:5353/upload-img/user/profile/${username}`, formData);
+          update_img = await axios.post(`${SERVER_URL}/upload-img/user/profile/${username}`, formData);
           }
      
-        update_usr = await axios.put(`http://localhost:5353/user/update/profile/`, { editdata })
+        update_usr = await axios.put(`${SERVER_URL}/user/update/profile/`, { editdata })
       }
       else if (editType === 'guide') {
         if(selectedfile){
-             update_img = await axios.post(`http://localhost:5353/guide_detail/upload_profile_guide/${userID}`, formData);
+             update_img = await axios.post(`${SERVER_URL}/guide_detail/upload_profile_guide/${userID}`, formData);
          }
-        update_usr = await axios.put(`http://localhost:5353/guide_detail/update_profile/${userID}`, {
+        update_usr = await axios.put(`${SERVER_URL}/guide_detail/update_profile/${userID}`, {
           editGuide,
           profile_pic: (selectedfile ? update_img.data.filename : null)
         })
       } else if (editType === 'shop') {
             let filenamne = null;
            if(selectedfile){
-                update_img = await axios.post(`http://localhost:5353/shop/upload-edit-profile/${shopID}`, formData)
+                update_img = await axios.post(`${SERVER_URL}/shop/upload-edit-profile/${shopID}`, formData)
                 filenamne = update_img.data.filename
            }
        
-           update_usr = await axios.put(`http://localhost:5353/shop/edit-profile/${userID}`, {
+           update_usr = await axios.put(`${SERVER_URL}/shop/edit-profile/${userID}`, {
             editShop,
             filename:filenamne || null
            })

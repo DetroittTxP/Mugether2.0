@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, {useContext, useEffect, useState } from 'react'
 import axios from 'axios';
 import { Form, Modal, Button, Image, Carousel } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 import SwalLoading from '../util/SwalLoading';
 import './addpostguide.css'
+import { Muplace_Context } from '../../context/MuContext';
+
 export default function Add_post() {
     const [selectedFiles, setSelectedFiles] = useState([]);
+    const {SERVER_URL} = useContext(Muplace_Context)
     const muplace = localStorage.getItem('muplace')
     const usr_id = localStorage.getItem('usr_id')
     const [post, Setpost] = useState({ muplace: muplace });
@@ -111,14 +114,14 @@ export default function Add_post() {
         try {
             SwalLoading();
 
-            let inserted_image = await axios.post(`http://localhost:5353/upload-img/guide/post/${usr_id}`, img_data);
-            let insert_exp = await axios.post(`http://localhost:5353/guide_detail/upload/exp/${usr_id}` , exp_data);
+            let inserted_image = await axios.post(`${SERVER_URL}/upload-img/guide/post/${usr_id}`, img_data);
+            let insert_exp = await axios.post(`${SERVER_URL}/guide_detail/upload/exp/${usr_id}` , exp_data);
             
             let dataphoto = {
                 post:inserted_image.data.photos,
                 exp:insert_exp.data.photos
             }
-            let update_post_detail = await axios.post(`http://localhost:5353/guide_detail/create_post/${usr_id}`, { post, dataphoto })
+            let update_post_detail = await axios.post(`${SERVER_URL}/guide_detail/create_post/${usr_id}`, { post, dataphoto })
             
             console.log(update_post_detail);
             Swal.close();

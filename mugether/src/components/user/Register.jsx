@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./register.css";
@@ -7,8 +7,9 @@ import Swal from 'sweetalert2'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
-
+import { Muplace_Context } from "../../context/MuContext";
 const Register = () => {
+    const {SERVER_URL} = useContext(Muplace_Context)
     const navigate = useNavigate();
     const [visible, setvisible] = useState(false);
     const [User, setUserdata] = useState(
@@ -81,7 +82,7 @@ const Register = () => {
             })
 
             try {
-                let res = await axios.post('http://localhost:5353/user/register', sent_data)
+                let res = await axios.post(`${SERVER_URL}/user/register`, sent_data)
                 console.log(res.data);
                 Swal.close();
           

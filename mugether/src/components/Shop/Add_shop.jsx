@@ -20,7 +20,7 @@ export default function Add_Shop() {
   const file = useRef(null);
 
   const getIDshop = async (iduser) => {
-    let res = await axios.get(`http://localhost:5353/shop/${iduser}`);
+    let res = await axios.get(`${SERVER_URL}/shop/${iduser}`);
     if (!res.data) {
       return "you not user";
     } else {
@@ -65,10 +65,10 @@ export default function Add_Shop() {
     try {
       SwalLoading();
 
-      let upload_post_image = await axios.post(`http://localhost:5353/shop/add_post_img/${shop_id}`, img);
+      let upload_post_image = await axios.post(`${SERVER_URL}/shop/add_post_img/${shop_id}`, img);
       const { filename } = upload_post_image.data;
 
-      let add_item = await axios.put(`http://localhost:5353/shop/add-item/${shop_id}`, { shop_item, filename });
+      let add_item = await axios.put(`${SERVER_URL}/shop/add-item/${shop_id}`, { shop_item, filename });
       
       setShopItem({
         item_name: '',

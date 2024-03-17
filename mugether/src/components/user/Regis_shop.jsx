@@ -1,4 +1,4 @@
-import React, { useState, useContext,useRef } from "react";
+import React, { useState, useContext,useRef} from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
@@ -12,7 +12,7 @@ import TextArea from "antd/es/input/TextArea";
 export default function Regis_shop() {
   const navigate = useNavigate();
   const userID = localStorage.getItem('usr_id');
-  const { muplace } = useContext(Muplace_Context);
+  const { muplace,SERVER_URL } = useContext(Muplace_Context);
   const file = useRef(null);
 
   const [shop, setshopdata] = useState({
@@ -49,13 +49,13 @@ export default function Regis_shop() {
         },
       })
 
-      let createshop = await axios.post('http://localhost:5353/shop/create-shop', shop)
+      let createshop = await axios.post(`${SERVER_URL}/shop/create-shop`, shop)
       console.log(createshop.data);
       const {_id} = createshop.data.create_shop
      
       
       if(image){
-         await axios.post(`http://localhost:5353/shop/upload-register-profile/${_id}` , image_form)
+         await axios.post(`${SERVER_URL}/shop/upload-register-profile/${_id}` , image_form)
          .then(res => {
                 console.log(res.data , 'from upload profile');
                 if(res.data.status === 'ok'){

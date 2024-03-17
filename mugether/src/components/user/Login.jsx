@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useContext} from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
@@ -6,9 +6,10 @@ import { Link ,useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
-
+import {Muplace_Context} from '../../context/MuContext'
 
 export default function Login() {
+  const {SERVER_URL} = useContext(Muplace_Context)
   const navigate = useNavigate();
   const [visible, setvisible] = useState(false);
   const [user, setuserdata] = useState(
@@ -23,7 +24,7 @@ export default function Login() {
     try {
 
       //check username password
-      let res = await axios.post('http://localhost:5353/user/login', user);
+      let res = await axios.post(`${SERVER_URL}/user/login`, user);
       console.log(res.data);
 
       if (res.data.status !== 'success') {
@@ -36,7 +37,7 @@ export default function Login() {
       console.log(res.data.usr_id);
 
       //verify token
-      let verify_token = await axios.post('http://localhost:5353/user/verify', {
+      let verify_token = await axios.post(`${SERVER_URL}/user/verify`, {
         usr_id:res.data.usr_id,
         guide:res.data.guide,
         shop:res.data.shop

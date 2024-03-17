@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import axios from 'axios'
 import './Nearby.css'
 
@@ -7,10 +7,11 @@ import 'react-multi-carousel/lib/styles.css';
 import { IoIosStar } from 'react-icons/io'
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import { Muplace_Context } from '../../context/MuContext';
 
 export default function Nearby({ Muplace_name }) {
 
-
+    const {SERVER_URL} = useContext(Muplace_Context)
 
 
     const responsive = {
@@ -40,7 +41,7 @@ export default function Nearby({ Muplace_name }) {
     const updateIndex = ({ index: current }) =>  setIndex(current);
 
     useEffect(() => {
-        axios.get(`http://localhost:5353/nearby/multiple/${Muplace_name}`)
+        axios.get(`${SERVER_URL}/nearby/multiple/${Muplace_name}`)
             .then(res => {
       
                 Setnearby([
@@ -79,7 +80,7 @@ export default function Nearby({ Muplace_name }) {
                                         key:data.key,
                                         name:e.name
                                     })
-                                }} height={200} width={200} src={`http://localhost:5353/image/nearby/${data.key}/${e.name}/4`} alt={data.name} />
+                                }} height={200} width={200} src={`${SERVER_URL}/image/nearby/${data.key}/${e.name}/4`} alt={data.name} />
                                 <br /><br />
                                 <h6><b>{e.name}</b></h6>
                                 <p><IoIosStar /> {e.rating}</p>
@@ -99,10 +100,10 @@ export default function Nearby({ Muplace_name }) {
                 open={open}
                 close={() => setOpen(false)}
                 slides={[
-                    { src: `http://localhost:5353/image/nearby/${imageinfo.key}/${imageinfo.name}/1` },
-                    { src: `http://localhost:5353/image/nearby/${imageinfo.key}/${imageinfo.name}/2` },
-                    { src: `http://localhost:5353/image/nearby/${imageinfo.key}/${imageinfo.name}/3` },
-                    { src: `http://localhost:5353/image/nearby/${imageinfo.key}/${imageinfo.name}/4` },
+                    { src: `${SERVER_URL}/image/nearby/${imageinfo.key}/${imageinfo.name}/1` },
+                    { src: `${SERVER_URL}/image/nearby/${imageinfo.key}/${imageinfo.name}/2` },
+                    { src: `${SERVER_URL}/image/nearby/${imageinfo.key}/${imageinfo.name}/3` },
+                    { src: `${SERVER_URL}/image/nearby/${imageinfo.key}/${imageinfo.name}/4` },
                 ]}
                 index={index}
                 on={{ view: updateIndex }}

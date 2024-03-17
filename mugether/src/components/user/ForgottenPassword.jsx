@@ -6,9 +6,10 @@ import "./ForgottenPassword.css";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
-
+import {Muplace_Context} from '../../context/MuContext'
 
 export default function ForgottenPassword() {
+    const {SERVER_URL} = useContext(Muplace_Context)
     const navigate = useNavigate();
     const [user, setuserdata] = useState(
         {
@@ -21,7 +22,7 @@ export default function ForgottenPassword() {
         try {
 
             //check username password
-            let res = await axios.post('http://localhost:5353/user/resetpassword', user);
+            let res = await axios.post(`${SERVER_URL}/user/resetpassword`, user);
             console.log(res.data);
 
             if (res.data.status !== 'success') {
@@ -34,7 +35,7 @@ export default function ForgottenPassword() {
             console.log(res.data.usr_id);
 
             //verify token
-            let verify_token = await axios.post('http://localhost:5353/user/verify', {
+            let verify_token = await axios.post(`${SERVER_URL}/user/verify`, {
                 usr_id: res.data.usr_id,
                 guide: res.data.guide,
                 shop: res.data.shop

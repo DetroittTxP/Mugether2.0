@@ -1,6 +1,7 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import '../ReviewPage.css';
 import Rating from '@mui/material/Rating';
+import { Muplace_Context } from '../../context/MuContext';
 
 const Addshopreview=()=>{
    
@@ -11,6 +12,7 @@ const Addshopreview=()=>{
 
 export default function Shopreview({reviewdata}) {
 
+  const {SERVER_URL} = useContext(Muplace_Context)
 
 
 
@@ -45,7 +47,7 @@ export default function Shopreview({reviewdata}) {
         {reviewdata.map((data,i) => (
                  <React.Fragment key={i}> 
                  <div  className="review-item">
-                   <img className="avatar" src={`http://localhost:5353/image/user/profile/${data.review_username}`} alt='profile image' />
+                   <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.review_username}`} alt='profile image' />
                    <div className="review-content">
                      <h4 className="username">{data.review_username}</h4>
                      <Rating className="rating" readOnly name='read-only' value={data.review_score} />

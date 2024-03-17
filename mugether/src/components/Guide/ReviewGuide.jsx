@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import axios from 'axios';
 import Rating from '@mui/material/Rating';
 import { Button, Input } from 'antd'
@@ -9,9 +9,19 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ButtonBo from 'react-bootstrap/Button'
 import Carousel from 'react-bootstrap/Carousel';
+import { Muplace_Context } from '../../context/MuContext';
+
+
+
+
+
+
+
+
+
 
 export default function ReviewGuide({ reviewdata }) {
-
+    const {SERVER_URL} = useContext(Muplace_Context)
     const [currentPage, setCurrentPage] = useState(1);
     const reviewsPerPage = 5;
     const [detail, Setdetail] = useState(reviewdata);
@@ -143,7 +153,7 @@ export default function ReviewGuide({ reviewdata }) {
                 {currentReviews.map((data, index) => (
                     <>
                         <div key={index} className="review-item">
-                            <img className="avatar" src={`http://localhost:5353/image/user/profile/${data.username}`} alt={data.username} />
+                            <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.username}`} alt={data.username} />
                             <div className="review-content">
                                 <h4 className="username">{data.username}</h4>
                                 <Rating className="rating" readOnly name='read-only' value={data.score} />

@@ -12,7 +12,7 @@ import { ArrowDropDown } from '@mui/icons-material'
 
 export default function Mudetail({ showguide }) {
   const [Muplace, Setmuplace] = useState(localStorage.getItem("muplace"));
-  const { per_muplace, muplace } = useContext(Muplace_Context);
+  const { per_muplace, muplace,SERVER_URL } = useContext(Muplace_Context);
   const [mudetail, Setmudetail] = useState(() => {
     const storedDetail = localStorage.getItem("mudetail");
     return storedDetail !== null ? storedDetail : "Mai me data";
@@ -56,7 +56,7 @@ export default function Mudetail({ showguide }) {
       <Row>
         <Col md={5} className="main-image">
           <Image
-            src={`http://localhost:5353/image/mu/${Muplace}/1`}
+            src={`${SERVER_URL}/image/mu/${Muplace}/1`}
             alt="Main Image"
             className="big-image"
             fluid
@@ -66,7 +66,7 @@ export default function Mudetail({ showguide }) {
           <Row>
             <Col md={12} >
               <Image
-                src={`http://localhost:5353/image/mu/${Muplace}/2`}
+                src={`${SERVER_URL}/image/mu/${Muplace}/2`}
                 alt="Image 2"
                 className="small-image"
                 fluid
@@ -74,7 +74,7 @@ export default function Mudetail({ showguide }) {
             </Col>
             <Col md={12}>
               <Image
-                src={`http://localhost:5353/image/mu/${Muplace}/3`}
+                src={`${SERVER_URL}/image/mu/${Muplace}/3`}
                 alt="Image 3"
                 className="small-image"
                 fluid
@@ -86,7 +86,7 @@ export default function Mudetail({ showguide }) {
           <Row>
             <Col md={12}>
               <Image
-                src={`http://localhost:5353/image/mu/${Muplace}/4`}
+                src={`${SERVER_URL}/image/mu/${Muplace}/4`}
                 alt="Image 4"
                 className="small-image figure-3"
                 fluid
@@ -94,7 +94,7 @@ export default function Mudetail({ showguide }) {
             </Col>
             <Col md={12}>
               <Image
-                src={`http://localhost:5353/image/mu/${Muplace}/5`}
+                src={`${SERVER_URL}/image/mu/${Muplace}/5`}
                 alt="Image 5"
                 className="small-image figure-4"
                 fluid

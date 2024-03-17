@@ -46,9 +46,9 @@ export default function Reg_guide() {
         },
       })
 
-      let res = await axios.post('http://localhost:5353/verify_guide/info', { guide })
+      let res = await axios.post(`${SERVER_URL}/verify_guide/info`, { guide })
       let id_user = res.data.msg._id;
-      let add_image = await axios.post(`http://localhost:5353/verify_guide/img/${userID}`, image_form)
+      let add_image = await axios.post(`${SERVER_URL}/verify_guide/img/${userID}`, image_form)
       Swal.close();
 
       await Swal.fire({

@@ -10,6 +10,7 @@ import AppsIcon from '@mui/icons-material/Apps';
 import { useLocation } from 'react-router-dom';
 import './header.css'
 
+
 export default function Header({ handleFav,showguide }) {
   
   const usr_data = localStorage.getItem('usr');
@@ -24,7 +25,7 @@ export default function Header({ handleFav,showguide }) {
     setIsDesktopView(window.innerWidth > 768);
   });
 
-  const { muplace, guideStatus, shopStatus, shopList } = useContext(Muplace_Context)
+  const { muplace, guideStatus, shopStatus, shopList,SERVER_URL } = useContext(Muplace_Context)
   const [Muplace, Setmuplace] = useState([])
   const [Shoplist, Setshoplist] = useState([]);
 
@@ -53,7 +54,7 @@ export default function Header({ handleFav,showguide }) {
     <Menu>
       <Menu.Item key="profile">
         <div>
-          <Image roundedCircle width={50} height={50} src={`http://localhost:5353/image/user/profile/${usr_data}`} />
+          <Image roundedCircle width={50} height={50} src={`${SERVER_URL}/image/user/profile/${usr_data}`} />
           <span style={{ marginLeft: 10 }}>
             {usr_data} <br />
             {guideStatus ? <p>(Guide)</p> : null}

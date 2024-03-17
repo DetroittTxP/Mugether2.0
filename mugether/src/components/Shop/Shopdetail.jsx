@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import { FaHeart, FaClock, FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
@@ -9,11 +9,12 @@ import Swal from 'sweetalert2';
 import './Shopdetail.css';
 import SwalLoading from '../util/SwalLoading';
 import Shopreview from './Shopreview';
+import { Muplace_Context } from '../../context/MuContext';
 
 
 
 export default function Shopdetail() {
-
+   const {SERVER_URL} = useContext(Muplace_Context)
    
 
     const [shopdetail, Setshopdetail] = useState({
@@ -62,7 +63,7 @@ export default function Shopdetail() {
 
     useEffect(() => {
         SwalLoading();
-        axios.get(`http://localhost:5353/shop/get_per_shop/${shop_id}/${shop_item_id}`)
+        axios.get(`${SERVER_URL}/shop/get_per_shop/${shop_id}/${shop_item_id}`)
             .then(res => {
                 const { shop_items } = res.data
                 Setshopdetail(res.data);
@@ -95,7 +96,7 @@ export default function Shopdetail() {
               }).then( async result=>{
                   if(result.isConfirmed){
                          console.log(id_user_shop);
-                         let deleteproduct = await axios.delete(`http://localhost:5353/shop/delete/${usr_id}/${shop_item_id}`) 
+                         let deleteproduct = await axios.delete(`${SERVER_URL}/shop/delete/${usr_id}/${shop_item_id}`) 
                          console.log(deleteproduct.data);
                   } 
               })
@@ -110,7 +111,7 @@ export default function Shopdetail() {
                             <Carousel.Item key={index}>
                                 <img
                                     className="d-block w-100"
-                                    src={`http://localhost:5353/shop/post_img/${shop_id}/${image}`}
+                                    src={`${SERVER_URL}/shop/post_img/${shop_id}/${image}`}
                                     alt={`Product image ${index + 1}`}
                                 />
 
@@ -133,7 +134,7 @@ export default function Shopdetail() {
 
             <div className="store-info">
                 <div className="logo-container">
-                    <img src={`http://localhost:5353/shop/profile_img/${shop_id}/${shopdetail.profile_shop_pic}`} alt="Logo" className="store-logo" />
+                    <img src={`${SERVER_URL}/shop/profile_img/${shop_id}/${shopdetail.profile_shop_pic}`} alt="Logo" className="store-logo" />
                 </div>
                 <div className="contact-and-favorite-container">
                     <div className="contact-info">

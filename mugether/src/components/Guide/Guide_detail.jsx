@@ -1,25 +1,14 @@
 import React, { useEffect, useState,useContext } from 'react'
 import { Row, Col, Container, Image,Carousel } from 'react-bootstrap'
-import {Accordion,AccordionSummary, AccordionDetails} from '@mui/material'
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import './Guide_detail.css'
-import BookingForm from './Booking_guide';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Muplace_Context } from '../../context/MuContext';
 import ReviewGuide from './ReviewGuide';
 export default function Guide_detail({ data }) {
   const muplace = localStorage.getItem('muplace');
-  const id_guide = localStorage.getItem('usr_id');
-
   const [newdata,Setnewdata] = useState(data);
   const {SERVER_URL} = useContext(Muplace_Context)
-  const images = [
-    "https://down-th.img.susercontent.com/file/th-11134207-7r98o-lkosofyofpwe20",
-    "https://down-th.img.susercontent.com/file/930a3347af2a1cca20fdba87460681f2",
-    "https://down-th.img.susercontent.com/file/4e701f668b5f84dc88a9e4449b16a253",
-  ];
- 
-  console.log(data);
+
   useEffect(() => {
 
     let newdata = {
@@ -42,7 +31,7 @@ export default function Guide_detail({ data }) {
         <Row>
           <Col md={5} className="main-image">
             <Image
-              src={`http://localhost:5353/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[0]}`}
+              src={`${SERVER_URL}/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[0]}`}
               alt="Main Image"
               className="big-image"
               fluid
@@ -53,7 +42,7 @@ export default function Guide_detail({ data }) {
             <Row>
               <Col md={12}>
                 <Image
-                  src={`http://localhost:5353/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[1]}`}
+                  src={`${SERVER_URL}/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[1]}`}
                   alt="Image 2"
                   className="small-image"
                   fluid
@@ -62,7 +51,7 @@ export default function Guide_detail({ data }) {
               
               <Col md={12}>
                 <Image
-                  src={`http://localhost:5353/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[2]}`}
+                  src={`${SERVER_URL}/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[2]}`}
                   alt="Image 3"
                   className="small-image"
                   fluid
@@ -74,7 +63,7 @@ export default function Guide_detail({ data }) {
             <Row>
               <Col md={12}>
                 <Image
-                  src={`http://localhost:5353/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[3]}`}
+                  src={`${SERVER_URL}/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[3]}`}
                   alt="Image 4"
                   className="small-image figure-3"
                   fluid
@@ -82,7 +71,7 @@ export default function Guide_detail({ data }) {
               </Col>
               <Col md={12}>
                 <Image
-                  src={`http://localhost:5353/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[4]}`}
+                  src={`${SERVER_URL}/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[4]}`}
                   alt="Image 4"
                   className="small-image figure-4"
                   fluid

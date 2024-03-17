@@ -1,21 +1,22 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState,useContext} from 'react'
 import { Nav, Container, Col, Row } from 'react-bootstrap';
 import { Image } from 'react-bootstrap'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import { FaHeart, FaMapMarkerAlt } from "react-icons/fa";
+import { Muplace_Context } from '../../context/MuContext';
 
 
 
 export default function ShopV2() {
-
+  const {SERVER_URL} = useContext(Muplace_Context)
 
   const [listShop,Setlistshop ] = useState([]);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:5353/shop/shop_item')
+    axios.get(`${SERVER_URL}/shop/shop_item`)
     .then(res => {
         
         Setlistshop(res.data)
@@ -125,7 +126,7 @@ export default function ShopV2() {
                                   width={300}
                                   height={300}
                                   alt={data.item_name}
-                                  src={`http://localhost:5353/shop/post_img/${shop._id}/${data.item_photo[0]}`}
+                                  src={`${SERVER_URL}/shop/post_img/${shop._id}/${data.item_photo[0]}`}
                                   loading="lazy"
                                 />
                                 </a>

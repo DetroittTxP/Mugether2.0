@@ -15,7 +15,7 @@ import {useNavigate} from 'react-router-dom'
 export default function ListGuide() {
   
     const [showModal, setShowModal] = useState(false);
-    const { guideStatus } = useContext(Muplace_Context)
+    const { guideStatus,SERVER_URL } = useContext(Muplace_Context)
     const [list_all_guide, Setlistallguide] = useState([]);
     const navigate = useNavigate()
     const usrID = localStorage.getItem('usr_id');
@@ -25,7 +25,7 @@ export default function ListGuide() {
 
     useEffect(() => {
        
-        axios.get(`http://localhost:5353/guide_detail/get_list_guide/${localStorage.getItem('muplace')}`)
+        axios.get(`${SERVER_URL}/guide_detail/get_list_guide/${localStorage.getItem('muplace')}`)
             .then(res => Setlistallguide(res.data))
             .catch(err => alert(err))
     }, []);
@@ -43,7 +43,7 @@ export default function ListGuide() {
                 if(result.isConfirmed){
                       Setlistallguide(prev => prev.filter(data => data.id_guide !== id_guide));
 
-                            let deletedata = await axios.delete(`http://localhost:5353/guide_detail/delete-post/${id_guide}/${muplace}`);
+                            let deletedata = await axios.delete(`${SERVER_URL}/guide_detail/delete-post/${id_guide}/${muplace}`);
                            return Swal.fire({icon:'success',text:'ลบโพสเเล้ว'})
                 }
                 
@@ -92,7 +92,7 @@ export default function ListGuide() {
                    >
                        <div style={{ display: 'flex', alignItems: 'center' }}>
                            <Image
-                               src={`http://localhost:5353/image/guide/profile/${data.id_guide}/${data.profile_pic}`}
+                               src={`${SERVER_URL}/image/guide/profile/${data.id_guide}/${data.profile_pic}`}
                                roundedCircle
                                className='avatar'
                            />
