@@ -3,7 +3,7 @@ import { Nav, Navbar, Container } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
 
-export default function NavType({SelectedTypeMu,show_guide}) {
+export default function NavType({SelectedTypeMu,show_guide,handleFav}) {
   const location = useLocation()
   const [showguide,Setshowguide] = useState(false);
   const guideRef = useRef(null);
@@ -80,8 +80,9 @@ export default function NavType({SelectedTypeMu,show_guide}) {
         className='justify-content-center'
         variant="underline"
         onSelect={(selectedKey) => {
-
+            console.log(selectedKey);
             SelectedTypeMu(selectedKey);
+            localStorage.setItem('type_mu', selectedKey)
           
         }}
         style={{  display: 'flex', justifyContent: 'center' }}

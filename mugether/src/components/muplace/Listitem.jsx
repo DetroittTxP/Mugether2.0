@@ -7,13 +7,14 @@ import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import SwalLoading from "../util/SwalLoading";
 import './listitem.css'
-export default function Listitem({ SelectedMuType, SelectedMuplace, favstatus }) {
+export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
   const navigate = useNavigate();
+  const mu_type = localStorage.getItem('type_mu');
   const usrID = localStorage.getItem('usr_id')
   const [List_Of_Mu, Setlistofmu] = useState([]);
   const [HeartCheck, Setheartcheck] = useState([]);
   const { muplace,SERVER_URL } = useContext(Muplace_Context);
-
+  const favstatus = JSON.parse(localStorage.getItem('fav'))
   useEffect(() => {
     let usr_id = localStorage.getItem('usr_id')
 
@@ -36,18 +37,18 @@ export default function Listitem({ SelectedMuType, SelectedMuplace, favstatus })
 
   useEffect(() => {
     Setlistofmu(muplace);
-    if (!favstatus) {
-      Setlistofmu(prev => prev.filter((data) => data.type.includes(SelectedMuType)));
-    }
-  }, [SelectedMuType, favstatus, muplace]);
+      console.log(mu_type);
+      if(favstatus === false){
+        Setlistofmu(prev => prev.filter(data => data.type === mu_type));
+      }
+      else{
+        Setlistofmu(prev => prev.filter(data => data.type === mu_type && HeartCheck.includes(data.name)));
+      }
+   
 
-  useEffect(() => {
-    if (favstatus) {
-      Setlistofmu(prev => prev.filter(data => HeartCheck.includes(data.name)));
-    } else {
-      Setlistofmu(muplace);
-    }
-  }, [favstatus, HeartCheck, muplace]);
+  }, [mu_type, favstatus, muplace]);
+
+
 
   const handleHeart = async (name) => {
     let updateFav;

@@ -115,6 +115,7 @@ const [listshop,Setlistshop] = useState([]);
 
 
   const SelectedTypeMu = (type) => {
+    console.log(type);
     Setselectedmutype(type)
   }
 
@@ -137,13 +138,13 @@ const [listshop,Setlistshop] = useState([]);
       <br />
       <br />
 
-      {location.pathname !== '/shop' &&location.pathname !== '/login'&& location.pathname !== '/register' && location.pathname !== '/logout' &&<NavType show_guide={show_guide} SelectedTypeMu={SelectedTypeMu} />}
+      {location.pathname !== '/shop' &&location.pathname !== '/login'&& location.pathname !== '/register' && location.pathname !== '/logout' &&<NavType show_guide={show_guide} SelectedTypeMu={SelectedTypeMu} handleFav={Handlefav} />}
       <br />
       <br />
 
 
       <Routes>
-        <Route path='/' element={<Listitem favstatus={favoriteStatus} SelectedMuplace={SelectedMuplace} SelectedMuType={selectedMuType} />} />
+        <Route path='/' element={<Listitem favstatus={favoriteStatus} SelectedMuplace={SelectedMuplace} SelectedMuType={SelectedTypeMu} />} />
         <Route path='/shop' element={<ShopV2  />} />
         <Route path='/mudetail' element={<Mudetail showguide={showguide} />} />
         <Route path='/login' element={<Login />}  />

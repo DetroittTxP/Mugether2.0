@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Container, Navbar, Form, Image,Nav } from 'react-bootstrap';
 import { Dropdown, Menu } from 'antd';
 import Logo from '../../assets/LogoMugether.png';
@@ -11,7 +11,7 @@ import { useLocation } from 'react-router-dom';
 import './header.css'
 
 
-export default function Header({ handleFav,showguide }) {
+export default function Header({ handleFav,showguide}) {
   
   const usr_data = localStorage.getItem('usr');
   const navigate = useNavigate();
@@ -216,8 +216,11 @@ export default function Header({ handleFav,showguide }) {
             localStorage.removeItem('showmap');
             navigate('/');
             showguide(false);
+            const fav  = JSON.parse(localStorage.getItem('fav'));
+            localStorage.setItem('fav',false)
+            handleFav(!fav)
           }}>
-            <Image rounded src={Logo} height={100} width={100} style={{ borderRadius: '50%'}} />
+            <Image  rounded src={Logo} height={100} width={100} style={{ borderRadius: '50%'}} />
           </Navbar.Brand>
           <div className="search-wrapper">           
             {isMobileSearchVisible || isDesktopView ? (
