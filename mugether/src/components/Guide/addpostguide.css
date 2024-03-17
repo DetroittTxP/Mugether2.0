@@ -2,8 +2,8 @@
     display: flex;      
     justify-content: center;
     align-items: center;
-    margin-left: 30px;     
-    padding: 20px;       
+    position: relative;
+    right:165px
 }
 
 .carousel-item img {

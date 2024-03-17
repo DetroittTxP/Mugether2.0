@@ -4,7 +4,12 @@ const guide_detail = monggose.Schema({
      id_guide:{type:String,required:true},
      firstname:{type:String,required:true},
      lastname:{type:String,required:true},
-     tel:String,
+     contact:{
+          tel:{type:String,required:true},
+          email:{type:String,required:true},
+          lineID:String,
+          Ig:String
+     },
      guide_detail:String,
      mu_location:{type:[],required:true},
 

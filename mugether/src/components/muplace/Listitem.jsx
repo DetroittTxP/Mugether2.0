@@ -12,13 +12,13 @@ export default function Listitem({ SelectedMuType, SelectedMuplace, favstatus })
   const usrID = localStorage.getItem('usr_id')
   const [List_Of_Mu, Setlistofmu] = useState([]);
   const [HeartCheck, Setheartcheck] = useState([]);
-  const { muplace } = useContext(Muplace_Context);
+  const { muplace,SERVER_URL } = useContext(Muplace_Context);
 
   useEffect(() => {
     let usr_id = localStorage.getItem('usr_id')
 
     if (usr_id) {
-      axios.get(`http://localhost:5353/user/fav/${usrID}`)
+      axios.get(`${SERVER_URL}/user/fav/${usrID}`)
         .then(res => {
           Setheartcheck(res.data.favorite_muplace)
         })
@@ -26,9 +26,10 @@ export default function Listitem({ SelectedMuType, SelectedMuplace, favstatus })
     }
 
     axios
-      .get("http://localhost:5353/muplace/mudata")
+      .get(`${SERVER_URL}/muplace/mudata`)
       .then((res) => {
         Setlistofmu(res.data);
+        console.log(res.data);
       })
       .catch((err) => alert(err));
   }, []);
@@ -62,7 +63,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace, favstatus })
 
     try {
       SwalLoading();
-      let { data } = await axios.put('http://localhost:5353/user/add/favorite', { updateFav, usrID })
+      let { data } = await axios.put(`${SERVER_URL}/user/add/favorite`, { updateFav, usrID })
       console.log(data);
       if (data.status === 'ok') {
         Swal.close();
@@ -82,7 +83,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace, favstatus })
               <Card style={{ height: "100%" , borderRadius: "15px", cursor: "pointer"}}>
                 <Card.Img
                   variant="top"
-                  src={`http://localhost:5353/image/mu/${data.name}/7`}
+                  src={`${SERVER_URL}/image/mu/${data.name}/7`}
                   alt={data.name}
                   onClick={() => {
                     SelectedMuplace(data.name);

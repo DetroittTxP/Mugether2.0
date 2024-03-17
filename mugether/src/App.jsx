@@ -51,7 +51,7 @@ const Checktimeout=(timeout,onLogout)=>{
 
 
 export default function App() {
-
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL
   const location = useLocation();
   const [global_muplace, Setmuplace] = useState([]);
   const [global_shop, Setshop] = useState([]);
@@ -85,13 +85,13 @@ const [listshop,Setlistshop] = useState([]);
   //fetch global MUPLACE 
   useEffect(() => {
   
-    axios.get('http://localhost:5353/muplace/mudata')
+    axios.get(`${SERVER_URL}/muplace/mudata`)
       .then(res => {
         Setmuplace(res.data.filter(e => e.name !== "วัดดาวดึงษาราม"))
       })
       .catch(err => alert(err))
 
-    axios.get('http://localhost:5353/shop/shop_item')
+    axios.get(`${SERVER_URL}/shop/shop_item`)
     .then(res => Setlistshop(res.data))
     .catch(err => alert(err))  
       
@@ -103,7 +103,8 @@ const [listshop,Setlistshop] = useState([]);
      per_muplace:selectedMuplace,
      guideStatus:guideStatus,
      shopStatus:shopStatus,
-     shopList:listshop
+     shopList:listshop,
+     SERVER_URL:SERVER_URL
   }
 
   

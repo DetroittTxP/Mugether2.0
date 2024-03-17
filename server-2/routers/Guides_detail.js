@@ -15,7 +15,7 @@ Guide_detail.get('/',(req,res) => {
 
 
 Guide_detail.post('/create_guide', async (req,res)=>{
-     const {_id,firstname,lastname,mu_location,} = req.body;
+     const {_id,firstname,lastname,mu_location,contact} = req.body;
 
      try{
           let check_id = await user.findOne({_id:_id});
@@ -30,7 +30,8 @@ Guide_detail.post('/create_guide', async (req,res)=>{
                id_guide:_id,
                firstname:firstname,
                lastname:lastname,
-               mu_location:mu_location
+               mu_location:mu_location,
+               contact
           })
                
           
@@ -317,6 +318,19 @@ Guide_detail.post('/review/:id_guide', async (req,res) =>{
 
 
     
+})
+
+
+Guide_detail.get('/exp/img/:id_guide/:img_name',(req,res) => {
+      const {id_guide,img_name} = req.params
+      let dir = path.dirname(__dirname);
+      let img = path.join(dir,'assets','guide',id_guide,'experinceImg',img_name);
+      console.log(img);
+      if(!fs.existsSync(img)){
+          return res.send('no image found')
+      }  
+
+      return res.sendFile(img)
 })
 
 

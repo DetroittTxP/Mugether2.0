@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import { Row, Col, Container, Image,Carousel } from 'react-bootstrap'
+import {Accordion,AccordionSummary, AccordionDetails} from '@mui/material'
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import './Guide_detail.css'
 import BookingForm from './Booking_guide';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { Muplace_Context } from '../../context/MuContext';
+import ReviewGuide from './ReviewGuide';
 export default function Guide_detail({ data }) {
   const muplace = localStorage.getItem('muplace');
+  const id_guide = localStorage.getItem('usr_id');
+
   const [newdata,Setnewdata] = useState(data);
+  const {SERVER_URL} = useContext(Muplace_Context)
   const images = [
     "https://down-th.img.susercontent.com/file/th-11134207-7r98o-lkosofyofpwe20",
     "https://down-th.img.susercontent.com/file/930a3347af2a1cca20fdba87460681f2",
@@ -107,14 +113,15 @@ export default function Guide_detail({ data }) {
         })}
         </ul>
         <br/>
-        <h2><b>ประสบการณ์ (Experience)</b></h2>
+        <h2><b>ประสบการณ์ (Experience)</b></h2>    <br/>
         <Col md={6} style={{marginLeft: "100px"}}>
           <Carousel indicators controls>
-            {images.map((image, index) => (
+            {newdata.guide_post[0].experience_img.map((image, index) => (
               <Carousel.Item key={index}>
-                <img
+                <Image
                   className="d-block w-100"
-                  src={image}
+                  rounded
+                  src={`${SERVER_URL}/guide_detail/exp/img/${data.id_guide}/${image}`}
                   alt={`Product image ${index + 1}`}
                 />
               </Carousel.Item>
@@ -123,11 +130,20 @@ export default function Guide_detail({ data }) {
         </Col>
         
         
-        <br/>
+        <br/>    <br/>
         <h2><b>ติดต่อ</b></h2>
           <h3>เบอร์โทร: 08123456789 {data.email}</h3>
           <h3>ที่อยู่: 123/123 </h3>
+
+        <br/>
+
+                <h2><b>รีวิว</b></h2> 
+          
+                  <ReviewGuide reviewdata={data.guide_review}/>
+       
+
       </div>
+           
 
     </div>
   )

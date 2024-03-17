@@ -201,6 +201,7 @@ export default function ReviewPage({ Muplace_name}) {
   const totalReviews = detail.length;
   const totalPages = Math.ceil(totalReviews / reviewsPerPage);
   const usr = localStorage.getItem('usr')
+  
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -329,7 +330,6 @@ export default function ReviewPage({ Muplace_name}) {
   };
 
    
-//https://media.discordapp.net/attachments/1130047272508465273/1164158784046911498/image.png?ex=6542325b&is=652fbd5b&hm=34d3ee5ae415d18976b94fca7e67358183624112e20a65bfbfcb679cc5cede42&=&width=445&height=385
   return (
     <div className="review-container">
       <h2 style={{fontWeight: 'bold'}}>รีวิว</h2>
@@ -361,7 +361,6 @@ export default function ReviewPage({ Muplace_name}) {
                         onClick={() => openModal(`http://localhost:5353/muplace/reviewimage/${data.username}/${image}`)}
                       />
                     ))}
-                    
                 </div>
               )}
             </>
@@ -385,17 +384,3 @@ export default function ReviewPage({ Muplace_name}) {
     </div>
   );
 }
-
-
-// {data.reviewImage && (
-//   <div className='review-img'>
-//     <Carousel controls indicators>
-//       {data.reviewImage.map((image, i) => (
-//         <Carousel.Item key={i}>
-//           <Image className="d-block w-100" src={`http://localhost:5353/muplace/reviewimage/${usr}/${image}`}/>
-//         </Carousel.Item>
-//       ))}
-//     </Carousel>
-//   </div>
-// )}
- 
