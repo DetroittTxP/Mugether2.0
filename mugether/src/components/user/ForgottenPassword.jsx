@@ -1,27 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
 import "./ForgottenPassword.css";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
-import {Muplace_Context} from '../../context/MuContext'
+import { Muplace_Context } from "../../context/MuContext";
 
 export default function ForgottenPassword() {
-    const {SERVER_URL} = useContext(Muplace_Context)
+    const { SERVER_URL } = useContext(Muplace_Context);
     const navigate = useNavigate();
-    const [user, setuserdata] = useState(
-        {
-            Email: ""
-        }
-    )
+    const [step, setStep] = useState(1);
+    const [user, setUserdata] = useState({
+        Email: ""
+    });
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(user);
         try {
-
-            //check username password
+            // check username password
             let res = await axios.post(`${SERVER_URL}/user/resetpassword`, user);
             console.log(res.data);
 
@@ -29,12 +28,12 @@ export default function ForgottenPassword() {
                 return Swal.fire({
                     icon: res.data.status,
                     title: res.data.message
-                })
+                });
             }
 
             console.log(res.data.usr_id);
 
-            //verify token
+            // verify token
             let verify_token = await axios.post(`${SERVER_URL}/user/verify`, {
                 usr_id: res.data.usr_id,
                 guide: res.data.guide,
@@ -43,13 +42,11 @@ export default function ForgottenPassword() {
                 headers: {
                     Authorization: `Bearer ${res.data.token}`
                 }
-            })
+            });
 
             if (verify_token.data.status !== 'success') {
-                return Swal.fire('verify token error')
+                return Swal.fire('verify token error');
             }
-
-
 
             localStorage.setItem("usr", verify_token.data.result.username);
             localStorage.setItem("token", verify_token.data.token);
@@ -60,28 +57,24 @@ export default function ForgottenPassword() {
             await Swal.fire({
                 icon: 'success',
                 title: 'Login Success'
-            })
+            });
 
-            navigate('/')
-
+            navigate('/');
+        } catch (err) {
+            alert(err);
         }
-        catch (err) {
-            alert(err)
-        }
+    };
 
-    }
+    const nextStep = () => {
+        setStep(step => step + 1);
+    };
 
-
-    const Change2 = (event1) => {
-        setuserdata((e) => {
-            return {
-                ...e,
-                [event1.target.id]: event1.target.value
-
-            }
-        }
-        )
-    }
+    const handleChange = (e) => {
+        setUserdata({
+            ...user,
+            [e.target.id]: e.target.value
+        });
+    };
 
     return (
         <Container className="login-container">
@@ -107,25 +100,51 @@ export default function ForgottenPassword() {
                         Already have account?
                         <Link to="/login">Login</Link>
                     </p>
-
-                    <h2 className="welcome">Reset Password</h2>
-                    <p className="login-message">No worries,we'll send you reset instructions.</p>
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group controlId="Email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="✉️  Enter your email address"
-                                onChange={Change2}
-                                required
-                            />
-                        </Form.Group>
-
-                        <Button variant="warning" type="submit" className="Enter">
-                            Submit
-                        </Button>
-
-                    </Form>
+                    {/* Your content for the form */}
+                    {step === 1 && (
+                        <Form onSubmit={handleSubmit}>
+                            <Form.Group controlId="Email">
+                                <Form.Label>Email</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="✉️  Enter your email address"
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </Form.Group>
+                            <Button
+                                variant="warning"
+                                type="button"
+                                onClick={nextStep}
+                                className="Enter"
+                            >
+                                Next
+                            </Button>
+                        </Form>
+                    )}
+                    {step === 2 && (
+                        <div>
+                            <Form onSubmit={handleSubmit}>
+                            <Form.Group controlId="Email">
+                                <Form.Label>Token</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="✉️  Enter your Token"
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </Form.Group>
+                        </Form>
+                            <Button
+                                variant="warning"
+                                type="submit"
+                                onClick={handleSubmit}
+                                className="Enter"
+                            >
+                                Submit
+                            </Button>
+                        </div>
+                    )}
                 </Col>
             </Row>
         </Container>
