@@ -11,15 +11,6 @@ import ButtonBo from 'react-bootstrap/Button'
 import Carousel from 'react-bootstrap/Carousel';
 import { Muplace_Context } from '../../context/MuContext';
 
-
-
-
-
-
-
-
-
-
 export default function ReviewGuide({ reviewdata }) {
     const {SERVER_URL} = useContext(Muplace_Context)
     const [currentPage, setCurrentPage] = useState(1);

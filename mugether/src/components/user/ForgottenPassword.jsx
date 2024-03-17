@@ -12,68 +12,75 @@ export default function ForgottenPassword() {
     const { SERVER_URL } = useContext(Muplace_Context);
     const navigate = useNavigate();
     const [step, setStep] = useState(1);
-    const [user, setUserdata] = useState({
-        Email: ""
-    });
-
+    const [email, setUserdata] = useState('');
+    const [pass,Setpass] = useState('');
+    const [confirmpass,Setcomfirmpass] = useState('');
+    const [token,Settoken] = useState('');
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(user);
         try {
             // check username password
-            let res = await axios.post(`${SERVER_URL}/user/resetpassword`, user);
+            let res = await axios.post(`${SERVER_URL}/user/resetpassword`, {email});
             console.log(res.data);
-
-            if (res.data.status !== 'success') {
-                return Swal.fire({
-                    icon: res.data.status,
-                    title: res.data.message
-                });
+            if(res.data.status === 'ok'){
+                 Swal.fire({text:res.data.msg})
+                 nextStep();
             }
-
-            console.log(res.data.usr_id);
-
-            // verify token
-            let verify_token = await axios.post(`${SERVER_URL}/user/verify`, {
-                usr_id: res.data.usr_id,
-                guide: res.data.guide,
-                shop: res.data.shop
-            }, {
-                headers: {
-                    Authorization: `Bearer ${res.data.token}`
-                }
-            });
-
-            if (verify_token.data.status !== 'success') {
-                return Swal.fire('verify token error');
-            }
-
-            localStorage.setItem("usr", verify_token.data.result.username);
-            localStorage.setItem("token", verify_token.data.token);
-            localStorage.setItem('usr_id', verify_token.data.userID);
-            localStorage.setItem('guide', verify_token.data.guide);
-            localStorage.setItem('shop', verify_token.data.shop);
-
-            await Swal.fire({
-                icon: 'success',
-                title: 'Login Success'
-            });
-
-            navigate('/');
         } catch (err) {
             alert(err);
         }
     };
+
+    const onverifytoken=async (e) =>{
+        e.preventDefault();
+        try{
+            let verify = await axios.post(`${SERVER_URL}/user/verifyresettoken`,{},{headers:{
+                Authorization: `Bearer ${token}`
+            }})
+
+            if(verify.data.status === 'ok'){
+               return nextStep();
+            }
+            else{
+                Swal.fire({icon:'error',text:'token fail'})
+            }
+        }
+        catch(err){
+            alert(err);
+        }
+    }
+
+    const onchangepass=async(e) =>{
+        e.preventDefault();
+        try{
+            if(pass !== confirmpass){
+                return    console.log('not math');
+                
+             }else{
+                 let updatepass = await axios.post(`${SERVER_URL}/user/changepass`,{email,password:pass})
+                 console.log(updatepass.data);
+                 if(updatepass.data.status !== 'ok'){
+                     return Swal.fire({text:'error'})
+                 }else{
+                    return Swal.fire({icon:'success',text:'successs'})
+                 }
+             }
+        }
+        catch(err){
+            alert(err)
+        }
+         
+    }
+
+
+
 
     const nextStep = () => {
         setStep(step => step + 1);
     };
 
     const handleChange = (e) => {
-        setUserdata({
-            ...user,
-            [e.target.id]: e.target.value
-        });
+        setUserdata(e.target.value)
     };
 
     return (
@@ -113,35 +120,64 @@ export default function ForgottenPassword() {
                             </Form.Group>
                             <Button
                                 variant="warning"
-                                type="button"
-                                onClick={nextStep}
+                                type="submit"
                                 className="Enter"
                             >
-                                Next
+                                send email
                             </Button>
                         </Form>
                     )}
                     {step === 2 && (
                         <div>
-                            <Form onSubmit={handleSubmit}>
+                            <Form onSubmit={onverifytoken}>
                             <Form.Group controlId="Email">
                                 <Form.Label>Token</Form.Label>
                                 <Form.Control
                                     type="text"
                                     placeholder="✉️  Enter your Token"
-                                    onChange={handleChange}
+                                    onChange={(e) => Settoken(e.target.value)}
                                     required
                                 />
                             </Form.Group>
-                        </Form>
+                   
                             <Button
                                 variant="warning"
                                 type="submit"
-                                onClick={handleSubmit}
                                 className="Enter"
                             >
-                                Submit
+                                send token
                             </Button>
+                            </Form>
+                        </div>
+                    )}
+                     {step === 3 && (
+                        <div>
+                            <Form onSubmit={onchangepass} >
+                            <Form.Group controlId="Email">
+                           
+                                <Form.Control
+                                    type="text"
+                                    placeholder="✉️  Enter your password"
+                                    onChange={(e) => Setpass(e.target.value)}
+                                    required
+                                />
+                                <br/>
+                                 <Form.Control
+                                    type="text"
+                                    placeholder="✉️  confirm password"
+                                    onChange={(e) => Setcomfirmpass(e.target.value)}
+                                    required
+                                />
+                            </Form.Group>
+                    
+                            <Button
+                                variant="warning"
+                                type="submit"
+                                className="Enter"
+                            >
+                                confirm
+                            </Button>
+                            </Form>
                         </div>
                     )}
                 </Col>

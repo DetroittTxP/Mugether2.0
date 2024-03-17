@@ -79,8 +79,33 @@ const Reg_User_mail=async(email)=>{
 }
 
 
+const Reset_Pass_Email= async(email,token) => {
+   const mailOptions = {
+      from:process.env.EMAIL,
+      to:email,
+      subject:'Mugther resetpassword',
+      html:`
+          <h1>input token in form</h1>
+          <h4>Token : ${token}</h4>
+       `
+ }
+
+      transporter.sendMail(mailOptions,(err,info) => {
+
+         if(err){ 
+            return err;
+         }
+         else{
+            console.log('ok');
+            return
+         }
+      })
+}
+
+
 
 module.exports = {
      Reg_Guide_Mail,
-     Reg_User_mail
+     Reg_User_mail,
+     Reset_Pass_Email
 };
