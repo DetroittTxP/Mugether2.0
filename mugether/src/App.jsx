@@ -150,7 +150,7 @@ const [listshop,Setlistshop] = useState([]);
         <Route path='/register' element={<Register />}  />
         <Route path='/reg-guide' element={<Regguide />}  />
         <Route path='/shopdetail' element={<Shopdetail  />}  />
-        <Route path='/req-shop' element={<Regis_shop/>}/>
+        <Route path='/reg-shop' element={<Regis_shop/>}/>
         <Route path='/add-shop' element={<Add_Shop/>} />
         <Route path='/Forgottenpassword' element={<Forgottenpassword/>} />
       </Routes>
