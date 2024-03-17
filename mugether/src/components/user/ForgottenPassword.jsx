@@ -100,7 +100,6 @@ export default function ForgottenPassword() {
                         Already have account?
                         <Link to="/login">Login</Link>
                     </p>
-                    {/* Your content for the form */}
                     {step === 1 && (
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="Email">
