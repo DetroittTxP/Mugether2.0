@@ -364,8 +364,6 @@ export default function ReviewPage({ Muplace_name}) {
             </>
           );
         })}
-        
-
         <div className="pagination-controls">
           {renderPageNumbers(totalPages)}
         </div>

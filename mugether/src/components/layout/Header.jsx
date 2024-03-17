@@ -49,6 +49,14 @@ export default function Header({ handleFav,showguide }) {
     navigate('/')
   }
 
+  const searchdata = () =>{
+      if(pathname === '/shop' || pathname === 'shopdetail'){
+        return Shoplist
+      }else{
+         return Muplace
+      }
+  }
+
 
   const loged_in = (
     <Menu>
@@ -197,6 +205,8 @@ export default function Header({ handleFav,showguide }) {
        
     }
   }
+
+  
   return (
     <div>
       <EditProfile showedit={showedit} toggle={toggle} editType={editType} />
@@ -211,7 +221,7 @@ export default function Header({ handleFav,showguide }) {
           </Navbar.Brand>
           <div className="search-wrapper">           
             {isMobileSearchVisible || isDesktopView ? (
-              <Dropdown overlayClassName='scroll-dropdown' menu={{ items: Muplace, }}>
+              <Dropdown overlayClassName='scroll-dropdown' menu={{ items: searchdata(), }}>
                     <Nav>
                     <Form.Control onChange={onChange} placeholder={(pathname === '/shop' || pathname === '/shopdetail' ? 'ค้นหาสินค้า...' : 'ค้นหาสถานที่มู...')} type="text" style={{ width: isDesktopView ? '600px' : '100%' }} />
                     </Nav>

@@ -16,6 +16,7 @@ export default function ForgottenPassword() {
     const [pass,Setpass] = useState('');
     const [confirmpass,Setcomfirmpass] = useState('');
     const [token,Settoken] = useState('');
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
