@@ -50,7 +50,7 @@ export default function Header({ handleFav,showguide }) {
   }
 
   const searchdata = () =>{
-      if(pathname === '/shop' || pathname === 'shopdetail'){
+      if(pathname === '/shop' || pathname === '/shopdetail'){
         return Shoplist
       }else{
          return Muplace
