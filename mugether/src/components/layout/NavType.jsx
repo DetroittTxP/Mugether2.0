@@ -75,7 +75,7 @@ export default function NavType({SelectedTypeMu,show_guide,handleFav}) {
   return (
     <div>
       <br/>
-       {!location.pathname.includes('/ForgottenPassword') && (
+       {!location.pathname.includes('/ForgottenPassword') && !location.pathname.includes('/reg-guide') && !location.pathname.includes('/reg-shop') &&(
         <Nav
         className='justify-content-center'
         variant="underline"
@@ -120,6 +120,3 @@ export default function NavType({SelectedTypeMu,show_guide,handleFav}) {
     
   );
 }
-
-
-
