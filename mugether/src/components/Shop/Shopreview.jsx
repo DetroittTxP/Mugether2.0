@@ -11,18 +11,24 @@ import '../ReviewPage.css';
 import { Muplace_Context } from '../../context/MuContext';
 
 
-const Addshopreview=({ shop_name, check_finish })=>{
+
+
+const Addshopreview=({ check_finish })=>{
+  const {SERVER_URL} = useContext(Muplace_Context)
   const username = localStorage.getItem('usr')
-  const [review, Setreview] = useState({
-    shopname: shop_name,
-    reviewdetail: {
+  const shop_id = localStorage.getItem('shop_id');
+  const shop_item_id = localStorage.getItem('shop_item_id');
+  const [image,Setimage] = useState(null);
+  const [imgsrc,Setimagesrc] = useState([]);
+  
+  const [review,Setreview] = useState({
+    review: {
       username: localStorage.getItem('usr'),
       score: 0,
       detail: '',
     }
-  });
-  const [image,Setimage] = useState(null);
-  const [imgsrc,Setimagesrc] = useState([]);
+  })
+
 
   const change = (e, newvalue) => {
 
@@ -36,8 +42,8 @@ const Addshopreview=({ shop_name, check_finish })=>{
 
     Setreview(prevReview => ({
       ...prevReview,
-      reviewdetail: {
-        ...prevReview.reviewdetail,
+      review: {
+        ...prevReview.review,
         [e.target.name]: value,
       }
     }));
@@ -55,13 +61,6 @@ const Addshopreview=({ shop_name, check_finish })=>{
     }
 
     Setimage(files)
-    // Setreview(prev => ({
-    //       ...prev,
-    //       reviewdetail:{
-    //            ...prev.reviewdetail,
-    //            [event.target.id]:files
-    //       }
-    // }))
 
     files.forEach(img => {
          const reader = new FileReader();
@@ -77,7 +76,7 @@ const Addshopreview=({ shop_name, check_finish })=>{
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (review.reviewdetail.score <= 0 || review.reviewdetail.score === null) {
+    if (review.review.score <= 0 || review.review.score === null) {
       return alert('rating must > 0')
     }
     Swal.fire({
@@ -108,7 +107,7 @@ const Addshopreview=({ shop_name, check_finish })=>{
 
    
 
-      let res = await axios.post('http://localhost:5353/muplace/addreviewmuplace', {review:review,image:imagedata});
+      let res = await axios.post(`${SERVER_URL}/shop/review/${shop_id}/${shop_item_id}`, {review:review.review,imagedata});
       Swal.close();
       
       await Swal.fire({
@@ -185,7 +184,7 @@ const Addshopreview=({ shop_name, check_finish })=>{
 
 
 export default function Shopreview({reviewdata}) {
-
+  console.log(reviewdata);
   const {SERVER_URL} = useContext(Muplace_Context);
   const pageStatus = localStorage.getItem('reviewStatus')
   const [detail, Setdetail] = useState([]);
@@ -195,20 +194,11 @@ export default function Shopreview({reviewdata}) {
   const reviewsPerPage = 5;
   const indexOfLastReview = currentPage * reviewsPerPage;
   const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
-  const currentReviews = detail.slice(indexOfFirstReview, indexOfLastReview);
+  const currentReviews = reviewdata.slice(indexOfFirstReview, indexOfLastReview);
   const totalReviews = detail.length;
   const totalPages = Math.ceil(totalReviews / reviewsPerPage);
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [currentImage, setCurrentImage] = useState('');
-
-  // useEffect(() => {
-  //   axios.get(`http://localhost:5353/muplace/mudata/${reviewdata}`)
-  //     .then((res) => {
-  //       Setdetail(res.data[0].review);
-  //     })
-  //     .catch((err) => alert(err));
-
-  // }, [detail]);
 
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -326,14 +316,13 @@ export default function Shopreview({reviewdata}) {
 
   return (
     <div className="review-container">
-      <h2 style={{fontWeight: 'bold'}}>รีวิว</h2>
-      {detail.length === 0 ? <h2>ไม่มีรีวิวขณะนี้</h2> :  Reviewd}
+      {currentReviews.length === 0 ? <h2>ไม่มีรีวิวขณะนี้</h2> :  Reviewd}
 
       {addreview ? (
-      <Addshopreview check_finish={check_finish} shop_name={shop_name} />
+      <Addshopreview check_finish={check_finish} />
     ) : (
       <>
-        {reviewdata.map((data,i) => {
+        {currentReviews.map((data,i) => {
           return(
             <>
               <div  className="review-item">

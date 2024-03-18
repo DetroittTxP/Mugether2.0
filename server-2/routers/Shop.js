@@ -395,37 +395,43 @@ Shop.post('/review/image/:shop_id', UploadReview.array('reviewImage', 5),
               return res.json({
                 status:'ok',
                 shop_id:req.params.shop_id,
-                imageName:req.files.map((image => image.filename))
+                photos:req.files.map((image => image.filename))
               })
         }
 })
 
-
 //addreview shop
-Shop.post('/review/:id_user', async (req,res) => {
-    const {id_user} = req.params;
-    const {reviewdetail} = req.body;
+Shop.post('/review/:id_user/:item_id', async (req,res) => {
+    const {id_user,item_id} = req.params;
 
     try{
-        let addreview = await db_shop.findByIdAndUpdate(
-            {
-                _id:id_user,
-            },
-            {
-                $push:{shop_review:reviewdetail} 
-            }
-        )
+        console.log(req.body);
 
-        if(!addreview){
-            return res.send('no data found');
-        }
-        else{
-            return res.send('updated')
-        }
+         let newupdate = {
+              review_username:req.body.review.username,
+              review_score:req.body.review.score,
+              review_detail:req.body.review.detail,
+              review_image:req.body.imagedata
+         }
+         let data = await db_shop.updateOne(
+               {
+                  _id:id_user,
+                  "shop_items._id":item_id
+               },
+               {
+                 $push:{'shop_items.$.item_review':newupdate}
+               },              
+         )
+
+        console.log(data);
+         return res.json(data)
     }
     catch(err){
-        return res.send(err)
+        console.log(err);
+        return;
     }
+
+ 
 })
 
 

@@ -291,17 +291,18 @@ Guide_detail.post('/review/upload/:id_guide',upload_review_guide.array('reviewIm
 
 //review api for guide
 Guide_detail.post('/review/:id_guide', async (req,res) =>{
+
      try{
-         
-          const {review,photos} = req.body;
+          console.log(req.body);
+          const {review,imagedata} = req.body
           let datatoinset = {
                 username:review.username,
                 score:review.score,
                 detail:review.detail,
-                review_img:photos 
+                review_img:imagedata
           }
           
-          console.log(datatoinset);
+    
           let filter = {id_guide: req.params.id_guide}
 
           let pushreview = await db.findOneAndUpdate(filter,{
@@ -318,6 +319,17 @@ Guide_detail.post('/review/:id_guide', async (req,res) =>{
 
 
     
+})
+
+
+Guide_detail.get('/review/img/:id_guide/:img_name',async (req,res) => {
+     const {id_guide,img_name} = req.params
+     let dir = path.dirname(__dirname);
+     let img = path.join(dir,'assets','guide',id_guide,'reviewImg',img_name);
+     if(!fs.existsSync(img)){
+          return res.send('no image found from review img guide')
+      }  
+      return res.sendFile(img)
 })
 
 

@@ -26,7 +26,8 @@ export default function Shopdetail() {
             item_name: '',
             item_detail: '',
             item_price: 0,
-            item_linkurl: ''
+            item_linkurl: '',
+            item_review:[]
         }],
         contact: {
             tel: '',
@@ -47,12 +48,14 @@ export default function Shopdetail() {
     const usr_id = localStorage.getItem('usr_id');
     const id_user_shop = localStorage.getItem('id_user')
     const [item_img, setitemimage] = useState([]);
-    const [selectedShop, Setselectedshop] = useState([{
-        item_name: '',
-        item_price: '',
-        item_detail: '',
-        item_linkurl: ''
-
+    const [selectedShop,Setselectedshop] = useState([{
+         item_name:'',
+         item_price:'',
+         item_detail:'',
+         item_linkurl:'',
+         item_img:[],
+         item_review:[]
+    
     }]);
     const [reviewThisItem, Setreviewthis] = useState([])
 
@@ -193,7 +196,11 @@ export default function Shopdetail() {
             <div className='reviewshop'>
                 <h2>รีวิว</h2>
 
-                {reviewThisItem.length != 0 && <Shopreview reviewdata={reviewThisItem} />}
+
+               {selectedShop[0].item_review.length !== 0 ? (<Shopreview reviewdata={selectedShop[0].item_review} />) : <h5>No review</h5>}
+
+            
+    
             </div>
 
         </Container>

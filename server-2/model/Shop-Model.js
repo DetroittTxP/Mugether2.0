@@ -17,6 +17,15 @@ const shop_model = mongoose.Schema({
             item_name:String,
             item_detail:String,
             item_price:Number,
+            item_review:{
+                 type:[{
+                    review_username:String,
+                    review_score:Number,
+                    review_detail:String,
+                    review_image:[String]
+                 }],
+                 default:[],
+            }
         }],
         default:[]
     },

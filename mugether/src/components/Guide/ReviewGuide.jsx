@@ -11,7 +11,7 @@ import ButtonBo from 'react-bootstrap/Button'
 import Carousel from 'react-bootstrap/Carousel';
 import { Muplace_Context } from '../../context/MuContext';
 
-const Add_Review = ({ reviewdata, check_finish, guideID }) => {
+const Add_Review = ({ reviewdata, check_finish, guideID ,updatereview}) => {
     const {SERVER_URL} = useContext(Muplace_Context)
     const username = localStorage.getItem('usr')
     const [review, Setreview] = useState({
@@ -36,8 +36,8 @@ const Add_Review = ({ reviewdata, check_finish, guideID }) => {
     
       Setreview(prevReview => ({
         ...prevReview,
-        reviewdetail: {
-          ...prevReview.reviewdetail,
+        review: {
+          ...prevReview.review,
           [e.target.name]: value,
         }
       }));
@@ -72,7 +72,7 @@ const Add_Review = ({ reviewdata, check_finish, guideID }) => {
   
     const onSubmit = async (e) => {
       e.preventDefault();
-      if (review.reviewdetail.score <= 0 || review.reviewdetail.score === null) {
+      if (review.score <= 0 || review.score === null) {
         return alert('rating must > 0')
       }
       Swal.fire({
@@ -94,16 +94,16 @@ const Add_Review = ({ reviewdata, check_finish, guideID }) => {
           //api upload / review / image
            
            for(let i = 0;i<image.length;i++){
-               formData.append('reviewImage', image[i]);
+               formData.append('reviewImg', image[i]);
            }
-           let uplaodimage = await axios.post(`http://localhost:5353/muplace/addreviewmuplace/image/${username}`, formData).catch(err => console.log(err));
-           imagedata = uplaodimage.data.imageName
-           
+           let uplaodimage = await axios.post(`${SERVER_URL}/guide_detail/review/upload/${guideID}`, formData).catch(err => console.log(err));
+           console.log(uplaodimage.data);
+           imagedata = uplaodimage.data.photos
         }
   
-     
+        
   
-        let res = await axios.post(`${SERVER_URL}/guide_detail/review/${guideID}`, {review:review,image:imagedata });
+        let res = await axios.post(`${SERVER_URL}/guide_detail/review/${guideID}`, {review:review.review,imagedata });
         Swal.close();
         
         await Swal.fire({
@@ -151,15 +151,14 @@ const Add_Review = ({ reviewdata, check_finish, guideID }) => {
             }
   
             <b style={{ fontSize: 20 }}>โปรดให้คะเเนน</b> <br />
-  
-            
-  
+          
             <Rating
               id='score'
               name="score"
               style={{ fontSize: 40 }}
               onChange={change}
             />
+            
             <Form.Group className="mb-3" controlId="detail" >
               <Form.Label><b style={{ fontSize: 20 }}>คำอธิบาย</b> </Form.Label>
               <Form.Control name='detail' onChange={change} as="textarea" rows={4} cols={100} />
@@ -178,7 +177,8 @@ const Add_Review = ({ reviewdata, check_finish, guideID }) => {
     )
   }
 
-export default function ReviewGuide({ reviewdata,guideID}) {
+
+export default function ReviewGuide({ reviewdata,guideID,}) {
     
     const {SERVER_URL} = useContext(Muplace_Context)
     const [currentPage, setCurrentPage] = useState(1);
@@ -188,7 +188,7 @@ export default function ReviewGuide({ reviewdata,guideID}) {
 
     const indexOfLastReview = currentPage * reviewsPerPage;
     const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
-    const currentReviews = detail.slice(indexOfFirstReview, indexOfLastReview);
+    let currentReviews = detail.slice(indexOfFirstReview, indexOfLastReview);
     const totalReviews = detail.length;
     const totalPages = Math.ceil(totalReviews / reviewsPerPage);
 
@@ -308,12 +308,18 @@ export default function ReviewGuide({ reviewdata,guideID}) {
         );
     };
 
+
+    const updateReview=(newdata)=>{
+         currentReviews = [...currentReviews,newdata]
+    }
+    
+
     return (
         <div className="review-container">
           {detail.length === 0 ? <h2>ไม่มีรีวิวขณะนี้</h2> :  Reviewd}
     
           {addreview ? (
-          <Add_Review check_finish={check_finish} guideID={guideID} />
+          <Add_Review updatereview={updateReview} check_finish={check_finish} guideID={guideID} />
         ) : (
           <>
             {currentReviews.map((data, index) => (
@@ -326,15 +332,15 @@ export default function ReviewGuide({ reviewdata,guideID}) {
                                 <p className="review-text">{data.detail}</p>
                             </div>
                         </div>
-                        {data.reviewImage && (
+                        {data.review_img && (
                             <div className='review-img'>
-                                {data.reviewImage.map((image, i) => (
+                                {data.review_img.map((image, i) => (
                                 <img 
                                     style={{width: '140px', height: '140px', cursor: 'zoom-in'}} 
                                     key={i} 
-                                    src={`http://localhost:5353/muplace/reviewimage/${data.username}/${image}`} 
+                                    src={`${SERVER_URL}/guide_detail/review/img/${guideID}/${image}`} 
                                     alt={`Review ${i}`}
-                                    onClick={() => openModal(`http://localhost:5353/muplace/reviewimage/${data.username}/${image}`)}
+                                    onClick={() => openModal(`${SERVER_URL}/guide_detail/review/img/${data.username}/${image}`)}
                                 />
                                 ))}
                             </div>
