@@ -11,8 +11,6 @@ import '../ReviewPage.css';
 import { Muplace_Context } from '../../context/MuContext';
 
 
-
-
 const Addshopreview=({ check_finish })=>{
   const {SERVER_URL} = useContext(Muplace_Context)
   const username = localStorage.getItem('usr')
@@ -316,7 +314,7 @@ export default function Shopreview({reviewdata}) {
 
   return (
     <div className="review-container">
-      {currentReviews.length === 0 ? <h2>ไม่มีรีวิวขณะนี้</h2> :  Reviewd}
+      {currentReviews.length === 0 ? <h3>ไม่มีรีวิวขณะนี้</h3> :  Reviewd}
 
       {addreview ? (
       <Addshopreview check_finish={check_finish} />

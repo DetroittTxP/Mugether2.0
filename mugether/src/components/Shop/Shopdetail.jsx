@@ -12,12 +12,12 @@ import SwalLoading from '../util/SwalLoading';
 import Shopreview from './Shopreview';
 import { Muplace_Context } from '../../context/MuContext';
 import { fontGrid } from '@mui/material/styles/cssUtils';
-
+import {useNavigate} from 'react-router-dom'
 
 
 export default function Shopdetail() {
     const { SERVER_URL } = useContext(Muplace_Context)
-
+    const navigate = useNavigate()
 
     const [shopdetail, Setshopdetail] = useState({
         shop_name: '',
@@ -100,13 +100,18 @@ export default function Shopdetail() {
             cancelButtonText: 'ไม่'
         }).then(async result => {
             if (result.isConfirmed) {
+           
                 console.log(id_user_shop);
-                let deleteproduct = await axios.delete(`${SERVER_URL}/shop/delete/${usr_id}/${shop_item_id}`)
-                console.log(deleteproduct.data);
+                let deleteproduct = await axios.delete(`${SERVER_URL}/shop/delete/${shop_id}/${shop_item_id}`)
+              
+                if(deleteproduct.data.status === 'ok'){
+                    Swal.fire({icon:'success',text:'deleted'})
+                     navigate('/shop')
+                }
+                
             }
         })
     }
-
     const pageUrl = window.location.href;
 
     return (
@@ -197,8 +202,8 @@ export default function Shopdetail() {
                 <h2>รีวิว</h2>
 
 
-               {selectedShop[0].item_review.length !== 0 ? (<Shopreview reviewdata={selectedShop[0].item_review} />) : <h5>No review</h5>}
-
+             <Shopreview reviewdata={selectedShop[0].item_review} />
+                            
             
     
             </div>

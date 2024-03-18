@@ -356,21 +356,24 @@ Shop.get('/:userID',async(req,res) => {
 
 
 //delete product
-Shop.delete('/delete/:id_user/:shop_item_id',async (req,res) => {
-     const {id_user,shop_item_id} = req.params;
+Shop.delete('/delete/:shop_id/:shop_item_id',async (req,res) => {
+
 
      try{
-            
-            let data = await db_shop.findOne({id_user:id_user})
+     
+            let filter = {_id:req.params.shop_id};
+            let remove = {$pull:{shop_items:{_id:req.params.shop_item_id}}};
 
-            if(id_user && id_user === data.id_user){
-                  console.log(data.id_user);
-                  console.log(id_user);
+       
+            let result = await db_shop.updateOne(filter,remove);
+            
+            if (result.modifiedCount === 0) {
+                return res.status(404).send({ message: "No item found with that ID in the shop." });
             }
 
-            return res.send(data.shop_items[0]._id)
-
-     }
+            return res.send({ status:'ok',msg:'deleted' });
+                
+     }  
      catch(err){  
           return res.json(err)
      }

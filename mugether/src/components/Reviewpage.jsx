@@ -192,6 +192,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
 export default function ReviewPage({ Muplace_name}) {
   const {SERVER_URL} = useContext(Muplace_Context)
   const pageStatus = localStorage.getItem('reviewStatus')
+  const username = localStorage.getItem('usr')
   const [detail, Setdetail] = useState([]);
   const [addreview, Setaddreview] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -347,7 +348,12 @@ export default function ReviewPage({ Muplace_name}) {
               <div key={index} className="review-item">
                 <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.username}`} alt={data.username} />
                 <div className="review-content">
-                  <h4 className="username">{data.username}  <ButtonBoot variant='danger'>ลบคอมเม้น</ButtonBoot></h4>
+               
+                        <h4 className="username">{data.username}
+                        
+                                   {username === data.username &&  <span id='delete-btn'><ButtonBoot variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
+                        </h4>
+                   
                 
                   <Rating className="rating" readOnly name='read-only' value={data.score} />
                   <p className="review-text">{data.detail}</p>
