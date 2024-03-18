@@ -13,7 +13,7 @@ import { Muplace_Context } from "../../context/MuContext";
 export default function Reg_guide() {
   const navigate = useNavigate();
   const userID = localStorage.getItem('usr_id');
-  const { muplace } = useContext(Muplace_Context);
+  const { muplace,SERVER_URL } = useContext(Muplace_Context);
   const file = useRef(null);
   const [guide, setguidedata] = useState(
     {

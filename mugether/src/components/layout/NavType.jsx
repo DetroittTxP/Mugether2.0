@@ -80,7 +80,7 @@ export default function NavType({SelectedTypeMu,show_guide,handleFav}) {
         className='justify-content-center'
         variant="underline"
         onSelect={(selectedKey) => {
-            console.log(selectedKey);
+          
             SelectedTypeMu(selectedKey);
             localStorage.setItem('type_mu', selectedKey)
           

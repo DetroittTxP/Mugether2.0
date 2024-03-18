@@ -29,7 +29,7 @@ export default function Mudetail({ showguide }) {
         localStorage.setItem("mudetail", "Mai me data");
       }
     }
-  },[Muplace, muplace]);
+  },[Muplace, muplace,localStorage.getItem('muplace')]);
 
   useEffect(() => {
     if (per_muplace !== "") {
@@ -38,7 +38,7 @@ export default function Mudetail({ showguide }) {
     } else {
       Setmuplace(localStorage.getItem("muplace"));
     }
-  }, [per_muplace]);
+  }, [per_muplace,localStorage.getItem('muplace')]);
 
   const pageUrl = window.location.href;
 

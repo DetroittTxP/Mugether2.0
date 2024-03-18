@@ -4,7 +4,10 @@ import './Guide_detail.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Muplace_Context } from '../../context/MuContext';
 import ReviewGuide from './ReviewGuide';
+
+
 export default function Guide_detail({ data }) {
+ 
   const muplace = localStorage.getItem('muplace');
   const [newdata,Setnewdata] = useState(data);
   const {SERVER_URL} = useContext(Muplace_Context)
@@ -31,6 +34,7 @@ export default function Guide_detail({ data }) {
         <Row>
           <Col md={5} className="main-image">
             <Image
+              onClick={() => console.log(data.id_guide)}
               src={`${SERVER_URL}/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[0]}`}
               alt="Main Image"
               className="big-image"
@@ -127,8 +131,8 @@ export default function Guide_detail({ data }) {
         <br/>
 
                 <h2><b>รีวิว</b></h2> 
-          
-                  <ReviewGuide reviewdata={data.guide_review}/>
+                  
+                  <ReviewGuide guideID={data.id_guide} reviewdata={data.guide_review}/>
        
 
       </div>

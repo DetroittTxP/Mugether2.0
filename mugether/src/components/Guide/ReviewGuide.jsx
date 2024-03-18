@@ -11,11 +11,11 @@ import ButtonBo from 'react-bootstrap/Button'
 import Carousel from 'react-bootstrap/Carousel';
 import { Muplace_Context } from '../../context/MuContext';
 
-const Add_Review = ({ reviewdata, check_finish }) => {
+const Add_Review = ({ reviewdata, check_finish, guideID }) => {
+    const {SERVER_URL} = useContext(Muplace_Context)
     const username = localStorage.getItem('usr')
     const [review, Setreview] = useState({
-      guidename: reviewdata,
-      reviewdetail: {
+      review: {
         username: localStorage.getItem('usr'),
         score: 0,
         detail: '',
@@ -23,7 +23,6 @@ const Add_Review = ({ reviewdata, check_finish }) => {
     });
     const [image,Setimage] = useState(null);
     const [imgsrc,Setimagesrc] = useState([]);  
-  
   
     const change = (e, newvalue) => {
   
@@ -34,7 +33,7 @@ const Add_Review = ({ reviewdata, check_finish }) => {
   
       }
       console.log(newvalue + e.target.name);
-  
+    
       Setreview(prevReview => ({
         ...prevReview,
         reviewdetail: {
@@ -56,13 +55,6 @@ const Add_Review = ({ reviewdata, check_finish }) => {
       }
   
       Setimage(files)
-      // Setreview(prev => ({
-      //       ...prev,
-      //       reviewdetail:{
-      //            ...prev.reviewdetail,
-      //            [event.target.id]:files
-      //       }
-      // }))
   
       files.forEach(img => {
            const reader = new FileReader();
@@ -104,14 +96,14 @@ const Add_Review = ({ reviewdata, check_finish }) => {
            for(let i = 0;i<image.length;i++){
                formData.append('reviewImage', image[i]);
            }
-           let uplaodimage = await axios.post(`http://localhost:5353/muplace/addreviewmuplace/image/${username}`, formData).catch(err => console.log(errr));
+           let uplaodimage = await axios.post(`http://localhost:5353/muplace/addreviewmuplace/image/${username}`, formData).catch(err => console.log(err));
            imagedata = uplaodimage.data.imageName
            
         }
   
      
   
-        let res = await axios.post('http://localhost:5353/muplace/addreviewmuplace', {guide_review:review,image:imagedata});
+        let res = await axios.post(`${SERVER_URL}/guide_detail/review/${guideID}`, {review:review,image:imagedata });
         Swal.close();
         
         await Swal.fire({
@@ -186,7 +178,8 @@ const Add_Review = ({ reviewdata, check_finish }) => {
     )
   }
 
-export default function ReviewGuide({ reviewdata, Muplace_name }) {
+export default function ReviewGuide({ reviewdata,guideID}) {
+    
     const {SERVER_URL} = useContext(Muplace_Context)
     const [currentPage, setCurrentPage] = useState(1);
     const reviewsPerPage = 5;
@@ -320,7 +313,7 @@ export default function ReviewGuide({ reviewdata, Muplace_name }) {
           {detail.length === 0 ? <h2>ไม่มีรีวิวขณะนี้</h2> :  Reviewd}
     
           {addreview ? (
-          <Add_Review check_finish={check_finish} Muplace_name={Muplace_name} />
+          <Add_Review check_finish={check_finish} guideID={guideID} />
         ) : (
           <>
             {currentReviews.map((data, index) => (

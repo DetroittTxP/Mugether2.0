@@ -14,6 +14,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
   const [List_Of_Mu, Setlistofmu] = useState([]);
   const [HeartCheck, Setheartcheck] = useState([]);
   const { muplace,SERVER_URL } = useContext(Muplace_Context);
+  const [tempmu,Settempmu] = useState('');
   const favstatus = JSON.parse(localStorage.getItem('fav'))
   useEffect(() => {
     let usr_id = localStorage.getItem('usr_id')
@@ -35,20 +36,22 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
       .catch((err) => alert(err));
   }, []);
 
+
   useEffect(() => {
+    if(!mu_type){
+        
+      Setlistofmu(muplace);
+      return;
+    }
+
     Setlistofmu(muplace);
-      console.log(mu_type);
       if(favstatus === false){
         Setlistofmu(prev => prev.filter(data => data.type === mu_type));
       }
       else{
         Setlistofmu(prev => prev.filter(data => data.type === mu_type && HeartCheck.includes(data.name)));
       }
-   
-
   }, [mu_type, favstatus, muplace]);
-
-
 
   const handleHeart = async (name) => {
     let updateFav;
@@ -88,6 +91,8 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
                   alt={data.name}
                   onClick={() => {
                     SelectedMuplace(data.name);
+                    
+                    
                     localStorage.setItem('showmap', data.name)
                     navigate("/mudetail");
                     Swal.fire({

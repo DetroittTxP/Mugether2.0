@@ -218,6 +218,7 @@ export default function Header({ handleFav,showguide}) {
             showguide(false);
             const fav  = JSON.parse(localStorage.getItem('fav'));
             localStorage.setItem('fav',false)
+            localStorage.removeItem('type_mu')
             handleFav(!fav)
           }}>
             <Image  rounded src={Logo} height={100} width={100} style={{ borderRadius: '50%'}} />
