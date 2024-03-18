@@ -1,7 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useContext } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Muplace_Context } from '../../context/MuContext';
 
 const SwalLoading = () => {
   Swal.fire({
@@ -18,6 +19,7 @@ const SwalLoading = () => {
 export default function Add_Shop() {
   const usrid = localStorage.getItem('usr_id');
   const file = useRef(null);
+  const {SERVER_URL} = useContext(Muplace_Context)
 
   const getIDshop = async (iduser) => {
     let res = await axios.get(`${SERVER_URL}/shop/${iduser}`);
