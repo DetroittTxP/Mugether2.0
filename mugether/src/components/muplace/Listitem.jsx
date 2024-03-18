@@ -54,28 +54,20 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
   }, [mu_type, favstatus, muplace]);
 
   const handleHeart = async (name) => {
-    let updateFav;
-    Setheartcheck(prev => {
-      if (prev.includes(name)) {
-        updateFav = prev.filter(item => item !== name);
-        return updateFav;
-      } else {
-        updateFav = [...prev, name];
-        return updateFav;
-      }
-    });
-
     try {
       SwalLoading();
-      let { data } = await axios.put(`${SERVER_URL}/user/add/favorite`, { updateFav, usrID })
-      console.log(data);
-      if (data.status === 'ok') {
-        Swal.close();
-      }
-    } catch (err) {
-      Swal.fire({ icon: 'error', text: err })
+      let updateFav;
+      if(HeartCheck.includes(name)) updateFav = HeartCheck.filter(item => item !== name);
+      else updateFav = [...HeartCheck, name];
+      Setheartcheck(updateFav);
+      const { data } = await axios.put(`${SERVER_URL}/user/add/favorite`, { updateFav, usrID });
+      if(data.status === 'ok') Swal.close();
+    } catch(err){
+      Swal.fire({ icon: 'error', text: err });
     }
   }
+
+
 
   return (
     <Container>
@@ -91,8 +83,6 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
                   alt={data.name}
                   onClick={() => {
                     SelectedMuplace(data.name);
-                    
-                    
                     localStorage.setItem('showmap', data.name)
                     navigate("/mudetail");
                     Swal.fire({
