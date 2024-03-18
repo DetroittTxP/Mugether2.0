@@ -197,8 +197,8 @@ export default function Reg_guide() {
 
           
 
-            <Button variant="primary" type="submit" className="submit-profile-btn">
-              Submit
+            <Button variant="warning" type="submit" >
+              สมัคร
             </Button>
           </Form>
         </Col>
