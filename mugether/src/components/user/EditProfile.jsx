@@ -136,7 +136,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 <Col>
                   <Form.Control
                     type={visible ? "text" : "password"}
-                    placeholder="🔒  "
+                    placeholder="🔒 Enter your password  "
                     onChange={onFormchange}
                   />
                   <div className="password-toggle-edit"
@@ -154,7 +154,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 <Col>
                   <Form.Control
                     type={visible ? "text" : "password"}
-                    placeholder="🔒  "
+                    placeholder="🔒 Enter your Re-password "
                   />
                   <div className="password-toggle-edit"
                     onClick={() => setvisible(!visible)}>
@@ -169,7 +169,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
               <Form.Label>email</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="✉️  "
+                placeholder="✉️  Enter your email"
                 onChange={onFormchange}
               />
             </Form.Group>
