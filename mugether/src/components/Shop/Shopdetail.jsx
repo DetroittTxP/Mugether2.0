@@ -187,9 +187,7 @@ export default function Shopdetail() {
                 <div className="shop-detail-item">
                     <FaEnvelope className="icon" /> <span>Email : {shopdetail.contact.email}</span>
                 </div>
-                <div className="map-container">
-                    <div className="map-placeholder">MAP</div>
-                </div>
+               
             </div>
 
             <div className='reviewshop'>

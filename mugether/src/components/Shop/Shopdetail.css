@@ -187,20 +187,7 @@
     margin-right: 10px;
 }
 
-.map-container {
-    width: 300px;
-    height: 200px;
-    background-color: #EAEAEA;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -200px;
-    margin-left: 900px;
-    margin-bottom: 50px;
-    text-align: center;
-    font-size: 24px;
-    
-}
+
 
 .map-placeholder {
     width: 100%;
@@ -213,10 +200,7 @@
         flex-direction: column;
     }
 
-    .map-container {
-        width: 100%;
-        margin-top: 0;
-    }
+   
 }
 
 .share-button{
