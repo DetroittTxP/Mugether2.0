@@ -100,12 +100,11 @@ const Addshopreview=({ check_finish })=>{
          for(let i = 0;i<image.length;i++){
              formData.append('reviewImage', image[i]);
          }
-         let uplaodimage = await axios.post(`http://localhost:5353/muplace/addreviewmuplace/image/${username}`, formData).catch(err => console.log(errr));
-         imagedata = uplaodimage.data.imageName
+         let uplaodimage = await axios.post(`${SERVER_URL}/shop/review/image/${shop_id}`, formData).catch(err => console.log(err));
+         console.log(uplaodimage.data);
+         imagedata = uplaodimage.data.photos
          
       }
-
-   
 
       let res = await axios.post(`${SERVER_URL}/shop/review/${shop_id}/${shop_item_id}`, {review:review.review,imagedata});
       Swal.close();
@@ -186,6 +185,7 @@ const Addshopreview=({ check_finish })=>{
 export default function Shopreview({reviewdata}) {
   console.log(reviewdata);
   const {SERVER_URL} = useContext(Muplace_Context);
+  const shop_id = localStorage.getItem('shop_id')
   const pageStatus = localStorage.getItem('reviewStatus')
   const [detail, Setdetail] = useState([]);
   const [addreview, Setaddreview] = useState(false);
@@ -323,6 +323,7 @@ export default function Shopreview({reviewdata}) {
     ) : (
       <>
         {currentReviews.map((data,i) => {
+          console.log(data);
           return(
             <>
               <div  className="review-item">
@@ -334,15 +335,15 @@ export default function Shopreview({reviewdata}) {
                   </div>
                 </div>
               <div/>
-              {data.reviewImage && (
+              {data.review_image && (
                 <div className='review-img'>
-                    {data.reviewImage.map((image, i) => (
+                    {data.review_image.map((image, i) => (
                       <img 
                         style={{width: '140px', height: '140px', cursor: 'zoom-in'}} 
                         key={i} 
-                        src={`http://localhost:5353/muplace/reviewimage/${data.username}/${image}`} 
+                        src={`${SERVER_URL}/shop/review/img/${shop_id}/${image}`} 
                         alt={`Review ${i}`}
-                        onClick={() => openModal(`http://localhost:5353/shop/reviewimage/${data.username}/${image}`)}
+                        onClick={() => openModal(`${SERVER_URL}/shop/reviewimage/${data.username}/${image}`)}
                       />
                     ))}
                 </div>

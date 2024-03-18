@@ -430,11 +430,20 @@ Shop.post('/review/:id_user/:item_id', async (req,res) => {
         console.log(err);
         return;
     }
-
- 
 })
 
+//getimage
+Shop.get('/review/img/:id_shop/:img_name',async (req,res) => {
+    const {id_shop,img_name} = req.params;
+     let dir = path.dirname(__dirname);
+     let filename = path.join(dir,"assets","shop",id_shop,"reviewImage",img_name);
 
+     if(!fs.existsSync(filename)){
+        return res.send('no image found from review img shop')
+    }  
+
+    return res.sendFile(filename);
+})
 
 
 
