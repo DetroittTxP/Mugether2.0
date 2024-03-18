@@ -49,6 +49,7 @@ export default function Mudetail({ showguide }) {
           <h1><b>{Muplace}</b></h1>
         </Col>
         <Col xs="auto" className="share-button-col">
+          
           <ShareButton url={pageUrl} />
         </Col>
       </Row>

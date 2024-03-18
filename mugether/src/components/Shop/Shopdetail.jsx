@@ -1,21 +1,23 @@
-import React, { useEffect, useState,useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import { FaHeart, FaClock, FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import ShareButton from "../layout/ShareButton";
 
 import './Shopdetail.css';
 import SwalLoading from '../util/SwalLoading';
 import Shopreview from './Shopreview';
 import { Muplace_Context } from '../../context/MuContext';
+import { fontGrid } from '@mui/material/styles/cssUtils';
 
 
 
 export default function Shopdetail() {
-   const {SERVER_URL} = useContext(Muplace_Context)
-   
+    const { SERVER_URL } = useContext(Muplace_Context)
+
 
     const [shopdetail, Setshopdetail] = useState({
         shop_name: '',
@@ -45,14 +47,14 @@ export default function Shopdetail() {
     const usr_id = localStorage.getItem('usr_id');
     const id_user_shop = localStorage.getItem('id_user')
     const [item_img, setitemimage] = useState([]);
-    const [selectedShop,Setselectedshop] = useState([{
-         item_name:'',
-         item_price:'',
-         item_detail:'',
-         item_linkurl:''
-    
+    const [selectedShop, Setselectedshop] = useState([{
+        item_name: '',
+        item_price: '',
+        item_detail: '',
+        item_linkurl: ''
+
     }]);
-    const [reviewThisItem,Setreviewthis] = useState([])
+    const [reviewThisItem, Setreviewthis] = useState([])
 
     const Owner = usr_id === id_user_shop
 
@@ -70,42 +72,45 @@ export default function Shopdetail() {
 
                 let filter = res.data.shop_items.filter(data => data._id === shop_item_id);
                 Setselectedshop(res.data.shop_items.filter((data) => data._id === shop_item_id))
-             
-             
+
+
                 setitemimage(() => {
-                     let data = res.data.shop_items.filter((data) => data._id === shop_item_id);
-                     return data[0].item_photo
-                     
+                    let data = res.data.shop_items.filter((data) => data._id === shop_item_id);
+                    return data[0].item_photo
+
                 })
 
                 Setreviewthis(res.data.shop_review);
-                
+
                 Swal.close();
             })
             .catch(err => alert("error"))
     }, [])
 
-    const handleDelete=()=>{
-        
-              Swal.fire({
-                  icon:'question',
-                  text:'ต้องการลบสินค้านี้ใช่หรือไม่',
-                  showCancelButton:true,
-                  confirmButtonText:'ใช่',
-                  cancelButtonText:'ไม่'
-              }).then( async result=>{
-                  if(result.isConfirmed){
-                         console.log(id_user_shop);
-                         let deleteproduct = await axios.delete(`${SERVER_URL}/shop/delete/${usr_id}/${shop_item_id}`) 
-                         console.log(deleteproduct.data);
-                  } 
-              })
+    const handleDelete = () => {
+
+        Swal.fire({
+            icon: 'question',
+            text: 'ต้องการลบสินค้านี้ใช่หรือไม่',
+            showCancelButton: true,
+            confirmButtonText: 'ใช่',
+            cancelButtonText: 'ไม่'
+        }).then(async result => {
+            if (result.isConfirmed) {
+                console.log(id_user_shop);
+                let deleteproduct = await axios.delete(`${SERVER_URL}/shop/delete/${usr_id}/${shop_item_id}`)
+                console.log(deleteproduct.data);
+            }
+        })
     }
+
+    const pageUrl = window.location.href;
 
     return (
         <Container className="mt-3">
             <Row>
                 <Col md={6}>
+
                     <Carousel indicators controls>
                         {item_img.map((image, index) => (
                             <Carousel.Item key={index}>
@@ -122,15 +127,19 @@ export default function Shopdetail() {
                 <Col md={6}>
                     <div className="description-box">
                         <h2>{selectedShop[0].item_name}</h2>
-                        { Owner &&  <Button variant='warning' onClick={handleDelete} className='button-delete'>ลบสินค้า</Button>}
+                        {Owner && <Button variant='warning' onClick={handleDelete} className='button-delete'>ลบสินค้า</Button>}
                         <p className="price">ราคา {selectedShop[0].item_price} ฿/ชิ้น</p>
                         <p>{shopdetail.contact.address}</p>
-                        <Button  className='Buttom-shop' href={selectedShop[0].item_linkurl}>ไปยังร้านค้า</Button>
+                        <Button className='Buttom-shop' href={selectedShop[0].item_linkurl}>ไปยังร้านค้า</Button>
 
                     </div>
                 </Col>
             </Row>
             <br />
+            <Col xs="auto" className="share-button">
+                <span> Share : </span>
+                <ShareButton url={pageUrl} />
+            </Col>
 
             <div className="store-info">
                 <div className="logo-container">
@@ -157,38 +166,38 @@ export default function Shopdetail() {
 
             <div className='description3'>
                 <h3>{selectedShop[0].item_detail}</h3>
-                
+
             </div>
-                            
-                <div className="info-shop-name">
-                    <h2>ข้อมูลร้านค้า</h2>
-                </div>
 
-                <div className="shop-details">
-                    <br />
-                    <div className="shop-detail-item">
-                        <FaClock className="icon" /> <span>เปิด - ปิด {shopdetail.shop_detail.opening} น.</span>
-                    </div>
-                    <div className="shop-detail-item">
-                        <FaMapMarkerAlt className="icon" /> <span>ที่อยู่ : {shopdetail.contact.address}</span>
-                    </div>
-                    <div className="shop-detail-item">
-                        <FaPhone className="icon" /> <span>เบอร์โทร : {shopdetail.contact.tel}</span>
-                    </div>
-                    <div className="shop-detail-item">
-                        <FaEnvelope className="icon" /> <span>Email : {shopdetail.contact.email}</span>
-                    </div>
-                    <div className="map-container">
-                        <div className="map-placeholder">MAP</div>
-                    </div>
-                </div>
+            <div className="info-shop-name">
+                <h2>ข้อมูลร้านค้า</h2>
+            </div>
 
-                <div className='reviewshop'>
-                    <h2>รีวิว</h2>
-                  
-                     { reviewThisItem.length != 0 &&  <Shopreview reviewdata={reviewThisItem}/>}
+            <div className="shop-details">
+                <br />
+                <div className="shop-detail-item">
+                    <FaClock className="icon" /> <span>เปิด - ปิด {shopdetail.shop_detail.opening} น.</span>
                 </div>
-            
+                <div className="shop-detail-item">
+                    <FaMapMarkerAlt className="icon" /> <span>ที่อยู่ : {shopdetail.contact.address}</span>
+                </div>
+                <div className="shop-detail-item">
+                    <FaPhone className="icon" /> <span>เบอร์โทร : {shopdetail.contact.tel}</span>
+                </div>
+                <div className="shop-detail-item">
+                    <FaEnvelope className="icon" /> <span>Email : {shopdetail.contact.email}</span>
+                </div>
+                <div className="map-container">
+                    <div className="map-placeholder">MAP</div>
+                </div>
+            </div>
+
+            <div className='reviewshop'>
+                <h2>รีวิว</h2>
+
+                {reviewThisItem.length != 0 && <Shopreview reviewdata={reviewThisItem} />}
+            </div>
+
         </Container>
     );
 }
