@@ -347,17 +347,17 @@ export default function ReviewPage({ Muplace_name}) {
             <> 
               <div key={index} className="review-item">
                 <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.username}`} alt={data.username} />
-                <div className="review-content">
-               
-                        <h4 className="username">{data.username}
-                        
-                                   {username === data.username &&  <span id='delete-btn'><ButtonBoot variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
-                        </h4>
-                   
                 
-                  <Rating className="rating" readOnly name='read-only' value={data.score} />
-                  <p className="review-text">{data.detail}</p>
-                </div>
+                <div className="review-content">
+                  <div className="header">
+                      <h4 className="username">{data.username}</h4>
+                      <div className='delete-comment'>
+                        {username === data.username &&  <span id='delete-btn'><ButtonBoot variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
+                      </div>
+                    </div>
+                    <Rating className="rating" readOnly name='read-only' value={data.score} />
+                    <p className="review-text">{data.detail}</p>
+                  </div>
               </div>
               {data.reviewImage && (
                 <div className='review-img'>
