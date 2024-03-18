@@ -221,6 +221,7 @@ export default function Header({ handleFav, showguide }) {
             localStorage.setItem('fav', false)
             localStorage.removeItem('type_mu')
             handleFav(!fav)
+            window.location.reload();
           }}>
             <Image rounded src={Logo} height={100} width={100} style={{ borderRadius: '50%' }} />
           </Navbar.Brand>
