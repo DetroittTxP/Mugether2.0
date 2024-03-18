@@ -34,6 +34,8 @@ export default function Add_Shop() {
     item_name: '',
     item_detail: '',
     item_price: 0,
+    item_linkurl:''
+
   });
 
   const [image, setImage] = useState([]);
@@ -76,6 +78,7 @@ export default function Add_Shop() {
         item_name: '',
         item_detail: '',
         item_price: 0,
+        item_linkurl:'',
       });
       file.current.value = null;
       setImage([]);
@@ -138,10 +141,22 @@ export default function Add_Shop() {
               />
             </Form.Group>
 
-            <br />
+            <br/>
+            <Form.Group controlId="item_linkurl">
+              <Form.Label>ลิ้งค์สินค้า</Form.Label>
+              <Form.Control
+                type="url"
+                placeholder="ลิ้งค์ไปยังสินค้า"
+                onChange={onFormChange}
+                value={shop_item.item_linkurl}
+                required
+              />
+            </Form.Group>
 
-            <Button variant="primary" type="submit" className="submit-profile-btn">
-              Submit
+            <br/>
+
+            <Button variant="warning" type="submit">
+              เพิ่มสินค้า
             </Button>
           </Form>
         </Col>

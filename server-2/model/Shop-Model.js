@@ -17,6 +17,10 @@ const shop_model = mongoose.Schema({
             item_name:String,
             item_detail:String,
             item_price:Number,
+            item_linkurl:{
+                type:String,
+                default:''
+            },
             item_review:{
                  type:[{
                     review_username:String,
@@ -25,6 +29,7 @@ const shop_model = mongoose.Schema({
                     review_image:[String]
                  }],
                  default:[],
+
             }
         }],
         default:[]

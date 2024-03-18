@@ -105,7 +105,7 @@ export default function Shopdetail() {
                 let deleteproduct = await axios.delete(`${SERVER_URL}/shop/delete/${shop_id}/${shop_item_id}`)
               
                 if(deleteproduct.data.status === 'ok'){
-                    Swal.fire({icon:'success',text:'deleted'})
+                    Swal.fire({icon:'success',text:'ลบสินค้าสำเร็จ'})
                      navigate('/shop')
                 }
                 
