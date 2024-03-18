@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import axios from 'axios';
 import Rating from '@mui/material/Rating';
 import { Button, Input } from 'antd'
+import ButtonBoot from 'react-bootstrap/Button'
 import './ReviewPage.css';
 import { Form,Image } from 'react-bootstrap'
 import Swal from 'sweetalert2'
@@ -10,8 +11,10 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ButtonBo from 'react-bootstrap/Button'
 import Carousel from 'react-bootstrap/Carousel';
+import {Muplace_Context} from '../context/MuContext'
 
 const Add_Review = ({ Muplace_name, check_finish }) => {
+  const {SERVER_URL} = useContext(Muplace_Context)
   const username = localStorage.getItem('usr')
   const [review, Setreview] = useState({
     muplacename: Muplace_name,
@@ -104,14 +107,14 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
          for(let i = 0;i<image.length;i++){
              formData.append('reviewImage', image[i]);
          }
-         let uplaodimage = await axios.post(`http://localhost:5353/muplace/addreviewmuplace/image/${username}`, formData).catch(err => console.log(errr));
+         let uplaodimage = await axios.post(`${SERVER_URL}/muplace/addreviewmuplace/image/${username}`, formData).catch(err => console.log(errr));
          imagedata = uplaodimage.data.imageName
          
       }
 
    
 
-      let res = await axios.post('http://localhost:5353/muplace/addreviewmuplace', {review:review,image:imagedata});
+      let res = await axios.post(`${SERVER_URL}/muplace/addreviewmuplace`, {review:review,image:imagedata});
       Swal.close();
       
       await Swal.fire({
@@ -187,6 +190,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
 }
 
 export default function ReviewPage({ Muplace_name}) {
+  const {SERVER_URL} = useContext(Muplace_Context)
   const pageStatus = localStorage.getItem('reviewStatus')
   const [detail, Setdetail] = useState([]);
   const [addreview, Setaddreview] = useState(false);
@@ -209,7 +213,7 @@ export default function ReviewPage({ Muplace_name}) {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:5353/muplace/mudata/${Muplace_name}`)
+    axios.get(`${SERVER_URL}/muplace/mudata/${Muplace_name}`)
       .then((res) => {
         Setdetail(res.data[0].review);
       })
@@ -341,9 +345,10 @@ export default function ReviewPage({ Muplace_name}) {
           return (
             <> 
               <div key={index} className="review-item">
-                <img className="avatar" src={`http://localhost:5353/image/user/profile/${data.username}`} alt={data.username} />
+                <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.username}`} alt={data.username} />
                 <div className="review-content">
-                  <h4 className="username">{data.username}</h4>
+                  <h4 className="username">{data.username}  <ButtonBoot variant='danger'>ลบคอมเม้น</ButtonBoot></h4>
+                
                   <Rating className="rating" readOnly name='read-only' value={data.score} />
                   <p className="review-text">{data.detail}</p>
                 </div>
@@ -354,9 +359,9 @@ export default function ReviewPage({ Muplace_name}) {
                       <img 
                         style={{width: '140px', height: '140px', cursor: 'zoom-in'}} 
                         key={i} 
-                        src={`http://localhost:5353/muplace/reviewimage/${data.username}/${image}`} 
+                        src={`${SERVER_URL}/muplace/reviewimage/${data.username}/${image}`} 
                         alt={`Review ${i}`}
-                        onClick={() => openModal(`http://localhost:5353/muplace/reviewimage/${data.username}/${image}`)}
+                        onClick={() => openModal(`${SERVER_URL}/muplace/reviewimage/${data.username}/${image}`)}
                       />
                     ))}
                 </div>
