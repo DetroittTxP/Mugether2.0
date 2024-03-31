@@ -40,7 +40,7 @@ usr.post('/login', async (req,res) => {
              {
                 return res.send({
                     status:"error",
-                    message:'error wrond password'
+                    message:'Incorrect Password'
                 })
              }
         });
