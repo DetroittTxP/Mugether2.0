@@ -84,6 +84,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
                   onClick={() => {
                     SelectedMuplace(data.name);
                     localStorage.setItem('showmap', data.name)
+                    localStorage.setItem('muplace',data.name)
                     navigate("/mudetail");
                     Swal.fire({
                       title: 'Loading...',

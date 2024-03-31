@@ -77,6 +77,8 @@ const [listshop,Setlistshop] = useState([]);
       localStorage.removeItem('shop_item_id');
       localStorage.removeItem('shop');
       localStorage.removeItem('guide');
+      localStorage.removeItem('fav');
+  
       setLogoutAlertShown(true); // Ensure the alert is only shown once
     }
   });

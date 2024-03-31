@@ -10,7 +10,11 @@ const Muplace_Schema = mongoose.Schema({
     type:String,
     lat:Number,
     long:Number,
-    review:[]
+    review:[],
+    video_url:{
+        type:String,
+        default:''
+    }
 })
 
 

@@ -315,7 +315,7 @@ export default function ReviewGuide({ reviewdata,guideID,}) {
          currentReviews = [...currentReviews,newdata]
     }
     
-    const onDeletereview=async(usr_name)=>{
+    const onDeletereview=async(usr_name,id_review)=>{
       Swal.fire({
         icon:'question',
         showConfirmButton:true,
@@ -324,7 +324,7 @@ export default function ReviewGuide({ reviewdata,guideID,}) {
    
       }).then(async result => {
          if(result.isConfirmed){
-               let remove = await axios.delete(`${SERVER_URL}/muplace/delete/review/${reviewdata}/${usr_name}`) 
+               let remove = await axios.delete(`${SERVER_URL}/guide_detail/delete/review/${guideID}/${id_review}`) 
                if(remove.data){
                     Swal.fire({icon:'success',text:'ลบข้อความเรียบร้อย'})
                }
@@ -351,7 +351,7 @@ export default function ReviewGuide({ reviewdata,guideID,}) {
                             <div className="header">
                               <h4 className="username">{data.username}</h4>
                                 <div className='delete-comment-guide'>
-                                  {username === data.username &&  <span id='delete-btn'><ButtonBoot onClick={() => onDeletereview(data.username)} variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
+                                  {username === data.username &&  <span id='delete-btn'><ButtonBoot onClick={() => onDeletereview(data.username,data._id)} variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
                                 </div>
                             </div>
                             <Rating className="rating" readOnly name='read-only' value={data.score} />

@@ -290,35 +290,30 @@ Guide_detail.post('/review/upload/:id_guide',upload_review_guide.array('reviewIm
 
 
 //review api for guide
-Guide_detail.post('/review/:id_guide', async (req,res) =>{
+Guide_detail.post('/review/:id_guide/:id_post', async (req,res) =>{
 
      try{
-          console.log(req.body);
-          const {review,imagedata} = req.body
-          let datatoinset = {
-                username:review.username,
-                score:review.score,
-                detail:review.detail,
-                review_img:imagedata
-          }
+          console.log(req.params);
+          // console.log(req.body);
+          // const {review,imagedata} = req.body
+          // let datatoinset = {
+          //       username:review.username,
+          //       score:review.score,
+          //       detail:review.detail,
+          //       review_img:imagedata
+          // }
           
-    
-          let filter = {id_guide: req.params.id_guide}
+          // let filter = {id_guide: req.params.id_guide}
+          // let pushreview = await db.findOneAndUpdate(filter,{
+          //      $push:{guide_review:datatoinset}
+          // })
 
-          let pushreview = await db.findOneAndUpdate(filter,{
-               $push:{guide_review:datatoinset}
-          })
-
-          console.log(pushreview);
-          return res.json(pushreview)
+          return res.json('')
 
      }
      catch(err){
           return res.send({stattus:'error',err})
-     }
-
-
-    
+     } 
 })
 
 //get review image
@@ -347,19 +342,21 @@ Guide_detail.get('/exp/img/:id_guide/:img_name',(req,res) => {
 
 
 //delete review guide
-Guide_detail.delete('/delete/review/:id_guide/:username', 
+Guide_detail.delete('/delete/review/:id_guide/:id_review', 
      async (req,res) => {
-               
+             
                try{
-                    const {username} = req.params;
-                    let filter = {};
+                    console.log(req.params);
+                    const {id_guide,id_review} = req.params;
+                    let filter = {id_guide:id_guide};
                     let datatoremove = {
                          $pull:{
-                              guide_review:{username:username}
+                              guide_review:{_id:id_review}
                          }
                     }
-
-                    //query later
+                    let deletereview = await db.updateOne(filter,datatoremove)
+                    console.log(deletereview);
+                    return res.json(deletereview)
                }
                catch(err){
                     return res.send(err);

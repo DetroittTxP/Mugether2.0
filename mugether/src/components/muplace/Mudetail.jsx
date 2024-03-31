@@ -9,6 +9,7 @@ import List_guide from "../Guide/List_guide";
 import Map from "../util/Map";
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
 import { ArrowDropDown } from '@mui/icons-material'
+import ReactPlayer from 'react-player'
 
 export default function Mudetail({ showguide }) {
   const [Muplace, Setmuplace] = useState(localStorage.getItem("muplace"));
@@ -17,13 +18,16 @@ export default function Mudetail({ showguide }) {
     const storedDetail = localStorage.getItem("mudetail");
     return storedDetail !== null ? storedDetail : "Mai me data";
   });
-  
+  const [video_url,Setvidourl] = useState('#')
+
   useEffect(() =>{
     if(muplace.length !== 0){
       let detail = muplace.filter(data => data.name === Muplace);
       if (detail[0].place_detail !== undefined) {
         Setmudetail(detail[0].place_detail);
         localStorage.setItem("mudetail", detail[0].place_detail);
+        Setvidourl(detail[0].video_url)
+
       }else{
         Setmudetail("Mai me data"); 
         localStorage.setItem("mudetail", "Mai me data");
@@ -119,6 +123,10 @@ export default function Mudetail({ showguide }) {
         <AccordionDetails>
           <div className="detail" style={{ zIndex: 0 }}>
             <h5>{mudetail}</h5>
+          </div>
+
+          <div>
+             { video_url !== '#' &&  <ReactPlayer url={(video_url || '#')} />}
           </div>
         </AccordionDetails>
       </Accordion>}

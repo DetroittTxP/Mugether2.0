@@ -421,7 +421,7 @@ Shop.post('/review/:id_user/:item_id', async (req,res) => {
                {
                  $push:{'shop_items.$.item_review':newupdate}
                },              
-         )
+         ) 
 
         console.log(data);
          return res.json(data)
@@ -447,7 +447,7 @@ Shop.get('/review/img/:id_shop/:img_name',async (req,res) => {
 
 
 //delete shop
-Shop.delete('/delete/review/:id_shop/:username',
+Shop.delete('/delete/review/:id_shop/:id_post/:',
     async (req,res) => {
          try{
             const {username} = req.params;
@@ -457,7 +457,6 @@ Shop.delete('/delete/review/:id_shop/:username',
                     shop_review:{username:username}
                  }
              }
-
              
          }
          catch(err){

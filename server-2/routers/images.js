@@ -27,7 +27,6 @@ img.get('/mu/:place_name/:id',async (req,res) => {
         else{
             return res.sendFile(photo_file)
         }
-    
      }
      catch(err){
          return res.send(err)
@@ -126,9 +125,6 @@ img.get('/guide/profile/:username/:imgname', async (req,res) => {
         if(imgname === 'profile_temp.png'){
             imagesFile = path.join(dir_,"assets","guide",'temp_profile',imgname);
         }
-
-        
-        
         res.sendFile(imagesFile)
         
     }
@@ -136,8 +132,6 @@ img.get('/guide/profile/:username/:imgname', async (req,res) => {
     {
         console.log(err);
     }
-
 })
-
 
 module.exports = img;

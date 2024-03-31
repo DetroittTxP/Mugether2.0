@@ -20,10 +20,17 @@ const guide_detail = monggose.Schema({
              postPhotos:[String],
              postActivity:[String],
              experience_img:[String],
+             postReview:{type:[{
+               username:String,
+               score:Number,
+               detail:String,
+               review_img:[] 
+          }],
+          default:[]},
         }],
         default:[]
      },
-    
+
      guide_review:{type:[{
           username:String,
           score:Number,
@@ -35,3 +42,4 @@ const guide_detail = monggose.Schema({
 })
 
 module.exports =monggose.model('guide_detail', guide_detail);
+
