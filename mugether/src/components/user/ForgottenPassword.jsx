@@ -63,7 +63,7 @@ export default function ForgottenPassword() {
                  if(updatepass.data.status !== 'ok'){
                      return Swal.fire({text:'error'})
                  }else{
-                    return Swal.fire({icon:'success',text:'successs'})
+                    return Swal.fire({icon:'success',text:'Change Password Success'})
                  }
              }
         }
