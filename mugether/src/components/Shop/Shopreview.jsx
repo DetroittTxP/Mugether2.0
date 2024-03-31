@@ -7,8 +7,9 @@ import Swal from 'sweetalert2'
 import { IconButton } from '@mui/material';
 import ButtonBo from 'react-bootstrap/Button'
 import Carousel from 'react-bootstrap/Carousel';
-import '../ReviewPage.css';
 import { Muplace_Context } from '../../context/MuContext';
+import ButtonBoot from 'react-bootstrap/Button'
+import './Shopreview.css'
 
 
 const Addshopreview=({ check_finish })=>{
@@ -301,6 +302,26 @@ export default function Shopreview({reviewdata}) {
     document.querySelector('.modal').style.display = 'none';
   };
 
+  const onDeletereview=async(usr_name)=>{
+    Swal.fire({
+      icon:'question',
+      showConfirmButton:true,
+      showCancelButton:true,
+      text:'ต้องการลบคอมเม้น ? ',
+ 
+    }).then(async result => {
+       if(result.isConfirmed){
+             let remove = await axios.delete(`${SERVER_URL}/muplace/delete/review/${reviewdata}/${usr_name}`) 
+             if(remove.data){
+                  Swal.fire({icon:'success',text:'ลบข้อความเรียบร้อย'})
+             }
+       }
+    })
+    .catch(err => {
+         alert(err)
+    })
+  }
+
   const renderModal = () => {
     if (!isModalOpen) return null;
     
@@ -311,6 +332,8 @@ export default function Shopreview({reviewdata}) {
       </div>
     );
   };
+
+  
 
   return (
     <div className="review-container">
@@ -324,15 +347,19 @@ export default function Shopreview({reviewdata}) {
           console.log(data);
           return(
             <>
-              <div  className="review-item">
-                <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.review_username}`} alt='profile image' />
-                  <div className="review-content">
+              <div className="review-item">
+                <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.review_username}`} alt={data.review_username} />
+                <div className="review-content">
+                  <div className="header">
                     <h4 className="username">{data.review_username}</h4>
-                    <Rating className="rating" readOnly name='read-only' value={data.review_score} />
-                    <p className="review-text">{data.review_detail}</p>
+                    <div className='delete-comment'>
+                      {usr === data.review_username &&  <span id='delete-btn'><ButtonBoot onClick={() => onDeletereview(data.review_username)} variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
+                    </div>
                   </div>
+                  <Rating className="rating" readOnly name='read-only' value={data.review_score} />
+                  <p className="review-text">{data.review_detail}</p>
                 </div>
-              <div/>
+              </div>
               {data.review_image && (
                 <div className='review-img'>
                     {data.review_image.map((image, i) => (

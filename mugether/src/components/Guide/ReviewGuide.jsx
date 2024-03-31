@@ -10,6 +10,8 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ButtonBo from 'react-bootstrap/Button'
 import Carousel from 'react-bootstrap/Carousel';
 import { Muplace_Context } from '../../context/MuContext';
+import ButtonBoot from 'react-bootstrap/Button'
+import './Reviewguide.css';
 
 const Add_Review = ({ reviewdata, check_finish, guideID ,updatereview}) => {
     const {SERVER_URL} = useContext(Muplace_Context)
@@ -67,8 +69,8 @@ const Add_Review = ({ reviewdata, check_finish, guideID ,updatereview}) => {
            reader.readAsDataURL(img);
       })
     }
-  
-  
+
+    
   
     const onSubmit = async (e) => {
       e.preventDefault();
@@ -185,7 +187,7 @@ export default function ReviewGuide({ reviewdata,guideID,}) {
     const reviewsPerPage = 5;
     const [detail, Setdetail] = useState(reviewdata);
     const [addreview, Setaddreview] = useState(false);
-
+    const username = localStorage.getItem('usr') 
     const indexOfLastReview = currentPage * reviewsPerPage;
     const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
     let currentReviews = detail.slice(indexOfFirstReview, indexOfLastReview);
@@ -313,6 +315,25 @@ export default function ReviewGuide({ reviewdata,guideID,}) {
          currentReviews = [...currentReviews,newdata]
     }
     
+    const onDeletereview=async(usr_name)=>{
+      Swal.fire({
+        icon:'question',
+        showConfirmButton:true,
+        showCancelButton:true,
+        text:'ต้องการลบคอมเม้น ? ',
+   
+      }).then(async result => {
+         if(result.isConfirmed){
+               let remove = await axios.delete(`${SERVER_URL}/muplace/delete/review/${reviewdata}/${usr_name}`) 
+               if(remove.data){
+                    Swal.fire({icon:'success',text:'ลบข้อความเรียบร้อย'})
+               }
+         }
+      })
+      .catch(err => {
+           alert(err)
+      })
+    } 
 
     return (
         <div className="review-container">
@@ -325,12 +346,17 @@ export default function ReviewGuide({ reviewdata,guideID,}) {
             {currentReviews.map((data, index) => (
                     <>
                         <div key={index} className="review-item">
-                            <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.username}`} alt={data.username} />
-                            <div className="review-content">
-                                <h4 className="username">{data.username}</h4>
-                                <Rating className="rating" readOnly name='read-only' value={data.score} />
-                                <p className="review-text">{data.detail}</p>
+                          <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.username}`} alt={data.username} />
+                          <div className="review-content">
+                            <div className="header">
+                              <h4 className="username">{data.username}</h4>
+                                <div className='delete-comment'>
+                                  {username === data.username &&  <span id='delete-btn'><ButtonBoot onClick={() => onDeletereview(data.username)} variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
+                                </div>
                             </div>
+                            <Rating className="rating" readOnly name='read-only' value={data.score} />
+                            <p className="review-text">{data.detail}</p>
+                          </div>
                         </div>
                         {data.review_img && (
                             <div className='review-img'>
