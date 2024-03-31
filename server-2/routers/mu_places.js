@@ -111,6 +111,27 @@ mu.post('/addreviewmuplace/',async (req,res) => {
 
 
 
+//delete review
+mu.delete('/delete/review/:muplace/:username', async (req,res) => {
+     const {muplace,username} = req.params;
+
+     try{   
+            let filtermu = {name:muplace};
+            let datatoremove = {
+                   $pull:{
+                      review:{username:username}
+                   }
+            }
+            let deletereview = await mu_place.updateOne(filtermu,datatoremove)
+            return res.json(deletereview)
+     }
+     catch(err){
+        return res.send(err)
+     }
+})
+
+
+
 
 
 

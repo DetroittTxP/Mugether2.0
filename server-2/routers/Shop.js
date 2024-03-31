@@ -370,9 +370,7 @@ Shop.delete('/delete/:shop_id/:shop_item_id',async (req,res) => {
             if (result.modifiedCount === 0) {
                 return res.status(404).send({ message: "No item found with that ID in the shop." });
             }
-
             return res.send({ status:'ok',msg:'deleted' });
-                
      }  
      catch(err){  
           return res.json(err)
@@ -408,7 +406,6 @@ Shop.post('/review/:id_user/:item_id', async (req,res) => {
     const {id_user,item_id} = req.params;
 
     try{
-        console.log(req.body);
 
          let newupdate = {
               review_username:req.body.review.username,
@@ -447,6 +444,28 @@ Shop.get('/review/img/:id_shop/:img_name',async (req,res) => {
 
     return res.sendFile(filename);
 })
+
+
+//delete shop
+Shop.delete('/delete/review/:id_shop/:username',
+    async (req,res) => {
+         try{
+            const {username} = req.params;
+             let filter = {};
+             let datatoremove = {
+                 $pull:{
+                    shop_review:{username:username}
+                 }
+             }
+
+             
+         }
+         catch(err){
+            return res.send(err);
+         }
+    }
+
+)
 
 
 

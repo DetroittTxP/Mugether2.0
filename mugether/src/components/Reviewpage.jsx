@@ -332,6 +332,26 @@ export default function ReviewPage({ Muplace_name}) {
     );
   };
 
+  const onDeletereview=async(usr_name)=>{
+      Swal.fire({
+        icon:'question',
+        showConfirmButton:true,
+        showCancelButton:true,
+        text:'ต้องการลบคอมเม้น ? ',
+   
+      }).then(async result => {
+         if(result.isConfirmed){
+               let remove = await axios.delete(`${SERVER_URL}/muplace/delete/review/${Muplace_name}/${usr_name}`) 
+               if(remove.data){
+                    Swal.fire({icon:'success',text:'ลบข้อความเรียบร้อย'})
+               }
+         }
+      })
+      .catch(err => {
+           alert(err)
+      })
+  } 
+
    
   return (
     <div className="review-container">
@@ -345,6 +365,7 @@ export default function ReviewPage({ Muplace_name}) {
         {currentReviews.map((data, index) => {
           return (
             <> 
+              
               <div key={index} className="review-item">
                 <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.username}`} alt={data.username} />
                 
@@ -352,7 +373,7 @@ export default function ReviewPage({ Muplace_name}) {
                   <div className="header">
                       <h4 className="username">{data.username}</h4>
                       <div className='delete-comment'>
-                        {username === data.username &&  <span id='delete-btn'><ButtonBoot variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
+                        {username === data.username &&  <span id='delete-btn'><ButtonBoot onClick={() => onDeletereview(data.username)} variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
                       </div>
                     </div>
                     <Rating className="rating" readOnly name='read-only' value={data.score} />
@@ -371,7 +392,9 @@ export default function ReviewPage({ Muplace_name}) {
                       />
                     ))}
                 </div>
-              )}
+              )
+              }
+              <hr/>
             </>
           );
         })}

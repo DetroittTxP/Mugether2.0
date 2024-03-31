@@ -321,7 +321,7 @@ Guide_detail.post('/review/:id_guide', async (req,res) =>{
     
 })
 
-
+//get review image
 Guide_detail.get('/review/img/:id_guide/:img_name',async (req,res) => {
      const {id_guide,img_name} = req.params
      let dir = path.dirname(__dirname);
@@ -332,7 +332,7 @@ Guide_detail.get('/review/img/:id_guide/:img_name',async (req,res) => {
       return res.sendFile(img)
 })
 
-
+//get expricene img
 Guide_detail.get('/exp/img/:id_guide/:img_name',(req,res) => {
       const {id_guide,img_name} = req.params
       let dir = path.dirname(__dirname);
@@ -344,6 +344,28 @@ Guide_detail.get('/exp/img/:id_guide/:img_name',(req,res) => {
 
       return res.sendFile(img)
 })
+
+
+//delete review guide
+Guide_detail.delete('/delete/review/:id_guide/:username', 
+     async (req,res) => {
+               
+               try{
+                    const {username} = req.params;
+                    let filter = {};
+                    let datatoremove = {
+                         $pull:{
+                              guide_review:{username:username}
+                         }
+                    }
+
+                    //query later
+               }
+               catch(err){
+                    return res.send(err);
+               }
+     }
+)
 
 
 module.exports = Guide_detail;
