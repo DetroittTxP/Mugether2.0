@@ -350,7 +350,7 @@ export default function ReviewGuide({ reviewdata,guideID,}) {
                           <div className="review-content">
                             <div className="header">
                               <h4 className="username">{data.username}</h4>
-                                <div className='delete-comment'>
+                                <div className='delete-comment-guide'>
                                   {username === data.username &&  <span id='delete-btn'><ButtonBoot onClick={() => onDeletereview(data.username)} variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
                                 </div>
                             </div>

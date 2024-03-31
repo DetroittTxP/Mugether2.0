@@ -371,14 +371,14 @@ export default function ReviewPage({ Muplace_name}) {
                 
                 <div className="review-content">
                   <div className="header">
-                      <h4 className="username">{data.username}</h4>
+                    <h4 className="username">{data.username}</h4>
                       <div className='delete-comment'>
                         {username === data.username &&  <span id='delete-btn'><ButtonBoot onClick={() => onDeletereview(data.username)} variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
                       </div>
-                    </div>
-                    <Rating className="rating" readOnly name='read-only' value={data.score} />
-                    <p className="review-text">{data.detail}</p>
                   </div>
+                  <Rating className="rating" readOnly name='read-only' value={data.score} />
+                  <p className="review-text">{data.detail}</p>
+                </div>
               </div>
               {data.reviewImage && (
                 <div className='review-img'>

@@ -352,7 +352,7 @@ export default function Shopreview({reviewdata}) {
                 <div className="review-content">
                   <div className="header">
                     <h4 className="username">{data.review_username}</h4>
-                    <div className='delete-comment'>
+                    <div className='delete-comment-shop'>
                       {usr === data.review_username &&  <span id='delete-btn'><ButtonBoot onClick={() => onDeletereview(data.review_username)} variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
                     </div>
                   </div>
