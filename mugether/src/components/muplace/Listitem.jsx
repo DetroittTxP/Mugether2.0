@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import SwalLoading from "../util/SwalLoading";
 import './listitem.css'
+
 export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
   const navigate = useNavigate();
   const mu_type = localStorage.getItem('type_mu');
@@ -16,6 +17,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
   const { muplace,SERVER_URL } = useContext(Muplace_Context);
   const [tempmu,Settempmu] = useState('');
   const favstatus = JSON.parse(localStorage.getItem('fav'))
+  console.log(favstatus);
   useEffect(() => {
     let usr_id = localStorage.getItem('usr_id')
 
@@ -36,11 +38,14 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
       .catch((err) => alert(err));
   }, []);
 
-
   useEffect(() => {
     if(!mu_type){
-        
-      Setlistofmu(muplace);
+      if(favstatus === false){
+        Setlistofmu(muplace)
+      }
+      else if(favstatus === true){
+        Setlistofmu(prev => prev.filter(data => HeartCheck.includes(data.name)));
+      }
       return;
     }
 
@@ -48,7 +53,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
       if(favstatus === false){
         Setlistofmu(prev => prev.filter(data => data.type === mu_type));
       }
-      else{
+      else if(favstatus === true){
         Setlistofmu(prev => prev.filter(data => data.type === mu_type && HeartCheck.includes(data.name)));
       }
   }, [mu_type, favstatus, muplace]);

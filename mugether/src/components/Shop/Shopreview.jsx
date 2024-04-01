@@ -376,7 +376,7 @@ export default function Shopreview({reviewdata}) {
               </div>
               {data.review_image && (
                 <div className='review-img'>
-                    {data.review_image.map((image, i) => (
+                    {data.review_image.length !== 0 && data.review_image.map((image, i) => (
                       <img 
                         style={{width: '140px', height: '140px', cursor: 'zoom-in'}} 
                         key={i} 
