@@ -16,6 +16,9 @@ import Regis_shop from './components/user/Regis_shop'
 import Swal from 'sweetalert2';
 import Add_Shop from './components/Shop/Add_shop'
 import Forgottenpassword from './components/user/ForgottenPassword'
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
 
 const Checktimeout=(timeout,onLogout)=>{
     let idleTime = null;
@@ -129,6 +132,11 @@ const [listshop,Setlistshop] = useState([]);
        Setshowguide(showed);
   }
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
 
   return (
@@ -143,8 +151,8 @@ const [listshop,Setlistshop] = useState([]);
       {location.pathname !== '/shop' &&location.pathname !== '/login'&& location.pathname !== '/register' && location.pathname !== '/logout' &&<NavType show_guide={show_guide} SelectedTypeMu={SelectedTypeMu} handleFav={Handlefav} />}
       <br />
       <br />
-
-
+   
+ 
       <Routes>
         <Route path='/' element={<Listitem favstatus={favoriteStatus} SelectedMuplace={SelectedMuplace} SelectedMuType={SelectedTypeMu} />} />
         <Route path='/shop' element={<ShopV2  />} />

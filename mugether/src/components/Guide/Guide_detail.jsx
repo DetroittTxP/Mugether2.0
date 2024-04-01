@@ -7,11 +7,13 @@ import ReviewGuide from './ReviewGuide';
 
 
 export default function Guide_detail({ data }) {
- 
+
+
   const muplace = localStorage.getItem('muplace');
   const [newdata,Setnewdata] = useState(data);
   const {SERVER_URL} = useContext(Muplace_Context)
 
+  console.log(data.guide_post[0].postReview);
   useEffect(() => {
 
     let newdata = {
@@ -132,7 +134,7 @@ export default function Guide_detail({ data }) {
 
                 <h2><b>รีวิว</b></h2> 
                   
-                  <ReviewGuide guideID={data.id_guide} reviewdata={data.guide_review}/>
+                  <ReviewGuide postID={newdata.guide_post[0]._id} reviewdata2={newdata.guide_post[0].postReview} guideID={data.id_guide} reviewdata={data.guide_review}/>
        
 
       </div>

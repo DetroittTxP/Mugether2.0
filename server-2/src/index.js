@@ -16,11 +16,8 @@ const Shop = require('../routers/Shop');
 
 const app = express();
 
-
 app.use(cors())
 app.use(bodyparser.json())
-
-
 
 mongoose.connect(process.env.CON_STR)
 .then(() => console.log('db connected'))

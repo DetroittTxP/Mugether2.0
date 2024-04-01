@@ -51,7 +51,7 @@ export default function ListGuide() {
            .catch(err => Swal.fire({icon:'error', text:err}))
       
     }
-
+   console.log(list_all_guide);
     return (
         <div>
             <Container>
@@ -67,7 +67,7 @@ export default function ListGuide() {
                 </Row>
                 <br />
 
-                {guideStatus && <Modal show={showModal} onHide={() => setShowModal(false)}>
+                {guideStatus && <Modal style={{zIndex:1050}}  show={showModal} onHide={() => setShowModal(false)}>
                     <Modal.Header closeButton >
                         <br/>
                         <Modal.Title><h4><b>เพิ่มโพส</b></h4></Modal.Title>
@@ -111,7 +111,7 @@ export default function ListGuide() {
                    </AccordionSummary>
                
                    <AccordionDetails>
-                       <Guide_detail data={data}/>
+                       <Guide_detail  data={data}/>
                    </AccordionDetails>
                </Accordion>
                

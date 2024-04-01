@@ -185,19 +185,26 @@ export default function Shopreview({reviewdata}) {
   console.log(reviewdata);
   const {SERVER_URL} = useContext(Muplace_Context);
   const shop_id = localStorage.getItem('shop_id')
+  const shop_item_id = localStorage.getItem('shop_item_id')
   const pageStatus = localStorage.getItem('reviewStatus')
-  const [detail, Setdetail] = useState([]);
+  const [detail, Setdetail] = useState(reviewdata);
   const [addreview, Setaddreview] = useState(false);
   const usr = localStorage.getItem('usr');
   const [currentPage, setCurrentPage] = useState(1);
   const reviewsPerPage = 5;
   const indexOfLastReview = currentPage * reviewsPerPage;
   const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
-  const currentReviews = reviewdata.slice(indexOfFirstReview, indexOfLastReview);
+  const currentReviews = detail.slice(indexOfFirstReview, indexOfLastReview);
   const totalReviews = detail.length;
   const totalPages = Math.ceil(totalReviews / reviewsPerPage);
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [currentImage, setCurrentImage] = useState('');
+
+  
+  useEffect(() => {
+    Setdetail(reviewdata)
+  },[reviewdata])
+  
 
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -221,6 +228,10 @@ export default function Shopreview({reviewdata}) {
   const write_review=()=>{  
 
     let user = localStorage.getItem('usr') 
+
+    if(detail.find(data => data.username === user )){
+      return Swal.fire({text:'คุณรีวิวไปเเล้ว โปรดลบของเดิม หากต้องการรีวิวใหม่'})
+   }
 
     if(user && addreview)
     {
@@ -302,7 +313,7 @@ export default function Shopreview({reviewdata}) {
     document.querySelector('.modal').style.display = 'none';
   };
 
-  const onDeletereview=async(usr_name)=>{
+  const onDeletereview=async(id)=>{
     Swal.fire({
       icon:'question',
       showConfirmButton:true,
@@ -311,9 +322,11 @@ export default function Shopreview({reviewdata}) {
  
     }).then(async result => {
        if(result.isConfirmed){
-             let remove = await axios.delete(`${SERVER_URL}/muplace/delete/review/${reviewdata}/${usr_name}`) 
+             let remove = await axios.delete(`${SERVER_URL}/shop/delete/review/${shop_id}/${shop_item_id}/${id}`) 
              if(remove.data){
                   Swal.fire({icon:'success',text:'ลบข้อความเรียบร้อย'})
+                  Setdetail( () => detail.filter(data => data._id !== id))
+                  return;
              }
        }
     })
@@ -353,7 +366,7 @@ export default function Shopreview({reviewdata}) {
                   <div className="header">
                     <h4 className="username">{data.review_username}</h4>
                     <div className='delete-comment-shop'>
-                      {usr === data.review_username &&  <span id='delete-btn'><ButtonBoot onClick={() => onDeletereview(data.review_username)} variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
+                      {usr === data.review_username &&  <span id='delete-btn'><ButtonBoot onClick={() => onDeletereview(data._id)} variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
                     </div>
                   </div>
                   <Rating className="rating" readOnly name='read-only' value={data.review_score} />

@@ -109,10 +109,14 @@ export default function EditProfile({ showedit, toggle, editType }) {
 
 
       Swal.close();
-
+      
       await Swal.fire({
+        
         icon: 'success',
-        title: 'Success'
+        title: 'Success',
+        style: {
+          zIndex: 1051 
+        }
       })
 
       
@@ -354,13 +358,13 @@ export default function EditProfile({ showedit, toggle, editType }) {
   useEffect(() => {
     Setshow(showedit)
   }, [showedit])
-
+  console.log(show);
   return (
 
 
-    <Modal show={show} animation={false}>
+    <Modal style={{zIndex:1050}}  show={show} animation={false}>
 
-      <Form onSubmit={submit_edit}>
+      <Form  onSubmit={submit_edit}>
         <Modal.Header >
           <Modal.Title>
 

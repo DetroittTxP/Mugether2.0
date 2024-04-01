@@ -13,7 +13,7 @@ import { Muplace_Context } from '../../context/MuContext';
 import ButtonBoot from 'react-bootstrap/Button'
 import './Reviewguide.css';
 
-const Add_Review = ({ reviewdata, check_finish, guideID ,updatereview}) => {
+const Add_Review = ({ updatestate,reviewdata, check_finish, guideID ,updatereview,postID}) => {
     const {SERVER_URL} = useContext(Muplace_Context)
     const username = localStorage.getItem('usr')
     const [review, Setreview] = useState({
@@ -102,12 +102,8 @@ const Add_Review = ({ reviewdata, check_finish, guideID ,updatereview}) => {
            console.log(uplaodimage.data);
            imagedata = uplaodimage.data.photos
         }
-  
-        
-  
-        let res = await axios.post(`${SERVER_URL}/guide_detail/review/${guideID}`, {review:review.review,imagedata });
+        let res = await axios.post(`${SERVER_URL}/guide_detail/review/${guideID}/${postID}`, {review:review.review,imagedata });
         Swal.close();
-        
         await Swal.fire({
           icon: 'success',
           title: "เพิ่มรีวิวเรียบร้อย",
@@ -117,7 +113,7 @@ const Add_Review = ({ reviewdata, check_finish, guideID ,updatereview}) => {
         })
           .then(result => {
             if (result.isConfirmed) {
-              check_finish(false)
+              check_finish(false)          
             }
   
           });
@@ -180,12 +176,12 @@ const Add_Review = ({ reviewdata, check_finish, guideID ,updatereview}) => {
   }
 
 
-export default function ReviewGuide({ reviewdata,guideID,}) {
-    
+export default function ReviewGuide({ reviewdata2,reviewdata,guideID,postID}) {
+   
     const {SERVER_URL} = useContext(Muplace_Context)
     const [currentPage, setCurrentPage] = useState(1);
     const reviewsPerPage = 5;
-    const [detail, Setdetail] = useState(reviewdata);
+    const [detail, Setdetail] = useState(reviewdata2);
     const [addreview, Setaddreview] = useState(false);
     const username = localStorage.getItem('usr') 
     const indexOfLastReview = currentPage * reviewsPerPage;
@@ -194,10 +190,17 @@ export default function ReviewGuide({ reviewdata,guideID,}) {
     const totalReviews = detail.length;
     const totalPages = Math.ceil(totalReviews / reviewsPerPage);
 
+    const updatestate =(newstate) =>{
+         Setdetail([...detail,newstate]);
+    }
     const handlePageClick = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
 
+    useEffect(() => {
+      Setdetail(reviewdata2)
+    },[reviewdata2])
+    
 
     const [isModalOpen, setIsModalOpen] = useState(true);
     const [currentImage, setCurrentImage] = useState('');
@@ -210,6 +213,10 @@ export default function ReviewGuide({ reviewdata,guideID,}) {
 
         let user = localStorage.getItem('usr') 
     
+        if(detail.find(data => data.username === user )){
+          return Swal.fire({text:'คุณรีวิวไปเเล้ว โปรดลบของเดิม หากต้องการรีวิวใหม่'})
+       }
+
         if(user && addreview)
         {
           return Setaddreview(false)
@@ -324,9 +331,11 @@ export default function ReviewGuide({ reviewdata,guideID,}) {
    
       }).then(async result => {
          if(result.isConfirmed){
-               let remove = await axios.delete(`${SERVER_URL}/guide_detail/delete/review/${guideID}/${id_review}`) 
+               let remove = await axios.delete(`${SERVER_URL}/guide_detail/delete/review/${guideID}/${postID}/${id_review}`) 
                if(remove.data){
                     Swal.fire({icon:'success',text:'ลบข้อความเรียบร้อย'})
+                    Setdetail( () => detail.filter(data => data._id !== id_review) )
+                    return;
                }
          }
       })
@@ -338,9 +347,9 @@ export default function ReviewGuide({ reviewdata,guideID,}) {
     return (
         <div className="review-container">
           {detail.length === 0 ? <h2>ไม่มีรีวิวขณะนี้</h2> :  Reviewd}
-    
+           
           {addreview ? (
-          <Add_Review updatereview={updateReview} check_finish={check_finish} guideID={guideID} />
+          <Add_Review updatestate={updatestate} updatereview={updateReview} check_finish={check_finish} guideID={guideID} postID={postID} />
         ) : (
           <>
             {currentReviews.map((data, index) => (

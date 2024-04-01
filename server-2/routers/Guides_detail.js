@@ -294,22 +294,26 @@ Guide_detail.post('/review/:id_guide/:id_post', async (req,res) =>{
 
      try{
           console.log(req.params);
-          // console.log(req.body);
-          // const {review,imagedata} = req.body
-          // let datatoinset = {
-          //       username:review.username,
-          //       score:review.score,
-          //       detail:review.detail,
-          //       review_img:imagedata
-          // }
+          console.log(req.body);
+          const {review,imagedata} = req.body
+          let datatoinset = {
+                username:review.username,
+                score:review.score,
+                detail:review.detail,
+                review_img:imagedata
+          }
           
-          // let filter = {id_guide: req.params.id_guide}
-          // let pushreview = await db.findOneAndUpdate(filter,{
-          //      $push:{guide_review:datatoinset}
-          // })
+          let filter = {
+               id_guide: req.params.id_guide,
+               "guide_post._id":req.params.id_post
+          }
 
-          return res.json('')
+          let pushreview = await db.findOneAndUpdate(filter,{
+               $push:{'guide_post.$.postReview':datatoinset}
+          })
 
+          return res.json(pushreview)
+          
      }
      catch(err){
           return res.send({stattus:'error',err})
@@ -342,16 +346,19 @@ Guide_detail.get('/exp/img/:id_guide/:img_name',(req,res) => {
 
 
 //delete review guide
-Guide_detail.delete('/delete/review/:id_guide/:id_review', 
+Guide_detail.delete('/delete/review/:id_guide/:id_post/:id_review', 
      async (req,res) => {
-             
+               const {id_guide,id_review,id_post} = req.params;
+               console.log(req.params);
                try{
-                    console.log(req.params);
-                    const {id_guide,id_review} = req.params;
-                    let filter = {id_guide:id_guide};
+          
+                    let filter = {
+                         id_guide:id_guide,
+                         "guide_post._id":id_post
+                    };
                     let datatoremove = {
                          $pull:{
-                              guide_review:{_id:id_review}
+                              'guide_post.$.postReview':{_id:id_review}
                          }
                     }
                     let deletereview = await db.updateOne(filter,datatoremove)
@@ -363,6 +370,12 @@ Guide_detail.delete('/delete/review/:id_guide/:id_review',
                }
      }
 )
+
+//
+Guide_detail.get('/review/:id_guide/:id_post',async (req,res) => {
+       
+})
+
 
 
 module.exports = Guide_detail;

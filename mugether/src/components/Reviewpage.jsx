@@ -242,7 +242,9 @@ export default function ReviewPage({ Muplace_name}) {
   const write_review=()=>{  
 
     let user = localStorage.getItem('usr') 
-
+    if(detail.find(data => data.username === user )){
+       return Swal.fire({text:'คุณรีวิวไปเเล้ว โปรดลบของเดิม หากต้องการรีวิวใหม่'})
+    }
     if(user && addreview)
     {
       return Setaddreview(false)

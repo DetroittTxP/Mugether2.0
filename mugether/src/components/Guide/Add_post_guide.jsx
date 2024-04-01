@@ -125,9 +125,13 @@ export default function Add_post() {
             
             console.log(update_post_detail);
             Swal.close();
+            
             Swal.fire({
                 icon: 'success',
-                text: 'เพิ่มโพสสำเร็จ'
+                text: 'เพิ่มโพสสำเร็จ',
+                style: {
+                    zIndex: 1051 
+                  }
             })
         }
         catch (err) {

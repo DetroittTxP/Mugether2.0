@@ -446,18 +446,24 @@ Shop.get('/review/img/:id_shop/:img_name',async (req,res) => {
 })
 
 
-//delete shop
-Shop.delete('/delete/review/:id_shop/:id_post/:',
+//delete review shop
+Shop.delete('/delete/review/:id_shop/:id_post/:id_review',
     async (req,res) => {
          try{
-            const {username} = req.params;
-             let filter = {};
-             let datatoremove = {
-                 $pull:{
-                    shop_review:{username:username}
-                 }
-             }
-             
+            const {id_post,id_shop,id_review} = req.params;
+            let filter = {
+                _id:id_shop,
+                "shop_items._id":id_post
+           };
+           let datatoremove = {
+            $pull:{
+                 'shop_items.$.item_review':{_id:id_review}
+            }
+       }
+       let deletereview = await db_shop.updateOne(filter,datatoremove)
+       console.log(deletereview);
+       return res.json(deletereview)
+            
          }
          catch(err){
             return res.send(err);
@@ -465,6 +471,18 @@ Shop.delete('/delete/review/:id_shop/:id_post/:',
     }
 
 )
+
+
+//get shop review
+Shop.get('/review/:id_shop/:shop_item_id',async(req,res) => {
+    try{
+
+    }
+    catch(err){
+        return res.send(err)
+    }
+})
+
 
 
 
