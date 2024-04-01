@@ -225,14 +225,15 @@ export default function Shopreview({reviewdata}) {
      return sum / reviewdata.length
   }
 
+  console.log(currentReviews);
   const write_review=()=>{  
 
     let user = localStorage.getItem('usr') 
 
-    if(detail.find(data => data.username === user )){
+    if(currentReviews.find(data => data.review_username === user )){
       return Swal.fire({text:'คุณรีวิวไปเเล้ว โปรดลบของเดิม หากต้องการรีวิวใหม่'})
    }
-
+    
     if(user && addreview)
     {
       return Setaddreview(false)
