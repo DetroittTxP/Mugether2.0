@@ -3,12 +3,12 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    right:165px
+    right: 215px ;
+    
 }
 
-.carousel-item img {
-    width: 100%;         
-    height: auto;          
+.carousel-item img {        
+    height: 350px;          
 }
 #button-plus{
     display: flex;
