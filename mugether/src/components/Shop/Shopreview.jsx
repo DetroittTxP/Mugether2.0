@@ -76,7 +76,7 @@ const Addshopreview=({ check_finish })=>{
   const onSubmit = async (e) => {
     e.preventDefault();
     if (review.review.score <= 0 || review.review.score === null) {
-      return alert('rating must > 0')
+      return Swal.fire('โปรดให้คะแนนอย่างน้อย 1 คะแนน')
     }
     Swal.fire({
       title: 'Loading...',
@@ -248,7 +248,7 @@ export default function Shopreview({reviewdata}) {
     {
       return Setaddreview(false)
     }
-    return user ? Setaddreview(true) : Swal.fire('Login first');
+    return user ? Setaddreview(true) : Swal.fire('โปรดล็อคอินก่อนทำการรีวิว');
   }
 
   const renderPageNumbers = totalPages => {

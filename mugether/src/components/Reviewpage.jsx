@@ -84,7 +84,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (review.reviewdetail.score <= 0 || review.reviewdetail.score === null) {
-      return alert('rating must > 0')
+      return Swal.fire('โปรดให้คะแนนอย่างน้อย 1 คะแนน')
     }
     Swal.fire({
       title: 'Loading...',
@@ -249,7 +249,7 @@ export default function ReviewPage({ Muplace_name}) {
     {
       return Setaddreview(false)
     }
-    return user ? Setaddreview(true) : Swal.fire('Login first');
+    return user ? Setaddreview(true) : Swal.fire('โปรดล็อคอินก่อนทำการรีวิว');
   }
 
   const renderPageNumbers = totalPages => {
