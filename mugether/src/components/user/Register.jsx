@@ -213,6 +213,7 @@ const Register = () => {
 
                                         </div>
                                         </div>
+                                        <div className="Text-p"><p>At least 8 character,1 uppercase letter,1 number</p></div>
                                     </Col>
 
                                 </Row>

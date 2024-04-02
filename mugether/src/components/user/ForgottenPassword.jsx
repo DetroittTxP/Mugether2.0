@@ -213,6 +213,7 @@ export default function ForgottenPassword() {
                                         {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
 
                                     </div>
+                                    <div className="Text-p"><p>At least 8 character,1 uppercase letter,1 number</p></div>
                                 </Form.Group>
 
                                 <Button
