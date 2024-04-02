@@ -117,6 +117,7 @@ const Add_Review = ({ updatestate,reviewdata, check_finish, guideID ,updaterevie
             }
   
           });
+          window.location.reload();
    
       }
       catch (err) {

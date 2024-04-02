@@ -121,6 +121,7 @@ const Addshopreview=({ check_finish })=>{
           }
 
         });
+        window.location.reload();
  
     }
     catch (err) {
