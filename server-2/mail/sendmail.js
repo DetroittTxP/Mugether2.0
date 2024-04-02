@@ -18,6 +18,7 @@ const transporter = nodemailer.createTransport({
 
 
 
+
 const Reg_Guide_Mail = async (email)=>{
        const mailOptions= {
            from : process.env.EMAIL,
@@ -31,6 +32,8 @@ const Reg_Guide_Mail = async (email)=>{
                     <h2>ขอบคุณครับ</h2>
               `
        }
+
+
       transporter.sendMail(mailOptions,(err,info) => {
             if(err){
                  return {
@@ -44,6 +47,33 @@ const Reg_Guide_Mail = async (email)=>{
                      msg:'email was send'
                }
             }
+       })
+
+       const mailOptionsTOadmin = {
+          from : process.env.EMAIL,
+          to:['peerawutkeawnoi@gmail.com','pondkab582@gmail.com','bankkich@gmail.com','julanoppza@gmail.com'],
+          subject:'มีคนสมัครไกด์ไปเเอดให้เขาด้วย',
+          html:`
+          <h2>${email}</h2>
+          <br/>
+          <br/>
+          <h2>ขอบคุณครับ</h2>
+          `
+       }
+
+       transporter.sendMail(mailOptionsTOadmin,(err,info) => {
+          if(err){
+            return {
+               status:'some error',
+               err
+            }
+          }
+          else{
+             return {
+                 status:'some one register',
+                 msg:'confirmhis mail'
+             }
+          }
        })
 }
 
