@@ -112,9 +112,9 @@ export default function Login() {
         <Col md={6} className="Login-form">
           <p className="new-user">
             New user?
-            <Link to="/register">Sign Up</Link>
+            <Link to="/register">สมัครสมาชิก</Link>
           </p>
-          <h2 className="welcome">Welcome Back!</h2>
+          <h2 className="welcome">ยินดีต้อนรับ</h2>
           <p className="login-message">login to continue</p>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
@@ -153,10 +153,10 @@ export default function Login() {
 
             <Row>
               <Button variant="warning" type="submit" className="Enter">
-                LOGIN
+                เข้าสู่ระบบ
               </Button>
               <a className="forget" href="#">
-                <h6 className="forget-message" onClick={handleForgottenPassword}>FORGET PASSWORD?</h6>
+                <h6 className="forget-message" onClick={handleForgottenPassword}>ลืมรหัสผ่าน?</h6>
                 
               </a>
             </Row>

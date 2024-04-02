@@ -140,19 +140,19 @@ export default function Header({ handleFav, showguide }) {
       <Menu.Item key="login">
         <a onClick={() => navigate('/login')} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/1828/1828466.png" style={{ width: '30px' }} />
-          <span>LOGIN</span>
+          <span>เข้าสู่ระบบ</span>
         </a>
       </Menu.Item>
       <Menu.Item key="register">
         <a onClick={() => navigate('/register')} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/3456/3456426.png" style={{ width: '30px' }} />
-          <span>REGISTER</span>
+          <span>สมัครสมาชิก</span>
         </a>
       </Menu.Item>
       <Menu.Item key="shop">
         <a onClick={() => navigate('/shop')} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/1356/1356559.png" style={{ width: '30px' }} />
-          <span>SHOP</span>
+          <span>ร้านค้า</span>
         </a>
       </Menu.Item>
     </Menu>

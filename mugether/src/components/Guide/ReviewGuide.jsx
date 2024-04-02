@@ -11,6 +11,7 @@ import ButtonBo from 'react-bootstrap/Button'
 import Carousel from 'react-bootstrap/Carousel';
 import { Muplace_Context } from '../../context/MuContext';
 import ButtonBoot from 'react-bootstrap/Button'
+
 import './Reviewguide.css';
 
 const Add_Review = ({ updatestate,reviewdata, check_finish, guideID ,updatereview,postID}) => {
@@ -190,6 +191,17 @@ export default function ReviewGuide({ reviewdata2,reviewdata,guideID,postID}) {
     let currentReviews = detail.slice(indexOfFirstReview, indexOfLastReview);
     const totalReviews = detail.length;
     const totalPages = Math.ceil(totalReviews / reviewsPerPage);
+
+    useEffect(() => {
+        //guideID//postID
+        axios.get(`${SERVER_URL}/guide_detail/review/${guideID}/${postID}`)
+        .then(res => {
+          console.log(res.data);
+    
+          Setdetail(res.data);
+        })
+        .catch(err => alert(err)) 
+    },[detail])
 
     const updatestate =(newstate) =>{
          Setdetail([...detail,newstate]);

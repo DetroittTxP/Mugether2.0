@@ -205,6 +205,15 @@ export default function Shopreview({reviewdata}) {
   useEffect(() => {
     Setdetail(reviewdata)
   },[reviewdata])
+
+  useEffect(() => {
+      axios.get(`${SERVER_URL}/shop/review/${shop_id}/${shop_item_id}`)
+      .then(res => {
+            console.log(res.data);
+            Setdetail(res.data)
+      })
+      .catch(err => alert(err))
+  },[detail])
   
 
   const handlePageClick = (pageNumber) => {

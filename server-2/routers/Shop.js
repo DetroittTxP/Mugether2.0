@@ -476,7 +476,15 @@ Shop.delete('/delete/review/:id_shop/:id_post/:id_review',
 //get shop review
 Shop.get('/review/:id_shop/:shop_item_id',async(req,res) => {
     try{
-
+       const {id_shop,shop_item_id} = req.params;
+       let filter = {
+        _id:id_shop,
+        "shop_items._id":shop_item_id
+   };
+   let data = await db_shop.findOne(filter).select('shop_items.$');
+ 
+   return res.json(data.shop_items[0].item_review)
+   
     }
     catch(err){
         return res.send(err)

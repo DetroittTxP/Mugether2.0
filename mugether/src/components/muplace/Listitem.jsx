@@ -72,8 +72,6 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
     }
   }
 
-
-
   return (
     <Container>
       <Row xs={1} md={2} lg={4} className="g-4">

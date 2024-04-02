@@ -373,7 +373,28 @@ Guide_detail.delete('/delete/review/:id_guide/:id_post/:id_review',
 
 //
 Guide_detail.get('/review/:id_guide/:id_post',async (req,res) => {
+         //guideID//postID
+          try{
+               const {id_guide,id_post} =req.params;
+               let filter = {
+                    id_guide:id_guide,
+                    "guide_post._id":id_post
+               };
+               let data = await db.findOne(filter).select('guide_post.$');
+               
+               if(!data){
+                    return res.status(404).send('error');
+               }
+
        
+                return res.json(data.guide_post[0].postReview);
+             
+          }
+          catch(err){
+               return res.send(err)
+          }
+          
+         
 })
 
 

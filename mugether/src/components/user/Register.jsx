@@ -227,8 +227,8 @@ const Register = () => {
                             </Form.Group>
 
                             <Row className="justify-content-center">
-                                <Button variant="primary" type="submit" className="Enter">
-                                    SIGN UP
+                                <Button variant="warning" type="submit" className="Enter">
+                                    สมัครสมาชิก
                                 </Button>
                             </Row>
                         </Form>
