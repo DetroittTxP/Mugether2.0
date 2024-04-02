@@ -134,8 +134,9 @@ export default function Shopdetail() {
                 </Col>
                 <Col md={6}>
                     <div className="description-box">
-                        <h2>{selectedShop[0].item_name}</h2>
                         {Owner && <Button variant='warning' onClick={handleDelete} className='button-delete'>ลบสินค้า</Button>}
+                        <br/>
+                        <h2>{selectedShop[0].item_name}</h2>
                         <p className="price">ราคา {selectedShop[0].item_price} ฿/ชิ้น</p>
                         <p>{shopdetail.contact.address}</p>
                         <Button className='Buttom-shop' href={selectedShop[0].item_linkurl}>ไปยังร้านค้า</Button>

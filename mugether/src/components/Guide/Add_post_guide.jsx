@@ -101,7 +101,7 @@ export default function Add_post() {
         const img_data = new FormData();
         const exp_data = new FormData();
         if (selectedFiles.length === 0 || selectedFiles.length != 5) {
-            return alert('โปรดอัพรูปก่อนโพสต์ไกด์')
+            return alert('โปรดอัพรูปให้ครบ 5 รูปก่อนทำการโพสไกด์')
         }
         for (let i = 0; i < selectedFiles.length; i++) {
             img_data.append('posts-img', selectedFiles[i]);
