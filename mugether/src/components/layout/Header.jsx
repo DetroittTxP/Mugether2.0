@@ -65,12 +65,12 @@ export default function Header({ handleFav, showguide }) {
           <Image roundedCircle width={50} height={50} src={`${SERVER_URL}/image/user/profile/${usr_data}`} />
           <span style={{ marginLeft: 10 }}>
             {usr_data} <br />
-            {guideStatus ? 
+            {shopStatus ? 
             <p style={{ display: 'inline-block', marginRight: '10px' }}>
               <img src="https://cdn-icons-png.flaticon.com/512/2761/2761035.png" style={{ width: '30px' }} /> shop 
             </p> 
             : null}
-            {shopStatus ? 
+            {guideStatus ? 
             <p style={{ display: 'inline-block' }}>
               <img src="https://cdn-icons-png.flaticon.com/512/4127/4127281.png" style={{ width: '30px' }}/> guide 
             </p> 
