@@ -130,7 +130,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
           }
 
         });
- 
+        window.location.reload();
     }
     catch (err) {
       alert(err)
