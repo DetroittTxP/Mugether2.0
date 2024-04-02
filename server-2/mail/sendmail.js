@@ -2,8 +2,6 @@ const nodemailer = require('nodemailer');
 
 require('dotenv').config({path:'../.env'});
 
-
-
 const transporter = nodemailer.createTransport({
      host:'smtp.gmail.com',
      service:'gmail',
@@ -14,10 +12,6 @@ const transporter = nodemailer.createTransport({
           pass:process.env.MAILPASS
      }
     })
-
-
-
-
 
 const Reg_Guide_Mail = async (email)=>{
        const mailOptions= {

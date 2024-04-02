@@ -104,6 +104,7 @@ const Register = () => {
                 else{
                     await Swal.fire({
                          icon:'error',
+                         text:'username หรือ email ซ้ำ'
                         
                     })
                     console.log(res.data);
