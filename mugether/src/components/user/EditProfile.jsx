@@ -140,7 +140,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 <Col>
                   <Form.Control
                     type={visible ? "text" : "password"}
-                    placeholder="🔒 Enter your password  "
+                    placeholder="🔒 รหัสผ่านใหม่  "
                     onChange={onFormchange}
                   />
                   <div className="password-toggle-edit"
@@ -158,7 +158,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 <Col>
                   <Form.Control
                     type={visible ? "text" : "password"}
-                    placeholder="🔒 Enter your Re-password "
+                    placeholder="🔒 ยืนยันรหัสผ่านใหม่ "
                   />
                   <div className="password-toggle-edit"
                     onClick={() => setvisible(!visible)}>
@@ -173,7 +173,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
               <Form.Label>email</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="✉️  Enter your email"
+                placeholder="✉️  อีเมลใหม่"
                 onChange={onFormchange}
               />
             </Form.Group>
@@ -370,7 +370,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
 
             {
               (editType == 'guide' ? "Edit profile Guide" :
-                (editType == 'shop' ? "Edit Profile shop" : "Edit profile"))
+                (editType == 'shop' ? "Edit Profile shop" : "แก้ไขโปรไฟล์ผู้ใช้"))
             }
 
           </Modal.Title>
@@ -378,7 +378,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
         <Modal.Body>
 
           <Form.Group controlId="profile_pic">
-            <Form.Label>Profile image</Form.Label>
+            <Form.Label>รูปภาพโปรไฟล์</Form.Label>
             <Form.Control
               type="file"
               accept='image/*'
@@ -432,7 +432,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
 
           <br />
           <Form.Group controlId="username">
-            <Form.Label>Username</Form.Label>
+            <Form.Label>ชื่อผู้ใช้งาน</Form.Label>
             <Form.Control
               type="text"
               placeholder="👤  "
@@ -451,11 +451,11 @@ export default function EditProfile({ showedit, toggle, editType }) {
             toggle(false)
             editType = null;
           }} variant="secondary" >
-            Close
+            ปิด
           </Button>
 
           <Button type="submit"  variant='warning'  >
-            Save Changes
+            บันทึกการแก้ไข
           </Button >
 
         </Modal.Footer>

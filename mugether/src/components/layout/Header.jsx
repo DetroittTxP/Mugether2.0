@@ -82,48 +82,48 @@ export default function Header({ handleFav, showguide }) {
       <Menu.Item key='go to shop'>
         <a onClick={() => navigate('/shop')} style={{ textDecoration: 'none' }}>
           <img src="https://cdn-icons-png.flaticon.com/128/8771/8771926.png" style={{ width: '30px' }} />
-          <span>GO TO SHOP</span>
+          <span>ร้านค้าแนะนำ</span>
         </a>
       </Menu.Item>
       <Menu.Item key="edit">
         <a onClick={() => onEditClick('user')} style={{ textDecoration: 'none' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/3845/3845895.png" style={{ width: '30px' }} />
-          <span>EDIT PROFILE</span>
+          <span>แก้ไขโปรไฟล์ผู้ใช้</span>
         </a>
       </Menu.Item>
       {guideStatus && <Menu.SubMenu icon={<img src="https://cdn-icons-png.flaticon.com/512/2268/2268568.png" style={{ width: '30px' }} />} title="EDIT GUIDE" key="editGuide">
         <Menu.Item onClick={() => onEditClick('guide')} key="edit guide profile">
           <img src="https://cdn-icons-png.flaticon.com/512/3284/3284607.png" style={{ width: '30px' }} />
-          <span>EDIT GUIDE PROFILE</span>
+          <span>แก้ไขโปรไฟล์ไกด์</span>
         </Menu.Item>
       </Menu.SubMenu>}
-      {shopStatus && <Menu.SubMenu title="EDIT SHOP" icon={<img src="https://cdn-icons-png.flaticon.com/512/3176/3176363.png" style={{ width: '30px' }} />} key="editShop">
+      {shopStatus && <Menu.SubMenu title="แก้ไขร้านค้า" icon={<img src="https://cdn-icons-png.flaticon.com/512/3176/3176363.png" style={{ width: '30px' }} />} key="editShop">
         <Menu.Item key='editShopProfile' onClick={() => onEditClick('shop')}>
           <img src="https://cdn-icons-png.flaticon.com/512/1043/1043450.png" style={{ width: '30px' }} />
-          EDIT SHOP PROFILE
+          แก้ไขโปรไฟล์ร้านค้า
         </Menu.Item>
         <Menu.Item key='editShopList'>
           <img src="https://cdn-icons-png.flaticon.com/512/4334/4334942.png" style={{ width: '30px' }} />
-          EDIT SHOP LIST
+          แก้ไขรายการสินค้า
         </Menu.Item>
       </Menu.SubMenu>}
       {shopStatus && <Menu.Item key="addshoplist">
         <a onClick={() => navigate('/add-shop')} style={{ textDecoration: 'none' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/5956/5956828.png" style={{ width: '30px' }} />
-          <span>ADD SHOP LIST</span>
+          <span>เพิ่มรายการสินค้า</span>
         </a>
       </Menu.Item>}
 
       {!guideStatus && <Menu.Item key="reg-guide">
         <a onClick={() => navigate('/reg-guide')} style={{ textDecoration: 'none' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/3284/3284607.png" style={{ width: '30px' }} />
-          REGISTER GUIDE
+          สมัครเป็นไกด์
         </a>
       </Menu.Item>}
       {!shopStatus && <Menu.Item key="reg-shop">
         <a onClick={() => navigate('/reg-shop')} style={{ textDecoration: 'none' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/5956/5956828.png" style={{ width: '30px' }} />
-          <span>REGISTER SHOP</span>
+          <span>สมัครร้านค้า</span>
         </a>
       </Menu.Item>}
       <Menu.Item onClick={() => {
@@ -132,12 +132,12 @@ export default function Header({ handleFav, showguide }) {
         return handleFav(!fav)
       }} key="favorite" >
         <img src='https://cdn-icons-png.flaticon.com/128/4340/4340223.png' style={{ width: '30px' }} />
-        <span>FAVORITE</span>
+        <span>รายการที่ถูกใจ</span>
       </Menu.Item>
       <Menu.Item key="logout">
         <a onClick={handleLogout} style={{ textDecoration: 'none' }}>
           <img src="https://cdn-icons-png.flaticon.com/512/1828/1828490.png" style={{ width: '30px' }} />
-          <span>LOG OUT</span>
+          <span>ออกจากระบบ</span>
         </a>
       </Menu.Item>
 
