@@ -69,7 +69,7 @@ export default function ForgottenPassword() {
                     if (updatepass.data.status !== 'ok') {
                         return Swal.fire({ text: 'error' })
                     } else {
-                         Swal.fire({ icon: 'success', text: 'Change Password Success' })
+                         Swal.fire({ icon: 'success', text: 'เปลี่ยนรหัสผ่านสำเร็จ' })
                          window.location.href="/login";
                          return;
                     }
@@ -139,8 +139,8 @@ export default function ForgottenPassword() {
                 </Col>
                 <Col md={6} className="Login-form">
                     <p className="new-user2">
-                        Already have account?
-                        <Link to="/login">Login</Link>
+                         มีบัชญีใช้งานแล้ว?
+                        <Link to="/login">เข้าสู่ระบบ</Link>
                     </p>
                     {step === 1 && (
                         <Form onSubmit={handleSubmit}>
@@ -148,7 +148,7 @@ export default function ForgottenPassword() {
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    placeholder="✉️  Enter your email address"
+                                    placeholder="✉️  อีเมล"
                                     onChange={handleChange}
                                     required
                                 />
@@ -158,7 +158,7 @@ export default function ForgottenPassword() {
                                 type="submit"
                                 className="Enter"
                             >
-                                send email
+                                ส่งอีเมล
                             </Button>
                         </Form>
                     )}
@@ -169,7 +169,7 @@ export default function ForgottenPassword() {
                                     <Form.Label>Token</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        placeholder="✉️  Enter your Token"
+                                        placeholder="✉️  ใส่โทเค็น"
                                         onChange={(e) => Settoken(e.target.value)}
                                         required
                                     />
@@ -180,7 +180,7 @@ export default function ForgottenPassword() {
                                     type="submit"
                                     className="Enter"
                                 >
-                                    send token
+                                    ส่งโทเค็น
                                 </Button>
                             </Form>
                         </div>
@@ -192,7 +192,7 @@ export default function ForgottenPassword() {
 
                                     <Form.Control
                                         type={visible ? "text" : "password"}
-                                        placeholder="✉️  Enter your password"
+                                        placeholder="🔒  รหัสผ่านใหม่"
                                         onChange={(e) => Setpass(e.target.value)}
                                         required
                                     />
@@ -204,7 +204,7 @@ export default function ForgottenPassword() {
                                     <br />
                                     <Form.Control
                                         type={visible ? "text" : "password"}
-                                        placeholder="✉️  confirm password"
+                                        placeholder="🔒  ยืนยันรหัสผ่านใหม่"
                                         onChange={(e) => Setcomfirmpass(e.target.value)}
                                         required
                                     />
@@ -213,7 +213,7 @@ export default function ForgottenPassword() {
                                         {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
 
                                     </div>
-                                    <div className="Text-p"><p>At least 8 character,1 uppercase letter,1 number</p></div>
+                                    <div className="Text-p"><p>อย่างน้อย 8 ตัวอักษร ตัวพิมพ์ใหญ่ 1 ตัว ตัวเลข 1 ตัว</p></div>
                                 </Form.Group>
 
                                 <Button

@@ -142,19 +142,19 @@ const Register = () => {
                     </Col>
                     <Col md={6} className="register-form">
                         <p className="new-user2">
-                            Already have account?
+                            มีบัชญีใช้งานแล้ว?
                             <Link to="/login" className="new-user3">
-                                Login
+                                เข้าสู่ระบบ
                             </Link>
                         </p>
-                        <h2 className="welcome">Sign Up!</h2>
-                        <p className="login-message2">Signup to continue</p>
+                        <h2 className="welcome">สมัครสมาชิก</h2>
+                        <p className="login-message2">สมัครสมาชิกเพื่อเข้าสู่ระบบ</p>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="email">
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control
                                     type="email"
-                                    placeholder="✉️  Email"
+                                    placeholder="✉️  อีเมล"
                                     onChange={Change}
                                     required
                                 />
@@ -163,7 +163,7 @@ const Register = () => {
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control
                                     type="Username"
-                                    placeholder="👤  Username"
+                                    placeholder="👤  ชื่อบัญชีใช้"
                                     onChange={Change}
                                     required
                                 />
@@ -177,7 +177,7 @@ const Register = () => {
                                         <Form.Control
                                             
                                             type={visible ? "text" : "password"}
-                                            placeholder="🔒  Password"
+                                            placeholder="🔒  รหัสผ่าน"
                                             onChange={Change}
                                             required
 
@@ -205,7 +205,7 @@ const Register = () => {
                                         <Form.Control
                                             
                                             type={visible ? "text" : "password"}
-                                            placeholder="🔒 Confirm Password"
+                                            placeholder="🔒 ยืนยันรหัสผ่าน"
                                             onChange={Change}
                                             required
                                         />
@@ -216,7 +216,7 @@ const Register = () => {
 
                                         </div>
                                         </div>
-                                        <div className="Text-p"><p>At least 8 character,1 uppercase letter,1 number</p></div>
+                                        <div className="Text-p"><p>อย่างน้อย 8 ตัวอักษร ตัวพิมพ์ใหญ่ 1 ตัว ตัวเลข 1 ตัว</p></div>
                                     </Col>
 
                                 </Row>

@@ -111,17 +111,17 @@ export default function Login() {
         </Col>
         <Col md={6} className="Login-form">
           <p className="new-user">
-            New user?
+            ยังไม่มีบัญชีผู้ใช้?
             <Link to="/register">สมัครสมาชิก</Link>
           </p>
           <h2 className="welcome">ยินดีต้อนรับ</h2>
-          <p className="login-message">login to continue</p>
+          <p className="login-message">เข้าสู่ระบบเพื่อใช้งาน</p>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
               <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="👤  Username"
+                placeholder="👤  ชื่อบัญชีผู้ใช้"
                 onChange={Change2}
                 required
               />
@@ -135,7 +135,7 @@ export default function Login() {
                     <Form.Control
                       
                       type={visible ? "text" : "password"}
-                      placeholder="🔒  Password"
+                      placeholder="🔒  รหัสผ่าน"
                       onChange={Change2}
                       required
                     />
