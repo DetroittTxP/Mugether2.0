@@ -45,7 +45,7 @@ verify_g.post('/img/:id',upload_verify_guide.single('img-guide'),async(req,res) 
 
 //get_guide INFO
 verify_g.post('/info', async (req,res) => {
-     const {firstName,lastName,id_card,id_guide,mu_place,userID} = req.body.guide;
+     const {firstName,lastName,id_card,id_guide,mu_place,userID,tel} = req.body.guide;
     
     try{
    
@@ -55,7 +55,9 @@ verify_g.post('/info', async (req,res) => {
             lastname:lastName,
             id_card:id_card,
             id_guide:id_guide,
-            mu_place:mu_place
+            mu_place:mu_place,
+            tel:tel,
+            email:req.body.guide.email
         })
 
         let sendemail = await usdb.findOne({_id:userID}).select('email');

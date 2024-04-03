@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import axios from 'axios';
@@ -7,6 +7,7 @@ import Image from 'react-bootstrap/Image'
 import { Carousel } from 'react-bootstrap'
 import './Map.css'
 import { DivIcon, Icon } from 'leaflet'
+import { Muplace_Context } from '../../context/MuContext';
 
 
 export default function Map() {
@@ -14,6 +15,7 @@ export default function Map() {
   const [markers, setMarkers] = useState({});
   const [showmap, Setshowmap] = useState(false);
   const [popup, Setpopup] = useState(false)
+  const {SERVER_URL} = useContext(Muplace_Context)
 
   const templeIcon = new Icon({
     iconUrl: 'https://cdn-icons-png.flaticon.com/512/898/898151.png',
@@ -42,7 +44,7 @@ export default function Map() {
 
   useEffect(() => {
 
-    axios.get(`http://localhost:5353/latlong/mu/nearby/${muplace_name}`)
+    axios.get(`${SERVER_URL}/latlong/mu/nearby/${muplace_name}`)
       .then(res => {
         setMarkers(res.data)
         Setshowmap(true);
@@ -74,7 +76,7 @@ export default function Map() {
               {markers.muplace_latlong.name}
               <br />
               <br />
-              <Image rounded width={250} height={250} src={`http://localhost:5353/image/mu/${markers.muplace_latlong.name}/1`} />
+              <Image rounded width={250} height={250} src={`${SERVER_URL}/image/mu/${markers.muplace_latlong.name}/1`} />
 
 
             </Popup>
@@ -85,7 +87,7 @@ export default function Map() {
               <Marker eventHandlers={{mouseover:onMouseover,mouseout:onMouseout}}  key={index + 100} icon={hotelIcon} position={data.location}>
                 <Popup>
                   <p>{data.name}</p>
-                  <Image rounded width={250} height={250} src={`http://localhost:5353/image/nearby/hotel/${data.name}/1`} />
+                  <Image rounded width={250} height={250} src={`${SERVER_URL}/image/nearby/hotel/${data.name}/1`} />
                   <p>ระยะทางจากที่มู {data.distance_to_mu}</p>
                 </Popup>
               </Marker>
@@ -98,7 +100,7 @@ export default function Map() {
               <Marker eventHandlers={{mouseover:onMouseover,mouseout:onMouseout}}  key={index} icon={foodIcon} position={data.location}>
                 <Popup>
                   <p>{data.name}</p>
-                  <Image rounded width={250} height={250} src={`http://localhost:5353/image/nearby/food/${data.name}/1`} />
+                  <Image rounded width={250} height={250} src={`${SERVER_URL}/image/nearby/food/${data.name}/1`} />
                   <p>ระยะทางจากที่มู {data.distance_to_mu}</p>
                 </Popup>
               </Marker>
@@ -110,7 +112,7 @@ export default function Map() {
               <Marker eventHandlers={{mouseover:onMouseover,mouseout:onMouseout}}  key={index + 1000} icon={travelIcon} position={data.location}>
                 <Popup>
                   <p>{data.name}</p>
-                  <Image rounded width={250} height={250} src={`http://localhost:5353/image/nearby/travel/${data.name}/1`} />
+                  <Image rounded width={250} height={250} src={`${SERVER_URL}/image/nearby/travel/${data.name}/1`} />
                   <p>ระยะทางจากที่มู {data.distance_to_mu}</p>
                 </Popup>
               </Marker>

@@ -27,7 +27,14 @@ const verify_guide_model = mongoose.Schema({
         type:[],
         required:true,
     },
-
+    tel:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
     image_guide:{
         type:String,
         default:''

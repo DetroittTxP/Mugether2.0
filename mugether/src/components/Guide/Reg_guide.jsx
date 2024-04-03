@@ -22,6 +22,8 @@ export default function Reg_guide() {
       lastName: "",
       id_card: "", //รหัสบัตรปชช
       id_guide: "",
+      tel:"",
+      email:"",
       mu_place: [], //เลือกโลเคชั่น
     }
   )
@@ -50,12 +52,23 @@ export default function Reg_guide() {
       let id_user = res.data.msg._id;
       let add_image = await axios.post(`${SERVER_URL}/verify_guide/img/${userID}`, image_form)
       Swal.close();
+      console.log(res.data);
+      if(res.data.status === 'success'){
+        await Swal.fire({
+          icon: 'success',
+          title: 'ขอบคุณสำหรับการสมัครไกด์ โปรดรอการติดต่อกลับจากทาง Mugether '
+        })
 
-      await Swal.fire({
-        icon: 'success',
-        title: 'Success'
-      })
-
+        return window.location.href = '/'
+  
+      }{
+        await Swal.fire({
+          icon: 'error',
+          title: 'โปรดลองใหม่'
+        })
+  
+      }
+   
       setguidedata({
         firstName: "",
         lastName: "",
@@ -102,7 +115,7 @@ export default function Reg_guide() {
           <div className="profile-header">
 
           </div>
-          <h2 className="head">Register Guide🧳</h2> 
+          <h2 className="head">เเบบฟอร์มสมัครไกด์🧳</h2> 
           
 
           <Form onSubmit={handleSubmit}>
@@ -116,11 +129,10 @@ export default function Reg_guide() {
                 type="file"
                 accept='image/*'
                 onChange={onImageChange}
-             
+                required
               />
-
           </Form.Group>
-          
+    
             <Form.Group controlId="firstName">
               <Form.Label>ชื่อ</Form.Label>
               <Form.Control
@@ -160,6 +172,28 @@ export default function Reg_guide() {
                 type="text"
                 placeholder="🪪 ID Guide"
                 value={guide.id_guide}
+                onChange={Change2}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="tel">
+              <Form.Label>เบอร์โทร</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="🪪 ID Guide"
+                value={guide.tel}
+                onChange={Change2}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="email">
+              <Form.Label>อีเมลที่ติดต่อได้</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="🪪 ID Guide"
+                value={guide.email}
                 onChange={Change2}
                 required
               />
