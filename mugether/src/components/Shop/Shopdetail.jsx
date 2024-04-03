@@ -146,7 +146,7 @@ export default function Shopdetail() {
             </Row>
             <br />
             <Col xs="auto" className="share-button">
-                <span> Share : </span>
+                <span> แชร์ : </span>
                 <ShareButton url={pageUrl} />
             </Col>
 
