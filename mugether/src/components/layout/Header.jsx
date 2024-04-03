@@ -91,13 +91,13 @@ export default function Header({ handleFav, showguide }) {
           <span>แก้ไขโปรไฟล์ผู้ใช้</span>
         </a>
       </Menu.Item>
-      {guideStatus && <Menu.SubMenu icon={<img src="https://cdn-icons-png.flaticon.com/512/2268/2268568.png" style={{ width: '30px' }} />} title="EDIT GUIDE" key="editGuide">
+      {guideStatus && <Menu.SubMenu icon={<img src="https://cdn-icons-png.flaticon.com/512/2268/2268568.png" style={{ width: '30px' }} />} title="แก้ไขข้อมูลไกด์" key="editGuide">
         <Menu.Item onClick={() => onEditClick('guide')} key="edit guide profile">
           <img src="https://cdn-icons-png.flaticon.com/512/3284/3284607.png" style={{ width: '30px' }} />
           <span>แก้ไขโปรไฟล์ไกด์</span>
         </Menu.Item>
       </Menu.SubMenu>}
-      {shopStatus && <Menu.SubMenu title="แก้ไขร้านค้า" icon={<img src="https://cdn-icons-png.flaticon.com/512/3176/3176363.png" style={{ width: '30px' }} />} key="editShop">
+      {shopStatus && <Menu.SubMenu title="แก้ไขข้อมูลร้านค้า" icon={<img src="https://cdn-icons-png.flaticon.com/512/3176/3176363.png" style={{ width: '30px' }} />} key="editShop">
         <Menu.Item key='editShopProfile' onClick={() => onEditClick('shop')}>
           <img src="https://cdn-icons-png.flaticon.com/512/1043/1043450.png" style={{ width: '30px' }} />
           แก้ไขโปรไฟล์ร้านค้า

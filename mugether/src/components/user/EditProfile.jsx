@@ -373,8 +373,8 @@ export default function EditProfile({ showedit, toggle, editType }) {
           <Modal.Title>
 
             {
-              (editType == 'guide' ? "Edit profile Guide" :
-                (editType == 'shop' ? "Edit Profile shop" : "แก้ไขโปรไฟล์ผู้ใช้"))
+              (editType == 'guide' ? "แก้ไขโปรไฟล์ไกด์" :
+                (editType == 'shop' ? "แก้ไขโปรไฟล์ร้านค้า" : "แก้ไขโปรไฟล์ผู้ใช้"))
             }
 
           </Modal.Title>

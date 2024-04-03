@@ -151,8 +151,6 @@ export default function Reg_guide() {
                 placeholder="นามสกุล"
                 value={guide.lastName}
                 onChange={Change2}
-                pattern="[0-9]{13}"
-                title="รหัสบัตรประชาชนต้องประกอบด้วยตัวเลข 13 หลัก"
                 required
               />
             </Form.Group>
@@ -163,7 +161,9 @@ export default function Reg_guide() {
                 type="text"
                 placeholder="เลขบัตรประชาชน"
                 value={guide.id_card}
+                pattern="[0-9]{13}"
                 onChange={Change2}
+                title="รหัสบัตรประชาชนต้องประกอบด้วยตัวเลข 13 หลัก"
                 required
               />
             </Form.Group>
