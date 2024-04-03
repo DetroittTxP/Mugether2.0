@@ -27,24 +27,19 @@ const Register = () => {
             return true;
         }
 
-         
-
-         const passwordPattern = /^[A-Z][a-zA-Z0-9]{7,}$/;
-         console.log(passwordPattern.test(User.password));
+        const passwordPattern = /^[A-Z][a-zA-Z0-9]{7,}$/;
          if (!passwordPattern.test(User.password)) {
             // Swal.fire("รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร\nประกอบด้วย 1 ตัวพิมพ์ใหญ่\n 1 ตัวพิมพ์เล็ก 1 ตัวเลข");
             // Swal.fire("Password must contain the following:\nAt least 8 characters\n At least one uppercase letter\nAt least one lowercase letter\nAt least one digit\nAt least one special character (!@#$%^&*()_+)");
             Swal.fire({
                 title: "Password Validation",
-                text: "รหัสผ่านต้องประกอบด้วย: รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร ประกอบด้วย 1 ตัวพิมพ์ใหญ่ 1 ตัวพิมพ์เล็ก 1 ตัวเลข",
+                text: "รหัสผ่านต้องประกอบด้วย: รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร ประกอบด้วย 1 ตัวพิมพ์ใหญ่ 1 ตัวพิมพ์เล็ก 1 ตัวเลข และ 1 ตัวอักขระพิเศษ",
                 icon: "warning",
                 customClass: {
                     popup: 'custom-font-size',
                 },
             });
-            
             return true;
-
         }
         return false;
     }
@@ -98,7 +93,6 @@ const Register = () => {
                 else{
                     await Swal.fire({
                          icon:'error',
-                         text:'username หรือ email ซ้ำ'
                         
                     })
                     console.log(res.data);
@@ -142,19 +136,19 @@ const Register = () => {
                     </Col>
                     <Col md={6} className="register-form">
                         <p className="new-user2">
-                            มีบัญชีผู้ใช้แล้ว?
+                            Already have account?
                             <Link to="/login" className="new-user3">
-                                เข้าสู่ระบบ
+                                Login
                             </Link>
                         </p>
-                        <h2 className="welcome">สมัครสมาชิก</h2>
-                        <p className="login-message2">สมัครสมาชิกเพื่อเข้าสู่ระบบ</p>
+                        <h2 className="welcome">Sign Up!</h2>
+                        <p className="login-message2">Signup to continue</p>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="email">
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control
                                     type="email"
-                                    placeholder="✉️  อีเมล"
+                                    placeholder="✉️  Email"
                                     onChange={Change}
                                     required
                                 />
@@ -163,7 +157,7 @@ const Register = () => {
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control
                                     type="Username"
-                                    placeholder="👤  ชื่อบัญชีผู้ใช้"
+                                    placeholder="👤  Username"
                                     onChange={Change}
                                     required
                                 />
@@ -177,7 +171,7 @@ const Register = () => {
                                         <Form.Control
                                             
                                             type={visible ? "text" : "password"}
-                                            placeholder="🔒  รหัสผ่าน"
+                                            placeholder="🔒  Password"
                                             onChange={Change}
                                             required
 
@@ -205,7 +199,7 @@ const Register = () => {
                                         <Form.Control
                                             
                                             type={visible ? "text" : "password"}
-                                            placeholder="🔒 ยืนยันรหัสผ่าน"
+                                            placeholder="🔒 Confirm Password"
                                             onChange={Change}
                                             required
                                         />
@@ -216,15 +210,14 @@ const Register = () => {
 
                                         </div>
                                         </div>
-                                        <div className="Text-p"><p>อย่างน้อย 8 ตัวอักษร ตัวพิมพ์ใหญ่ 1 ตัว ตัวเลข 1 ตัว</p></div>
                                     </Col>
 
                                 </Row>
                             </Form.Group>
 
                             <Row className="justify-content-center">
-                                <Button variant="warning" type="submit" className="Enter">
-                                    สมัครสมาชิก
+                                <Button variant="primary" type="submit" className="Enter">
+                                    SIGN UP
                                 </Button>
                             </Row>
                         </Form>
