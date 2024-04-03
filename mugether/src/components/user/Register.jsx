@@ -27,7 +27,10 @@ const Register = () => {
             return true;
         }
 
-         const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+         
+
+         const passwordPattern = /^[A-Z][a-zA-Z0-9]{7,}$/;
+         console.log(passwordPattern.test(User.password));
          if (!passwordPattern.test(User.password)) {
             // Swal.fire("รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร\nประกอบด้วย 1 ตัวพิมพ์ใหญ่\n 1 ตัวพิมพ์เล็ก 1 ตัวเลข");
             // Swal.fire("Password must contain the following:\nAt least 8 characters\n At least one uppercase letter\nAt least one lowercase letter\nAt least one digit\nAt least one special character (!@#$%^&*()_+)");
