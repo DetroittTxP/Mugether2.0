@@ -51,6 +51,7 @@ export default function Header({ handleFav, showguide }) {
 
   const searchdata = () => {
     if (pathname === '/shop' || pathname === '/shopdetail') {
+
       return Shoplist
     } else {
       return Muplace
@@ -171,9 +172,11 @@ export default function Header({ handleFav, showguide }) {
   }
 
   const onChange = (e) => {
+
     switch (pathname) {
       case '/shop':
       case '/shopdetail':
+     
         let shopdata = shopList.map(shop => (
           shop.shop_items.map(item => (
             {
@@ -190,12 +193,16 @@ export default function Header({ handleFav, showguide }) {
             <a onClick={() => {
               localStorage.setItem('shop_id', data.shop_id);
               localStorage.setItem('shop_item_id', data.item_id);
+              if(location.pathname === '/shopdetail'){
+                return window.location.reload();
+              }
               return navigate('/shopdetail')
             }} style={{ textDecoration: 'none' }}>
               <h6>{data.item_name}</h6>
             </a>
           )
         })))
+      
       default:
         let newdata = muplace.sort((a, b) => a.name.localeCompare(b.name, 'th')).filter(data => data.name.toLowerCase().includes(e.target.value))
 
