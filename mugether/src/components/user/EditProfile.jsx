@@ -18,14 +18,11 @@ export default function EditProfile({ showedit, toggle, editType }) {
   const userID = localStorage.getItem('usr_id');
   const shopID = localStorage.getItem('shop_id');
   const [show, Setshow] = useState(false)
-
   const [selectedfile, Setfile] = useState(null)
   const username = localStorage.getItem('usr')
   const [editdata, Seteditdata] = useState({ username: username });
 
   const [editGuide, setEditguide] = useState({ user_id: userID });
-
-
 
   const [editShop, setShop] = useState({ 
     user_id: userID,
@@ -48,8 +45,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
   const imgRef = useRef(null)
   const canvasRef = useRef(null)
 
-
-
+  const [loadfile,Setloadfile] = useState(null)
 
 
 
@@ -362,7 +358,11 @@ export default function EditProfile({ showedit, toggle, editType }) {
   useEffect(() => {
     Setshow(showedit)
   }, [showedit])
-  console.log(show);
+  
+  const [showcanvas,Setshowcanvas] = useState(false);
+
+
+
   return (
 
 
@@ -402,7 +402,8 @@ export default function EditProfile({ showedit, toggle, editType }) {
             </ReactCrop>}
              <br/>
              
-            { crop && <Button variant='warning' onClick={() => {
+            { crop&&  <Button variant='warning' onClick={() => {
+            
               setCanvasPreview(
                 imgRef.current,
                 canvasRef.current,
@@ -412,15 +413,18 @@ export default function EditProfile({ showedit, toggle, editType }) {
                   imgRef.current.height
                 )
               )
+             
               const dataURL = canvasRef.current.toDataURL()
               const n = `${localStorage.getItem('usr')}.png`
               const imagefile = dataURLtoFile(dataURL, n)
               Setfile(imagefile);
+              
+              
             }}>
-              Crop image
+               Crop Image
             </Button>}
             
-            {crop &&
+            {crop  && 
               <canvas ref={canvasRef} className='mt-4 ms-5'
                 style={{
                   border: "1px solid black",

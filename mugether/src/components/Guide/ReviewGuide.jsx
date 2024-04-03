@@ -186,6 +186,7 @@ export default function ReviewGuide({ reviewdata2,reviewdata,guideID,postID}) {
     const [detail, Setdetail] = useState(reviewdata2);
     const [addreview, Setaddreview] = useState(false);
     const username = localStorage.getItem('usr') 
+    const id_userrr = localStorage.getItem('usr_id') || null
     const indexOfLastReview = currentPage * reviewsPerPage;
     const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
     let currentReviews = detail.slice(indexOfFirstReview, indexOfLastReview);
@@ -402,9 +403,7 @@ export default function ReviewGuide({ reviewdata2,reviewdata,guideID,postID}) {
             </div>
           </>
         )} 
-    
-    
-          {<div className='button-review'>
+          { id_userrr !== guideID && <div className='button-review'>
             <Button onClick={write_review}>
               <b>{addreview ? "ย้อนกลับ" : "เขียนรีวิว"}</b>
             </Button>
