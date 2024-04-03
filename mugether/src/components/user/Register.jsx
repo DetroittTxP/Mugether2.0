@@ -163,7 +163,7 @@ const Register = () => {
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control
                                     type="Username"
-                                    placeholder="👤  ชื่อบัญชีใช้"
+                                    placeholder="👤  ชื่อบัญชีผู้ใช้"
                                     onChange={Change}
                                     required
                                 />
