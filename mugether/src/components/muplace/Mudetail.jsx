@@ -127,7 +127,8 @@ export default function Mudetail({ showguide }) {
           </div>
 
           <div>
-            <h2><b>Video Youtube</b></h2>
+            <br/>
+            <h2><b>วิดีโอของสถานที่มู</b></h2>
           </div>
           <div className="Video">
              { video_url !== '#' &&  <ReactPlayer url={(video_url || '#')} />}

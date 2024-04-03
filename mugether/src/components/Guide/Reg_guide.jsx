@@ -137,7 +137,7 @@ export default function Reg_guide() {
               <Form.Label>ชื่อ</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="FirstName"
+                placeholder="ชื่อ"
                 value={guide.firstName}
                 onChange={Change2}
                 required
@@ -148,7 +148,7 @@ export default function Reg_guide() {
               <Form.Label>นามสกุล</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="LastName"
+                placeholder="นามสกุล"
                 value={guide.lastName}
                 onChange={Change2}
                 pattern="[0-9]{13}"
@@ -161,7 +161,7 @@ export default function Reg_guide() {
               <Form.Label>รหัสบัตรประชาชน</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="ID Card"
+                placeholder="เลขบัตรประชาชน"
                 value={guide.id_card}
                 onChange={Change2}
                 required
@@ -172,7 +172,7 @@ export default function Reg_guide() {
               <Form.Label>รหัสไกด์</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="🪪 ID Guide"
+                placeholder="🪪 เลขรหัสไกด์/มัคคุเทศก์"
                 value={guide.id_guide}
                 onChange={Change2}
                 required
@@ -180,10 +180,10 @@ export default function Reg_guide() {
             </Form.Group>
 
             <Form.Group controlId="tel">
-              <Form.Label>เบอร์โทร</Form.Label>
+              <Form.Label>เบอร์โทรที่ติดต่อได้</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="🪪 ID Guide"
+                placeholder="เบอร์โทร"
                 value={guide.tel}
                 onChange={Change2}
                 required
@@ -194,7 +194,7 @@ export default function Reg_guide() {
               <Form.Label>อีเมลที่ติดต่อได้</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="🪪 ID Guide"
+                placeholder="✉️ อีเมล"
                 value={guide.email}
                 onChange={Change2}
                 required
@@ -208,7 +208,7 @@ export default function Reg_guide() {
                 
                 showSearch
                 style={{ width: '100%' }}
-                placeholder="🗺️ Please select"
+                placeholder="🗺️ โปรดเลือกสถานที่พาไปมู"
                 optionFilterProp="children"
                     value={guide.mu_place}
                 onChange={(values) => {
