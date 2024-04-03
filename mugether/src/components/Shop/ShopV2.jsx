@@ -1,8 +1,8 @@
 import React,{useEffect, useState,useContext} from 'react'
-import { Nav, Container, Col, Row } from 'react-bootstrap';
+import axios from 'axios'
+import { Nav, Container, Col, Row, Card, Button } from 'react-bootstrap';
 import { Image } from 'react-bootstrap'
 import {useNavigate} from 'react-router-dom'
-import axios from 'axios'
 import { FaHeart, FaMapMarkerAlt } from "react-icons/fa";
 import { Muplace_Context } from '../../context/MuContext';
 
@@ -32,10 +32,6 @@ export default function ShopV2() {
     },
   
   ]
-
-  
-  
-
 
   return (
     <div>
@@ -79,138 +75,37 @@ export default function ShopV2() {
       {/*  SHOP LIST   */}
 
 
-      <Container  >
-
-        <Row className="g-5">
-
-                {listShop.map((shop,index) => (
-                    <React.Fragment key={index}>
-                       {shop.shop_items.map((data,i) => {
-                          let top = i > 3 ? { marginTop: 100 } : {};
-
-                          return (
-                              <Col  xs={6} md={4} lg={3} key={data._id}>
-                                   <a
-
-                                    style={{
-                                      position: "relative",
-                                      borderRadius: 20,
-                                      overflow: "hidden",
-                                      display: "inline-block",
-                                    }}
-                                    >
-                                 <div
-                                  style={{
-                                    position: "absolute",
-                                    top: "10px",
-                                    right: "10px",
-                                    zIndex: 1,
-                                  }}
-                                >
-                                     
-                               
-                                </div>
-
-
-
-                                <Image
-
-                                  onClick={() => {
-                                       localStorage.setItem('shop_id',shop._id);
-                                       localStorage.setItem('shop_item_id',data._id);
-                                       localStorage.setItem('id_user', shop.id_user)
-                                      
-                                       navigate('/shopdetail')
-                                  }}
-                                  style={{ borderRadius: 20, cursor: 'pointer' }}
-                                  width={300}
-                                  height={300}
-                                  alt={data.item_name}
-                                  src={`${SERVER_URL}/shop/post_img/${shop._id}/${data.item_photo[0]}`}
-                                  loading="lazy"
-                                />
-                                </a>
-
-                                <br />
-
-                                <div style={{ fontFamily: "Sarabun" }}>
-                                  <h5>{data.item_name}</h5>
-                                </div>
-
-                                
-
-                              </Col>
-                          )
-                       })}
-                    </React.Fragment>
-                ))}
-
+        <Container>
+        <Row xs={1} md={2} lg={4} className="g-4">
+          {listShop.map((shop, shopIndex) => (
+            <React.Fragment key={shopIndex}>
+              {shop.shop_items.map((data, itemIndex) => (
+                <Col key={itemIndex}>
+                  <Card style={{ height: "100%", borderRadius: "15px", cursor: "pointer" }}>
+                    <Card.Img
+                      variant="top"
+                      src={`${SERVER_URL}/shop/post_img/${shop._id}/${data.item_photo[0]}`}
+                      alt={data.item_name}
+                      onClick={() => {
+                        localStorage.setItem('shop_id', shop._id);
+                        localStorage.setItem('shop_item_id', data._id);
+                        localStorage.setItem('id_user', shop.id_user);
+                        navigate('/shopdetail');
+                      }}
+                      style={{ height: "300px", objectFit: "cover", borderRadius: "15px" }}
+                    />
+                    <Card.Body>
+                      <Card.Title>{data.item_name}</Card.Title>
+                      <div className="fav-icon">
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </React.Fragment>
+          ))}
         </Row>
-
-
-
       </Container>
-
-
-
     </div>
-  )
+  );
 }
-
-
-
-
-
-
-
-// <Col style={top} md={3} key={data.productName}>
-//                 <a
-
-//                   style={{
-//                     position: "relative",
-//                     borderRadius: 20,
-//                     overflow: "hidden",
-//                     display: "inline-block",
-//                   }}
-//                 >
-//                   <div
-//                     style={{
-//                       position: "absolute",
-//                       top: "10px",
-//                       right: "10px",
-//                       zIndex: 1,
-//                     }}
-//                   >
-
-//                     <FaHeart
-                      
-//                       style={{
-//                         color: "red",
-//                         cursor: "pointer",
-//                         fontSize: "24px",
-//                       }}
-//                     />
-
-//                   </div>
-
-//                   <Image
-//                     onClick={() => {
-//                          navigate('/shopdetail')
-//                          selectedShop(data.productName);
-//                     }}
-//                      style={{ borderRadius: 20, cursor: 'pointer' }}
-//                      width={300}
-//                      height={300}
-//                      alt={data.productName}
-//                      src={data.productImage}
-//                      loading="lazy"
-//                   />
-//                 </a>
-                
-//                 <br />
-                
-//                 <div style={{ fontFamily: "Sarabun" }}>
-//                   <h5>{data.productName}</h5>
-//                 </div>
-
-//               </Col>

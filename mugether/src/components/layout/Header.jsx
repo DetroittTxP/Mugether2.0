@@ -228,7 +228,7 @@ export default function Header({ handleFav, showguide }) {
       <EditProfile showedit={showedit} toggle={toggle} editType={editType} />
       <Navbar bg="light" expand="lg" fixed="top" style={{ borderBottom: '2px solid #ccc', padding: '30px', zIndex: '50' }}>
         <Container>
-          <Navbar.Brand style={{ cursor: 'pointer' }} onClick={() => {
+          <Navbar.Brand style={{ cursor: 'pointer', maxWidth: '600px'}} onClick={() => {
             localStorage.removeItem('showmap');
             navigate('/');
             showguide(false);

@@ -118,19 +118,21 @@ export default function Shopdetail() {
         <Container className="mt-3">
             <Row>
                 <Col md={6}>
-
                     <Carousel indicators controls>
-                        {item_img.map((image, index) => (
-                            <Carousel.Item key={index}>
-                                <img
-                                    className="d-block w-100"
-                                    src={`${SERVER_URL}/shop/post_img/${shop_id}/${image}`}
-                                    alt={`Product image ${index + 1}`}
-                                />
-
-                            </Carousel.Item>
-                        ))}
+                    {item_img.map((image, index) => (
+                        <Carousel.Item key={index}>
+                        <div className="carousel-image-wrapper">
+                            <img
+                            className="d-block w-100"
+                            src={`${SERVER_URL}/shop/post_img/${shop_id}/${image}`}
+                            alt={`Product image ${index + 1}`}
+                            style={{height: '480px'}}
+                            />
+                        </div>
+                        </Carousel.Item>
+                    ))}
                     </Carousel>
+
                 </Col>
                 <Col md={6}>
                     <div className="description-box">

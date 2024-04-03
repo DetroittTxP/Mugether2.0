@@ -1,18 +1,20 @@
 .scroll-dropdown {
-    max-height: 300px; 
-    overflow-y: auto; 
-    overflow-x: hidden;     
-  }
+  max-width: 600px; 
+  max-height: 300px; 
+  overflow-y: auto; 
+  overflow-x: auto;    
+}
 
-  .scroll-dropdown .dropdown-menu {
-    max-width: 600px; /* Adjust the width as needed */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    overflow-y: auto; /* Enable vertical scrolling */
-    max-height: 400px; /* Adjust the height as needed */
+.scroll-dropdown .dropdown-menu {
+  max-width: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 900px;
 }
 
 .scroll-dropdown .dropdown-menu .dropdown-item {
-    white-space: nowrap; /* Keep the text in a single line */
-    overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Add ellipsis to overflow text */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
