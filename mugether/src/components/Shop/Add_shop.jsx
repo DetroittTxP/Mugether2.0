@@ -108,6 +108,7 @@ export default function Add_Shop() {
                 accept="image/*"
                 multiple
                 onChange={onFileChange}
+                required
               />
             </Form.Group>
 
@@ -130,6 +131,7 @@ export default function Add_Shop() {
                 rows={3}
                 onChange={onFormChange}
                 value={shop_item.item_detail}
+                required
               />
             </Form.Group>
 
@@ -152,7 +154,6 @@ export default function Add_Shop() {
                 placeholder="ลิ้งค์ไปยังสินค้า"
                 onChange={onFormChange}
                 value={shop_item.item_linkurl}
-                required
               />
             </Form.Group>
 
