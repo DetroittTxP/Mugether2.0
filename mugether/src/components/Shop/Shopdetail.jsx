@@ -61,10 +61,10 @@ export default function Shopdetail() {
 
     const Owner = usr_id === id_user_shop
 
-    const [isFavorited, setIsFavorited] = useState(false);
-    const toggleFavorite = () => {
-        setIsFavorited(!isFavorited);
-    };
+    // const [isFavorited, setIsFavorited] = useState(false);
+    // const toggleFavorite = () => {
+    //     setIsFavorited(!isFavorited);
+    // };
 
     useEffect(() => {
         SwalLoading();
@@ -159,13 +159,13 @@ export default function Shopdetail() {
                         <h3>{shopdetail.shop_name}</h3>
                         <p>{shopdetail.shop_detail.detail}</p>
                     </div>
-                    <div className="favorite-section">
+                    {/* <div className="favorite-section">
                         <FaHeart
                             onClick={toggleFavorite}
                             className={isFavorited ? "favorite-button favorited" : "favorite-button"}
                         />
                         <p>Favorite Shop</p>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 

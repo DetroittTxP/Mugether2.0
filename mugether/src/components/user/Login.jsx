@@ -61,7 +61,7 @@ export default function Login() {
       
       await Swal.fire({
         icon: 'success',
-        title: 'Login Success'
+        title: 'เข้าสู่ระบบสำเร็จ'
       })
 
       navigate('/')
