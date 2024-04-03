@@ -44,11 +44,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
   const [crop, Setcrop] = useState(null)
   const imgRef = useRef(null)
   const canvasRef = useRef(null)
-
-  const [loadfile,Setloadfile] = useState(null)
-
-
-
+  const showcanvas = useRef(0);
 
 
 
@@ -359,7 +355,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
     Setshow(showedit)
   }, [showedit])
   
-  const [showcanvas,Setshowcanvas] = useState(false);
+
 
 
 
@@ -418,6 +414,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
               const n = `${localStorage.getItem('usr')}.png`
               const imagefile = dataURLtoFile(dataURL, n)
               Setfile(imagefile);
+         
               
               
             }}>
@@ -425,9 +422,9 @@ export default function EditProfile({ showedit, toggle, editType }) {
             </Button>}
             
             {crop  && 
-              <canvas ref={canvasRef} className='mt-4 ms-5'
+              <canvas ref={canvasRef} className='mt-4 ms-2'
                 style={{
-                  border: "1px solid black",
+                  border: "1px ",
                   objectFit: "contain",
                   width: 150,
                   height: 150,
@@ -435,6 +432,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 }} />
 
             }
+            <br/>
         
           </Form.Group>
 

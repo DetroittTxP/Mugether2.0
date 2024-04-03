@@ -394,6 +394,7 @@ export default function ReviewGuide({ reviewdata2,reviewdata,guideID,postID}) {
                                 ))}
                             </div>
                         )}
+                         <hr/>
                     </>
                 ))}
             

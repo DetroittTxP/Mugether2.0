@@ -397,6 +397,7 @@ export default function Shopreview({reviewdata}) {
                     ))}
                 </div>
               )}
+                <hr/>
             </>
           );
         })}

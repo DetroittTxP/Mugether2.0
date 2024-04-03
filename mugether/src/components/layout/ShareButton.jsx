@@ -5,27 +5,18 @@ import "./ShareButton.css";
 
 
 
+
 const ShareButton = ({url}) => {
 
   return (
-    <>
-      <FacebookShareButton url={url} className='share-icon'>
-        <FacebookIcon size={32} round={true} />
-      </FacebookShareButton>
-
-      <TwitterShareButton url={url}  className='share-icon'>
-        <TwitterIcon size={32} round={true} />
-      </TwitterShareButton>
-
-      <LineShareButton url={url}  className='share-icon'>
-        <LineIcon size={32} round={true} />
-      </LineShareButton>
-
-      <VKShareButton url={url}  className='share-icon'>
-        <VKIcon size={32} round={true} />
-      </VKShareButton>
-
-    </>
+    <div>
+      <span style={{marginRight:30}}>
+       🚶‍♂️ ค้นหาสถานที่ใกล้เคียง  ลองใช้ Mugether Chat bot ➡️
+      </span>
+        <a href='https://qr-official.line.me/sid/L/026gkuxb.png'>
+        <LineIcon className='share-icon' href='https://qr-official.line.me/sid/L/026gkuxb.png' size={32} round={true} />
+        </a>
+    </div>
   );
 };
 

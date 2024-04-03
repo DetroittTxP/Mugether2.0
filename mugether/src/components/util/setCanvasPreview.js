@@ -1,4 +1,4 @@
-const setCanvasPreview = (
+const setCanvasPreview = async (
     image, 
     canvas, 
     crop 
