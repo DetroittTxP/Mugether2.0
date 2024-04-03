@@ -45,7 +45,7 @@ export default function Header({ handleFav, showguide }) {
     localStorage.removeItem('shop_item_id');
     localStorage.removeItem('shop');
     localStorage.removeItem('guide');
-    await Swal.fire('logout ok')
+    await Swal.fire('ออกจากระบบสำเร็จ')
     navigate('/')
   }
 

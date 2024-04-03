@@ -152,12 +152,11 @@ export default function Login() {
             </Form.Group>
 
             <Row>
-              <Button variant="warning" type="submit" className="Enter">
+              <Button variant="warning" type="submit" className="Enter1">
                 เข้าสู่ระบบ
               </Button>
               <a className="forget" href="#">
                 <h6 className="forget-message" onClick={handleForgottenPassword}>ลืมรหัสผ่าน?</h6>
-                
               </a>
             </Row>
           </Form>

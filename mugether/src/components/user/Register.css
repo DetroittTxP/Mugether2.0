@@ -130,3 +130,12 @@
   transform: translateY(-150%);
   cursor: pointer;
 }
+
+.Text-p{
+  font-size:small;
+}
+
+
+.Enter{
+  margin-top: -20px;
+}
