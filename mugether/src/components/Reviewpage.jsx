@@ -87,8 +87,8 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
       return Swal.fire('โปรดให้คะแนนอย่างน้อย 1 คะแนน')
     }
     Swal.fire({
-      title: 'Loading...',
-      html: 'Please wait',
+      title: 'กำลังโหลด...',
+      html: 'โปรดรอ',
       timerProgressBar: true,
       didOpen: () => {
         Swal.showLoading();
