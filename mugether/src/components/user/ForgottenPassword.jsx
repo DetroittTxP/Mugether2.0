@@ -48,7 +48,7 @@ export default function ForgottenPassword() {
                 return nextStep();
             }
             else {
-                Swal.fire({ icon: 'error', text: 'token fail' })
+                Swal.fire({ icon: 'error', text: 'โทเค็นผิด' })
             }
         }
         catch (err) {
@@ -67,7 +67,7 @@ export default function ForgottenPassword() {
                     let updatepass = await axios.post(`${SERVER_URL}/user/changepass`, { email, password: pass })
                     console.log(updatepass.data);
                     if (updatepass.data.status !== 'ok') {
-                        return Swal.fire({ text: 'error' })
+                        return Swal.fire({ text: 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง' })
                     } else {
                          Swal.fire({ icon: 'success', text: 'เปลี่ยนรหัสผ่านสำเร็จ' })
                          window.location.href="/login";
@@ -95,7 +95,7 @@ export default function ForgottenPassword() {
 
     const checkPassword = () => {
         if (pass != confirmpass) {
-            Swal.fire("Password not match");
+            Swal.fire("รหัสผ่านไม่ตรงกัน");
             return true;
         }
 
