@@ -90,8 +90,8 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
                     localStorage.setItem('muplace',data.name)
                     navigate("/mudetail");
                     Swal.fire({
-                      title: 'Loading...',
-                      html: 'Please wait',
+                      title: 'กำลังโหลด...',
+                      html: 'โปรดรอ',
                       timer: 1800,
                       timerProgressBar: true,
                       didOpen: () => {

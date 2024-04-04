@@ -41,8 +41,8 @@ export default function Regis_shop() {
 
     try {
       Swal.fire({
-        title: 'Loading...',
-        html: 'Please wait',
+        title: 'กำลังโหลด...',
+        html: 'โปรดรอ',
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();
@@ -61,7 +61,7 @@ export default function Regis_shop() {
                 if(res.data.status === 'ok'){
                     Swal.fire({
                     icon: 'success',
-                    title: 'Success'
+                    title: 'สำเร็จ'
                   })
             
                 }
@@ -78,7 +78,7 @@ export default function Regis_shop() {
 
       await Swal.fire({
         icon: 'success',
-        title: 'Success'
+        title: 'สำเร็จ'
       })
 
       setshopdata({
@@ -105,7 +105,7 @@ export default function Regis_shop() {
     }
     catch (err) {
       Swal.fire({
-        title: "Error",
+        title: "เกิดข้อผิดพลาด โปรดลองอีกครั้ง",
         text: err,
         icon: 'error'
       });
@@ -155,7 +155,7 @@ export default function Regis_shop() {
           <div className="profile-header">
 
           </div>
-          <h2 className="head">Register Shop 🏪</h2> 
+          <h2 className="head">สมัครร้านค้า 🏪</h2> 
           
 
           <Form onSubmit={handleSubmit}>

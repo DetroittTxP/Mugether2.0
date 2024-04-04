@@ -29,8 +29,8 @@ export default function Login() {
 
       if (res.data.status !== 'success') {
         return Swal.fire({
-          icon: res.data.status,
-          title: res.data.message
+          icon:'error',
+          title: 'ชื่อบัญชีผู้ใช้งาน หรือ รหัสผ่านผิด'
         })
       }
 
