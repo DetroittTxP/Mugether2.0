@@ -9,7 +9,7 @@ import EditProfile from '../user/EditProfile';
 import AppsIcon from '@mui/icons-material/Apps';
 import { useLocation } from 'react-router-dom';
 import './header.css'
-
+import Corrrect from '../../assets/correct.png'
 
 export default function Header({ handleFav, showguide }) {
 
@@ -68,17 +68,18 @@ export default function Header({ handleFav, showguide }) {
     <Menu>
       <Menu.Item key="profile">
         <div>
+
           <Image roundedCircle width={50} height={50} src={`${SERVER_URL}/image/user/profile/${usr_data}`} />
           <span style={{ marginLeft: 10 }}>
-            {usr_data} <br />
+            {usr_data} <br /><br />
             {shopStatus ? 
             <p style={{ display: 'inline-block', marginRight: '10px' }}>
-              <img src="https://cdn-icons-png.flaticon.com/512/2761/2761035.png" style={{ width: '30px' }} /> shop 
+              <img src={Corrrect} style={{ width: '30px' }} /> ร้านค้า 
             </p> 
             : null}
             {guideStatus ? 
             <p style={{ display: 'inline-block' }}>
-              <img src="https://cdn-icons-png.flaticon.com/512/4127/4127281.png" style={{ width: '30px' }}/> guide 
+              <img src={Corrrect} style={{ width: '30px' }}/> ไกด์
             </p> 
             : null}
         </span>
