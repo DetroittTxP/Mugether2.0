@@ -48,7 +48,7 @@ export default function Login() {
       })
 
       if (verify_token.data.status !== 'success') {
-        return Swal.fire('verify token error')
+        return Swal.fire('โทเคนไม่ถูกต้อง')
       }
 
       
