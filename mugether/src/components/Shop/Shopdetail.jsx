@@ -148,10 +148,7 @@ export default function Shopdetail() {
                 </Col>
             </Row>
             <br />
-            <Col xs="auto" className="share-button">
-                <span> แชร์ : </span>
-                <ShareButton url={pageUrl} />
-            </Col>
+        
 
             <div className="store-info">
                 <div className="logo-container">
