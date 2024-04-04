@@ -181,7 +181,7 @@ export default function Add_post() {
                     <Form.Label><h5><b>เพิ่มรูปภาพสถานที่ของของคุณ (ไม่เกิน 5 รูป)</b></h5></Form.Label>
                     <Form.Control type="file" accept='image/*' multiple onChange={SelectPicture} />
                 </Form.Group>
-                
+{/*                 
                 {imagePreview.length !== 0 &&
                     
                     <Carousel controls className='carousel-container'>
@@ -193,7 +193,7 @@ export default function Add_post() {
                     </Carousel>
                    
                 } 
-                <br/>
+                <br/> */}
 
                 <Form.Group controlId='muPlace'>
                     <Form.Control type='hidden' value={muplace} />
