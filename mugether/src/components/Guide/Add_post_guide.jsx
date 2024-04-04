@@ -133,6 +133,7 @@ export default function Add_post() {
                     zIndex: 1051 
                   }
             })
+            return window.location.reload();
         }
         catch (err) {
             alert(err)
