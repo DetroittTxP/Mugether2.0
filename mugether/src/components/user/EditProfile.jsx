@@ -212,7 +212,6 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 as = "textarea" rows={3}
                 placeholder="📃 รายละเอียดของร้านค้า "
                 onChange={onShopchange}
-                required
               />
             </Form.Group>
   
@@ -231,7 +230,6 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 type="text"
                 placeholder="☎️ หมายเลขโทรศัพท์ เช่น 09xxxxxxxx"
                 onChange={onShopchange}
-                required
               />
             </Form.Group>
   
@@ -241,7 +239,6 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 type="text"
                 placeholder="📍 ที่อยู่ (ถ้าไม่มีหน้าร้านให้ใส่ว่าหน้าร้านออนไลน์)"
                 onChange={onShopchange}
-                required
               />
             </Form.Group>
   
@@ -251,7 +248,6 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 type="text"
                 placeholder="✉️ อีเมล์ "
                 onChange={onShopchange}
-                required
               />
             </Form.Group>
    
