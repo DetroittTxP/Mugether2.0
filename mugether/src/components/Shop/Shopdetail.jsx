@@ -21,6 +21,7 @@ export default function Shopdetail() {
 
     const [shopdetail, Setshopdetail] = useState({
         shop_name: '',
+        id_user:"",
         shop_items: [{
             item_photo: '',
             item_name: '',
@@ -205,7 +206,7 @@ export default function Shopdetail() {
                 <h2>รีวิว</h2>
 
 
-             <Shopreview reviewdata={selectedShop[0].item_review} />
+             <Shopreview id_user={shopdetail.id_user} reviewdata={selectedShop[0].item_review} />
                             
             
     

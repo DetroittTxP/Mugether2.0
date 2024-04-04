@@ -37,7 +37,7 @@ const Addshopreview=({ check_finish })=>{
       value = newvalue
 
     }
-    console.log(newvalue + e.target.name);
+  
 
     Setreview(prevReview => ({
       ...prevReview,
@@ -100,7 +100,7 @@ const Addshopreview=({ check_finish })=>{
              formData.append('reviewImage', image[i]);
          }
          let uplaodimage = await axios.post(`${SERVER_URL}/shop/review/image/${shop_id}`, formData).catch(err => console.log(err));
-         console.log(uplaodimage.data);
+         
          imagedata = uplaodimage.data.photos
          
       }
@@ -182,8 +182,8 @@ const Addshopreview=({ check_finish })=>{
 
 
 
-export default function Shopreview({reviewdata}) {
-  console.log(reviewdata);
+export default function Shopreview({reviewdata,id_user}) {
+
   const {SERVER_URL} = useContext(Muplace_Context);
   const shop_id = localStorage.getItem('shop_id')
   const shop_item_id = localStorage.getItem('shop_item_id')
@@ -200,8 +200,8 @@ export default function Shopreview({reviewdata}) {
   const totalPages = Math.ceil(totalReviews / reviewsPerPage);
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [currentImage, setCurrentImage] = useState('');
+  const usrid = localStorage.getItem('usr_id');
 
-  
   useEffect(() => {
     Setdetail(reviewdata)
   },[reviewdata])
@@ -209,7 +209,7 @@ export default function Shopreview({reviewdata}) {
   useEffect(() => {
       axios.get(`${SERVER_URL}/shop/review/${shop_id}/${shop_item_id}`)
       .then(res => {
-            console.log(res.data);
+           
             Setdetail(res.data)
       })
       .catch(err => alert(err))
@@ -235,7 +235,7 @@ export default function Shopreview({reviewdata}) {
      return sum / reviewdata.length
   }
 
-  console.log(currentReviews);
+
   const write_review=()=>{  
 
     let user = localStorage.getItem('usr') 
@@ -368,7 +368,7 @@ export default function Shopreview({reviewdata}) {
     ) : (
       <>
         {currentReviews.map((data,i) => {
-          console.log(data);
+         
           return(
             <>
               <div className="review-item">
@@ -408,7 +408,7 @@ export default function Shopreview({reviewdata}) {
     )} 
 
 
-      {<div className='button-review'>
+      {usrid !== id_user && <div className='button-review'>
         <Button onClick={write_review}>
           <b>{addreview ? "ย้อนกลับ" : "เขียนรีวิว"}</b>
         </Button>
