@@ -93,6 +93,7 @@ const Register = () => {
                 else{
                     await Swal.fire({
                          icon:'error',
+                         text:'มีอีเมลหรือชื่อผู้ใช้งานถูกใช้ไปเเล้ว'
                         
                     })
                     console.log(res.data);

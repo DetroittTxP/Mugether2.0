@@ -27,7 +27,7 @@ export default function ForgottenPassword() {
             let res = await axios.post(`${SERVER_URL}/user/resetpassword`, { email });
             console.log(res.data);
             if (res.data.status === 'ok') {
-                Swal.fire({ text: res.data.msg })
+                Swal.fire({ text:'ระบบได้ส่งรหัสยืนยันไปให้เเล้ว หากท่านเคยสมัครสมาชิกไว้' })
                 nextStep();
             }
         } catch (err) {
