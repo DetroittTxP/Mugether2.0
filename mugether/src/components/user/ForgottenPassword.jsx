@@ -155,7 +155,7 @@ export default function ForgottenPassword() {
                             <Button
                                 variant="warning"
                                 type="submit"
-                                className="Enter"
+                                className="Enter2"
                             >
                                 ส่งอีเมล
                             </Button>
@@ -177,7 +177,7 @@ export default function ForgottenPassword() {
                                 <Button
                                     variant="warning"
                                     type="submit"
-                                    className="Enter"
+                                    className="Enter3"
                                 >
                                     ส่งโทเค็น
                                 </Button>
@@ -212,15 +212,15 @@ export default function ForgottenPassword() {
                                         {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
 
                                     </div>
-                                    <div className="Text-p"><p>อย่างน้อย 8 ตัวอักษร ตัวพิมพ์ใหญ่ 1 ตัว ตัวเลข 1 ตัว</p></div>
+                                    <div className="Text-p"><p>อย่างน้อย 8 ตัวอักษร ประกอบด้วย ตัวพิมพ์ใหญ่ 1 ตัว ตัวเลข 1 ตัว</p></div>
                                 </Form.Group>
 
                                 <Button
                                     variant="warning"
                                     type="submit"
-                                    className="Enter"
+                                    className="Enter4"
                                 >
-                                    confirm
+                                    ยืนยัน
                                 </Button>
                             </Form>
                         </div>
