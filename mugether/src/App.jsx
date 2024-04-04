@@ -66,12 +66,18 @@ export default function App() {
 const [listshop,Setlistshop] = useState([]);
   const guideStatus = JSON.parse(localStorage.getItem('guide'));
   const shopStatus = JSON.parse(localStorage.getItem('shop'));
-
+  const usr_id = localStorage.getItem('usr_id');
+  console.log(usr_id);
+  useEffect(() => {
+     if(!usr_id && location.pathname === '/add-shop'){
+         return window.location.href = '/'
+     }
+  },[location.pathname])
 
   Checktimeout(1800000,() => {
     if (!logoutAlertShown) {
       Swal.fire({
-        text: 'User logged out due to inactivity',
+        text: 'ออกจากระบบอัตโนมัติ เนื่องไม่มีตอบสนองเป็นระยะเวลานาน',
       });
       localStorage.removeItem('usr');
       localStorage.removeItem('token')

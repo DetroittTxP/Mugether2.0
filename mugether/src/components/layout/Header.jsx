@@ -45,8 +45,11 @@ export default function Header({ handleFav, showguide }) {
     //localStorage.removeItem('shop_item_id');
     //localStorage.removeItem('shop');
     //localStorage.removeItem('guide');
-
+   
     await Swal.fire('ออกจากระบบสำเร็จ')
+    if(location.pathname === '/add-shop'  ){
+      navigate('/')
+    }
     window.location.reload();
     //navigate('/')
   }
@@ -103,10 +106,6 @@ export default function Header({ handleFav, showguide }) {
         <Menu.Item key='editShopProfile' onClick={() => onEditClick('shop')}>
           <img src="https://cdn-icons-png.flaticon.com/512/1043/1043450.png" style={{ width: '30px' }} />
           แก้ไขโปรไฟล์ร้านค้า
-        </Menu.Item>
-        <Menu.Item key='editShopList'>
-          <img src="https://cdn-icons-png.flaticon.com/512/4334/4334942.png" style={{ width: '30px' }} />
-          แก้ไขรายการสินค้า
         </Menu.Item>
       </Menu.SubMenu>}
       {shopStatus && <Menu.Item key="addshoplist">

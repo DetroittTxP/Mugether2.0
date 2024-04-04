@@ -60,8 +60,8 @@ export default function EditProfile({ showedit, toggle, editType }) {
 
     try {
       Swal.fire({
-        title: 'Loading...',
-        html: 'Please wait',
+        title: 'กำลังโหลด...',
+        html: 'โปรดรอสักครู่',
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();
@@ -105,7 +105,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
       await Swal.fire({
         
         icon: 'success',
-        title: 'Success',
+        title: 'สำเร็จ',
         style: {
           zIndex: 1051 
         }
