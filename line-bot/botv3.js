@@ -60,13 +60,13 @@ const handledatabase=async(type,lat,long)=>{
         let db =   Db_Client.db(process.env.DB);
        
         console.log('MongoDB connected successfully');
-        
+        let collection;
+        let query;
+        let nearby = [];
         switch(type){
             case 'ร้านอาหาร' :
-                let collection = db.collection(process.env.FOOD_MU);
-                let query = await collection.find({}).toArray();
-                let nearby = [];
-
+                collection = db.collection(process.env.FOOD_MU);
+                query = await collection.find({}).toArray();
                 query.forEach((async data => {
                      let distance = await finddist(lat,long,data.lat,data.lng);
                      if(distance < 20){
@@ -83,11 +83,46 @@ const handledatabase=async(type,lat,long)=>{
 
                 return nearby;
             case 'โรงเเรม' :
-                return;
-            case 'สถานที่ท่องเที่ยว':
-                return;        
-            default:
+               collection = db.collection(process.env.HOTEL_MU);
+               query = await collection.find({}).toArray(); 
                 
+               query.forEach((async data => {
+                let distance = await finddist(lat,long,data.lat,data.lng);
+                if(distance < 20){
+                     nearby.push({
+                         type:'location',
+                         title:`${data.name} ระยะทาง ${distance.toFixed(2)} กม.`,
+                         address:data.address,
+                         latitude:data.lat,
+                         longitude:data.lng,
+                         dist:distance.toFixed(2)
+                     })
+                }
+           }))
+
+             
+
+
+                return nearby;
+            case 'สถานที่ท่องเที่ยว':
+                collection = db.collection(process.env.TRAVEL_MU);
+                query = await collection.find({}).toArray(); 
+                query.forEach((async data => {
+                    let distance = await finddist(lat,long,data.lat,data.lng);
+                    if(distance < 20){
+                         nearby.push({
+                             type:'location',
+                             title:`${data.name} ระยะทาง ${distance.toFixed(2)} กม.`,
+                             address:data.address,
+                             latitude:data.lat,
+                             longitude:data.lng,
+                             dist:distance.toFixed(2)
+                         })
+                    }
+               }))
+                return nearby; 
+            default:
+
                 return;
 
         }
@@ -98,6 +133,9 @@ const handledatabase=async(type,lat,long)=>{
 }
 
 const userSteps = {};
+
+
+
 
 
 const handleEvents=async(event)=>{
@@ -155,7 +193,6 @@ const handleEvents=async(event)=>{
                      default:
                         userSteps[userID].currentStep = 1;
                         return;     
-
                 }
             }
             catch(err){
