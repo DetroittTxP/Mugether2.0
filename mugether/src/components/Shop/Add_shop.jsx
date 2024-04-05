@@ -62,6 +62,10 @@ export default function Add_Shop() {
     const shop_id = await getIDshop(usrid);
     const img = new FormData();
 
+    if(shop_item.item_price < 0){
+      return Swal.fire({icon:'error',text:'ราคาสินค้าต้อง 0 บาทขึ้นไป'})
+    }
+
     if(image.length === 0){
        return Swal.fire({text:'โปรดอัพรูปสินค้าอย่างน้อย 1 รูป'})
     }

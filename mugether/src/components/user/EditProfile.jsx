@@ -60,8 +60,8 @@ export default function EditProfile({ showedit, toggle, editType }) {
 
     try {
       Swal.fire({
-        title: 'Loading...',
-        html: 'Please wait',
+        title: 'กำลังโหลด...',
+        html: 'โปรดรอสักครู่',
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();
@@ -105,7 +105,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
       await Swal.fire({
         
         icon: 'success',
-        title: 'Success',
+        title: 'สำเร็จ',
         style: {
           zIndex: 1051 
         }
@@ -134,6 +134,8 @@ export default function EditProfile({ showedit, toggle, editType }) {
                     type={visible ? "text" : "password"}
                     placeholder="🔒 รหัสผ่านใหม่  "
                     onChange={onFormchange}
+                    pattern='/^[A-Z][a-zA-Z0-9]{7,}$/'
+                    title='รหัสผ่านต้องประกอบด้วย: รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร ประกอบด้วย 1 ตัวพิมพ์ใหญ่ 1 ตัวพิมพ์เล็ก 1 ตัวเลข'
                   />
                   <div className="password-toggle-edit"
                     onClick={() => setvisible(!visible)}>
@@ -151,6 +153,8 @@ export default function EditProfile({ showedit, toggle, editType }) {
                   <Form.Control
                     type={visible ? "text" : "password"}
                     placeholder="🔒 ยืนยันรหัสผ่านใหม่ "
+                    pattern='/^[A-Z][a-zA-Z0-9]{7,}$/'
+                    title='รหัสผ่านต้องประกอบด้วย: รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร ประกอบด้วย 1 ตัวพิมพ์ใหญ่ 1 ตัวพิมพ์เล็ก 1 ตัวเลข'
                   />
                   <div className="password-toggle-edit"
                     onClick={() => setvisible(!visible)}>
@@ -212,7 +216,6 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 as = "textarea" rows={3}
                 placeholder="📃 รายละเอียดของร้านค้า "
                 onChange={onShopchange}
-                required
               />
             </Form.Group>
   
@@ -231,7 +234,6 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 type="text"
                 placeholder="☎️ หมายเลขโทรศัพท์ เช่น 09xxxxxxxx"
                 onChange={onShopchange}
-                required
               />
             </Form.Group>
   
@@ -241,7 +243,6 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 type="text"
                 placeholder="📍 ที่อยู่ (ถ้าไม่มีหน้าร้านให้ใส่ว่าหน้าร้านออนไลน์)"
                 onChange={onShopchange}
-                required
               />
             </Form.Group>
   
@@ -251,7 +252,6 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 type="text"
                 placeholder="✉️ อีเมล์ "
                 onChange={onShopchange}
-                required
               />
             </Form.Group>
    

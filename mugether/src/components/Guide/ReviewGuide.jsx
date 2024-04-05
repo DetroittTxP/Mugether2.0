@@ -193,16 +193,16 @@ export default function ReviewGuide({ reviewdata2,reviewdata,guideID,postID}) {
     const totalReviews = detail.length;
     const totalPages = Math.ceil(totalReviews / reviewsPerPage);
 
-    useEffect(() => {
-        //guideID//postID
-        axios.get(`${SERVER_URL}/guide_detail/review/${guideID}/${postID}`)
-        .then(res => {
-          console.log(res.data);
+    // useEffect(() => {
+    //     //guideID//postID
+    //     axios.get(`${SERVER_URL}/guide_detail/review/${guideID}/${postID}`)
+    //     .then(res => {
+    //       console.log(res.data);
     
-          Setdetail(res.data);
-        })
-        .catch(err => alert(err)) 
-    },[detail])
+    //       Setdetail(res.data);
+    //     })
+    //     .catch(err => alert(err)) 
+    // },[detail])
 
     const updatestate =(newstate) =>{
          Setdetail([...detail,newstate]);
@@ -349,7 +349,8 @@ export default function ReviewGuide({ reviewdata2,reviewdata,guideID,postID}) {
                if(remove.data){
                     Swal.fire({icon:'success',text:'ลบข้อความเรียบร้อย'})
                     Setdetail( () => detail.filter(data => data._id !== id_review) )
-                    return;
+                    return window.location.reload();
+      
                }
          }
       })

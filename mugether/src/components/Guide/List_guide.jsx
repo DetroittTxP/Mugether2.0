@@ -105,7 +105,7 @@ export default function ListGuide() {
                
                       { usrID && usrID === data.id_guide && 
                       <Button onClick={() => onDelete(data.id_guide)} variant='danger' style={{ marginLeft: 'auto', padding: '5px 10px' }}>
-                            Delete
+                            ลบโพส
                        </Button>}
 
                    </AccordionSummary>

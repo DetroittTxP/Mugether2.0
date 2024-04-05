@@ -1,7 +1,7 @@
 import React, { useState,useContext } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./register.css";
+import "./Register.css";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 import axios from 'axios';
@@ -32,8 +32,7 @@ const Register = () => {
             // Swal.fire("รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร\nประกอบด้วย 1 ตัวพิมพ์ใหญ่\n 1 ตัวพิมพ์เล็ก 1 ตัวเลข");
             // Swal.fire("Password must contain the following:\nAt least 8 characters\n At least one uppercase letter\nAt least one lowercase letter\nAt least one digit\nAt least one special character (!@#$%^&*()_+)");
             Swal.fire({
-                title: "Password Validation",
-                text: "รหัสผ่านต้องประกอบด้วย: รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร ประกอบด้วย 1 ตัวพิมพ์ใหญ่ 1 ตัวพิมพ์เล็ก 1 ตัวเลข และ 1 ตัวอักขระพิเศษ",
+                text: "รหัสผ่านต้องประกอบด้วย: รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร ประกอบด้วย  ตัวพิมพ์ใหญ่อย่างน้อย 1 ตัว   ตัวพิมพ์เล็กอย่าน้อย 1 ตัว เเละ ตัวเลข อย่างน้อย 1 ตัว",
                 icon: "warning",
                 customClass: {
                     popup: 'custom-font-size',
@@ -41,6 +40,24 @@ const Register = () => {
             });
             return true;
         }
+        return false;
+    }
+
+
+    const checkusr=()=>{
+        const pattern  = /^[a-zA-Z0-9]{1,10}$/;
+        if(!pattern.test(User.username)){
+            Swal.fire({
+               
+                text: "ชื่อผู้ใช้ต้องยาวไม่เกิน 10 ตัวอักษร",
+                icon: "warning",
+                customClass: {
+                    popup: 'custom-font-size',
+                },
+            });
+            return true;
+        }
+
         return false;
     }
 
@@ -54,7 +71,7 @@ const Register = () => {
         e.preventDefault();
 
         //if checkPassword() != true
-        if (!checkPassword()) {
+        if (!checkPassword()   && !checkusr()) {
             const sent_data = {
                 username: User.username,
                 password: User.password,
@@ -62,8 +79,8 @@ const Register = () => {
             }
 
             Swal.fire({
-                title: 'Loading...',
-                html: 'Please wait',
+                title: 'กำลังโหลด',
+                html: 'โปรดรอสักครู่',
                 timerProgressBar: true,
                 didOpen: () => {
                     Swal.showLoading();
@@ -93,6 +110,7 @@ const Register = () => {
                 else{
                     await Swal.fire({
                          icon:'error',
+                         text:'มีอีเมลหรือชื่อผู้ใช้งานถูกใช้ไปเเล้ว'
                         
                     })
                     console.log(res.data);
@@ -212,7 +230,7 @@ const Register = () => {
                                         
                                         </div>
                                         <div className="Text-p">
-                                            <p>อย่างน้อย 8 ตัวอักษร ต้องมี 1 ตัวพิมพ์ใหญ่ 1 ตัวพิมพ์เล็ก 1 ตัวเลข 1 ตัวอักขระพิเศษ</p>
+                                            <p>อย่างน้อย 8 ตัวอักษร ต้องมี 1 ตัวพิมพ์ใหญ่ 1 ตัวพิมพ์เล็ก 1 ตัวเลข </p>
                                         </div>
                                     </Col>
 

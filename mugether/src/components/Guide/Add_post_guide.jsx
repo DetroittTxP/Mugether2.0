@@ -133,6 +133,7 @@ export default function Add_post() {
                     zIndex: 1051 
                   }
             })
+            return window.location.reload();
         }
         catch (err) {
             alert(err)
@@ -180,7 +181,7 @@ export default function Add_post() {
                     <Form.Label><h5><b>เพิ่มรูปภาพสถานที่ของของคุณ (ไม่เกิน 5 รูป)</b></h5></Form.Label>
                     <Form.Control type="file" accept='image/*' multiple onChange={SelectPicture} />
                 </Form.Group>
-                
+{/*                 
                 {imagePreview.length !== 0 &&
                     
                     <Carousel controls className='carousel-container'>
@@ -192,7 +193,7 @@ export default function Add_post() {
                     </Carousel>
                    
                 } 
-                <br/>
+                <br/> */}
 
                 <Form.Group controlId='muPlace'>
                     <Form.Control type='hidden' value={muplace} />
@@ -247,7 +248,7 @@ export default function Add_post() {
 
                 <Modal.Footer>
 
-                    <Button type='submit' variant="warning">Post</Button>
+                    <Button type='submit' variant="warning">โพส</Button>
                 </Modal.Footer>
             </Form>
         </div>

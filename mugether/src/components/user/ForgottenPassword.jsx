@@ -27,7 +27,7 @@ export default function ForgottenPassword() {
             let res = await axios.post(`${SERVER_URL}/user/resetpassword`, { email });
             console.log(res.data);
             if (res.data.status === 'ok') {
-                Swal.fire({ text: res.data.msg })
+                Swal.fire({ text:'ระบบได้ส่งรหัสยืนยันไปให้เเล้ว หากท่านเคยสมัครสมาชิกไว้' })
                 nextStep();
             }
         } catch (err) {
@@ -48,7 +48,7 @@ export default function ForgottenPassword() {
                 return nextStep();
             }
             else {
-                Swal.fire({ icon: 'error', text: 'token fail' })
+                Swal.fire({ icon: 'error', text: 'โทเค็นผิด' })
             }
         }
         catch (err) {
@@ -67,7 +67,7 @@ export default function ForgottenPassword() {
                     let updatepass = await axios.post(`${SERVER_URL}/user/changepass`, { email, password: pass })
                     console.log(updatepass.data);
                     if (updatepass.data.status !== 'ok') {
-                        return Swal.fire({ text: 'error' })
+                        return Swal.fire({ text: 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง' })
                     } else {
                          Swal.fire({ icon: 'success', text: 'เปลี่ยนรหัสผ่านสำเร็จ' })
                          window.location.href="/login";
@@ -95,7 +95,7 @@ export default function ForgottenPassword() {
 
     const checkPassword = () => {
         if (pass != confirmpass) {
-            Swal.fire("Password not match");
+            Swal.fire("รหัสผ่านไม่ตรงกัน");
             return true;
         }
 
@@ -104,7 +104,6 @@ export default function ForgottenPassword() {
             // Swal.fire("รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร\nประกอบด้วย 1 ตัวพิมพ์ใหญ่\n 1 ตัวพิมพ์เล็ก 1 ตัวเลข");
             // Swal.fire("Password must contain the following:\nAt least 8 characters\n At least one uppercase letter\nAt least one lowercase letter\nAt least one digit\nAt least one special character (!@#$%^&*()_+)");
             Swal.fire({
-                title: "Password Validation",
                 text: "รหัสผ่านต้องประกอบด้วย: รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร ประกอบด้วย 1 ตัวพิมพ์ใหญ่ 1 ตัวพิมพ์เล็ก 1 ตัวเลข",
                 icon: "warning",
                 customClass: {
@@ -156,7 +155,7 @@ export default function ForgottenPassword() {
                             <Button
                                 variant="warning"
                                 type="submit"
-                                className="Enter"
+                                className="Enter2"
                             >
                                 ส่งอีเมล
                             </Button>
@@ -178,7 +177,7 @@ export default function ForgottenPassword() {
                                 <Button
                                     variant="warning"
                                     type="submit"
-                                    className="Enter"
+                                    className="Enter3"
                                 >
                                     ส่งโทเค็น
                                 </Button>
@@ -213,15 +212,15 @@ export default function ForgottenPassword() {
                                         {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
 
                                     </div>
-                                    <div className="Text-p"><p>อย่างน้อย 8 ตัวอักษร ตัวพิมพ์ใหญ่ 1 ตัว ตัวเลข 1 ตัว</p></div>
+                                    <div className="Text-p"><p>อย่างน้อย 8 ตัวอักษร ประกอบด้วย ตัวพิมพ์ใหญ่ 1 ตัว ตัวเลข 1 ตัว</p></div>
                                 </Form.Group>
 
                                 <Button
                                     variant="warning"
                                     type="submit"
-                                    className="Enter"
+                                    className="Enter4"
                                 >
-                                    confirm
+                                    ยืนยัน
                                 </Button>
                             </Form>
                         </div>

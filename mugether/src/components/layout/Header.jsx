@@ -9,7 +9,7 @@ import EditProfile from '../user/EditProfile';
 import AppsIcon from '@mui/icons-material/Apps';
 import { useLocation } from 'react-router-dom';
 import './header.css'
-
+import Corrrect from '../../assets/correct.png'
 
 export default function Header({ handleFav, showguide }) {
 
@@ -41,12 +41,17 @@ export default function Header({ handleFav, showguide }) {
     localStorage.removeItem('usr');
     localStorage.removeItem('token')
     localStorage.removeItem('usr_id')
-    localStorage.removeItem('shop_id');
-    localStorage.removeItem('shop_item_id');
-    localStorage.removeItem('shop');
-    localStorage.removeItem('guide');
+    //localStorage.removeItem('shop_id');
+    //localStorage.removeItem('shop_item_id');
+    //localStorage.removeItem('shop');
+    //localStorage.removeItem('guide');
+   
     await Swal.fire('ออกจากระบบสำเร็จ')
-    navigate('/')
+    if(location.pathname === '/add-shop'  ){
+      navigate('/')
+    }
+    window.location.reload();
+    //navigate('/')
   }
 
   const searchdata = () => {
@@ -63,17 +68,18 @@ export default function Header({ handleFav, showguide }) {
     <Menu>
       <Menu.Item key="profile">
         <div>
+
           <Image roundedCircle width={50} height={50} src={`${SERVER_URL}/image/user/profile/${usr_data}`} />
           <span style={{ marginLeft: 10 }}>
-            {usr_data} <br />
+            {usr_data} <br /><br />
             {shopStatus ? 
             <p style={{ display: 'inline-block', marginRight: '10px' }}>
-              <img src="https://cdn-icons-png.flaticon.com/512/2761/2761035.png" style={{ width: '30px' }} /> shop 
+              <img src={Corrrect} style={{ width: '30px' }} /> ร้านค้า 
             </p> 
             : null}
             {guideStatus ? 
             <p style={{ display: 'inline-block' }}>
-              <img src="https://cdn-icons-png.flaticon.com/512/4127/4127281.png" style={{ width: '30px' }}/> guide 
+              <img src={Corrrect} style={{ width: '30px' }}/> ไกด์
             </p> 
             : null}
         </span>
@@ -101,10 +107,6 @@ export default function Header({ handleFav, showguide }) {
         <Menu.Item key='editShopProfile' onClick={() => onEditClick('shop')}>
           <img src="https://cdn-icons-png.flaticon.com/512/1043/1043450.png" style={{ width: '30px' }} />
           แก้ไขโปรไฟล์ร้านค้า
-        </Menu.Item>
-        <Menu.Item key='editShopList'>
-          <img src="https://cdn-icons-png.flaticon.com/512/4334/4334942.png" style={{ width: '30px' }} />
-          แก้ไขรายการสินค้า
         </Menu.Item>
       </Menu.SubMenu>}
       {shopStatus && <Menu.Item key="addshoplist">
