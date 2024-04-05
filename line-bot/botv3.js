@@ -8,8 +8,8 @@ const {MongoClient} = require('mongodb')
 
 const app = express();
 const lineConfig = {
-    channelAccessToken:process.env.CHANNEL_ACCESS_TOKEN,
-    channelSecret:process.env.SECRET
+    channelAccessToken:process.env.LINE_ACCESS_TOKEN,
+    channelSecret:process.env.LINE_CHANNEL_SECRET
 
 }
 const client = new line.Client(lineConfig)
@@ -83,7 +83,7 @@ const handledatabase=async(type,lat,long)=>{
                 }))
 
                 return nearby;
-            case 'โรงเเรม' :
+            case 'โรงแรม' :
                 console.log(type);
                collection = db.collection(process.env.HOTEL_MU);
                query = await collection.find({}).toArray(); 
@@ -157,7 +157,7 @@ const handleEvents=async(event)=>{
                 return client.replyMessage(event.replyToken,{type:'text', text:'โปรดเลือกร้านอาหาร หรือ สถานที่ท่องเที่ยว หรือ โรงแรม นะครับ'})
              }
 
-             if(event.message.text !=='โรงเเรม' && event.message.text !=='ร้านอาหาร' && event.message.text !=='สถานที่ท่องเที่ยว')
+             if(event.message.text !=='โรงแรม' && event.message.text !=='ร้านอาหาร' && event.message.text !=='สถานที่ท่องเที่ยว')
              {
                 return client.replyMessage(event.replyToken,{type:'text', text:'โปรดเลือกร้านอาหาร หรือ สถานที่ท่องเที่ยว หรือ โรงแรม นะครับ'})
              }
@@ -220,7 +220,12 @@ const handleEvents=async(event)=>{
                                  let randomindex = Math.floor(Math.random() * nearbylocation.length);
                                  let randomdata = nearbylocation[randomindex];
 
-                                 random.push(randomdata);
+                                if(randomdata.title.length > 100 || randomdata.address.length > 100){
+                                    continue;
+                                }
+                                else{
+                                    random.push(randomdata);
+                                }
                             }
                             
                             userSteps[userID].currentStep = 1;
