@@ -65,6 +65,7 @@ const handledatabase=async(type,lat,long)=>{
         let nearby = [];
         switch(type){
             case 'ร้านอาหาร' :
+                console.log(type);
                 collection = db.collection(process.env.FOOD_MU);
                 query = await collection.find({}).toArray();
                 query.forEach((async data => {
@@ -83,6 +84,7 @@ const handledatabase=async(type,lat,long)=>{
 
                 return nearby;
             case 'โรงเเรม' :
+                console.log(type);
                collection = db.collection(process.env.HOTEL_MU);
                query = await collection.find({}).toArray(); 
                 
@@ -100,11 +102,10 @@ const handledatabase=async(type,lat,long)=>{
                 }
            }))
 
-             
 
-
-                return nearby;
+             return nearby;
             case 'สถานที่ท่องเที่ยว':
+                console.log(type);
                 collection = db.collection(process.env.TRAVEL_MU);
                 query = await collection.find({}).toArray(); 
                 query.forEach((async data => {
@@ -145,8 +146,31 @@ const handleEvents=async(event)=>{
         }
         
         const {currentStep,collectedData} = userSteps[userID];
+           
+        console.log(event);
 
-   
+     
+
+        console.log(currentStep);
+        if(currentStep  === 1){
+             if(event.message.type !== 'text' || event.type !== 'message'){
+                return client.replyMessage(event.replyToken,{type:'text', text:'โปรดเลือกร้านอาหาร หรือ สถานที่ท่องเที่ยว หรือ โรงแรม นะครับ'})
+             }
+
+             if(event.message.text !=='โรงเเรม' && event.message.text !=='ร้านอาหาร' && event.message.text !=='สถานที่ท่องเที่ยว')
+             {
+                return client.replyMessage(event.replyToken,{type:'text', text:'โปรดเลือกร้านอาหาร หรือ สถานที่ท่องเที่ยว หรือ โรงแรม นะครับ'})
+             }
+        }
+        else if(currentStep === 2){
+            
+            if(event.message.type !== 'location'&& event.type !== 'message'){
+                return client.replyMessage(event.replyToken,{type:'text', text:'โปรดส่งโลเคชั่นมานะครับ'})
+             }
+        }
+
+
+
             try{
                 switch(currentStep){
                      case 1:
@@ -156,7 +180,18 @@ const handleEvents=async(event)=>{
                             userSteps[userID].currentStep = 2;
                             return client.replyMessage(event.replyToken, {
                                 type: 'text',
-                                text: `คุณต้องการไป ${collectedData.name} โปรดส่งโลเคชั่นของคุณมาครับ` 
+                                text: `คุณต้องการไป ${collectedData.name} โปรดส่งโลเคชั่นของคุณมาครับ`, 
+                                quickReply:{
+                                    items:[
+                                        {
+                                            type:'action',
+                                            action:{
+                                                type:'location',
+                                                label:'ส่งโลเคชั่น'
+                                            }
+                                        }
+                                    ]
+                                }
                               });
                         }
                         else{
@@ -178,6 +213,7 @@ const handleEvents=async(event)=>{
                                     text: `ไม่พบสถานที่ใกล้เคียง. โปรดลองค้นหาอีกครั้ง`
                                 });
                              }
+
 
                             let random = [];
                             for(let i =0;i<5;i++){
