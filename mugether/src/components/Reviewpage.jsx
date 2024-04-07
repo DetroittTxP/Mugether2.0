@@ -204,6 +204,8 @@ export default function ReviewPage({ Muplace_name}) {
   const totalReviews = detail.length;
   const totalPages = Math.ceil(totalReviews / reviewsPerPage);
   const usr = localStorage.getItem('usr')
+  const [editing, setEditing] = useState(null);
+  const [editedComment, setEditedComment] = useState("");
   
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -352,8 +354,26 @@ export default function ReviewPage({ Muplace_name}) {
       .catch(err => {
            alert(err)
       })
-  } 
+  }
 
+  const onEditview=(comment)=>{
+    setEditing(comment.username);
+    setEditedComment(comment.detail);
+  };
+
+
+  const onSaveEdit = async (username) => {
+    setEditing(null);
+    const updatedDetails = detail.map(d =>
+      d.username === username ? { ...d, detail: editedComment } : d
+    );
+    Setdetail(updatedDetails);
+    Swal.fire('แก้ไขคอมเม้นท์เรียบร้อยแล้ว');
+  };
+
+  const onReplyview = () =>{
+
+  };
    
   return (
     <div className="review-container">
@@ -367,19 +387,27 @@ export default function ReviewPage({ Muplace_name}) {
         {currentReviews.map((data, index) => {
           return (
             <> 
-              
               <div key={index} className="review-item">
                 <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.username}`} alt={data.username} />
                 
                 <div className="review-content">
                   <div className="header">
                     <h4 className="username">{data.username}</h4>
-                      <div className='delete-comment'>
+                      {/* <div className='delete-comment'>
                         {username === data.username &&  <span id='delete-btn'><ButtonBoot onClick={() => onDeletereview(data.username)} variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
-                      </div>
+                      </div> */}
                   </div>
                   <Rating className="rating" readOnly name='read-only' value={data.score} />
-                  <p className="review-text">{data.detail}</p>
+                  {editing === data.username ? (
+                      <div>
+                        <textarea
+                          value={editedComment}
+                          onChange={(e) => setEditedComment(e.target.value)}
+                        />
+                        <button onClick={() => onSaveEdit(data.username)}>Save</button>
+                        <button onClick={() => setEditing(null)}>Cancel</button>
+                      </div>
+                    ) : ( <p className="review-text">{data.detail}</p> )}
                 </div>
               </div>
               {data.reviewImage && (
@@ -396,6 +424,20 @@ export default function ReviewPage({ Muplace_name}) {
                 </div>
               )
               }
+              <div className='comment-actions'>
+                <span className='action-btn mr-2'>
+                  <ButtonBoot onClick={() => onReplyview()} variant='default' className='hover-buttom'>ตอบกลับ</ButtonBoot>
+                </span>
+                {username === data.username && 
+                  <span className='action-btn mr-2'>
+                    <ButtonBoot onClick={() => onEditview(data)} variant='default' className='hover-buttom'>แก้ไข</ButtonBoot>
+                  </span>}
+                {username === data.username && 
+                  <span className='action-btn'>
+                    <ButtonBoot onClick={() => onDeletereview(data.username)} variant='default' className='hover-buttom'>ลบคอมเม้น</ButtonBoot>
+                  </span>}
+              </div>
+
               <hr/>
             </>
           );
