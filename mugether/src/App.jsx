@@ -77,7 +77,7 @@ const [listshop,Setlistshop] = useState([]);
   Checktimeout(1800000,() => {
     if (!logoutAlertShown) {
       Swal.fire({
-        text: 'ออกจากระบบอัตโนมัติ เนื่องไม่มีตอบสนองเป็นระยะเวลานาน',
+        text: 'ออกจากระบบอัตโนมัติ เนื่องจากไม่มีการตอบสนองเป็นระยะเวลานาน',
       });
       localStorage.removeItem('usr');
       localStorage.removeItem('token')
@@ -88,7 +88,7 @@ const [listshop,Setlistshop] = useState([]);
       localStorage.removeItem('guide');
       localStorage.removeItem('fav');
   
-      setLogoutAlertShown(true); // Ensure the alert is only shown once
+      setLogoutAlertShown(true); 
     }
   });
 

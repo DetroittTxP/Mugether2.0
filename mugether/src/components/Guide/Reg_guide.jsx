@@ -49,6 +49,12 @@ export default function Reg_guide() {
       })
 
       let res = await axios.post(`${SERVER_URL}/verify_guide/info`, { guide })
+      if(res.data.status === 'duplicate'){
+          return await Swal.fire({
+            icon:'error',
+            text:'มีการใช้ข้อมูลการสมัครไกด์ซ้ำไปเเล้ว โปรดลองใหม่อีกครั้ง'
+          })
+      }
       let id_user = res.data.msg._id;
       let add_image = await axios.post(`${SERVER_URL}/verify_guide/img/${userID}`, image_form)
       Swal.close();

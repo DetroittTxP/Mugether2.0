@@ -357,7 +357,7 @@ export default function ReviewPage({ Muplace_name}) {
    
   return (
     <div className="review-container">
-      <h2 style={{fontWeight: 'bold'}}>รีวิว</h2>
+      <h2 style={{fontWeight: 'bold'}}>รีวิวสถานที่มู</h2>
       {detail.length === 0 ? <h2>ไม่มีรีวิวขณะนี้</h2> :  Reviewd}
 
       {addreview ? (

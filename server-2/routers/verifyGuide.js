@@ -5,6 +5,7 @@ const db_verfiy_guide = require('../model/Verify_Guide-model')
 const {create_dir} = require('./uploadimages');
 const {Reg_Guide_Mail} = require('../mail/sendmail')
 const usdb = require('../model/User-model')
+
 verify_g.get('/',(req,res) => {
     res.send('test22');
 })
@@ -46,8 +47,34 @@ verify_g.post('/img/:id',upload_verify_guide.single('img-guide'),async(req,res) 
 //get_guide INFO
 verify_g.post('/info', async (req,res) => {
      const {firstName,lastName,id_card,id_guide,mu_place,userID,tel} = req.body.guide;
+
+
+
+
+
+
     
     try{
+
+        let isDuplicate = async () => {
+             try{
+                let query = {
+                    $or:[{email:email},{_id:userID}]
+                }
+                let checkemail  =  await db_verfiy_guide.findOne(query);
+                if(checkemail){
+                    return true;
+                }
+
+                return false;
+             }
+             catch(err){
+                return res.json({status:'err',err})
+             }
+        }
+        if(isDuplicate){
+             return res.send({status:'duplicate'});
+        }
    
         let insert = await db_verfiy_guide.create({
             id_user:userID,

@@ -150,18 +150,21 @@ export default function Mudetail({ showguide }) {
         </Col>
       </Row>
 
+      <br />
+     
+      <Row>
+        <Col md={11} className="review-section">
+          {!showguide && <Nearby Muplace_name={Muplace} />}
+        </Col>
+      </Row>
+      <br />
+
       <Row>
         <Col md={11} className="review-section">
           {!showguide && <Reviewpage Muplace_name={Muplace} />}
         </Col>
       </Row>
 
-      <br />
-      <Row>
-        <Col md={11} className="review-section">
-          {!showguide && <Nearby Muplace_name={Muplace} />}
-        </Col>
-      </Row>
     </Container>
   );
 }
