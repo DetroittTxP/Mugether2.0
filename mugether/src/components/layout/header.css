@@ -18,3 +18,14 @@
   text-overflow: ellipsis;
 }
 
+.menu-apps {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  border: 1 solid black;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

@@ -269,7 +269,7 @@ export default function Header({ handleFav, showguide }) {
 
           </div>
           <Dropdown overlay={usr_data ? loged_in : non_login} trigger={['click']} placement="bottomRight">
-            <button>
+            <button className='menu-apps'>
               <AppsIcon />
             </button>
           </Dropdown>
