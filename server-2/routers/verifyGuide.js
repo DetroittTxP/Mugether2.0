@@ -48,12 +48,6 @@ verify_g.post('/img/:id',upload_verify_guide.single('img-guide'),async(req,res) 
 verify_g.post('/info', async (req,res) => {
      const {firstName,lastName,id_card,id_guide,mu_place,userID,tel} = req.body.guide;
 
-
-
-
-
-
-    
     try{
 
         let isDuplicate = async () => {

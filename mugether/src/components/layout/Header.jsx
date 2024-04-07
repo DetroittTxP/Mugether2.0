@@ -38,18 +38,29 @@ export default function Header({ handleFav, showguide }) {
   };
 
   const handleLogout = async () => {
+
     localStorage.removeItem('usr');
     localStorage.removeItem('token')
     localStorage.removeItem('usr_id')
-    //localStorage.removeItem('shop_id');
-    //localStorage.removeItem('shop_item_id');
-    //localStorage.removeItem('shop');
-    //localStorage.removeItem('guide');
-   
+    localStorage.removeItem('shop_id');
+    localStorage.removeItem('shop_item_id');
+    localStorage.removeItem('shop');
+    localStorage.removeItem('guide');
+    
     await Swal.fire('ออกจากระบบสำเร็จ')
-    if(location.pathname === '/add-shop'  ){
-      navigate('/')
-    }
+    let maihaiyu = [
+      '/reg-guide',
+      '/reg-shop',
+      '/add-shop',
+      
+    ]
+
+    maihaiyu.forEach(path => {
+      if(location.pathname === path){
+         return navigate('/');
+      }
+    })
+    
     window.location.reload();
     //navigate('/')
   }

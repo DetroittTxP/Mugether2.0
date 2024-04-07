@@ -109,7 +109,7 @@ export default function Guide_detail({ data }) {
         </ul>
         <br/>
         <h2><b>ประสบการณ์ (Experience)</b></h2>    <br/>
-        <Col md={6} style={{marginLeft: "100px"}}>
+        <Col md={6} style={{marginLeft: "300px"}}>
           <Carousel indicators controls>
             {newdata.guide_post[0].experience_img.map((image, index) => (
               <Carousel.Item key={index}>
@@ -123,7 +123,6 @@ export default function Guide_detail({ data }) {
             ))}
           </Carousel>
         </Col>
-        
         
         <br/>    <br/>
         <h2><b>ติดต่อ</b></h2>
