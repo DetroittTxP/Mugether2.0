@@ -351,23 +351,17 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
       })
   }
 
-  const replycomment= async (id_review,replyID) => {
 
-    // await  axios.post(`${SERVER_URL}/guide_detail/reply/review/${guideID}/${postID}/${id_review}/${replyID}`)
+
+
+
+
+  const makereply = async (id_review,replyID) =>{
+             // await  axios.post(`${SERVER_URL}/guide_detail/reply/review/${guideID}/${postID}/${id_review}/${replyID}`)
     // .then(res => {
     //     console.log(res.data);
     // })
     // .catch(err => alert(err))
-
-    let gg = await axios.get(`${SERVER_URL}/guide_detail/reply/review/${guideID}/${postID}/${id_review}/${replyID}`);
-    
-    Setreply(() => {
-       let replydata = gg.data.guide_post[0].postReview.filter(e => e._id === id_review);
-       return {
-         detail:replydata[0].reply.detail
-       } 
-    })
-    
   }
 
   return (
@@ -407,8 +401,8 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
 
               <div className='comment-actions'>
 
-              { id_userrr === guideID &&   <span className='action-btn mr-2'>
-                  <ButtonBoot onClick={() => replycomment(data._id,data.reply._id)} variant='default' className='hover-buttom' style={{ color: '#378CE7' }}>ตอบกลับ</ButtonBoot>
+              { id_userrr === guideID && !data.reply.replied  &&  <span className='action-btn mr-2'>
+                  <ButtonBoot onClick={() => makereply(data._id,data.reply._id)} variant='default' className='hover-buttom' style={{ color: '#378CE7' }}>ตอบกลับ</ButtonBoot>
                 </span>}
                 
                 {username === data.username &&
