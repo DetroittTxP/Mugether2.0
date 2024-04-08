@@ -175,7 +175,7 @@ export default function Regis_shop() {
               <Form.Label>ชื่อร้านค้า</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="ShopName"
+                placeholder="ชื่อร้านค้า"
                 value={shop.shop_name}
                 onChange={Change2}
                 required
@@ -186,7 +186,7 @@ export default function Regis_shop() {
               <Form.Label>รายละเอียดของร้านค้า</Form.Label>
               <Form.Control
                 as={TextArea}
-                placeholder="Detail"
+                placeholder="รายละเอียด"
                 value={shop.shop_detail.detail}
                 onChange={Change3}
                 required
@@ -197,7 +197,7 @@ export default function Regis_shop() {
               <Form.Label>เวลาเปิด - ปิดของร้านค้า</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Time"
+                placeholder="🕐 เวลาเปิด - ปิด เช่น 9:00am - 5:00pm"
                 value={shop.shop_detail.opening}
                 onChange={Change3}
                 required
@@ -208,7 +208,7 @@ export default function Regis_shop() {
               <Form.Label>เบอร์โทรติดต่อ</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Tel"
+                placeholder="☎️ หมายเลขโทรศัพท์ เช่น 08x-xxx-xxxx"
                 value={shop.contact.tel}
                 onChange={Change3}
                 required
@@ -220,7 +220,7 @@ export default function Regis_shop() {
               <Form.Label>ที่อยู่ของร้านค้า</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Address"
+                placeholder="📍 ที่อยู่"
                 value={shop.contact.address}
                 onChange={Change3}
                 required
