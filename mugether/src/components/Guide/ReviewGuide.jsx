@@ -76,11 +76,11 @@ const Add_Review = ({ updatestate,reviewdata, check_finish, guideID ,updaterevie
     const onSubmit = async (e) => {
       e.preventDefault();
       if (review.score <= 0 || review.score === null) {
-        return alert('rating must > 0')
+        return alert('คะแนนรีวิวต้องมากกว่า 0')
       }
       Swal.fire({
-        title: 'Loading...',
-        html: 'Please wait',
+        title: 'กำลังโหลด...',
+        html: 'โปรดรอ',
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();

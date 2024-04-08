@@ -23,7 +23,7 @@ const Register = () => {
 
     const checkPassword = () => {
         if (User.password != User.confirmpassword) {
-            Swal.fire("Password not match");
+            Swal.fire("รหัสผ่านไม่ตรงกัน");
             return true;
         }
 
@@ -95,7 +95,7 @@ const Register = () => {
                 if (res.data.status === 'success') {
                     await Swal.fire({
                         icon: 'success',
-                        title: "Register success",
+                        title: "สมัครสมาชิกสำเร็จ",
                         confirmButtonText: "ไปยังหน้า Login",
                         showCancelButton: true,
                         cancelButtonText: "ยกเลิก"

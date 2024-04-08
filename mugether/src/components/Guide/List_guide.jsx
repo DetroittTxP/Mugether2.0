@@ -33,7 +33,7 @@ export default function ListGuide() {
     const onDelete=(id_guide)=>{
                       
            Swal.fire({
-                title:'ต้องการลบโพสใช่หรือไม่',
+                title:'ต้องการลบโพสต์ใช่หรือไม่',
                 icon:'warning',
                 showCancelButton:true,
                 confirmButtonText:'ใช่',
@@ -44,7 +44,7 @@ export default function ListGuide() {
                       Setlistallguide(prev => prev.filter(data => data.id_guide !== id_guide));
 
                             let deletedata = await axios.delete(`${SERVER_URL}/guide_detail/delete-post/${id_guide}/${muplace}`);
-                           return Swal.fire({icon:'success',text:'ลบโพสเเล้ว'})
+                           return Swal.fire({icon:'success',text:'ลบโพสต์เเล้ว'})
                 }
                 
            })
@@ -61,7 +61,7 @@ export default function ListGuide() {
                     </Col>
                     <Col>
                        { guideStatus && <Button  variant='warning' className='add-post' onClick={() => setShowModal(true)}>
-                            เพิ่มโพส
+                            เพิ่มโพสต์
                         </Button>}
                     </Col>
                 </Row>
@@ -70,7 +70,7 @@ export default function ListGuide() {
                 {guideStatus && <Modal style={{zIndex:1050}}  show={showModal} onHide={() => setShowModal(false)}>
                     <Modal.Header closeButton >
                         <br/>
-                        <Modal.Title><h4><b>เพิ่มโพส</b></h4></Modal.Title>
+                        <Modal.Title><h4><b>เพิ่มโพสต์</b></h4></Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                        
@@ -105,7 +105,7 @@ export default function ListGuide() {
                
                       { usrID && usrID === data.id_guide && 
                       <Button onClick={() => onDelete(data.id_guide)} variant='danger' style={{ marginLeft: 'auto', padding: '5px 10px' }}>
-                            ลบโพส
+                            ลบโพสต์
                        </Button>}
 
                    </AccordionSummary>

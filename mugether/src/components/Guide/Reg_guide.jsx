@@ -40,8 +40,8 @@ export default function Reg_guide() {
 
     try {
       Swal.fire({
-        title: 'Loading...',
-        html: 'Please wait',
+        title: 'กำลังโหลด...',
+        html: 'โปรดรอ',
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();
@@ -92,7 +92,7 @@ export default function Reg_guide() {
     }
     catch (err) {
       Swal.fire({
-        title: "Error",
+        title: "Error พบข้อผิดพลาด",
         text: err,
         icon: 'error'
       });

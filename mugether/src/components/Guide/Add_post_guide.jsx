@@ -45,12 +45,12 @@ export default function Add_post() {
 
                     if (!file.type.startsWith('image/')) {
                         event.target.value = null;
-                        return alert('please upload image only')
+                        return alert('โปรดอัปโหลดรูปภาพอย่างเดียว')
                     }
                 }
 
                 if (event.target.files.length > 5) {
-                    alert("You can only upload a maximum of 5 images.");
+                    alert("คุณสามารถอัปโหลดรูปภาพได้สูงสุด 5 รูป");
                     event.target.value = null; // Reset the file input
                 } else {
                     setSelectedFiles([...event.target.files]);
@@ -78,12 +78,12 @@ export default function Add_post() {
 
                     if (!file.type.startsWith('image/')) {
                         event.target.value = null;
-                        return alert('please upload image only')
+                        return alert('โปรดอัปโหลดรูปภาพอย่างเดียว')
                     }
                 }
 
                 if (event.target.files.length > 5) {
-                    alert("You can only upload a maximum of 5 images.");
+                    alert("คุณสามารถอัปโหลดรูปภาพได้สูงสุด 5 รูป");
                     event.target.value = null; // Reset the file input
                 } else {
                     setexperinceImg([...event.target.files]);
@@ -101,7 +101,7 @@ export default function Add_post() {
         const img_data = new FormData();
         const exp_data = new FormData();
         if (selectedFiles.length === 0 || selectedFiles.length != 5) {
-            return Swal.fire('โปรดอัพรูปให้ครบ 5 รูปก่อนทำการโพสไกด์')
+            return Swal.fire('โปรดอัปโหลดรูปให้ครบ 5 รูปก่อนทำการโพสไกด์')
         }
         for (let i = 0; i < selectedFiles.length; i++) {
             img_data.append('posts-img', selectedFiles[i]);

@@ -342,7 +342,7 @@ export default function ReviewPage({ Muplace_name}) {
         icon:'question',
         showConfirmButton:true,
         showCancelButton:true,
-        text:'ต้องการลบคอมเม้น ? ',
+        text:'ต้องการลบคอมเมต์ ? ',
    
       }).then(async result => {
          if(result.isConfirmed){
@@ -383,7 +383,7 @@ export default function ReviewPage({ Muplace_name}) {
             Setdetail(updatedReviewsResponse.data[0].review);
           }
         } catch (error) {
-          console.error('Failed to update the comment:', error);
+          console.error('แก้ไขข้อความไม่สำเร็จ:', error);
         }
       }
     });
