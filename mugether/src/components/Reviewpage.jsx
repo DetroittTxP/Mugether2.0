@@ -246,7 +246,7 @@ export default function ReviewPage({ Muplace_name}) {
 
     let user = localStorage.getItem('usr') 
     if(detail.find(data => data.username === user )){
-       return Swal.fire({text:'คุณรีวิวไปเเล้ว โปรดลบของเดิมก่อน หากต้องการรีวิวใหม่'})
+       return Swal.fire({text:'คุณรีวิวไปเเล้ว โปรดลบคอมเมนต์เดิมก่อน หากต้องการรีวิวใหม่'})
     }
     if(user && addreview)
     {
