@@ -55,6 +55,7 @@ const Checktimeout=(timeout,onLogout)=>{
 
 export default function App() {
   const SERVER_URL = import.meta.env.VITE_SERVER_URL
+  
   const location = useLocation();
   const [global_muplace, Setmuplace] = useState([]);
   const [global_shop, Setshop] = useState([]);
