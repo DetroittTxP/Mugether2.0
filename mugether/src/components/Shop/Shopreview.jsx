@@ -388,6 +388,7 @@ export default function Shopreview({reviewdata,id_user}) {
       await  axios.post(`${SERVER_URL}/shop/reply/review/${shop_id}/${shop_item_id}/${idreview}/${123}`,{replyText})
       .then(res => {
           console.log(res.data);
+          window.location.reload();
       })
       .catch(err => alert(err))
 }
