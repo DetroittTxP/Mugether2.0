@@ -234,9 +234,6 @@ export default function Shopreview({reviewdata,id_user}) {
 
   const handleSubmireply =(e)=>{
       e.preventDefault();
-
-
-
   }
 
   const handleReplySubmit = (e) => {
@@ -463,6 +460,7 @@ export default function Shopreview({reviewdata,id_user}) {
                     placeholder="เขียนความคิดเห็นของคุณ..."
                   />
                   <ButtonBoot type="submit">ยืนยัน</ButtonBoot>
+                  <ButtonBoot onClick={handleCancelReply}>ยกเลิก</ButtonBoot>
                 </Form>
               )}
                 
