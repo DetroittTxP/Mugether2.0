@@ -130,20 +130,20 @@ mu.delete('/delete/review/:muplace/:username', async (req,res) => {
      }
 })
 
+//edit & update review
 mu.put('/edit/review/:Muplace_name/:usr_name', async (req, res) => {
     const { Muplace_name, usr_name } = req.params;
-    const { detail } = req.body; // This is the updated comment.
+    const { detail } = req.body;
 
     try {
-      // Find the place by its name and the review by the username.
       const result = await mu_place.findOneAndUpdate(
         { name: Muplace_name, "review.username": usr_name },
         { 
           "$set": {
-            "review.$.detail": detail // The '$' operator refers to the position of the element in the array that matched the query document
+            "review.$.detail": detail 
           }
         },
-        { new: true } // This option will return the document as it looks after update was applied.
+        { new: true }
       );
       
       if(result) {

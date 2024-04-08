@@ -364,9 +364,6 @@ export default function ReviewPage({ Muplace_name}) {
 
   const onSaveEdit = async (usr_name) => {
     setEditing(null);
-  
-    // This Swal code appears to not do anything with the result, just confirming an action.
-    // The axios.put call should be within this confirmation.
     Swal.fire({
       icon: 'question',
       showConfirmButton: true,
@@ -374,23 +371,19 @@ export default function ReviewPage({ Muplace_name}) {
       text: 'ยืนยันการแก้ไขหรือไม่?',
     }).then(async result => {
       if (result.isConfirmed) {
-        // Send the updated comment to the backend.
         try {
           const response = await axios.put(`${SERVER_URL}/muplace/edit/review/${Muplace_name}/${usr_name}`, {
-            detail: editedComment  // make sure this is the expected format for your backend
+            detail: editedComment
           });
   
-          // Check if the backend responded with a success message.
           if (response.data) {
             Swal.fire({ icon: 'success', text: 'แก้ไขข้อความเรียบร้อย' });
   
-            // Fetch the updated reviews to refresh the state.
             const updatedReviewsResponse = await axios.get(`${SERVER_URL}/muplace/mudata/${Muplace_name}`);
             Setdetail(updatedReviewsResponse.data[0].review);
           }
         } catch (error) {
           console.error('Failed to update the comment:', error);
-          // Handle error, possibly with an alert or notification to the user.
         }
       }
     });
