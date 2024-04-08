@@ -11,6 +11,8 @@ import ButtonBo from 'react-bootstrap/Button'
 import Carousel from 'react-bootstrap/Carousel';
 import { Muplace_Context } from '../../context/MuContext';
 import ButtonBoot from 'react-bootstrap/Button'
+import { AiFillLike } from "react-icons/ai";
+import { AiOutlineLike } from "react-icons/ai";
 
 import './Reviewguide.css';
 
@@ -352,11 +354,25 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
   }
 
   const makereply = async (id_review,replyID) =>{
+    // do add detail here
              // await  axios.post(`${SERVER_URL}/guide_detail/reply/review/${guideID}/${postID}/${id_review}/${replyID}`)
     // .then(res => {
     //     console.log(res.data);
     // })
     // .catch(err => alert(err))
+  }
+
+  const addlike=async(id_review,isreview)=>{
+    console.log(isreview);
+    await axios.put(`${SERVER_URL}/guide_detail/like/review/${guideID}/${postID}/${id_review}/${username}/${isreview}`)
+    .then(res => {
+        if(res.data.status === 'ok'){
+          return window.location.reload();
+        }
+    })
+    .catch(err => {
+      alert(err)
+    })
   }
 
   return (
@@ -405,7 +421,10 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
                     <ButtonBoot onClick={() => onDeletereview(data.username, data._id)}  variant='default' className='hover-buttom' style={{ color: 'red' }}>ลบคอมเม้น</ButtonBoot>
                   </span>}
               </div>
-
+              <a  onClick={() => addlike(data._id,data.like.countUser.includes(username))} style={{cursor:'pointer'}}>
+                  {data.like.countUser.includes(username)  ? <AiFillLike/> :  <AiOutlineLike/>} 
+                  {data.like.countlike}
+              </a>
               <hr />
             </>
           ))}

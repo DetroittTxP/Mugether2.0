@@ -16,7 +16,6 @@ export default function Guide_detail({contact, data }) {
      tel:'',
      email:''
   })
-  console.log(newdata);
   useEffect(() => {
 
     let newdata = {

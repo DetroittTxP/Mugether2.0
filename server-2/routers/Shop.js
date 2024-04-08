@@ -496,6 +496,7 @@ Shop.get('/review/:id_shop/:shop_item_id',async(req,res) => {
 Shop.post('/reply/review/:id_shop/:shop_item_id/:id_review/:replyID',async (req,res) =>{
     console.log(req.params);
     try{
+        
         let filter = {
             "_id":req.params.id_shop,
             "shop_items._id":req.params.shop_item_id,
@@ -505,7 +506,7 @@ Shop.post('/reply/review/:id_shop/:shop_item_id/:id_review/:replyID',async (req,
             $set:{
                 "shop_items.$[elem].item_review.$[reviewElem].review_reply":{
                     replied:true,
-                    detail:'444444'
+                    detail:req.body.replyText
                 }
             }
         }

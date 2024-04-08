@@ -19,7 +19,7 @@ const Addshopreview=({ check_finish })=>{
   const shop_item_id = localStorage.getItem('shop_item_id');
   const [image,Setimage] = useState(null);
   const [imgsrc,Setimagesrc] = useState([]);
-  
+  const [idreview,Setiddddreview] = useState('');
   const [review,Setreview] = useState({
     review: {
       username: localStorage.getItem('usr'),
@@ -201,7 +201,7 @@ export default function Shopreview({reviewdata,id_user}) {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [currentImage, setCurrentImage] = useState('');
   const usrid = localStorage.getItem('usr_id');
-  
+  const [idreview,Setiddddreview] = useState('')
   const [replyReviewId, setReplyReviewId] = useState(null);
   const [replyText, setReplyText] = useState('');
 
@@ -231,6 +231,13 @@ export default function Shopreview({reviewdata,id_user}) {
     setReplyReviewId(reviewId);
     setReplyText('');
   };
+
+  const handleSubmireply =(e)=>{
+      e.preventDefault();
+
+
+
+  }
 
   const handleReplySubmit = (e) => {
     e.preventDefault();
@@ -374,12 +381,17 @@ export default function Shopreview({reviewdata,id_user}) {
     );
   };
 
-  const makereply = async (id_review,replyID) =>{
-    await  axios.post(`${SERVER_URL}/shop/reply/review/${shop_id}/${shop_item_id}/${id_review}/${replyID}`)
-.then(res => {
-    console.log(res.data);
-})
-.catch(err => alert(err))
+  const makereply = async (e) =>{
+    
+  
+    e.preventDefault();
+    if(!replyText)return alert('error');
+
+          await  axios.post(`${SERVER_URL}/shop/reply/review/${shop_id}/${shop_item_id}/${idreview}/${123}`,{replyText})
+      .then(res => {
+          console.log(res.data);
+      })
+      .catch(err => alert(err))
 }
 
 
@@ -435,16 +447,23 @@ export default function Shopreview({reviewdata,id_user}) {
                   </ButtonBoot>
                 </span>
               )}
+                      
+                       {console.log(data)}
+                       {data.review_reply.detail}
+                <br/>
+
+              <br/>
               {replyReviewId === data._id && (
-                <form onSubmit={handleReplySubmit}>
-                  <textarea
-                    value={replyText}
-                    onChange={(e) => setReplyText(e.target.value)}
+                <Form onSubmit={makereply}>
+                  <Form.Control as='textarea'
+                    onChange={(e) => {
+                      setReplyText(e.target.value);
+                      Setiddddreview(data._id);
+                    }}
                     placeholder="เขียนความคิดเห็นของคุณ..."
                   />
                   <ButtonBoot type="submit">ยืนยัน</ButtonBoot>
-                  <ButtonBoot onClick={handleCancelReply}>Cancel</ButtonBoot>
-                </form>
+                </Form>
               )}
                 
                 {usr === data.review_username &&

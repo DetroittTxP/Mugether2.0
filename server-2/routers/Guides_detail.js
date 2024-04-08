@@ -70,7 +70,7 @@ Guide_detail.post('/create_post/:usr_id',async(req,res) => {
           let oggg = await og.guide_post.filter(e => e.muplace !== newpost.muplace)
           let filterMU = await og.guide_post.filter(e => e.muplace === newpost.muplace);
 
-          console.log(filterMU);
+  
           let push_post;    
       
           if(filterMU.length === 0)
@@ -130,7 +130,7 @@ Guide_detail.get('/get_list_guide/:muplace',async(req,res) => {
          
           let data = await db.find({'guide_post.muplace':muplace});
         
-               console.log(data);
+   
            return res.send(data);
           
      }
@@ -257,7 +257,7 @@ Guide_detail.delete('/delete-post/:id_user/:muplace',async(req,res) => {
 const guide_exp = multer.diskStorage({
       destination:async (req,file,cb) => {
            let dir = await create_dir(req.params.id_guide,"guide","experinceImg");
-           console.log(file.fieldname);
+       
            cb(null,dir);
       },
       filename:(req,file,cb) => {
@@ -269,7 +269,7 @@ const upload_guide_exp = multer({storage:guide_exp});
 
 Guide_detail.post('/upload/exp/:id_guide',upload_guide_exp.array('guide_exp',5),async (req,res) => {
      const photos = req.files.map(file => file.filename);
-     console.log(photos);
+
      return res.send({status:'ok',msg:'exp image uploaded',photos:photos,usr_id:req.params.usr_id})
 })
 
@@ -306,8 +306,7 @@ Guide_detail.post('/review/upload/:id_guide',upload_review_guide.array('reviewIm
 Guide_detail.post('/review/:id_guide/:id_post', async (req,res) =>{
 
      try{
-          console.log(req.params);
-          console.log(req.body);
+       
           const {review,imagedata} = req.body
           let datatoinset = {
                 username:review.username,
@@ -349,7 +348,7 @@ Guide_detail.get('/exp/img/:id_guide/:img_name',(req,res) => {
       const {id_guide,img_name} = req.params
       let dir = path.dirname(__dirname);
       let img = path.join(dir,'assets','guide',id_guide,'experinceImg',img_name);
-      console.log(img);
+   
       if(!fs.existsSync(img)){
           return res.send('no image found')
       }  
@@ -362,7 +361,7 @@ Guide_detail.get('/exp/img/:id_guide/:img_name',(req,res) => {
 Guide_detail.delete('/delete/review/:id_guide/:id_post/:id_review', 
      async (req,res) => {
                const {id_guide,id_review,id_post} = req.params;
-               console.log(req.params);
+         
                try{
           
                     let filter = {
@@ -376,7 +375,7 @@ Guide_detail.delete('/delete/review/:id_guide/:id_post/:id_review',
                          }
                     }
                     let deletereview = await db.updateOne(filter,datatoremove)
-                    console.log(deletereview);
+                    
                     return res.json(deletereview)
                }
                catch(err){
@@ -436,7 +435,7 @@ Guide_detail.post('/reply/review/:id_guide/:id_post/:id_reivew/:replyID', async 
 
           let data = await db.findOneAndUpdate(filter,update,options)
         
-           console.log(data);
+   
 
          return res.send(data);
  
@@ -449,7 +448,7 @@ Guide_detail.post('/reply/review/:id_guide/:id_post/:id_reivew/:replyID', async 
 Guide_detail.get('/reply/review/:id_guide/:id_post/:id_reivew/:replyID', async (req,res) => {
       
      const {id_guide,id_post,id_reivew,replyID} = req.params;
-     console.log(req.params);
+   
      try{
           let filter = {
                'id_guide':id_guide,
@@ -465,6 +464,56 @@ Guide_detail.get('/reply/review/:id_guide/:id_post/:id_reivew/:replyID', async (
           return res.send(err);
      }
 })
+
+
+Guide_detail.put('/like/review/:id_guide/:id_post/:id_reivew/:usr_name/:isreview', async (req,res) => {
+     const {id_guide,id_post,id_reivew,usr_name,isreview} = req.params;
+     console.log('isreview:', isreview);
+     try{
+          let filter = {
+               'id_guide':id_guide,
+               "guide_post._id":id_post,
+               "guide_post.postReview._id":id_reivew
+          }
+
+          let queryyyy;
+
+         
+          let update = {
+               $inc:{'guide_post.$.postReview.$[review].like.countlike':1},
+               $push:{'guide_post.$.postReview.$[review].like.countUser':usr_name}
+          }
+
+          let delete1 = {
+               $inc:{'guide_post.$.postReview.$[review].like.countlike':-1},
+               $pull:{'guide_post.$.postReview.$[review].like.countUser':usr_name}
+          }
+
+          let options = {
+               arrayFilters: [{ 'review._id': id_reivew }] 
+             };
+
+             if(JSON.parse(isreview) === true){
+                 queryyyy = delete1;
+             }
+             else{
+               queryyyy = update;
+             }
+      
+             
+             console.log(isreview);
+          let updated = await db.findOneAndUpdate(filter,queryyyy,options);
+       
+          return res.send({status:'ok'});
+     }
+     catch(err){
+          console.log(err);
+          return res.send(err);
+     }
+})
+
+
+
 
 
 module.exports = Guide_detail;

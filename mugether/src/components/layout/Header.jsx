@@ -52,7 +52,6 @@ export default function Header({ handleFav, showguide }) {
       '/reg-guide',
       '/reg-shop',
       '/add-shop',
-      
     ]
 
     maihaiyu.forEach(path => {

@@ -36,8 +36,14 @@ const guide_detail = monggose.Schema({
                     }
                },
                like:{
-                    type:Number,
-                    default:0
+                    type:{
+                         countlike:Number,
+                         countUser:[String],
+                    },
+                    default:{
+                         countlike:0,
+                         countUser:[]
+                    }
                }
           }],
           default:[]},
