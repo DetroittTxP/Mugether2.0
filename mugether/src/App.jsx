@@ -16,8 +16,6 @@ import Regis_shop from './components/user/Regis_shop'
 import Swal from 'sweetalert2';
 import Add_Shop from './components/Shop/Add_shop'
 import Forgottenpassword from './components/user/ForgottenPassword'
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 
 
 const Checktimeout=(timeout,onLogout)=>{
@@ -51,10 +49,7 @@ const Checktimeout=(timeout,onLogout)=>{
     })
 }
 
-
-
-export default function App() {
-  
+export default function App() {  
   const SERVER_URL = import.meta.env.VITE_SERVER_URL
   
 
