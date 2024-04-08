@@ -134,7 +134,6 @@ export default function Shopdetail() {
                         </Carousel.Item>
                     ))}
                     </Carousel>
-
                 </Col>
                 <Col md={6}>
                     <div className="description-box">
