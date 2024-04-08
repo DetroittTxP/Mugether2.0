@@ -407,7 +407,7 @@ export default function Shopreview({reviewdata,id_user}) {
          
           return(
             <>
-             {data.review_reply.detail}
+        
               <div className="review-item">
                 <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.review_username}`} alt={data.review_username} />
                 <div className="review-content">
@@ -448,8 +448,12 @@ export default function Shopreview({reviewdata,id_user}) {
                 </span>
               )}
                       
-                       {console.log(data)}
-                       {data.review_reply.detail}
+                      {/*   for reply    */}
+                      <div>
+                          การตอบกลับจากร้านค้า <br/>
+                          {data.review_reply.detail}
+                      </div>
+                   
                 <br/>
 
               <br/>
