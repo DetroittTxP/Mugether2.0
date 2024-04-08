@@ -21,7 +21,6 @@ export default function Guide_detail({ profile_name, contact, data }) {
     let newdata = {
           firstname:data.firstname,
           lastname:data.lastname,
-          // email:data.eamil,
           guide_post:data.guide_post.filter((e) => e.muplace === muplace)
     }
     Setnewdata(newdata);

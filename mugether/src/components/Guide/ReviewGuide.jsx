@@ -394,12 +394,16 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
     .catch(err => alert(err))
   }
 
+
+
+  
+
+
   const addlike=async(id_review,isreview)=>{
     console.log(isreview);
     await axios.put(`${SERVER_URL}/guide_detail/like/review/${guideID}/${postID}/${id_review}/${username}/${isreview}`)
     .then(res => {
         if(res.data.status === 'ok'){
-         
           let data = res.data.updated.guide_post.filter((data) => data.muplace === localStorage.getItem('muplace'))
           Setdetail(data[0].postReview);
           return;
@@ -409,6 +413,8 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
       alert(err)
     })
   }
+
+ 
 
   return (
     <div className="review-container">

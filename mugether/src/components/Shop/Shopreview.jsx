@@ -81,6 +81,8 @@ const Addshopreview=({ check_finish })=>{
     if (review.review.score <= 0 || review.review.score === null) {
       return Swal.fire('โปรดให้คะแนนอย่างน้อย 1 คะแนน')
     }
+
+    
     Swal.fire({
       title: 'กำลังโหลด...',
       text: 'หากคุณยืนยันการเพิ่มรีวิวแล้วจะไม่สามารถแก้ไขได้',
