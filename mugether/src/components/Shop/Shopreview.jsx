@@ -12,7 +12,7 @@ import ButtonBoot from 'react-bootstrap/Button'
 import { AiFillLike } from "react-icons/ai";
 import { AiOutlineLike } from "react-icons/ai";
 import './Shopreview.css'
-import warning from 'antd/es/_util/warning';
+
 
 
 const Addshopreview=({ check_finish })=>{
