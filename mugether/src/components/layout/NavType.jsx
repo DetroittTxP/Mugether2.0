@@ -105,7 +105,7 @@ export default function NavType({ SelectedTypeMu, show_guide, handleFav }) {
                 }}
                 style={{
                   marginRight: index < type.length - 1 ? '110px' : '0',
-                  marginTop: '50px', // ขยับ NavType ลงมา
+                  marginTop: '15x', // ขยับ NavType ลงมา
                 }}
                 key={data.type}
               >
