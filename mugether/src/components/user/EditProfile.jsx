@@ -250,7 +250,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
               <Form.Label>telephone</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="☎️ หมายเลขโทรศัพท์ เช่น 09xxxxxxxx"
+                placeholder="☎️ หมายเลขโทรศัพท์ เช่น 08x-xxx-xxxx"
                 onChange={onShopchange}
               />
             </Form.Group>

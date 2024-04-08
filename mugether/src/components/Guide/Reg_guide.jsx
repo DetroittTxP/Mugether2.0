@@ -165,7 +165,7 @@ export default function Reg_guide() {
               <Form.Label>รหัสบัตรประชาชน</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="เลขบัตรประชาชน"
+                placeholder="🪪 เลขบัตรประชาชน"
                 value={guide.id_card}
                 pattern="[0-9]{13}"
                 onChange={Change2}
@@ -189,7 +189,7 @@ export default function Reg_guide() {
               <Form.Label>เบอร์โทรที่ติดต่อได้</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="เบอร์โทร"
+                placeholder="☎️ หมายเลขโทรศัพท์ เช่น 08x-xxx-xxxx"
                 value={guide.tel}
                 onChange={Change2}
                 required

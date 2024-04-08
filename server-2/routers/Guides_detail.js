@@ -409,8 +409,9 @@ Guide_detail.get('/review/:id_guide/:id_post',async (req,res) => {
 
 Guide_detail.post('/reply/review/:id_guide/:id_post/:id_reivew/:replyID', async (req, res) => {
      const { id_guide, id_post, id_reivew, replyID } = req.params;
-     const {detail} = req.body;
-     
+     //for detail
+     const {replyText} = req.body;
+     console.log(req.params);
      try {
           let filter = {
                'id_guide':id_guide,
@@ -421,7 +422,7 @@ Guide_detail.post('/reply/review/:id_guide/:id_post/:id_reivew/:replyID', async 
                $set: {
                    "guide_post.$[elem].postReview.$[reviewElem].reply": {
                        replied: true,
-                       detail: '55555555555555555'
+                       detail: replyText
                    }
                }
            }
@@ -430,7 +431,8 @@ Guide_detail.post('/reply/review/:id_guide/:id_post/:id_reivew/:replyID', async 
                arrayFilters: [
                    { "elem._id": id_post }, 
                    { "reviewElem._id": id_reivew } 
-               ]
+               ],
+               new: true
            }
 
           let data = await db.findOneAndUpdate(filter,update,options)

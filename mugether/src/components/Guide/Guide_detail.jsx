@@ -6,7 +6,7 @@ import { Muplace_Context } from '../../context/MuContext';
 import ReviewGuide from './ReviewGuide';
 
 
-export default function Guide_detail({contact, data }) {
+export default function Guide_detail({ profile_name, contact, data }) {
 
 
   const muplace = localStorage.getItem('muplace');
@@ -139,7 +139,7 @@ export default function Guide_detail({contact, data }) {
 
                 <h2><b>รีวิว</b></h2> 
                   
-                  <ReviewGuide postID={newdata.guide_post[0]._id} reviewdata2={newdata.guide_post[0].postReview} guideID={data.id_guide} reviewdata={data.guide_review}/>
+                  <ReviewGuide profile_name={profile_name} postID={newdata.guide_post[0]._id} reviewdata2={newdata.guide_post[0].postReview} guideID={data.id_guide} reviewdata={data.guide_review}/>
        
 
       </div>

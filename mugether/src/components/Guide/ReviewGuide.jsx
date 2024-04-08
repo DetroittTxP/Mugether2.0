@@ -180,7 +180,7 @@ const Add_Review = ({ updatestate, reviewdata, check_finish, guideID, updaterevi
 }
 
 
-export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }) {
+export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guideID, postID }) {
 
   const { SERVER_URL } = useContext(Muplace_Context)
   const [currentPage, setCurrentPage] = useState(1);
@@ -232,6 +232,12 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
   const handleReplySubmit = (e) => {
     e.preventDefault();
   };
+
+  const handleReplyButtonClick = (reviewId) => {
+    setReplyReviewId(reviewId);
+    setReplyText('');
+  };
+
 
   const handleCancelReply = () => {
     setReplyReviewId(null);
@@ -377,9 +383,13 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
     e.preventDefault();
     if(!replyText) return alert('error');
     
-        await axios.put(`${SERVER_URL}/guide_detail/replycomment/${guideID}`)
+        await axios.post(`${SERVER_URL}/guide_detail/reply/review/${guideID}/${postID}/${idreview}/${123}`,{replyText})
     .then(res => {
-      console.log(res.data);
+    console.log(res.data);
+      let data = res.data.guide_post.filter((data) => data.muplace === localStorage.getItem('muplace'))
+      Setdetail(data[0].postReview);
+      setReplyReviewId(null)
+      return;
     })
     .catch(err => alert(err))
   }
@@ -410,7 +420,6 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
         <>
           {currentReviews.map((data, index) => (
             <>
-              {data.reply.detail}
               <div key={index} className="review-item">
                 <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.username}`} alt={data.username} />
                 <div className="review-content">
@@ -443,17 +452,17 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
                     }}
                     placeholder="เขียนความคิดเห็นของคุณ..."
                   />
-                  <ButtonBoot type="submit" className='button-confirm'>ยืนยัน</ButtonBoot>
+                  <ButtonBoot type="submit" variant='warning' className='button-confirm'>ยืนยัน</ButtonBoot>
                   <ButtonBoot variant={'danger'} onClick={handleCancelReply} className='button-cancel'>ยกเลิก</ButtonBoot>
                 </Form>
               )}
 
               <div className='comment-actions'>
            
-              { id_userrr === guideID && !data.reply.replied && (
+              { id_userrr === guideID && !data.reply.replied && replyReviewId !== data._id && (
                   <span className="action-btn mr-2">
                     <ButtonBoot
-                      onClick={() => handleReplyButtonClick(data._id)}
+                      onClick={() =>  handleReplyButtonClick(data._id)}
                       variant="default"
                       className="hover-buttom"
                       style={{ color: '#378CE7' }}
@@ -462,6 +471,16 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
                     </ButtonBoot>
                   </span>
                 )}
+                   {/*   for reply    */}
+                   { data.reply.replied &&  
+                      <div className='replyfromshop'>
+                        
+                        <b>การตอบกลับจากไกด์:</b>  <br/>
+                         
+                        <br/>
+                          {data.reply.detail}
+                      </div>}
+      
                 
                 {username === data.username &&
                   <span className='action-btn'>
