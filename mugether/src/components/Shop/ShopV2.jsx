@@ -39,7 +39,7 @@ export default function ShopV2() {
         className='justify-content-center'
         variant="underline"
         
-        style={{ display: 'flex', justifyContent: 'center' }}
+        style={{ display: 'flex', justifyContent: 'center', paddingTop: '15px' }}
       >
 
         {/* nav type */}

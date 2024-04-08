@@ -48,7 +48,7 @@ export default function ForgottenPassword() {
                 return nextStep();
             }
             else {
-                Swal.fire({ icon: 'error', text: 'โทเคนผิด' })
+                Swal.fire({ icon: 'error', text: 'ไม่พบอีเมลบัญชีผู้ใช้ กรุณาเช็คและลองใหม่อีกครั้ง' })
             }
         }
         catch (err) {
@@ -138,8 +138,7 @@ export default function ForgottenPassword() {
                 </Col>
                 <Col md={6} className="Login-form">
                     <p className="new-user2">
-                         มีบัญชีใช้งานแล้ว?
-                        <Link to="/login">เข้าสู่ระบบ</Link>
+                         มีบัญชีใช้งานแล้ว? <Link to="/login" className="link-login">เข้าสู่ระบบ</Link>
                     </p>
                     {step === 1 && (
                         <Form onSubmit={handleSubmit}>

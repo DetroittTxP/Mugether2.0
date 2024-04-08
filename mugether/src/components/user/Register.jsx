@@ -154,10 +154,7 @@ const Register = () => {
                     </Col>
                     <Col md={6} className="register-form">
                         <p className="new-user2">
-                            มีบัญชีผู้ใช้งานแล้ว?
-                            <Link to="/login" className="new-user3">
-                                เข้าสู่ระบบ
-                            </Link>
+                            มีบัญชีผู้ใช้งานแล้ว? <Link to="/login" className="link-login"> เข้าสู่ระบบ </Link>
                         </p>
                         <h2 className="welcome">สมัครสมาชิก</h2>
                         <p className="login-message2">สมัครสมาชิกเพื่อเข้าใช้งาน</p>

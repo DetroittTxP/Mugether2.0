@@ -112,7 +112,7 @@ export default function Login() {
         <Col md={6} className="Login-form">
           <p className="new-user">
             ยังไม่มีบัญชีผู้ใช้?
-            <Link to="/register">สมัครสมาชิก</Link>
+            <Link to="/register" className="link-regis">สมัครสมาชิก</Link>
           </p>
           <h2 className="welcome">ยินดีต้อนรับ</h2>
           <p className="login-message">เข้าสู่ระบบเพื่อใช้งาน</p>

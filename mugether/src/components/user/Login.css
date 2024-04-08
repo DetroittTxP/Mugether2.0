@@ -65,10 +65,28 @@
   margin-top: -30px;
   font-weight: bold;
   color: gray;
+  text-decoration: none;
 }
 
 .forget-message {
   font-weight: bold;
+  position: relative;
+  overflow: hidden;
+}
+
+.forget-message::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.forget-message:hover::after {
+  width: 22%;
 }
 
 .anotherlogin {
@@ -96,6 +114,27 @@
 .new-user a {
   margin-left: 5px;
   color: orange;
+  text-decoration: none;
+}
+
+.link-regis {
+  position: relative;
+  overflow: hidden;
+}
+
+.link-regis::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.link-regis:hover::after {
+  width: 100%;
 }
 
 .Login-form {
