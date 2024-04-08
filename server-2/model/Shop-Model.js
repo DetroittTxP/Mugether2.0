@@ -27,10 +27,16 @@ const shop_model = mongoose.Schema({
                     review_score:Number,
                     review_detail:String,
                     review_image:[String],
-                    replies:[{
-                        username:String,
-                        detail:String
-                   }]
+                    review_reply:{
+                        type:{
+                             replied:Boolean,
+                             detail:String,
+                        },
+                        default:{
+                             detail:'',
+                             replied:false
+                        }
+                   },
                  }],
                  default:[],
             }

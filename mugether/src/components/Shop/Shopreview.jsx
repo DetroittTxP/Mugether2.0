@@ -357,7 +357,14 @@ export default function Shopreview({reviewdata,id_user}) {
     );
   };
 
-  
+  const makereply = async (id_review,replyID) =>{
+    await  axios.post(`${SERVER_URL}/shop/reply/review/${shop_id}/${shop_item_id}/${id_review}/${replyID}`)
+.then(res => {
+    console.log(res.data);
+})
+.catch(err => alert(err))
+}
+
 
   return (
     <div className="review-container">
@@ -371,14 +378,13 @@ export default function Shopreview({reviewdata,id_user}) {
          
           return(
             <>
+             {data.review_reply.detail}
               <div className="review-item">
                 <img className="avatar" src={`${SERVER_URL}/image/user/profile/${data.review_username}`} alt={data.review_username} />
                 <div className="review-content">
                   <div className="header">
                     <h4 className="username">{data.review_username}</h4>
-                    <div className='delete-comment-shop'>
-                      {usr === data.review_username &&  <span id='delete-btn'><ButtonBoot onClick={() => onDeletereview(data._id)} variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
-                    </div>
+      
                   </div>
                   <Rating className="rating" readOnly name='read-only' value={data.review_score} />
                   <p className="review-text">{data.review_detail}</p>
@@ -397,6 +403,19 @@ export default function Shopreview({reviewdata,id_user}) {
                     ))}
                 </div>
               )}
+              
+              <div className='comment-actions'>
+              
+              { usrid === id_user &&  !data.review_reply.replied   &&  <span className='action-btn mr-2'>
+                  <ButtonBoot onClick={() => makereply(data._id,data.review_reply._id)} variant='default' className='hover-buttom' style={{ color: '#378CE7' }}>ตอบกลับ</ButtonBoot>
+                </span>}
+                
+                {usr === data.review_username &&
+                  <span className='action-btn'>
+                    <ButtonBoot onClick={() => onDeletereview(data._id)} variant='default' className='hover-buttom' style={{ color: 'red' }}>ลบคอมเม้น</ButtonBoot>
+                  </span>}
+              </div>
+
                 <hr/>
             </>
           );

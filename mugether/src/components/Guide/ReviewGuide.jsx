@@ -400,7 +400,7 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
               )}
 
               <div className='comment-actions'>
-
+           
               { id_userrr === guideID && !data.reply.replied  &&  <span className='action-btn mr-2'>
                   <ButtonBoot onClick={() => makereply(data._id,data.reply._id)} variant='default' className='hover-buttom' style={{ color: '#378CE7' }}>ตอบกลับ</ButtonBoot>
                 </span>}

@@ -457,7 +457,6 @@ Guide_detail.get('/reply/review/:id_guide/:id_post/:id_reivew/:replyID', async (
                "guide_post.postReview._id":id_reivew
           }
 
-
           let data = await db.findOne(filter).select('guide_post.$');
           return res.json(data)
      }

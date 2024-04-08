@@ -492,6 +492,43 @@ Shop.get('/review/:id_shop/:shop_item_id',async(req,res) => {
 })
 
 
+//add reply
+Shop.post('/reply/review/:id_shop/:shop_item_id/:id_review/:replyID',async (req,res) =>{
+    console.log(req.params);
+    try{
+        let filter = {
+            "_id":req.params.id_shop,
+            "shop_items._id":req.params.shop_item_id,
+            "shop_items.item_review._id":req.params.id_review
+        }
+        let update = {
+            $set:{
+                "shop_items.$[elem].item_review.$[reviewElem].review_reply":{
+                    replied:true,
+                    detail:'444444'
+                }
+            }
+        }
+
+        let options = {
+            arrayFilters: [
+                { "elem._id": req.params.shop_item_id }, 
+                { "reviewElem._id": req.params.id_review } 
+            ]
+        }
+
+        let update1 = await db_shop.findOneAndUpdate(filter,update,options);
+        console.log(update1);
+        return res.json(update1);
+    }
+    catch(err){
+        console.error(err);
+        return res.status(500).send({ error: "Failed to update review" });
+    }
+
+})
+
+
 
 
 module.exports = Shop;
