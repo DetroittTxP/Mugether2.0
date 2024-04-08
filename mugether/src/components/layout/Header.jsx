@@ -243,12 +243,13 @@ export default function Header({ handleFav, showguide }) {
           <Navbar.Brand style={{ cursor: 'pointer', maxWidth: '600px'}} onClick={() => {
             localStorage.removeItem('showmap');
             navigate('/');
+            localStorage.setItem('showguide',false);
             showguide(false);
             const fav = JSON.parse(localStorage.getItem('fav'));
             localStorage.setItem('fav', false)
             localStorage.removeItem('type_mu')
             handleFav(!fav)
-            window.location.reload();
+            return window.location.reload();
           }}>
             <Image rounded src={Logo} height={150} width={150} style={{ borderRadius: '50%' }} />
             
