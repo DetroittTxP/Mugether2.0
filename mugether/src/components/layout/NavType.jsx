@@ -79,52 +79,54 @@ export default function NavType({ SelectedTypeMu, show_guide, handleFav }) {
   return (
     <div>
       <br />
-      {!location.pathname.includes('/ForgottenPassword') && !location.pathname.includes('/reg-guide') && !location.pathname.includes('/reg-shop') && 
-       !location.pathname.includes('/add-shop') &&(
-        <Nav
-          className='justify-content-center'
-          variant="underline"
-          onSelect={(selectedKey) => {
+      {!location.pathname.includes('/ForgottenPassword') && !location.pathname.includes('/reg-guide') && !location.pathname.includes('/reg-shop') &&
+        !location.pathname.includes('/add-shop') && (
+          <Nav
+            className='justify-content-center'
+            variant="underline"
+            onSelect={(selectedKey) => {
 
-            SelectedTypeMu(selectedKey);
-            localStorage.setItem('type_mu', selectedKey)
+              SelectedTypeMu(selectedKey);
+              localStorage.setItem('type_mu', selectedKey)
 
-          }}
-          style={{ display: 'flex', justifyContent: 'center' }}
-        >
-          {type.map((data, index) => (
-            <Nav.Item
-              onClick={() => {
-                Setshowguide(!showguide);
-                if (data.path === '/shop') {
-                  navigate(data.path);
-                }
-                else {
-                  data.fn();
-                }
-              }}
-              style={{
-                marginRight: index < type.length - 1 ? '110px' : '0',
-                marginTop: '50px', // ขยับ NavType ลงมา
-              }}
-              key={data.type}
-            >
-              <div style={{ textAlign: 'center' }}>
+            }}
+            style={{ display: 'flex', justifyContent: 'center' }}
+          >
+            {type.map((data, index) => (
+              <Nav.Item
+                onClick={() => {
+                  Setshowguide(!showguide);
+                  if (data.path === '/shop') {
+                    navigate(data.path);
+                  }
+                  else {
+                    data.fn();
+                  }
+                }}
+                style={{
+                  marginRight: index < type.length - 1 ? '110px' : '0',
+                  marginTop: '50px', // ขยับ NavType ลงมา
+                }}
+                key={data.type}
+              >
+                <div style={{ textAlign: 'center' }}>
 
 
-
-                <Nav.Link eventKey={data.type} style={{ color: 'black' }}>
-                  <img style={{ marginBottom: 15 }} height={30} width={30} src={data.icon} alt={data.type} />
                   <br />
+                  <br />
+                  
+                  <Nav.Link eventKey={data.type} style={{ color: 'black' }}>
+                    <img style={{ marginBottom: 15 }} height={30} width={30} src={data.icon} alt={data.type} />
+                    <br />
 
-                  {data.type}
-                </Nav.Link>
+                    {data.type}
+                  </Nav.Link>
 
-              </div>
-            </Nav.Item>
-          ))}
-        </Nav>
-      )}
+                </div>
+              </Nav.Item>
+            ))}
+          </Nav>
+        )}
       <div ref={guideRef}></div>
     </div>
 
