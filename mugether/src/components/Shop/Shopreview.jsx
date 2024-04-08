@@ -446,10 +446,10 @@ export default function Shopreview({reviewdata,id_user}) {
               )}
                       
                       {/*   for reply    */}
-                      <div>
+                      { data.review_reply.replied &&  <div>
                           การตอบกลับจากร้านค้า <br/>
                           {data.review_reply.detail}
-                      </div>
+                      </div>}
                    
                 <br/>
 
