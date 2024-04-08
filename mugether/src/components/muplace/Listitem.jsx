@@ -91,7 +91,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
                     navigate("/mudetail");
                     Swal.fire({
                       title: 'กำลังโหลด...',
-                      html: 'โปรดรอ',
+                      html: 'โปรดรอสักครู่',
                       timer: 1800,
                       timerProgressBar: true,
                       didOpen: () => {

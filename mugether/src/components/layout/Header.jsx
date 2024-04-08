@@ -250,7 +250,8 @@ export default function Header({ handleFav, showguide }) {
             handleFav(!fav)
             window.location.reload();
           }}>
-            <Image rounded src={Logo} height={100} width={100} style={{ borderRadius: '50%' }} />
+            <Image rounded src={Logo} height={150} width={150} style={{ borderRadius: '50%' }} />
+            
           </Navbar.Brand>
           <div className="search-wrapper">
             {isMobileSearchVisible || isDesktopView ? (
