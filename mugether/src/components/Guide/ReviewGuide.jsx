@@ -194,6 +194,12 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
   let currentReviews = detail.slice(indexOfFirstReview, indexOfLastReview);
   const totalReviews = detail.length;
   const totalPages = Math.ceil(totalReviews / reviewsPerPage);
+  const [countingreview,Setcountingreview] = useState();
+
+  console.log(reviewdata2);
+  useEffect(() => {
+    currentReviews = reviewdata2.slice(indexOfFirstReview, indexOfLastReview)
+  },[reviewdata2])
 
   const [reply,Setreply] = useState({
       detail:''
@@ -367,7 +373,10 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
     await axios.put(`${SERVER_URL}/guide_detail/like/review/${guideID}/${postID}/${id_review}/${username}/${isreview}`)
     .then(res => {
         if(res.data.status === 'ok'){
-          return window.location.reload();
+         
+          let data = res.data.updated.guide_post.filter((data) => data.muplace === localStorage.getItem('muplace'))
+          Setdetail(data[0].postReview);
+          return;
         }
     })
     .catch(err => {

@@ -490,7 +490,8 @@ Guide_detail.put('/like/review/:id_guide/:id_post/:id_reivew/:usr_name/:isreview
           }
 
           let options = {
-               arrayFilters: [{ 'review._id': id_reivew }] 
+               arrayFilters: [{ 'review._id': id_reivew }] ,
+               new:true
              };
 
              if(JSON.parse(isreview) === true){
@@ -504,7 +505,7 @@ Guide_detail.put('/like/review/:id_guide/:id_post/:id_reivew/:usr_name/:isreview
              console.log(isreview);
           let updated = await db.findOneAndUpdate(filter,queryyyy,options);
        
-          return res.send({status:'ok'});
+          return res.send({status:'ok',updated});
      }
      catch(err){
           console.log(err);

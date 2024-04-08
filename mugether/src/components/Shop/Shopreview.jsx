@@ -380,11 +380,10 @@ export default function Shopreview({reviewdata,id_user}) {
 
   const makereply = async (e) =>{
     
-  
     e.preventDefault();
     if(!replyText)return alert('error');
 
-          await  axios.post(`${SERVER_URL}/shop/reply/review/${shop_id}/${shop_item_id}/${idreview}/${123}`,{replyText})
+      await  axios.post(`${SERVER_URL}/shop/reply/review/${shop_id}/${shop_item_id}/${idreview}/${123}`,{replyText})
       .then(res => {
           console.log(res.data);
       })
@@ -431,7 +430,7 @@ export default function Shopreview({reviewdata,id_user}) {
               )}
               
               <div className='comment-actions'>
-              
+      
               {usrid === id_user && !data.review_reply.replied && (
                 <span className="action-btn mr-2">
                   <ButtonBoot
@@ -444,13 +443,13 @@ export default function Shopreview({reviewdata,id_user}) {
                   </ButtonBoot>
                 </span>
               )}
-                      
+          
                       {/*   for reply    */}
                       { data.review_reply.replied &&  <div>
                           การตอบกลับจากร้านค้า <br/>
                           {data.review_reply.detail}
                       </div>}
-                   
+      
                 <br/>
 
               <br/>
