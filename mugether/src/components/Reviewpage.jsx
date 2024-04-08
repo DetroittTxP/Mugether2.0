@@ -55,7 +55,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
     }
 
     if(files.length > 5){
-       return alert('ต้องไม่เกิน 5 รูป')
+       return alert('รูปภาพต้องไม่เกิน 5 รูป')
     }
 
     Setimage(files)
@@ -88,7 +88,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
     }
     Swal.fire({
       title: 'กำลังโหลด...',
-      html: 'โปรดรอ',
+      html: 'โปรดรอสักครู่',
       timerProgressBar: true,
       didOpen: () => {
         Swal.showLoading();
@@ -246,7 +246,7 @@ export default function ReviewPage({ Muplace_name}) {
 
     let user = localStorage.getItem('usr') 
     if(detail.find(data => data.username === user )){
-       return Swal.fire({text:'คุณรีวิวไปเเล้ว โปรดลบของเดิม หากต้องการรีวิวใหม่'})
+       return Swal.fire({text:'คุณรีวิวไปเเล้ว โปรดลบของเดิมก่อน หากต้องการรีวิวใหม่'})
     }
     if(user && addreview)
     {
@@ -423,8 +423,8 @@ export default function ReviewPage({ Muplace_name}) {
                           value={editedComment}
                           onChange={(e) => setEditedComment(e.target.value)}
                         />
-                        <button onClick={() => onSaveEdit(data.username)}>Save</button>
-                        <button onClick={() => setEditing(null)}>Cancel</button>
+                        <button onClick={() => onSaveEdit(data.username)}>บันทึก</button>
+                        <button onClick={() => setEditing(null)}>ยกเลิก</button>
                       </div>
                     ) : ( <p className="review-text">{data.detail}</p> )}
                 </div>

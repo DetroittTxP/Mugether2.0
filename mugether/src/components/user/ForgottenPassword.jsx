@@ -48,7 +48,7 @@ export default function ForgottenPassword() {
                 return nextStep();
             }
             else {
-                Swal.fire({ icon: 'error', text: 'โทเค็นผิด' })
+                Swal.fire({ icon: 'error', text: 'โทเคนผิด' })
             }
         }
         catch (err) {
@@ -138,7 +138,7 @@ export default function ForgottenPassword() {
                 </Col>
                 <Col md={6} className="Login-form">
                     <p className="new-user2">
-                         มีบัชญีใช้งานแล้ว?
+                         มีบัญชีใช้งานแล้ว?
                         <Link to="/login">เข้าสู่ระบบ</Link>
                     </p>
                     {step === 1 && (
@@ -168,7 +168,7 @@ export default function ForgottenPassword() {
                                     <Form.Label>Token</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        placeholder="✉️  ใส่โทเค็น"
+                                        placeholder="✉️  ใส่โทเคน"
                                         onChange={(e) => Settoken(e.target.value)}
                                         required
                                     />
@@ -179,7 +179,7 @@ export default function ForgottenPassword() {
                                     type="submit"
                                     className="Enter3"
                                 >
-                                    ส่งโทเค็น
+                                    ส่งโทเคน
                                 </Button>
                             </Form>
                         </div>

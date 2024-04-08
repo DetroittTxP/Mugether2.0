@@ -296,7 +296,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
         const { naturalWidth, naturalHeight } = event.currentTarget;
 
         if (naturalHeight < MIN_DIMENSION || naturalWidth < MIN_DIMENSION) {
-          Swal.fire('Image must > min');
+          Swal.fire('รูปภาพต้องมีขนาดมากกว่า 150 pixels');
           SetImgSrc("");
           return;
         }

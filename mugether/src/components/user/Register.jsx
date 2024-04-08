@@ -79,7 +79,7 @@ const Register = () => {
             }
 
             Swal.fire({
-                title: 'กำลังโหลด',
+                title: 'กำลังโหลด...',
                 html: 'โปรดรอสักครู่',
                 timerProgressBar: true,
                 didOpen: () => {

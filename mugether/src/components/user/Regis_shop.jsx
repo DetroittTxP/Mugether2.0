@@ -42,7 +42,7 @@ export default function Regis_shop() {
     try {
       Swal.fire({
         title: 'กำลังโหลด...',
-        html: 'โปรดรอ',
+        html: 'โปรดรอสักครู่',
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();
