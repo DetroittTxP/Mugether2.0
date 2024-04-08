@@ -201,6 +201,9 @@ export default function Shopreview({reviewdata,id_user}) {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [currentImage, setCurrentImage] = useState('');
   const usrid = localStorage.getItem('usr_id');
+  
+  const [replyReviewId, setReplyReviewId] = useState(null);
+  const [replyText, setReplyText] = useState('');
 
   useEffect(() => {
     Setdetail(reviewdata)
@@ -223,6 +226,20 @@ export default function Shopreview({reviewdata,id_user}) {
   const check_finish = (isFinish) => {
     Setaddreview(isFinish)
   }
+
+  const handleReplyButtonClick = (reviewId) => {
+    setReplyReviewId(reviewId);
+    setReplyText('');
+  };
+
+  const handleReplySubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const handleCancelReply = () => {
+    setReplyReviewId(null);
+    setReplyText('');
+  };
   
 
   const sumreview=()=>{
@@ -406,9 +423,29 @@ export default function Shopreview({reviewdata,id_user}) {
               
               <div className='comment-actions'>
               
-              { usrid === id_user &&  !data.review_reply.replied   &&  <span className='action-btn mr-2'>
-                  <ButtonBoot onClick={() => makereply(data._id,data.review_reply._id)} variant='default' className='hover-buttom' style={{ color: '#378CE7' }}>ตอบกลับ</ButtonBoot>
-                </span>}
+              {usrid === id_user && !data.review_reply.replied && (
+                <span className="action-btn mr-2">
+                  <ButtonBoot
+                    onClick={() => handleReplyButtonClick(data._id)}
+                    variant="default"
+                    className="hover-buttom"
+                    style={{ color: '#378CE7' }}
+                  >
+                    ตอบกลับ
+                  </ButtonBoot>
+                </span>
+              )}
+              {replyReviewId === data._id && (
+                <form onSubmit={handleReplySubmit}>
+                  <textarea
+                    value={replyText}
+                    onChange={(e) => setReplyText(e.target.value)}
+                    placeholder="เขียนความคิดเห็นของคุณ..."
+                  />
+                  <ButtonBoot type="submit">ยืนยัน</ButtonBoot>
+                  <ButtonBoot onClick={handleCancelReply}>Cancel</ButtonBoot>
+                </form>
+              )}
                 
                 {usr === data.review_username &&
                   <span className='action-btn'>
