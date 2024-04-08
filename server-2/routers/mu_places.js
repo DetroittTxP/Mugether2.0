@@ -130,8 +130,33 @@ mu.delete('/delete/review/:muplace/:username', async (req,res) => {
      }
 })
 
+mu.put('/edit/review/:Muplace_name/:usr_name', async (req, res) => {
+    const { Muplace_name, usr_name } = req.params;
+    const { detail } = req.body; // This is the updated comment.
 
-
+    try {
+      // Find the place by its name and the review by the username.
+      const result = await mu_place.findOneAndUpdate(
+        { name: Muplace_name, "review.username": usr_name },
+        { 
+          "$set": {
+            "review.$.detail": detail // The '$' operator refers to the position of the element in the array that matched the query document
+          }
+        },
+        { new: true } // This option will return the document as it looks after update was applied.
+      );
+      
+      if(result) {
+        res.json({ success: true, message: 'Review updated successfully.', review: result.review });
+      } else {
+        res.status(404).json({ success: false, message: 'Review or MuPlace not found.' });
+      }
+    } catch (error) {
+      console.error('Error updating review:', error);
+      res.status(500).json({ success: false, message: 'Failed to update review.', error: error.message });
+    }
+});
+  
 
 
 

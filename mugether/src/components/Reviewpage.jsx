@@ -204,8 +204,9 @@ export default function ReviewPage({ Muplace_name}) {
   const totalReviews = detail.length;
   const totalPages = Math.ceil(totalReviews / reviewsPerPage);
   const usr = localStorage.getItem('usr')
-  const [editing, setEditing] = useState(null);
+  const [editing, setEditing] = useState({username: username});
   const [editedComment, setEditedComment] = useState("");
+  const [editdata, Seteditdata] = useState({ username: username });
   
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -361,15 +362,40 @@ export default function ReviewPage({ Muplace_name}) {
     setEditedComment(comment.detail);
   };
 
-
-  const onSaveEdit = async (username) => {
+  const onSaveEdit = async (usr_name) => {
     setEditing(null);
-    const updatedDetails = detail.map(d =>
-      d.username === username ? { ...d, detail: editedComment } : d
-    );
-    Setdetail(updatedDetails);
-    Swal.fire('แก้ไขคอมเม้นท์เรียบร้อยแล้ว');
+  
+    // This Swal code appears to not do anything with the result, just confirming an action.
+    // The axios.put call should be within this confirmation.
+    Swal.fire({
+      icon: 'question',
+      showConfirmButton: true,
+      showCancelButton: true,
+      text: 'ยืนยันการแก้ไขหรือไม่?',
+    }).then(async result => {
+      if (result.isConfirmed) {
+        // Send the updated comment to the backend.
+        try {
+          const response = await axios.put(`${SERVER_URL}/muplace/edit/review/${Muplace_name}/${usr_name}`, {
+            detail: editedComment  // make sure this is the expected format for your backend
+          });
+  
+          // Check if the backend responded with a success message.
+          if (response.data) {
+            Swal.fire({ icon: 'success', text: 'แก้ไขข้อความเรียบร้อย' });
+  
+            // Fetch the updated reviews to refresh the state.
+            const updatedReviewsResponse = await axios.get(`${SERVER_URL}/muplace/mudata/${Muplace_name}`);
+            Setdetail(updatedReviewsResponse.data[0].review);
+          }
+        } catch (error) {
+          console.error('Failed to update the comment:', error);
+          // Handle error, possibly with an alert or notification to the user.
+        }
+      }
+    });
   };
+  
 
   const onReplyview = () =>{
 
@@ -426,15 +452,15 @@ export default function ReviewPage({ Muplace_name}) {
               }
               <div className='comment-actions'>
                 <span className='action-btn mr-2'>
-                  <ButtonBoot onClick={() => onReplyview()} variant='default' className='hover-buttom'>ตอบกลับ</ButtonBoot>
+                  <ButtonBoot onClick={() => onReplyview()} variant='default' className='hover-buttom' style={{color: '#378CE7'}}>ตอบกลับ</ButtonBoot>
                 </span>
                 {username === data.username && 
                   <span className='action-btn mr-2'>
-                    <ButtonBoot onClick={() => onEditview(data)} variant='default' className='hover-buttom'>แก้ไข</ButtonBoot>
+                    <ButtonBoot onClick={() => onEditview(data)} variant='default' className='hover-buttom' style={{color: ''}}>แก้ไข</ButtonBoot>
                   </span>}
                 {username === data.username && 
                   <span className='action-btn'>
-                    <ButtonBoot onClick={() => onDeletereview(data.username)} variant='default' className='hover-buttom'>ลบคอมเม้น</ButtonBoot>
+                    <ButtonBoot onClick={() => onDeletereview(data.username)} variant='default' className='hover-buttom' style={{color: 'red'}}>ลบคอมเม้น</ButtonBoot>
                   </span>}
               </div>
 
