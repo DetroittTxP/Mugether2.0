@@ -25,7 +25,7 @@ export default function ForgottenPassword() {
         try {
             // check username password
             let res = await axios.post(`${SERVER_URL}/user/resetpassword`, { email });
-            console.log(res.data);
+        
             if (res.data.status === 'ok') {
                 Swal.fire({ text:'ระบบได้ส่งรหัสยืนยันไปให้เเล้ว หากท่านเคยสมัครสมาชิกไว้' })
                 nextStep();
@@ -65,7 +65,7 @@ export default function ForgottenPassword() {
 
                 } else {
                     let updatepass = await axios.post(`${SERVER_URL}/user/changepass`, { email, password: pass })
-                    console.log(updatepass.data);
+
                     if (updatepass.data.status !== 'ok') {
                         return Swal.fire({ text: 'เกิดข้อผิดพลาด โปรดลองอีกครั้ง' })
                     } else {

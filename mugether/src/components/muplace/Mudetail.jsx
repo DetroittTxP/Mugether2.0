@@ -19,7 +19,9 @@ export default function Mudetail({ showguide }) {
     return storedDetail !== null ? storedDetail : "Mai me data";
   });
   const [video_url,Setvidourl] = useState('#')
+ 
 
+ 
   useEffect(() =>{
     if(muplace.length !== 0){
       let detail = muplace.filter(data => data.name === Muplace);

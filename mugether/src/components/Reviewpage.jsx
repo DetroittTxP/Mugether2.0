@@ -36,7 +36,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
       value = newvalue
 
     }
-    console.log(newvalue + e.target.name);
+   
 
     Setreview(prevReview => ({
       ...prevReview,
@@ -86,55 +86,64 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
     if (review.reviewdetail.score <= 0 || review.reviewdetail.score === null) {
       return Swal.fire('โปรดให้คะแนนอย่างน้อย 1 คะแนน')
     }
-    Swal.fire({
-      title: 'กำลังโหลด...',
-      html: 'โปรดรอสักครู่',
-      timerProgressBar: true,
-      didOpen: () => {
-        Swal.showLoading();
-      },
+
+
+    await Swal.fire({
+       title:'ยืนยันการรีวิว',
+       icon:'question',
+       html:'ไม่สามารถเเก้ไขการรีวิวได้หลังจากกดยืนยัน',
+       showConfirmButton:true,
+       confirmButtonText:'ยืนยัน',
+       showCancelButton:true,
+       cancelButtonText:'ยกเลิก',
+       confirmButtonColor:'orange'
     })
+    .then(async result => {
+        if(!result.isConfirmed)return;
+        
+        const formData = new FormData();
 
-    const formData = new FormData();
-
-
-    try {
+        try {
       
-      let imagedata = null;
-      if(image && username){
-        //api upload / review / image
-         
-         for(let i = 0;i<image.length;i++){
-             formData.append('reviewImage', image[i]);
-         }
-         let uplaodimage = await axios.post(`${SERVER_URL}/muplace/addreviewmuplace/image/${username}`, formData).catch(err => console.log(errr));
-         imagedata = uplaodimage.data.imageName
-         
-      }
-
-   
-
-      let res = await axios.post(`${SERVER_URL}/muplace/addreviewmuplace`, {review:review,image:imagedata});
-      Swal.close();
-      
-      await Swal.fire({
-        icon: 'success',
-        title: "เพิ่มรีวิวเรียบร้อย",
-        confirmButtonText: "กลับไปยังหน้า รีวิว",
-        showCancelButton: true,
-        cancelButtonText: "ยกเลิก"
-      })
-        .then(result => {
-          if (result.isConfirmed) {
-            check_finish(false)
+          let imagedata = null;
+          if(image && username){
+            //api upload / review / image
+             
+             for(let i = 0;i<image.length;i++){
+                 formData.append('reviewImage', image[i]);
+             }
+             let uplaodimage = await axios.post(`${SERVER_URL}/muplace/addreviewmuplace/image/${username}`, formData).catch(err => console.log(err));
+             imagedata = uplaodimage.data.imageName
+             
           }
+    
+       
+    
+          let res = await axios.post(`${SERVER_URL}/muplace/addreviewmuplace`, {review:review,image:imagedata});
+      
+          Swal.close();
+          
+          await Swal.fire({
+            icon: 'success',
+            title: "เพิ่มรีวิวเรียบร้อย",
+            confirmButtonText: "กลับไปยังหน้า รีวิว",
+            showCancelButton: true,
+            cancelButtonText: "ยกเลิก"
+          })
+            .then(result => {
+              if (result.isConfirmed) {
+                check_finish(false)
+              }
+    
+            });
+            return window.location.reload();
+        }
+        catch (err) {
+          alert(err)
+        }
 
-        });
-        window.location.reload();
-    }
-    catch (err) {
-      alert(err)
-    }
+
+    })
   }
 
 

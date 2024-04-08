@@ -96,6 +96,7 @@ export default function NavType({ SelectedTypeMu, show_guide }) {
               <Nav.Item
                 onClick={() => {
                   Setshowguide(!showguide);
+                  localStorage.setItem('showguide',showguide)
                   if (data.path === '/shop') {
                     navigate(data.path);
                   }

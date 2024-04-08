@@ -53,7 +53,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
 
   const submit_edit = async (e) => {
     e.preventDefault();
-    console.log(selectedfile);
+  
     const formData = new FormData();
     formData.append('profile_img', selectedfile);
 
@@ -96,7 +96,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
             editShop,
             filename:filenamne || null
            })
-           console.log(update_usr);
+        
       }  
 
 
@@ -112,7 +112,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
       })
 
       
-      console.log(update_img);
+      
     }
     catch (err) {
       alert(err,'123123')
@@ -319,7 +319,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
           return;
         }
       })
-      console.log(imageUrl);
+   
       SetImgSrc(imageUrl)
     });
     reader.readAsDataURL(file);
