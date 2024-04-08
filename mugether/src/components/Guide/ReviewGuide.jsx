@@ -493,7 +493,7 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
                     <ButtonBoot onClick={() => onDeletereview(data.username, data._id)}  variant='default' className='hover-buttom' style={{ color: 'red' }}>ลบคอมเม้น</ButtonBoot>
                   </span>}
               </div>
-              <a  onClick={() => addlike(data._id,data.like.countUser.includes(username))} style={{cursor:'pointer'}}>
+              <a  onClick={() => addlike(data._id,data.like.countUser.includes(username))} style={{cursor:'pointer', fontSize: '20px', marginLeft: '22px'}}>
                   {data.like.countUser.includes(username)  ? <AiFillLike/> :  <AiOutlineLike/>} 
                   {data.like.countlike}
               </a>

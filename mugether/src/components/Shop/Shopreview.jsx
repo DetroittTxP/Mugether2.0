@@ -498,7 +498,7 @@ const addlike=async(id_review,isreview)=>{
                     <ButtonBoot onClick={() => onDeletereview(data._id)} variant='default' className='hover-buttom' style={{ color: 'red' }}>ลบคอมเม้น</ButtonBoot>
                   </span>}
               </div>
-              <a  onClick={() => addlike(data._id,data.review_like.countUser.includes(username))} style={{cursor:'pointer'}}>
+              <a  onClick={() => addlike(data._id,data.review_like.countUser.includes(username))} style={{cursor:'pointer', fontSize: '22px', marginLeft: '25px'}}>
                   {data.review_like.countUser.includes(username)  ? <AiFillLike/> :  <AiOutlineLike/>} 
                   {data.review_like.countlike}
                   
