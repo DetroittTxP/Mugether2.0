@@ -29,3 +29,9 @@
   align-items: center;
   cursor: pointer;
 }
+
+.search-wrapper{
+  background-color: white;
+  box-shadow: 0px 0px 2px black;
+  border-radius: 5px;
+}

@@ -169,3 +169,8 @@
   padding: 15px;
   background-color: #D9D9D9;
 }
+
+.button-confirm:hover,
+.button-cancel:hover {
+    filter: brightness(80%);
+}

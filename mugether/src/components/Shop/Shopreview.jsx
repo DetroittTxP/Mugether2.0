@@ -12,6 +12,7 @@ import ButtonBoot from 'react-bootstrap/Button'
 import { AiFillLike } from "react-icons/ai";
 import { AiOutlineLike } from "react-icons/ai";
 import './Shopreview.css'
+import warning from 'antd/es/_util/warning';
 
 
 const Addshopreview=({ check_finish })=>{
@@ -81,13 +82,15 @@ const Addshopreview=({ check_finish })=>{
       return Swal.fire('โปรดให้คะแนนอย่างน้อย 1 คะแนน')
     }
     Swal.fire({
-      title: 'Loading...',
-      html: 'Please wait',
-      timerProgressBar: true,
-      didOpen: () => {
-        Swal.showLoading();
-      },
-    })
+      title: 'กำลังโหลด...',
+      text: 'หากคุณยืนยันการเพิ่มรีวิวแล้วจะไม่สามารถแก้ไขได้',
+      icon: 'warning',
+      html: 'โปรดรอ',
+      showCancelButton: true,
+      confirmButtonText: 'ยืนยัน',
+      cancelButtonText: 'ยกเลิก',
+    });
+    
 
     const formData = new FormData();
 
@@ -388,7 +391,7 @@ export default function Shopreview({reviewdata,id_user}) {
       await  axios.post(`${SERVER_URL}/shop/reply/review/${shop_id}/${shop_item_id}/${idreview}/${123}`,{replyText})
       .then(res => {
           console.log(res.data);
-          window.location.reload();
+          // window.location.reload();
       })
       .catch(err => alert(err))
 }

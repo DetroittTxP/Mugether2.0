@@ -87,6 +87,22 @@
     background-color: orange;
 }
 
+.button-delete {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-delete:hover {
+    background-color: red;
+    color: white;
+}
+
+.item-name{
+    margin-top: 20px;
+}
+
 .store-info {
     display: flex;
     align-items: center;
