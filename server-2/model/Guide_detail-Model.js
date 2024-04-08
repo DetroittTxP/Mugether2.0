@@ -24,7 +24,21 @@ const guide_detail = monggose.Schema({
                username:String,
                score:Number,
                detail:String,
-               review_img:[] 
+               review_img:[String],
+               reply:{
+                    type:{
+                         replied:Boolean,
+                         detail:String,
+                    },
+                    default:{
+                         detail:'',
+                         replied:false
+                    }
+               },
+               like:{
+                    type:Number,
+                    default:0
+               }
           }],
           default:[]},
         }],
@@ -38,7 +52,8 @@ const guide_detail = monggose.Schema({
           review_img:[] 
      }],
      default:[]},
-     profile_pic:{type:String,default:'profile_temp.png'}
+     profile_pic:{type:String,default:'profile_temp.png'},
+   
 })
 
 module.exports =monggose.model('guide_detail', guide_detail);

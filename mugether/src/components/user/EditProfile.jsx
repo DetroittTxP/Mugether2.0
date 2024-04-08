@@ -196,6 +196,24 @@ export default function EditProfile({ showedit, toggle, editType }) {
                   onChange={onGuideChange}
                 />
               </Form.Group>
+
+              <Form.Group controlId="tel">
+                <Form.Label>เบอร์โทร</Form.Label>
+                <Form.Control
+                  placeholder='เบอร์โทร'
+                  type="text"
+                  onChange={onGuideChange}
+                />
+              </Form.Group>
+
+              <Form.Group controlId="email">
+                <Form.Label>อีเมล์</Form.Label>
+                <Form.Control
+                  placeholder='อีเมล'
+                  type="text"
+                  onChange={onGuideChange}
+                />
+              </Form.Group>
         </>
         )
       case 'shop':

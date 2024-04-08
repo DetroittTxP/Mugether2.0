@@ -20,9 +20,8 @@ export default function ListGuide() {
     const navigate = useNavigate()
     const usrID = localStorage.getItem('usr_id');
     const muplace = localStorage.getItem('muplace')
-
-    console.log(guideStatus);
-
+    console.log(list_all_guide);
+   
     useEffect(() => {
        
         axios.get(`${SERVER_URL}/guide_detail/get_list_guide/${localStorage.getItem('muplace')}`)
@@ -111,7 +110,7 @@ export default function ListGuide() {
                    </AccordionSummary>
                
                    <AccordionDetails>
-                       <Guide_detail  data={data}/>
+                       <Guide_detail contact={list_all_guide[0].contact}  data={data}/>
                    </AccordionDetails>
                </Accordion>
                

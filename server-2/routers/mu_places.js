@@ -6,25 +6,24 @@ const path = require('path')
 const {create_dir} = require('./uploadimages')
 
 mu.get('/mudata',async (req,res) => {
-    try{
-        let result = await mu_place.find({});
-        return res.json(result)
-    }
-    catch(err){
-        return res.send(err);
-    }
+  try{
+      let result = await mu_place.find({});
+      return res.json(result)
+  }
+  catch(err){
+      return res.send(err);
+  }
 })
 
 mu.get('/mudata/:name',async (req,res) => {
-    try{
-        let result = await mu_place.find({name:req.params.name});
-        return res.json(result)
-    }
-    catch(err){
-        return res.send(err)
- }
+  try{
+      let result = await mu_place.find({name:req.params.name});
+      return res.json(result)
+  }
+  catch(err){
+      return res.send(err)
+}
 })
-
 
 
 const reviewimgStorage = multer.diskStorage({

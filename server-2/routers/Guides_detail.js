@@ -130,7 +130,7 @@ Guide_detail.get('/get_list_guide/:muplace',async(req,res) => {
          
           let data = await db.find({'guide_post.muplace':muplace});
         
-          
+               console.log(data);
            return res.send(data);
           
      }
@@ -179,7 +179,7 @@ Guide_detail.put('/update_profile/:id_guide',async (req,res) => {
 
           // const {firstname,lastname,profile_pic} = req.body.editGuide;
           const {id_guide} = req.params;
-          const {firstname,lastname} = req.body.editGuide
+          const {firstname,lastname,tel,email} = req.body.editGuide
           const {profile_pic} = req.body;
 
           let Og = await db.findOne({id_guide:id_guide});
@@ -189,7 +189,11 @@ Guide_detail.put('/update_profile/:id_guide',async (req,res) => {
           const data = {
                profile_pic:profile_pic || Og.profile_pic,
                firstname:firstname || Og.firstname,
-               lastname:lastname || Og.lastname
+               lastname:lastname || Og.lastname,
+               contact:{
+                    tel:tel || Og.contact.tel,
+                    email:email || Og.contact.email
+               }
           }
         
            try{
@@ -203,6 +207,15 @@ Guide_detail.put('/update_profile/:id_guide',async (req,res) => {
                return res.send({status:'error',err})
            }
 
+})
+
+
+
+//reply commennt
+Guide_detail.put('/replycomment/:id_guide',async (req,res) => {
+     const {id_guide} = req.params;
+
+     
 })
 
 
@@ -355,6 +368,7 @@ Guide_detail.delete('/delete/review/:id_guide/:id_post/:id_review',
                     let filter = {
                          id_guide:id_guide,
                          "guide_post._id":id_post
+                         
                     };
                     let datatoremove = {
                          $pull:{
@@ -371,7 +385,6 @@ Guide_detail.delete('/delete/review/:id_guide/:id_post/:id_review',
      }
 )
 
-//
 Guide_detail.get('/review/:id_guide/:id_post',async (req,res) => {
          //guideID//postID
           try{
@@ -392,11 +405,67 @@ Guide_detail.get('/review/:id_guide/:id_post',async (req,res) => {
           }
           catch(err){
                return res.send(err)
-          }
-          
-         
+          }  
 })
 
+Guide_detail.post('/reply/review/:id_guide/:id_post/:id_reivew/:replyID', async (req, res) => {
+     const { id_guide, id_post, id_reivew, replyID } = req.params;
+     const {detail} = req.body;
+     
+     try {
+          let filter = {
+               'id_guide':id_guide,
+               "guide_post._id":id_post,
+               "guide_post.postReview._id":id_reivew
+          }
+          let update = {
+               $set: {
+                   "guide_post.$[elem].postReview.$[reviewElem].reply": {
+                       replied: true,
+                       detail: '55555555555555555'
+                   }
+               }
+           }
+           
+           let options = {
+               arrayFilters: [
+                   { "elem._id": id_post }, 
+                   { "reviewElem._id": id_reivew } 
+               ]
+           }
+
+          let data = await db.findOneAndUpdate(filter,update,options)
+        
+           console.log(data);
+
+         return res.send(data);
+ 
+     } catch (err) {
+         console.error(err);
+         return res.status(500).send({ error: "Failed to update review" });
+     }
+ });
+ 
+Guide_detail.get('/reply/review/:id_guide/:id_post/:id_reivew/:replyID', async (req,res) => {
+      
+     const {id_guide,id_post,id_reivew,replyID} = req.params;
+     console.log(req.params);
+     try{
+          let filter = {
+               'id_guide':id_guide,
+               "guide_post._id":id_post,
+               "guide_post.postReview._id":id_reivew
+          }
+
+
+          let data = await db.findOne(filter).select('guide_post.$');
+          return res.json(data)
+     }
+     catch(err){
+          console.log(err);
+          return res.send(err);
+     }
+})
 
 
 module.exports = Guide_detail;

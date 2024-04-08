@@ -362,6 +362,7 @@ export default function ReviewPage({ Muplace_name}) {
     setEditedComment(comment.detail);
   };
 
+  
   const onSaveEdit = async (usr_name) => {
     setEditing(null);
     Swal.fire({
@@ -378,7 +379,7 @@ export default function ReviewPage({ Muplace_name}) {
   
           if (response.data) {
             Swal.fire({ icon: 'success', text: 'แก้ไขข้อความเรียบร้อย' });
-  
+            
             const updatedReviewsResponse = await axios.get(`${SERVER_URL}/muplace/mudata/${Muplace_name}`);
             Setdetail(updatedReviewsResponse.data[0].review);
           }
@@ -443,14 +444,7 @@ export default function ReviewPage({ Muplace_name}) {
                 </div>
               )
               }
-              <div className='comment-actions'>
-                <span className='action-btn mr-2'>
-                  <ButtonBoot onClick={() => onReplyview()} variant='default' className='hover-buttom' style={{color: '#378CE7'}}>ตอบกลับ</ButtonBoot>
-                </span>
-                {username === data.username && 
-                  <span className='action-btn mr-2'>
-                    <ButtonBoot onClick={() => onEditview(data)} variant='default' className='hover-buttom' style={{color: ''}}>แก้ไข</ButtonBoot>
-                  </span>}
+                <div className='comment-actions'>
                 {username === data.username && 
                   <span className='action-btn'>
                     <ButtonBoot onClick={() => onDeletereview(data.username)} variant='default' className='hover-buttom' style={{color: 'red'}}>ลบคอมเม้น</ButtonBoot>

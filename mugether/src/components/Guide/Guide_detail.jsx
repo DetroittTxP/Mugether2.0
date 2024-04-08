@@ -6,14 +6,17 @@ import { Muplace_Context } from '../../context/MuContext';
 import ReviewGuide from './ReviewGuide';
 
 
-export default function Guide_detail({ data }) {
+export default function Guide_detail({contact, data }) {
 
 
   const muplace = localStorage.getItem('muplace');
   const [newdata,Setnewdata] = useState(data);
   const {SERVER_URL} = useContext(Muplace_Context)
-
-  console.log(data.guide_post[0].postReview);
+  const [contactt,Setcontactt] = useState({
+     tel:'',
+     email:''
+  })
+  console.log(newdata);
   useEffect(() => {
 
     let newdata = {
@@ -23,10 +26,14 @@ export default function Guide_detail({ data }) {
           guide_post:data.guide_post.filter((e) => e.muplace === muplace)
     }
     Setnewdata(newdata);
+
+    Setcontactt(contact)
   },[])
+
+  
   return (
     <div>
-      <h2><b>{data.firstname} {data.lastname} TOUR</b></h2> <br />
+      <h2><b>{data.firstname} {data.lastname}</b></h2> <br />
       
       <Container>
 
@@ -126,8 +133,8 @@ export default function Guide_detail({ data }) {
         
         <br/>    <br/>
         <h2><b>ติดต่อ</b></h2>
-          <h3>เบอร์โทร: 08123456789 {data.email}</h3>
-          <h3>ที่อยู่: 123/123 </h3>
+          <h3>เบอร์โทร: {contactt.tel} </h3>
+          <h3>อีเมลล์: {contactt.email} </h3>
 
         <br/>
 
