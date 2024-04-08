@@ -402,6 +402,7 @@ const addlike=async(id_review,isreview)=>{
         let data = res.data.updated.shop_items.filter((data) => data._id === shop_item_id)
         console.log(data);
         Setdetail(data[0].item_review);
+        setReplyReviewId(null);
         return;
       }
   })
@@ -409,8 +410,6 @@ const addlike=async(id_review,isreview)=>{
     alert(err)
   })
 }
-
-
 
   return (
     <div className="review-container">
@@ -484,7 +483,7 @@ const addlike=async(id_review,isreview)=>{
                     }}
                     placeholder="เขียนความคิดเห็นของคุณ..."
                   />
-                  <ButtonBoot type="submit" className='button-confirm'>ยืนยัน</ButtonBoot>
+                  <ButtonBoot type="submit" variant='warning' className='button-confirm'>ยืนยัน</ButtonBoot>
                   <ButtonBoot variant={'danger'} onClick={handleCancelReply} className='button-cancel'>ยกเลิก</ButtonBoot>
                 </Form>
               )}
