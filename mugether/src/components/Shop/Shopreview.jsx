@@ -9,6 +9,8 @@ import ButtonBo from 'react-bootstrap/Button'
 import Carousel from 'react-bootstrap/Carousel';
 import { Muplace_Context } from '../../context/MuContext';
 import ButtonBoot from 'react-bootstrap/Button'
+import { AiFillLike } from "react-icons/ai";
+import { AiOutlineLike } from "react-icons/ai";
 import './Shopreview.css'
 
 
@@ -183,7 +185,7 @@ const Addshopreview=({ check_finish })=>{
 
 
 export default function Shopreview({reviewdata,id_user}) {
-
+  const username = localStorage.getItem('usr')
   const {SERVER_URL} = useContext(Muplace_Context);
   const shop_id = localStorage.getItem('shop_id')
   const shop_item_id = localStorage.getItem('shop_item_id')
@@ -390,6 +392,24 @@ export default function Shopreview({reviewdata,id_user}) {
       .catch(err => alert(err))
 }
 
+const addlike=async(id_review,isreview)=>{
+  const username = localStorage.getItem('usr');
+  await axios.put(`${SERVER_URL}/shop/like/review/${shop_id}/${shop_item_id}/${id_review}/${username}/${isreview}`)
+  .then(res => {
+      if(res.data.status === 'ok'){
+       
+        let data = res.data.updated.shop_items.filter((data) => data._id === shop_item_id)
+        console.log(data);
+        Setdetail(data[0].item_review);
+        return;
+      }
+  })
+  .catch(err => {
+    alert(err)
+  })
+}
+
+
 
   return (
     <div className="review-container">
@@ -472,6 +492,11 @@ export default function Shopreview({reviewdata,id_user}) {
                     <ButtonBoot onClick={() => onDeletereview(data._id)} variant='default' className='hover-buttom' style={{ color: 'red' }}>ลบคอมเม้น</ButtonBoot>
                   </span>}
               </div>
+              <a  onClick={() => addlike(data._id,data.review_like.countUser.includes(username))} style={{cursor:'pointer'}}>
+                  {data.review_like.countUser.includes(username)  ? <AiFillLike/> :  <AiOutlineLike/>} 
+                  {data.review_like.countlike}
+                  
+              </a>
 
                 <hr/>
             </>

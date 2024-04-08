@@ -37,6 +37,16 @@ const shop_model = mongoose.Schema({
                              replied:false
                         }
                    },
+                   review_like:{
+                    type:{
+                        countlike:Number,
+                        countUser:[String],
+                    },
+                    default:{
+                        countlike:0,
+                        countUser:[]
+                    }
+                   }
                  }],
                  default:[],
             }

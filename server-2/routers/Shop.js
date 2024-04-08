@@ -530,6 +530,48 @@ Shop.post('/reply/review/:id_shop/:shop_item_id/:id_review/:replyID',async (req,
 })
 
 
+Shop.put('/like/review/:id_shop/:shop_item_id/:id_review/:usr_name/:isreview', async (req, res) => {
+    const { id_shop, shop_item_id, id_review, usr_name, isreview } = req.params;
+  
+    try {
+      let filter = {
+        "_id": id_shop,
+        "shop_items._id": shop_item_id,
+        "shop_items.item_review._id": id_review
+      };
+  
+      let queryyyyy;
+  
+      let update = {
+        $inc: { 'shop_items.$.item_review.$[review].review_like.countlike': 1 },
+        $push: { 'shop_items.$.item_review.$[review].review_like.countUser': usr_name }
+      };
+  
+      let delete1 = {
+        $inc: { 'shop_items.$.item_review.$[review].review_like.countlike': -1 },
+        $pull: { 'shop_items.$.item_review.$[review].review_like.countUser': usr_name }
+      };
+  
+      let options = {
+        arrayFilters: [{ 'review._id': id_review }],
+        new: true
+      };
+  
+      if (isreview === 'true') {
+        queryyyyy = delete1;
+      } else {
+        queryyyyy = update;
+      }
+  
+      let updated = await db_shop.findOneAndUpdate(filter, queryyyyy, options);
+      return res.send({ status: 'ok', updated });
+    } catch (err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+  });
+  
+
 
 
 module.exports = Shop;
