@@ -351,11 +351,6 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
       })
   }
 
-
-
-
-
-
   const makereply = async (id_review,replyID) =>{
              // await  axios.post(`${SERVER_URL}/guide_detail/reply/review/${guideID}/${postID}/${id_review}/${replyID}`)
     // .then(res => {
