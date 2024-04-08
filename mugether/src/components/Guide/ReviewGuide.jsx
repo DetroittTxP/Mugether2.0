@@ -195,6 +195,11 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
   const totalReviews = detail.length;
   const totalPages = Math.ceil(totalReviews / reviewsPerPage);
   const [countingreview,Setcountingreview] = useState();
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [currentImage, setCurrentImage] = useState('');
+  const [idreview,Setiddddreview] = useState('')
+  const [replyReviewId, setReplyReviewId] = useState(null);
+  const [replyText, setReplyText] = useState('');
 
   console.log(reviewdata2);
   useEffect(() => {
@@ -216,13 +221,22 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
     Setdetail(reviewdata2)
   }, [reviewdata2])
 
-
-  const [isModalOpen, setIsModalOpen] = useState(true);
-  const [currentImage, setCurrentImage] = useState('');
-
   const check_finish = (isFinish) => {
     Setaddreview(isFinish)
   }
+
+  const handleSubmireply =(e)=>{
+    e.preventDefault();
+  }
+
+  const handleReplySubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const handleCancelReply = () => {
+    setReplyReviewId(null);
+    setReplyText('');
+  };
 
   const write_review = () => {
 
@@ -359,13 +373,15 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
       })
   }
 
-  const makereply = async (id_review,replyID) =>{
-    // do add detail here
-             // await  axios.post(`${SERVER_URL}/guide_detail/reply/review/${guideID}/${postID}/${id_review}/${replyID}`)
-    // .then(res => {
-    //     console.log(res.data);
-    // })
-    // .catch(err => alert(err))
+  const makereply = async (e) =>{
+    e.preventDefault();
+    if(!replyText) return alert('error');
+    
+        await axios.put(`${SERVER_URL}/guide_detail/replycomment/${guideID}`)
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => alert(err))
   }
 
   const addlike=async(id_review,isreview)=>{
@@ -418,12 +434,34 @@ export default function ReviewGuide({ reviewdata2, reviewdata, guideID, postID }
                   ))}
                 </div>
               )}
+              {replyReviewId === data._id && (
+                <Form onSubmit={makereply}>
+                  <Form.Control as='textarea'
+                    onChange={(e) => {
+                      setReplyText(e.target.value);
+                      Setiddddreview(data._id);
+                    }}
+                    placeholder="เขียนความคิดเห็นของคุณ..."
+                  />
+                  <ButtonBoot type="submit" className='button-confirm'>ยืนยัน</ButtonBoot>
+                  <ButtonBoot variant={'danger'} onClick={handleCancelReply} className='button-cancel'>ยกเลิก</ButtonBoot>
+                </Form>
+              )}
 
               <div className='comment-actions'>
            
-              { id_userrr === guideID && !data.reply.replied  &&  <span className='action-btn mr-2'>
-                  <ButtonBoot onClick={() => makereply(data._id,data.reply._id)} variant='default' className='hover-buttom' style={{ color: '#378CE7' }}>ตอบกลับ</ButtonBoot>
-                </span>}
+              { id_userrr === guideID && !data.reply.replied && (
+                  <span className="action-btn mr-2">
+                    <ButtonBoot
+                      onClick={() => handleReplyButtonClick(data._id)}
+                      variant="default"
+                      className="hover-buttom"
+                      style={{ color: '#378CE7' }}
+                    >
+                      ตอบกลับ
+                    </ButtonBoot>
+                  </span>
+                )}
                 
                 {username === data.username &&
                   <span className='action-btn'>

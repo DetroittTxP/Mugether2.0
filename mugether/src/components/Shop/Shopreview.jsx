@@ -465,8 +465,9 @@ const addlike=async(id_review,isreview)=>{
               )}
           
                       {/*   for reply    */}
-                      { data.review_reply.replied &&  <div>
-                          การตอบกลับจากร้านค้า <br/>
+                      { data.review_reply.replied &&  
+                      <div className='replyfromshop'>
+                          <b>การตอบกลับจากร้านค้า:</b>  <br/>
                           {data.review_reply.detail}
                       </div>}
       
@@ -482,8 +483,8 @@ const addlike=async(id_review,isreview)=>{
                     }}
                     placeholder="เขียนความคิดเห็นของคุณ..."
                   />
-                  <ButtonBoot type="submit">ยืนยัน</ButtonBoot>
-                  <ButtonBoot onClick={handleCancelReply}>ยกเลิก</ButtonBoot>
+                  <ButtonBoot type="submit" className='button-confirm'>ยืนยัน</ButtonBoot>
+                  <ButtonBoot variant={'danger'} onClick={handleCancelReply} className='button-cancel'>ยกเลิก</ButtonBoot>
                 </Form>
               )}
                 

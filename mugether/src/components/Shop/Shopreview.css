@@ -153,3 +153,20 @@
 .delete-comment-shop{
   margin-left: 850px;
 }
+
+.button-confirm {
+  margin-top: 5px;
+  padding-right: 10px;
+}
+
+.button-cancel {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.replyfromshop{
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #EEF5FF;
+  background-color: #EEF5FF;
+}
