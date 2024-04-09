@@ -112,7 +112,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
                     <Button variant="link" onClick={() => handleHeart(data.name)}>
                       <FaHeart
                         style={{
-                          color: HeartCheck.includes(data.name) ? "red" : "white",
+                          color: HeartCheck.includes(data.name) ? "#DF4B5F" : "white",
                           cursor: "pointer",
                           fontSize: "24px",
                         }}
