@@ -74,7 +74,6 @@ export default function Map() {
         <MapContainer center={markers.muplace_latlong.location} zoom={13} scrollWheelZoom={true} minZoom={5} maxZoom={18}>
           
           <div className='info-marker'>
-
             <div >
               <Image src={Gps1} width={35}  />
               <span>สถานที่มู</span>
