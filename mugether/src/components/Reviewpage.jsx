@@ -133,16 +133,15 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
             .then(result => {
               if (result.isConfirmed) {
                 check_finish(false)
+                return window.location.reload();
               }
     
             });
-            return window.location.reload();
+            
         }
         catch (err) {
           alert(err)
         }
-
-
     })
   }
 

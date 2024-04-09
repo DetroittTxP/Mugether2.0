@@ -80,15 +80,33 @@ const Add_Review = ({ updatestate, reviewdata, check_finish, guideID, updaterevi
     if (review.score <= 0 || review.score === null) {
       return alert('rating must > 0')
     }
-    Swal.fire({
-      title: 'Loading...',
-      html: 'Please wait',
-      timerProgressBar: true,
-      didOpen: () => {
-        Swal.showLoading();
-      },
-    })
 
+
+
+    // Swal.fire({
+    //   title: 'Loading...',
+    //   html: 'Please wait',
+    //   timerProgressBar: true,
+    //   didOpen: () => {
+    //     Swal.showLoading();
+    //   },
+    // })
+
+
+    await Swal.fire({
+      title:'ยืนยันการรีวิว',
+      icon:'question',
+      html:'ไม่สามารถเเก้ไขการรีวิวได้หลังจากกดยืนยัน',
+      showConfirmButton:true,
+      confirmButtonText:'ยืนยัน',
+      showCancelButton:true,
+      cancelButtonText:'ยกเลิก',
+      confirmButtonColor:'orange'
+    })
+    .then(async res => {
+        if(!res.isConfirmed)return;
+
+       
     const formData = new FormData();
 
 
@@ -117,15 +135,19 @@ const Add_Review = ({ updatestate, reviewdata, check_finish, guideID, updaterevi
         .then(result => {
           if (result.isConfirmed) {
             check_finish(false)
+            return window.location.reload();
+
           }
 
         });
-      window.location.reload();
-
+  
     }
     catch (err) {
       alert(err)
     }
+
+    })
+
   }
 
 
@@ -255,7 +277,7 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
     if (user && addreview) {
       return Setaddreview(false)
     }
-    return user ? Setaddreview(true) : Swal.fire('Login first');
+    return user ? Setaddreview(true) : Swal.fire('โปรดล็อกอินก่อน');
   }
 
 
@@ -400,7 +422,16 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
 
 
   const addlike=async(id_review,isreview)=>{
-    console.log(isreview);
+    const usrid = localStorage.getItem('usr_id');
+
+    if(!usrid){
+      return Swal.fire({
+        text:'โปรดล็อคอินก่อน',
+      })
+    }
+  
+
+
     await axios.put(`${SERVER_URL}/guide_detail/like/review/${guideID}/${postID}/${id_review}/${username}/${isreview}`)
     .then(res => {
         if(res.data.status === 'ok'){

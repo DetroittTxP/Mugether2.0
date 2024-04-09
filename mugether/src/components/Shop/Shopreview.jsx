@@ -84,56 +84,64 @@ const Addshopreview=({ check_finish })=>{
 
     
     Swal.fire({
-      title: 'กำลังโหลด...',
-      text: 'หากคุณยืนยันการเพิ่มรีวิวแล้วจะไม่สามารถแก้ไขได้',
-      icon: 'warning',
-      html: 'โปรดรอ',
-      showCancelButton: true,
-      confirmButtonText: 'ยืนยัน',
-      cancelButtonText: 'ยกเลิก',
-    });
+      title:'ยืนยันการรีวิว',
+      icon:'question',
+      html:'ไม่สามารถเเก้ไขการรีวิวได้หลังจากกดยืนยัน',
+      showConfirmButton:true,
+      confirmButtonText:'ยืนยัน',
+      showCancelButton:true,
+      cancelButtonText:'ยกเลิก',
+      confirmButtonColor:'orange'
+    })
+    .then(async res =>{
+       if(!res.isConfirmed)return;
+
+       const formData = new FormData();
+
+
+       try {
+         
+         let imagedata = null;
+         if(image && username){
+           //api upload / review / image
+            
+            for(let i = 0;i<image.length;i++){
+                formData.append('reviewImage', image[i]);
+            }
+            let uplaodimage = await axios.post(`${SERVER_URL}/shop/review/image/${shop_id}`, formData).catch(err => console.log(err));
+            
+            imagedata = uplaodimage.data.photos
+            
+         }
+   
+         let res = await axios.post(`${SERVER_URL}/shop/review/${shop_id}/${shop_item_id}`, {review:review.review,imagedata});
+         Swal.close();
+         
+         await Swal.fire({
+           icon: 'success',
+           title: "เพิ่มรีวิวเรียบร้อย",
+           confirmButtonText: "กลับไปยังหน้า รีวิว",
+           showCancelButton: true,
+           cancelButtonText: "ยกเลิก"
+         })
+           .then(result => {
+             if (result.isConfirmed) {
+               check_finish(false)
+             }
+   
+           });
+           window.location.reload();
+    
+       }
+       catch (err) {
+         alert(err)
+       }
+
+       
+    })
     
 
-    const formData = new FormData();
-
-
-    try {
-      
-      let imagedata = null;
-      if(image && username){
-        //api upload / review / image
-         
-         for(let i = 0;i<image.length;i++){
-             formData.append('reviewImage', image[i]);
-         }
-         let uplaodimage = await axios.post(`${SERVER_URL}/shop/review/image/${shop_id}`, formData).catch(err => console.log(err));
-         
-         imagedata = uplaodimage.data.photos
-         
-      }
-
-      let res = await axios.post(`${SERVER_URL}/shop/review/${shop_id}/${shop_item_id}`, {review:review.review,imagedata});
-      Swal.close();
-      
-      await Swal.fire({
-        icon: 'success',
-        title: "เพิ่มรีวิวเรียบร้อย",
-        confirmButtonText: "กลับไปยังหน้า รีวิว",
-        showCancelButton: true,
-        cancelButtonText: "ยกเลิก"
-      })
-        .then(result => {
-          if (result.isConfirmed) {
-            check_finish(false)
-          }
-
-        });
-        window.location.reload();
- 
-    }
-    catch (err) {
-      alert(err)
-    }
+   
   }
 
   return (

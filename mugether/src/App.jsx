@@ -49,7 +49,7 @@ const Checktimeout = (timeout, onLogout) => {
 }
 
 export default function App() {
-  const SERVER_URL = import.meta.env.VITE_OUTSIDE_URL
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL
 
 
   const location = useLocation();
@@ -65,6 +65,7 @@ export default function App() {
   const guideStatus = JSON.parse(localStorage.getItem('guide'));
   const shopStatus = JSON.parse(localStorage.getItem('shop'));
   const usr_id = localStorage.getItem('usr_id');
+  
   useEffect(() => {
     if (!usr_id && location.pathname === '/add-shop') {
       return window.location.href = '/'
