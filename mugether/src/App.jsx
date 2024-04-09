@@ -16,6 +16,7 @@ import Regis_shop from './components/user/Regis_shop'
 import Swal from 'sweetalert2';
 import Add_Shop from './components/Shop/Add_shop'
 import Forgottenpassword from './components/user/ForgottenPassword'
+import Footer from './components/layout/footer'
 
 
 const Checktimeout = (timeout, onLogout) => {
@@ -158,6 +159,7 @@ export default function App() {
       <br />
       <br />
       <br />
+      
 
       {location.pathname !== '/shop' && location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/logout' && <NavType show_guide={show_guide} SelectedTypeMu={SelectedTypeMu} handleFav={Handlefav} />}
       <br />
@@ -180,6 +182,8 @@ export default function App() {
         <Route path='/add-shop' element={<Add_Shop />} />
         <Route path='/Forgottenpassword' element={<Forgottenpassword />} />
       </Routes>
+      <br/>
+      <Footer/>
       <div>
 
       </div>

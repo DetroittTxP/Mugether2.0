@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import SwalLoading from "../util/SwalLoading";
 import './listitem.css'
 
+
 export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
   const navigate = useNavigate();
   const mu_type = localStorage.getItem('type_mu');
@@ -118,6 +119,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
                         }}
                       />
                     </Button>
+                    
                     </div>
                   )}
                 </Card.Body>

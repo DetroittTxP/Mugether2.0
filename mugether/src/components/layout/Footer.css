@@ -1,0 +1,55 @@
+/* Footer Container */
+.footer {
+    background-color: gray;
+    color: #fff;
+    padding: 50px 0;
+}
+
+/* Footer About Section */
+.footer-about h5 {
+    color: #fff;
+    font-size: 20px;
+}
+
+.footer-about p {
+    font-size: 14px;
+}
+
+/* Footer Contact Section */
+.footer-contact h5 {
+    color: #fff;
+    font-size: 20px;
+}
+
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact li {
+    font-size: 14px;
+   
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    /* background-color: rgb(104, 102, 102); */
+    padding: 20px ;
+}
+
+.footer-bottom p {
+    color: #fff;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer {
+        text-align: center;
+    }
+}
+
+.row{
+   /* text-align: center; */
+}
