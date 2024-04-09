@@ -36,7 +36,8 @@ export default function ListGuide() {
                 icon:'warning',
                 showCancelButton:true,
                 confirmButtonText:'ใช่',
-                cancelButtonText:'ไม่'
+                cancelButtonText:'ไม่',
+                confirmButtonColor:'orange'
            })
            .then(async result => {
                 if(result.isConfirmed){

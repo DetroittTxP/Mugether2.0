@@ -219,7 +219,7 @@ export default function Shopreview({reviewdata,id_user}) {
   const [idreview,Setiddddreview] = useState('')
   const [replyReviewId, setReplyReviewId] = useState(null);
   const [replyText, setReplyText] = useState('');
-
+  const [canLike,Setcanlike] = useState(true);
   useEffect(() => {
     Setdetail(reviewdata)
   },[reviewdata])
@@ -407,6 +407,7 @@ export default function Shopreview({reviewdata,id_user}) {
 }
 
 const addlike=async(id_review,isreview)=>{
+  Setcanlike(false)
   const username = localStorage.getItem('usr');
   await axios.put(`${SERVER_URL}/shop/like/review/${shop_id}/${shop_item_id}/${id_review}/${username}/${isreview}`)
   .then(res => {
@@ -416,7 +417,8 @@ const addlike=async(id_review,isreview)=>{
         console.log(data);
         Setdetail(data[0].item_review);
         setReplyReviewId(null);
-        return;
+
+        return Setcanlike(true)
       }
   })
   .catch(err => {
@@ -506,7 +508,10 @@ const addlike=async(id_review,isreview)=>{
                     <ButtonBoot onClick={() => onDeletereview(data._id)} variant='default' className='hover-buttom' style={{ color: 'red' }}>ลบคอมเม้น</ButtonBoot>
                   </span>}
               </div>
-              <a  onClick={() => addlike(data._id,data.review_like.countUser.includes(username))} style={{cursor:'pointer', fontSize: '22px', marginLeft: '25px'}}>
+              <a  onClick={() => {
+                 if(!canLike)return;
+                 return addlike(data._id,data.review_like.countUser.includes(username))
+              }} style={{cursor:'pointer', fontSize: '22px', marginLeft: '25px'}}>
                   {data.review_like.countUser.includes(username)  ? <AiFillLike/> :  <AiOutlineLike/>} 
                   {data.review_like.countlike}
                   

@@ -72,6 +72,21 @@ export default function App() {
     }
   }, [location.pathname])
 
+
+  useEffect(() => {
+    let maihaiyu = [
+      '/reg-guide',
+      '/reg-shop',
+      '/add-shop',
+    ]
+
+    maihaiyu.forEach(path => {
+      if(location.pathname === path && !usr_id){
+         return navigate('/');
+      }
+    })
+  },[])
+
   Checktimeout(1800000, () => {
     if (!logoutAlertShown) {
       Swal.fire({

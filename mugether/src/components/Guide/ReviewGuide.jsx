@@ -130,7 +130,8 @@ const Add_Review = ({ updatestate, reviewdata, check_finish, guideID, updaterevi
         title: "เพิ่มรีวิวเรียบร้อย",
         confirmButtonText: "กลับไปยังหน้า รีวิว",
         showCancelButton: true,
-        cancelButtonText: "ยกเลิก"
+        cancelButtonText: "ยกเลิก",
+        confirmButtonColor:'orange'
       })
         .then(result => {
           if (result.isConfirmed) {
@@ -222,6 +223,7 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
   const [idreview,Setiddddreview] = useState('')
   const [replyReviewId, setReplyReviewId] = useState(null);
   const [replyText, setReplyText] = useState('');
+  const [canLike,Setcanlike] = useState(true);
 
   console.log(reviewdata2);
   useEffect(() => {
@@ -384,6 +386,7 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
       showConfirmButton: true,
       showCancelButton: true,
       text: 'ต้องการลบคอมเม้น ? ',
+      confirmButtonColor:'orange'
 
     }).then(async result => {
       if (result.isConfirmed) {
@@ -422,6 +425,7 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
 
 
   const addlike=async(id_review,isreview)=>{
+    Setcanlike(false);
     const usrid = localStorage.getItem('usr_id');
 
     if(!usrid){
@@ -437,6 +441,7 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
         if(res.data.status === 'ok'){
           let data = res.data.updated.guide_post.filter((data) => data.muplace === localStorage.getItem('muplace'))
           Setdetail(data[0].postReview);
+          Setcanlike(true);
           return;
         }
     })
@@ -524,7 +529,10 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
                     <ButtonBoot onClick={() => onDeletereview(data.username, data._id)}  variant='default' className='hover-buttom' style={{ color: 'red' }}>ลบคอมเม้น</ButtonBoot>
                   </span>}
               </div>
-              <a  onClick={() => addlike(data._id,data.like.countUser.includes(username))} style={{cursor:'pointer', fontSize: '20px', marginLeft: '22px'}}>
+              <a    onClick={() =>{
+                   if(!canLike)return;
+                   return  addlike(data._id,data.like.countUser.includes(username))
+              }} style={{cursor:'pointer', fontSize: '20px', marginLeft: '22px'}}>
                   {data.like.countUser.includes(username)  ? <AiFillLike/> :  <AiOutlineLike/>} 
                   {data.like.countlike}
               </a>

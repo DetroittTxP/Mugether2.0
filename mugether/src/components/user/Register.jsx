@@ -98,7 +98,8 @@ const Register = () => {
                         title: "สมัครสมาชิกสำเร็จ",
                         confirmButtonText: "ไปยังหน้า Login",
                         showCancelButton: true,
-                        cancelButtonText: "ยกเลิก"
+                        cancelButtonText: "ยกเลิก",
+                        confirmButtonColor:'orange'
                     })
                         .then(result => {
                             if (result.isConfirmed) {

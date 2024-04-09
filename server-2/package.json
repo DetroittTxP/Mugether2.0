@@ -20,10 +20,12 @@
     "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
+    "leaflet": "^1.9.4",
     "mongoose": "^8.0.1",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.11",
     "nodemon": "^3.0.1",
+    "react-leaflet": "^4.2.1",
     "react-mail": "^0.0.1"
   },
   "devDependencies": {

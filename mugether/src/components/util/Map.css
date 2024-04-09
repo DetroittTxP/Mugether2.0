@@ -4,3 +4,25 @@
     display: flex;
     justify-content: center;
 }
+
+.info-marker{
+   
+    display: flex;
+}
+
+.info-marker div {
+    z-index: 1050;
+    width: 170px;
+    height: 40px;
+    background-color: white;
+    margin:10px 5px 5px 5px;
+    border-radius: 10px;
+    padding-top: 2px;
+    text-align: center;
+  }
+
+  .info-marker span{
+    text-align: center;
+    
+  }
+

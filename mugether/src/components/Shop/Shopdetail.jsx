@@ -100,6 +100,7 @@ export default function Shopdetail() {
             showCancelButton: true,
             confirmButtonText: 'ใช่',
             cancelButtonText: 'ไม่'
+            ,confirmButtonColor:'orange'
         }).then(async result => {
             if (result.isConfirmed) {
            
