@@ -4,6 +4,8 @@ import LogoMugether from '../../assets/LogoMugether.png'
 
 function Footer() {
     return (
+
+
         <footer className="footer">
             <div className="container">
                 <div className="row">
@@ -31,6 +33,7 @@ function Footer() {
                 </div>
             </div>
         </footer>
+        
     );
 }
 

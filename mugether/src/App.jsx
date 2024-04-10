@@ -184,7 +184,7 @@ export default function App() {
       </Routes>
       <br />
       
-      {(location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/ForgottenPassword') && <Footer />}
+      {(location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/ForgottenPassword' && location.pathname !=='/add-shop') && <Footer />}
        
 
       <div>
