@@ -266,7 +266,7 @@ export default function Header({ handleFav, showguide }) {
             handleFav(!fav)
             return window.location.reload();
           }}>
-            <Image rounded src={Logo} height={150} width={150} style={{ borderRadius: '50%' }} />
+            <Image className='logo' rounded src={Logo} height={150} width={150} style={{ borderRadius: '50%' }} />
             
           </Navbar.Brand>
           <div className="search-wrapper">
