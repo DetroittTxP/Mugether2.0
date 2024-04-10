@@ -162,9 +162,9 @@
 @media (max-width: 576px) {
   .register-container {
     padding: 1rem;
-    min-height: 105vh;
+    min-height: 125vh;
     margin-top: 100px;
     width: 100%;
-    padding: 5px;
+    padding: 10px;
   }
 } 
