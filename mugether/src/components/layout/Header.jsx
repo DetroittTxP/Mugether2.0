@@ -273,7 +273,7 @@ export default function Header({ handleFav, showguide }) {
             {isMobileSearchVisible || isDesktopView ? (
               <Dropdown overlayClassName='scroll-dropdown' menu={{ items: searchdata(), }}>
                 <Nav>
-                  <Form.Control onChange={onChange} placeholder={(pathname === '/shop' || pathname === '/shopdetail' ? 'ค้นหาสินค้า...' : 'ค้นหาสถานที่มู...')} type="text" style={{ width: isDesktopView ? '700px' : '120px'}} />
+                  <Form.Control onChange={onChange} placeholder={(pathname === '/shop' || pathname === '/shopdetail' ? 'ค้นหาสินค้า...' : 'ค้นหาสถานที่มู...')} type="text" style={{ width: isDesktopView ? '450px' : '120px'}} />
                 </Nav>
               </Dropdown>
             ) : null}

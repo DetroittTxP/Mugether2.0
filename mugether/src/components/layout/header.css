@@ -44,6 +44,38 @@
   border-radius: 50%;
 }
 
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 826px) {
+  .scroll-dropdown {
+    max-width: 180px; 
+    max-height: 300px; 
+    overflow-y: auto; 
+    overflow-x: auto;    
+  }
+
+  .scroll-dropdown .dropdown-menu {
+    max-width: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 900px;
+  }
+
+  .logo {
+    max-height: 80px;
+    max-width: 80px;
+  }
+
+  .search-icon-1{
+    width: 15px;
+  }
+  
+}
+
 /* Adjust for smaller screens */
 @media (max-width: 576px) {
   .scroll-dropdown {
@@ -68,6 +100,4 @@
   .search-icon-1{
     width: 15px;
   }
-
-  
 }
