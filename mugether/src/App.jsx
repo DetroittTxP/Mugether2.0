@@ -66,7 +66,7 @@ export default function App() {
   const guideStatus = JSON.parse(localStorage.getItem('guide'));
   const shopStatus = JSON.parse(localStorage.getItem('shop'));
   const usr_id = localStorage.getItem('usr_id');
-  
+
   useEffect(() => {
     if (!usr_id && location.pathname === '/add-shop') {
       return window.location.href = '/'
@@ -82,11 +82,11 @@ export default function App() {
     ]
 
     maihaiyu.forEach(path => {
-      if(location.pathname === path && !usr_id){
-         return navigate('/');
+      if (location.pathname === path && !usr_id) {
+        return navigate('/');
       }
     })
-  },[])
+  }, [])
 
   Checktimeout(1800000, () => {
     if (!logoutAlertShown) {
@@ -159,7 +159,7 @@ export default function App() {
       <br />
       <br />
       <br />
-      
+
 
       {location.pathname !== '/shop' && location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/logout' && <NavType show_guide={show_guide} SelectedTypeMu={SelectedTypeMu} handleFav={Handlefav} />}
       <br />
@@ -182,8 +182,11 @@ export default function App() {
         <Route path='/add-shop' element={<Add_Shop />} />
         <Route path='/Forgottenpassword' element={<Forgottenpassword />} />
       </Routes>
-      <br/>
-      <Footer/>
+      <br />
+      
+      {(location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/ForgottenPassword') && <Footer />}
+       
+
       <div>
 
       </div>

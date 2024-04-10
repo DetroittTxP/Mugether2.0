@@ -16,7 +16,6 @@ function Footer() {
                         <h5>ติดต่อเรา</h5>
                         <ul className="list-unstyled">
                             <li>Email:  Mugether_Official@gmail.com</li>
-                            <li>Phone:  08x-xxx-xxxx</li>
                             <li>Address:  มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</li>
                         </ul>
                     </div>
