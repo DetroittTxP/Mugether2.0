@@ -266,23 +266,22 @@ export default function Header({ handleFav, showguide }) {
             handleFav(!fav)
             return window.location.reload();
           }}>
-            <Image className='logo' rounded src={Logo} height={150} width={150} style={{ borderRadius: '50%' }} />
+            <Image className='logo' rounded src={Logo}/>
             
           </Navbar.Brand>
           <div className="search-wrapper">
             {isMobileSearchVisible || isDesktopView ? (
               <Dropdown overlayClassName='scroll-dropdown' menu={{ items: searchdata(), }}>
                 <Nav>
-                  <Form.Control onChange={onChange} placeholder={(pathname === '/shop' || pathname === '/shopdetail' ? 'ค้นหาสินค้า...' : 'ค้นหาสถานที่มู...')} type="text" style={{ width: isDesktopView ? '600px' : '100%' }} />
+                  <Form.Control onChange={onChange} placeholder={(pathname === '/shop' || pathname === '/shopdetail' ? 'ค้นหาสินค้า...' : 'ค้นหาสถานที่มู...')} type="text" style={{ width: isDesktopView ? '700px' : '120px'}} />
                 </Nav>
               </Dropdown>
             ) : null}
             {!isDesktopView && (
               <button className="search-icon" onClick={toggleMobileSearch}>
-                <img src={Search} alt="Search" style={{ width: '30px' }} />
+                <img src={Search} alt="Search" className='search-icon-1' />
               </button>
             )}
-
           </div>
           <Dropdown overlay={usr_data ? loged_in : non_login} trigger={['click']} placement="bottomRight">
             <button className='menu-apps'>
