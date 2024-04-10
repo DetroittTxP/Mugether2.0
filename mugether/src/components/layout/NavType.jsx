@@ -3,6 +3,7 @@ import { Nav } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
 
+
 export default function NavType({ SelectedTypeMu, show_guide }) {
   const location = useLocation();
   const [showguide, Setshowguide] = useState(false);

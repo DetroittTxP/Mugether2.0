@@ -220,6 +220,8 @@ export default function Shopreview({reviewdata,id_user}) {
   const [replyReviewId, setReplyReviewId] = useState(null);
   const [replyText, setReplyText] = useState('');
   const [canLike,Setcanlike] = useState(true);
+  
+
   useEffect(() => {
     Setdetail(reviewdata)
   },[reviewdata])
@@ -407,7 +409,17 @@ export default function Shopreview({reviewdata,id_user}) {
 }
 
 const addlike=async(id_review,isreview)=>{
+  const usrid = localStorage.getItem('usr_id');
+
+  if(!usrid){
+    return Swal.fire({
+      text:'โปรดล็อคอินก่อน',
+    })
+  }
   Setcanlike(false)
+  
+
+
   const username = localStorage.getItem('usr');
   await axios.put(`${SERVER_URL}/shop/like/review/${shop_id}/${shop_item_id}/${id_review}/${username}/${isreview}`)
   .then(res => {
