@@ -32,10 +32,8 @@
 }
 
 .picture-guidedetail{
-  height: 300px;
-  padding-right: 25px;
-  padding-top: 50px;
+  width: 100%;
+  max-width: 100%;
 }
-
 
   

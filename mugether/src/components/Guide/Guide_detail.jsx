@@ -114,7 +114,7 @@ export default function Guide_detail({ profile_name, contact, data }) {
         </ul>
         <br/>
         <h2><b>ประสบการณ์ (Experience)</b></h2>    <br/>
-        <Col md={6} style={{marginLeft: "300px"}}>
+        <Col md={{span: 6, offset: 3}} >
           <Carousel className='picture-guidedetail'indicators controls>
             {newdata.guide_post[0].experience_img.map((image, index) => (
               <Carousel.Item key={index}>
@@ -123,6 +123,7 @@ export default function Guide_detail({ profile_name, contact, data }) {
                   rounded
                   src={`${SERVER_URL}/guide_detail/exp/img/${data.id_guide}/${image}`}
                   alt={`Product image ${index + 1}`}
+                  style={{width: '100%'}}
                 />
               </Carousel.Item>
             ))}
