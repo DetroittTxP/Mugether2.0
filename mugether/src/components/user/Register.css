@@ -139,3 +139,32 @@
 .Enter{
   margin-top: -1px;
 }
+
+/* Adjust for full screens */
+@media (max-width: 768px) {
+  .register-form,
+  .footer {
+    max-width: 100%;
+    margin: 1rem;
+  }
+
+  .register-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 576px) {
+  .register-container {
+    padding: 1rem;
+    min-height: 105vh;
+    margin-top: 100px;
+    width: 100%;
+    padding: 5px;
+  }
+} 
