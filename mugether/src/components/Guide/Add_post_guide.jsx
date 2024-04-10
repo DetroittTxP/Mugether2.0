@@ -178,7 +178,7 @@ export default function Add_post() {
 
             <Form onSubmit={SubmitPost}>
                 <Form.Group className="mb-3" controlId='postPhotos'>
-                    <Form.Label><h5><b>เพิ่มรูปภาพสถานที่ของของคุณ (ไม่เกิน 5 รูป)</b></h5></Form.Label>
+                    <Form.Label><h5><b>เพิ่มรูปภาพสถานที่ของคุณ (ไม่เกิน 5 รูป)</b></h5></Form.Label>
                     <Form.Control type="file" accept='image/*' multiple onChange={SelectPicture} />
                 </Form.Group>
 {/*                 
