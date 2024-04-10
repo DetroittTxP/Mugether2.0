@@ -213,7 +213,7 @@ export default function Add_post() {
                                 <Form.Control
 
                                     value={data}
-                                    placeholder={index === 0 ? "เช่น พาไปดูลิงวัด" : null}
+                                    placeholder={index === 0 ? "เช่น พาไปไหว้พระ แก้บน" : null}
                                     onChange={(event) => onAcitityChange(event, index)}
                                     required
                                 />
