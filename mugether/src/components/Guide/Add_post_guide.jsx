@@ -248,7 +248,7 @@ export default function Add_post() {
 
                 <Modal.Footer>
 
-                    <Button type='submit' variant="warning">โพส</Button>
+                    <Button type='submit' variant="warning">โพสต์</Button>
                 </Modal.Footer>
             </Form>
         </div>
