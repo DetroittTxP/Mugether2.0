@@ -104,13 +104,13 @@ export default function Guide_detail({ profile_name, contact, data }) {
         <br />
         <ul>
 
-
+      
           {newdata.guide_post[0].postActivity.map((data, i) => {
-            return (
-              <li>
-                <h5>{data}</h5>
-              </li>
-            )
+            console.log(data);
+            
+            return data ? (<li>
+              <h5>{data}</h5>
+            </li>) : null
           })}
         </ul>
         <br />
