@@ -16,7 +16,7 @@ import Regis_shop from './components/user/Regis_shop'
 import Swal from 'sweetalert2';
 import Add_Shop from './components/Shop/Add_shop'
 import Forgottenpassword from './components/user/ForgottenPassword'
-import Footer from './components/layout/footer'
+import Footer from './components/layout/Footer'
 
 
 const Checktimeout = (timeout, onLogout) => {
