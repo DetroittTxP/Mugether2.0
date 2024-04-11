@@ -111,7 +111,7 @@ export default function ListGuide() {
                    </AccordionSummary>
                
                    <AccordionDetails>
-                       <Guide_detail   profile_name={{id_guide:data.id_guide,name:data.profile_pic}}    contact={list_all_guide[0].contact}   data={data}/>
+                       <Guide_detail   profile_name={{id_guide:data.id_guide,name:data.profile_pic}}    contact={data.contact}   data={data}/>
                    </AccordionDetails>
                </Accordion>
                

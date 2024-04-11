@@ -133,8 +133,8 @@ export default function Guide_detail({ profile_name, contact, data }) {
 
         <br />    <br />
         <h2><b>ติดต่อ</b></h2>
-        <h3>เบอร์โทร: {contactt.tel} </h3>
-        <h3>อีเมลล์: {contactt.email} </h3>
+        <h3>เบอร์โทร: {contact.tel} </h3>
+        <h3>อีเมลล์: {contact.email} </h3>
 
         <br />
 

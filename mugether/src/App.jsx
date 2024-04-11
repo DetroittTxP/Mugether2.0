@@ -159,7 +159,7 @@ export default function App() {
       <br />
       <br />
       <br />
-
+    
 
       {location.pathname !== '/shop' && location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/logout' && <NavType show_guide={show_guide} SelectedTypeMu={SelectedTypeMu} handleFav={Handlefav} />}
       <br />
