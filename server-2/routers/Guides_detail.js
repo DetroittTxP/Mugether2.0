@@ -8,6 +8,7 @@ const dbusr = require('../model/User-model')
 const path = require('path')
 const {checkunuse_guide } = require('../util/checkunuse')
 const db = Guide_detail_Model;
+const verify_guide = require('../model/Verify_Guide-model')
 
 Guide_detail.get('/',(req,res) => {
      res.send('ok')
@@ -15,7 +16,8 @@ Guide_detail.get('/',(req,res) => {
 
 
 Guide_detail.post('/create_guide', async (req,res)=>{
-     const {_id,firstname,lastname,mu_location,contact} = req.body;
+     const {_id,firstname,lastname,mu_location,contact} = req.body.guide;
+     console.log(req.body.guide);
 
      try{
           let check_id = await user.findOne({_id:_id});
@@ -41,7 +43,12 @@ Guide_detail.post('/create_guide', async (req,res)=>{
                          guide:true,
                     }                    
                )
-
+               
+           await verify_guide.findOneAndUpdate({id_user:_id} , 
+               {
+                    status:'accept'
+               }
+          )
   
           return res.json({status:'success',result:create_guide});
      }

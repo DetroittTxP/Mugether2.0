@@ -13,6 +13,7 @@ const latlong = require('../routers/latlong');
 const verify_guide = require('../routers/verifyGuide')
 const Guide_detail = require('../routers/Guides_detail');
 const Shop = require('../routers/Shop');
+const Admin = require('../routers/admin')
 
 const app = express();
 
@@ -22,6 +23,9 @@ app.use(bodyparser.json())
 mongoose.connect(process.env.CON_STR)
 .then(() => console.log('db connected'))
 .catch(err => console.log(err))
+
+//admin
+app.use('/admin' , Admin);
 
 //muplace
 app.use('/muplace', mu_place);

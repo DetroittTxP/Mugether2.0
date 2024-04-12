@@ -17,6 +17,8 @@ import Swal from 'sweetalert2';
 import Add_Shop from './components/Shop/Add_shop'
 import Forgottenpassword from './components/user/ForgottenPassword'
 import Footer from './components/layout/Footer'
+import Adminpagelogin from './components/admin/Adminpagelogin'
+import Adminpage from './components/admin/Adminpage'
 
 
 const Checktimeout = (timeout, onLogout) => {
@@ -54,6 +56,7 @@ export default function App() {
 
 
   const location = useLocation();
+  const {pathname} = location;
   const pageStatus = JSON.parse(localStorage.getItem('showguide'))
   const [global_muplace, Setmuplace] = useState([]);
   const [global_shop, Setshop] = useState([]);
@@ -93,9 +96,11 @@ export default function App() {
       Swal.fire({
         text: 'ออกจากระบบอัตโนมัติ เนื่องจากไม่มีการตอบสนองเป็นระยะเวลานาน',
       });
+      
       localStorage.removeItem('usr');
       localStorage.removeItem('token')
       localStorage.removeItem('usr_id')
+      localStorage.clear();
       // localStorage.removeItem('shop_id');
       // localStorage.removeItem('shop_item_id');
       // localStorage.removeItem('shop');
@@ -103,6 +108,7 @@ export default function App() {
       // localStorage.removeItem('fav');
 
       setLogoutAlertShown(true);
+      return window.location.href = '/'
     }
   });
 
@@ -121,6 +127,16 @@ export default function App() {
       .catch(err => alert(err))
 
   }, [])
+
+
+  useEffect(() => {
+    const adminStat = JSON.parse(localStorage.getItem('admin'))
+
+    if(!adminStat && pathname === '/admin'){
+        alert('instrution detected');
+        return window.location.href = '/'
+    }
+  },[])
 
 
   const data_context = {
@@ -153,13 +169,13 @@ export default function App() {
 
   return (
     <Muplace_Context.Provider value={data_context} >
-      <Header showguide={show_guide} handleFav={Handlefav} />
+     {    pathname!== '/admin/login' && <  Header showguide={show_guide} handleFav={Handlefav} />}
       <br />
       <br />
       <br />
       <br />
       <br />
-    
+
 
       {location.pathname !== '/shop' && location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/logout' && <NavType show_guide={show_guide} SelectedTypeMu={SelectedTypeMu} handleFav={Handlefav} />}
       <br />
@@ -180,11 +196,13 @@ export default function App() {
         <Route path='/shopdetail' element={<Shopdetail />} />
         <Route path='/reg-shop' element={<Regis_shop />} />
         <Route path='/add-shop' element={<Add_Shop />} />
+        <Route path='/admin/login' element={<Adminpagelogin/>}/>
         <Route path='/Forgottenpassword' element={<Forgottenpassword />} />
+        <Route path='/admin' element={<Adminpage/>}/>
       </Routes>
       <br />
       
-      {(location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/ForgottenPassword' && location.pathname !=='/add-shop'
+      {(location.pathname !== '/login' &&  pathname!== '/admin/login' &&  pathname!== '/admin' && location.pathname !== '/register' && location.pathname !== '/ForgottenPassword' && location.pathname !=='/add-shop'
       && location.pathname !=='/reg-shop' && location.pathname !=='/reg-guide') && <Footer />}
        
 

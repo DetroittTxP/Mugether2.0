@@ -172,7 +172,8 @@ export default function Header({ handleFav, showguide }) {
   );
 
   const non_login = (
-    <Menu style={{ textDecoration: 'none', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '10px' }}>
+    <>
+  { pathname !=='/admin' &&  <Menu style={{ textDecoration: 'none', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '10px' }}>
       <Menu.Item key="login">
         <a onClick={() => navigate('/login')} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <img src={Login} style={{ width: '30px' }} />
@@ -191,7 +192,8 @@ export default function Header({ handleFav, showguide }) {
           <span>ร้านค้า</span>
         </a>
       </Menu.Item>
-    </Menu>
+    </Menu>}
+    </>
   );
 
   const toggle = (status) => {
@@ -250,6 +252,56 @@ export default function Header({ handleFav, showguide }) {
   }
 
 
+const adminmenu = (
+  <Menu>
+  <Menu.Item key="manage-users">
+    <a onClick={() => {
+         localStorage.setItem('showregisshop', false);
+         localStorage.setItem('showguideregis', true);
+         return  window.location.reload();
+    }}  style={{ textDecoration: 'none' }}>
+      รายชื่อคนสมัครไกด์
+    </a>
+  </Menu.Item>
+  <Menu.Item  onClick={() => {
+         localStorage.setItem('showregisshop', true);
+         localStorage.setItem('showguideregis', false);
+         return  window.location.reload();
+  }} key="manage-muplaces">
+    <a style={{ textDecoration: 'none' }}>
+      รายชื่อคนสมัครร้านค้า
+    </a>
+  </Menu.Item>
+  <Menu.Item>
+    <a onClick={() => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('usr_id');
+        localStorage.removeItem('admin')
+        return window.location.href = '/admin/login'
+    }} style={{ textDecoration: 'none' }}>
+        ออกจากระบบ
+      </a>
+  </Menu.Item>
+</Menu>
+)
+
+  const switchmenu = () =>{
+    console.log(pathname);
+       if(usr_data){
+        return loged_in;
+       }
+
+       if(!usr_data && pathname !== '/admin'){
+          return non_login;
+       }
+
+       if(pathname === '/admin'){
+         return adminmenu;
+       }
+  }
+
+
+
   return (
     <div>
       <EditProfile showedit={showedit} toggle={toggle} editType={editType} />
@@ -271,11 +323,14 @@ export default function Header({ handleFav, showguide }) {
           </Navbar.Brand>
           <div className="search-wrapper">
             {isMobileSearchVisible || isDesktopView ? (
-              <Dropdown overlayClassName='scroll-dropdown' menu={{ items: searchdata(), }}>
+              <>
+               { pathname !== '/admin' &&  <Dropdown overlayClassName='scroll-dropdown' menu={{ items: searchdata(), }}>
                 <Nav>
                   <Form.Control onChange={onChange} placeholder={(pathname === '/shop' || pathname === '/shopdetail' ? 'ค้นหาสินค้า...' : 'ค้นหาสถานที่มู...')} type="text" style={{ width: isDesktopView ? '450px' : '120px'}} />
                 </Nav>
-              </Dropdown>
+              </Dropdown>}
+              </>
+            
             ) : null}
             {!isDesktopView && (
               <button className="search-icon" onClick={toggleMobileSearch}>
@@ -283,7 +338,7 @@ export default function Header({ handleFav, showguide }) {
               </button>
             )}
           </div>
-          <Dropdown overlay={usr_data ? loged_in : non_login} trigger={['click']} placement="bottomRight">
+          <Dropdown overlay={switchmenu()} trigger={['click']} placement="bottomRight">
             <button className='menu-apps'>
               <AppsIcon />
             </button>

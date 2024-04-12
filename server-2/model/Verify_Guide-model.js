@@ -38,6 +38,10 @@ const verify_guide_model = mongoose.Schema({
     image_guide:{
         type:String,
         default:''
+    },
+    status:{
+        type:String,
+        default:'pending'
     }
 })
 

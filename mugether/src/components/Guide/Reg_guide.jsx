@@ -49,6 +49,7 @@ export default function Reg_guide() {
       })
 
       let res = await axios.post(`${SERVER_URL}/verify_guide/info`, { guide })
+      console.log(res.data);
       if(res.data.status === 'duplicate'){
           return await Swal.fire({
             icon:'error',
@@ -67,7 +68,9 @@ export default function Reg_guide() {
 
         return window.location.href = '/'
   
-      }{
+      }
+      else
+      {
         await Swal.fire({
           icon: 'error',
           title: 'โปรดลองใหม่'
@@ -80,6 +83,8 @@ export default function Reg_guide() {
         lastName: "",
         id_card: "",
         id_guide: "",
+        tel:"",
+        email:"",
         mu_place: [],
       });
       setImage(null);
@@ -127,6 +132,8 @@ export default function Reg_guide() {
           <Form onSubmit={handleSubmit}>
 
           <Form.Group>
+
+              <Form.Control  type="hidden" id='userID' value={userID}/>
              
 
               <Form.Label>โปรดเเนบรูปประจำตัวของคุณ</Form.Label>

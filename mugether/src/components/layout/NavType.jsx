@@ -76,7 +76,10 @@ export default function NavType({ SelectedTypeMu, show_guide }) {
       {!location.pathname.includes('/ForgottenPassword') &&
         !location.pathname.includes('/reg-guide') &&
         !location.pathname.includes('/reg-shop') &&
-        !location.pathname.includes('/add-shop') && (
+        !location.pathname.includes('/add-shop') && 
+        !location.pathname.includes('/admin') &&
+        !location.pathname.includes('/admin/login')&&
+        (
           <Nav
             className='justify-content-center'
             variant='underline'

@@ -72,6 +72,61 @@ const Reg_Guide_Mail = async (email)=>{
 }
 
 
+
+const Reg_Guide_mail = async (email,status) => {
+
+   let selectform;
+
+   const mailOptions_GuideOK = {
+      from:process.env.EMAIL,
+      to:email,
+      subject: 'การสมัครไกด์',
+      html:`
+      <h1>ยินดีต้อนรับสู่ Mugether!</h1>
+      <br/>
+      <h3>การสมัครไกด์ของคุณเสร็จสิ้นเรียบร้อยแล้ว</h3>
+      <br/>
+      <p>คุณสามารถเข้าสู่ระบบและเริ่มงานระบบไกด์ได้เลยในตอนนี้ </p>
+      <br/>
+      <h3>ทีม Mugether</h3>
+       `
+ }
+
+
+ const mailOptions_GuideNOTOK = {
+   from:process.env.EMAIL,
+   to:email,
+   subject: 'การสมัครไกด์',
+   html:`
+   <h1>ยินดีต้อนรับสู่ Mugether!</h1>
+   <br/>
+   <h3>การสมัครไกด์ของคุณไม่ผ่านการยืนยัน</h3>
+   <br/>
+   <p>กราบขออภัยท่านมา ณ ที่นี้ </p>
+   <br/>
+   <h3>ทีม Mugether</h3>
+    `
+}
+
+if(status === 'accept'){
+     selectform = mailOptions_GuideOK
+}
+else{
+   selectform = mailOptions_GuideNOTOK
+}
+
+
+
+
+
+
+
+
+
+
+}
+
+
 const Reg_User_mail=async(email)=>{
        const mailOptions = {
             from:process.env.EMAIL,
@@ -131,5 +186,6 @@ const Reset_Pass_Email= async(email,token) => {
 module.exports = {
      Reg_Guide_Mail,
      Reg_User_mail,
-     Reset_Pass_Email
+     Reset_Pass_Email,
+     Reg_Guide_mail
 };

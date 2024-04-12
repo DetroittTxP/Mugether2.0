@@ -17,9 +17,7 @@ const user_model = mongoose.Schema({
         type:String,
         require:true
     },
-    
-
-    
+    admin:Boolean,
     name:String,
     surname:String,
     tel:String,

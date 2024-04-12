@@ -24,6 +24,13 @@ usr.post('/login', async (req,res) => {
             })
         }
 
+        if(user_data[0].admin){
+            return res.send({
+                status:"error",
+                message:'user not found'
+            })
+        }
+
         bcrypt.compare(password, user_data[0].password, (err, result) => {
              if(result)
              {

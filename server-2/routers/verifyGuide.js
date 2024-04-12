@@ -46,51 +46,45 @@ verify_g.post('/img/:id',upload_verify_guide.single('img-guide'),async(req,res) 
 
 //get_guide INFO
 verify_g.post('/info', async (req,res) => {
-     const {firstName,lastName,id_card,id_guide,mu_place,userID,tel} = req.body.guide;
-
+     const {firstName,lastName,id_card,id_guide,mu_place,userID,tel,email} = req.body.guide;
+    
     try{
-
-        let isDuplicate = async () => {
-             try{
-                let query = {
-                    $or:[{email:email},{_id:userID}]
-                }
-                let checkemail  =  await db_verfiy_guide.findOne(query);
-                if(checkemail){
-                    return true;
-                }
-
-                return false;
-             }
-             catch(err){
-                return res.json({status:'err',err})
-             }
+        //check exist regis guide
+        let querycheck = {
+            $or:[
+                {id_user:userID},
+                {email:email}
+            ]
         }
-        if(isDuplicate){
-             return res.send({status:'duplicate'});
+        let isExist = await db_verfiy_guide.findOne(querycheck)
+        console.log(isExist);
+        if(isExist){
+            return res.send({status:'duplicate'})
         }
-   
-        let insert = await db_verfiy_guide.create({
-            id_user:userID,
-            firstname:firstName,
-            lastname:lastName,
-            id_card:id_card,
-            id_guide:id_guide,
-            mu_place:mu_place,
-            tel:tel,
-            email:req.body.guide.email
-        })
-
-        let sendemail = await usdb.findOne({_id:userID}).select('email');
-        const {email} = sendemail;
-        
-        await Reg_Guide_Mail(email)
-
-        return res.json({status:'success',msg:insert});
+        else{
+            let insert = await db_verfiy_guide.create({
+                id_user:userID,
+                firstname:firstName,
+                lastname:lastName,
+                id_card:id_card,
+                id_guide:id_guide,
+                mu_place:mu_place,
+                tel:tel,
+                email:req.body.guide.email
+            })
+            console.log(insert);
+            let sendemail = await usdb.findOne({_id:userID}).select('email');
+            const {email} = sendemail;
+            
+            await Reg_Guide_Mail(email)
+    
+            return res.json({status:'success',msg:insert});
+        }
     }
     catch(err)
-    {
-        return res.json({status:'error',msg:err})
+    {   
+        console.log(err);
+        return res.json({status:'errorhaha',msg:err})
     }
 })
 
