@@ -78,6 +78,10 @@ export default function App() {
 
 
   useEffect(() => {
+    if(pathname !== '/admin'){
+      localStorage.removeItem('/admin');
+    }
+
     let maihaiyu = [
       '/reg-guide',
       '/reg-shop',

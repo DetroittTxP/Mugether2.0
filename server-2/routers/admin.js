@@ -137,6 +137,11 @@ admin.put('/listregisguide/reject',async (req,res) => {
 })
 
 
+admin.get('/test/2.0',(req,res) => {
+  return res.send('2.0');
+})
+
+
 
 
 

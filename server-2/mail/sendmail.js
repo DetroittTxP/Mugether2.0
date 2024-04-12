@@ -189,8 +189,6 @@ const Reset_Pass_Email= async(email,token) => {
       })
 }
 
-
-
 module.exports = {
      Reg_Guide_Mail,
      Reg_User_mail,

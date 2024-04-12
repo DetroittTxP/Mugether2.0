@@ -30,7 +30,7 @@ const RegisGuideList = ({ setstate }) => {
 
 
 
-  const deleteee = async (id, id_user,email) => {
+  const deleteee = async (id, id_user, email) => {
     swal.fire({
       icon: 'question',
       text: 'ต้องการลบรายชื่อสมัครไกด์ ? ',
@@ -125,7 +125,7 @@ const RegisGuideList = ({ setstate }) => {
 
 
       <h1>รายชื่อคนสมัครไกด์</h1>
-      <Table  style={{textAlign:'center',overflow:'hidden',whiteSpace:'nowrap'}} striped bordered hover>
+      <Table style={{ textAlign: 'center', overflow: 'hidden', whiteSpace: 'nowrap' }} striped bordered hover>
         <thead>
           <tr>
             {/* <th>Username ที่ใช้สมัคร</th> */}
@@ -167,7 +167,7 @@ const RegisGuideList = ({ setstate }) => {
                   ยืนยัน
                 </Button>
                 {' '}
-                <Button onClick={() => deleteee(guide._id, guide.id_user,guide.email)} variant="danger" size="small" >
+                <Button onClick={() => deleteee(guide._id, guide.id_user, guide.email)} variant="danger" size="small" >
                   ปฏิเสธ
                 </Button>
               </td>
@@ -185,32 +185,29 @@ const RegisGuideList = ({ setstate }) => {
 }
 
 
-const Rejectlist = ({ list }) => {
-
-}
-
-
 const Accpetlist = ({ list }) => {
-  const {SERVER_URL} = useContext(Muplace_Context)
+  const { SERVER_URL } = useContext(Muplace_Context)
   const [open, setOpen] = useState(false);
   const [imageinfo, Setimageinfo] = useState([{ key: '', name: '' }])
   const [index, setIndex] = useState(0);
   const updateIndex = ({ index: current }) => setIndex(current);
 
-  <Lightbox
-  open={open}
-  close={() => setOpen(false)}
-  slides={[
-    { src: `${SERVER_URL}/admin/listregisguide/image/${imageinfo.key}/${imageinfo.name}` },
-  ]}
-  index={index}
-  on={{ view: updateIndex }}
-/>
 
 
   return (
     <Container>
-      <Table style={{textAlign:'center',overflow:'hidden',whiteSpace:'nowrap'}} striped bordered hover>
+
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        slides={[
+          { src: `${SERVER_URL}/admin/listregisguide/image/${imageinfo.key}/${imageinfo.name}` },
+        ]}
+        index={index}
+        on={{ view: updateIndex }}
+      />
+
+      <Table style={{ textAlign: 'center', overflow: 'hidden', whiteSpace: 'nowrap' }} striped bordered hover>
         <thead>
           <th>ID ผู้ใช้งาน</th>
           <th>ชื่อ</th>
@@ -244,9 +241,8 @@ const Accpetlist = ({ list }) => {
                     name: guide.image_guide
                   })
                 }} width={100} height={100} src={`${SERVER_URL}/admin/listregisguide/image/${guide.id_user}/${guide.image_guide}`} />
-              </td>    
+              </td>
               <td>ยืนยันการสมัครเเล้ว </td>
-
 
             </tr>
           ))}
@@ -259,10 +255,8 @@ const Accpetlist = ({ list }) => {
 
 
 export default function Adminpage() {
-  const showregisguide = JSON.parse(localStorage.getItem('showguideregis'));
-  const showregistershop = JSON.parse(localStorage.getItem('showregisshop'));
   const [list, setlist] = useState([]);
-  console.log(showregisguide);
+
 
   const setstate = (state) => {
     setlist(state);
@@ -279,9 +273,7 @@ export default function Adminpage() {
         <Tab eventKey="confirmed" title="ยืนยันแล้ว">
           <Accpetlist list={list.filter(e => e.status === 'accept')} />
         </Tab>
-        <Tab eventKey="rejected" title="ปฏิเสธ">
-          <Rejectlist list={list.filter(e => e.status === 'reject')} />
-        </Tab>
+
       </Tabs>
 
 
