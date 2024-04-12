@@ -385,7 +385,7 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
       icon: 'question',
       showConfirmButton: true,
       showCancelButton: true,
-      text: 'ต้องการลบคอมเม้น ? ',
+      text: 'ต้องการลบคอมเมนต์ ? ',
       confirmButtonColor:'orange'
 
     }).then(async result => {
@@ -526,7 +526,7 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
                 
                 {username === data.username &&
                   <span className='action-btn'>
-                    <ButtonBoot onClick={() => onDeletereview(data.username, data._id)}  variant='default' className='hover-buttom' style={{ color: 'red' }}>ลบคอมเม้น</ButtonBoot>
+                    <ButtonBoot onClick={() => onDeletereview(data.username, data._id)}  variant='default' className='hover-buttom' style={{ color: 'red' }}>ลบคอมเมนต์</ButtonBoot>
                   </span>}
               </div>
               <a    onClick={() =>{
