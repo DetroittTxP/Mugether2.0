@@ -45,7 +45,7 @@ const Reg_Guide_Mail = async (email)=>{
 
        const mailOptionsTOadmin = {
           from : process.env.EMAIL,
-          to:['peerawutkeawnoi@gmail.com','pondkab582@gmail.com','bankkich@gmail.com','julanoppza@gmail.com'],
+          to:['peerawutkeawnoi@gmail.com','pondkab582@gmail.com','bankkich@gmail.com'],
           subject:'มีคนสมัครไกด์ไปเเอดให้เขาด้วย',
           html:`
           <h2>${email}</h2>
@@ -98,8 +98,6 @@ const Reg_Guide_mail = async (email,status) => {
    to:email,
    subject: 'การสมัครไกด์',
    html:`
-   <h1>ยินดีต้อนรับสู่ Mugether!</h1>
-   <br/>
    <h3>การสมัครไกด์ของคุณไม่ผ่านการยืนยัน</h3>
    <br/>
    <p>กราบขออภัยท่านมา ณ ที่นี้ </p>
@@ -111,16 +109,26 @@ const Reg_Guide_mail = async (email,status) => {
 if(status === 'accept'){
      selectform = mailOptions_GuideOK
 }
-else{
+else if(status === 'reject') {
    selectform = mailOptions_GuideNOTOK
 }
 
+//do send mail
 
-
-
-
-
-
+transporter.sendMail(selectform,(err,info) => {
+   if(err){
+      return {
+         stauts:'error',
+         err
+      }
+ }
+ else{
+    return {
+          status:'success',
+          msg:'email was send'
+    }
+ }
+})
 
 
 

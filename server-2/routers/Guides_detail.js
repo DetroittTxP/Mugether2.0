@@ -9,6 +9,7 @@ const path = require('path')
 const {checkunuse_guide } = require('../util/checkunuse')
 const db = Guide_detail_Model;
 const verify_guide = require('../model/Verify_Guide-model')
+const {Reg_Guide_mail} = require('../mail/sendmail')
 
 Guide_detail.get('/',(req,res) => {
      res.send('ok')
@@ -49,6 +50,10 @@ Guide_detail.post('/create_guide', async (req,res)=>{
                     status:'accept'
                }
           )
+
+          await Reg_Guide_mail(contact.email,"accept")
+
+          
   
           return res.json({status:'success',result:create_guide});
      }

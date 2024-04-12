@@ -57,7 +57,7 @@ verify_g.post('/info', async (req,res) => {
             ]
         }
         let isExist = await db_verfiy_guide.findOne(querycheck)
-        console.log(isExist);
+        console.log('5555',isExist);
         if(isExist){
             return res.send({status:'duplicate'})
         }

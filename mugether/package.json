@@ -47,6 +47,7 @@
     "react-share": "^5.1.0",
     "react-slick": "^0.30.2",
     "reactjs-popup": "^2.0.6",
+    "styled-components": "^6.1.8",
     "sweetalert2": "^11.10.1",
     "yet-another-react-lightbox": "^3.14.0"
   },

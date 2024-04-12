@@ -4,6 +4,7 @@ const verfiyG = require('../model/Verify_Guide-model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const path = require('path')
+const {Reg_Guide_mail} = require('../mail/sendmail')
 const fs = require('fs')
 
 admin.get('/test', (req,res) => {
@@ -94,18 +95,13 @@ admin.get('/listregisguide', async (req,res) => {
       }
 })
 
-//accept guide register
-// admin.post('/listregisguide/accept/:id_user',async (req,res) => {
-//       const {_id,} = req.body;
-// })
-
-
 //delete reg guide
-admin.delete('/listregisguide/delete/:id/:id_user', async (req,res) => {
+admin.delete('/listregisguide/delete/:id/:id_user/:email', async (req,res) => {
      const {id,id_user} = req.params;
      try{
         let deleted = await verfiyG.findByIdAndDelete(id);
         
+        await Reg_Guide_mail(req.params.email,'reject')
   
         return res.send({status:'ok',deleted});
 
@@ -134,6 +130,10 @@ admin.get('/listregisguide/image/:id/:imgname',async (req,res) => {
         console.log(err);
         return res.send(err);
       }
+})
+//reject guide
+admin.put('/listregisguide/reject',async (req,res) => {
+    
 })
 
 
