@@ -96,14 +96,14 @@ export default function Adminpagelogin() {
             <Form.Group controlId='password' >
               <Form.Label>รหัสผ่าน</Form.Label>
               <Form.Control
-                type={visible ? "text" : "password"}
+                type="Password"
                 placeholder="กรอกรหัสผ่าน"
                 onChange={onChangeuser}
               />
-              <div className="password-toggle101"
+              {/* <div className="password-toggle101"
                 onClick={() => setvisible(!visible)}>
                 {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
-              </div>
+              </div> */}
             </Form.Group>
             <br />
             <Button variant="warning" type="submit">
