@@ -1,0 +1,8 @@
+.password-toggle101 {
+    position: absolute;
+    right: 30px;
+    left: 970px;
+    top: 52.5%;
+    transform: translateY(-150%);
+    cursor: pointer;
+  }
