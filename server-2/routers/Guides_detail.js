@@ -529,6 +529,28 @@ Guide_detail.put('/like/review/:id_guide/:id_post/:id_reivew/:usr_name/:isreview
 
 
 
+//getprofileguide by id_guide
+Guide_detail.get('/guide/profile/:id_guide',async (req,res) => {
+     
+     const {id_guide} = req.params;
+
+     try{
+          let guide_profile = await db.findOne({id_guide:id_guide});
+
+          if(!guide_profile){
+               return res.send('someting went wrong');
+          }
+
+          return res.json(guide_profile);
+     }
+     catch(err){
+          console.log(err);
+          return res.send(err);
+     }
+
+})
+
+
 
 
 module.exports = Guide_detail;

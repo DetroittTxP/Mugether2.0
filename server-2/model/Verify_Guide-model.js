@@ -42,7 +42,8 @@ const verify_guide_model = mongoose.Schema({
     status:{
         type:String,
         default:'pending'
-    }
+    },
+    lineID:String
 })
 
 module.exports = mongoose.model(process.env.DB_VERIFY_GUIDE,verify_guide_model)

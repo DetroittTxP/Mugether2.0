@@ -19,6 +19,7 @@ import Forgottenpassword from './components/user/ForgottenPassword'
 import Footer from './components/layout/Footer'
 import Adminpagelogin from './components/admin/Adminpagelogin'
 import Adminpage from './components/admin/Adminpage'
+import Guideprofilepage from './components/Guide/guideprofilepage'
 
 
 const Checktimeout = (timeout, onLogout) => {
@@ -203,10 +204,11 @@ export default function App() {
         <Route path='/admin/login' element={<Adminpagelogin/>}/>
         <Route path='/Forgottenpassword' element={<Forgottenpassword />} />
         <Route path='/admin' element={<Adminpage/>}/>
+        <Route path='/guide/profile' element={<Guideprofilepage/>}/>
       </Routes>
       <br />
       
-      {(location.pathname !== '/login' &&  pathname!== '/admin/login' &&  pathname!== '/admin' && location.pathname !== '/register' && location.pathname !== '/ForgottenPassword' && location.pathname !=='/add-shop'
+      {(location.pathname !== '/login' &&   pathname!== '/guide/profile' &&  pathname!== '/admin/login' &&  pathname!== '/admin' && location.pathname !== '/register' && location.pathname !== '/ForgottenPassword' && location.pathname !=='/add-shop'
       && location.pathname !=='/reg-shop' && location.pathname !=='/reg-guide') && <Footer />}
        
 

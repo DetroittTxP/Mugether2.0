@@ -68,7 +68,8 @@ const RegisGuideList = ({ setstate }) => {
       mu_location: guide.mu_place,
       contact: {
         tel: guide.tel,
-        email: guide.email
+        email: guide.email,
+        lineID:guide.lineID || ""
       }
     }
 
@@ -91,9 +92,10 @@ const RegisGuideList = ({ setstate }) => {
           let okguide = await axios.post(`${SERVER_URL}/guide_detail/create_guide`, { guide: guide11 })
           console.log(okguide.data);
           if (okguide.data.status === 'success') {
-            return swal.fire({
+            await swal.fire({
               text: 'ยืนยันไกด์สำเร็จ'
             })
+            return window.location.reload();
           }
           else {
             return console.log(okguide.data);
@@ -104,8 +106,6 @@ const RegisGuideList = ({ setstate }) => {
         }
 
       })
-
-
   }
 
 
@@ -132,9 +132,11 @@ const RegisGuideList = ({ setstate }) => {
             <th>ID ผู้ใช้งาน</th>
             <th>ชื่อ</th>
             <th>อีเมล์</th>
+            <th>ไอดีไลน์</th>
             <th>รหัสประจำตัว</th>
             <th>สถานที่มู</th>
             <th>รูปประจำตัว</th>
+           
             <th>คำสั่ง</th>
             <th>สถานนะ</th>
           </tr>
@@ -145,6 +147,7 @@ const RegisGuideList = ({ setstate }) => {
               <td>{guide.id_user}</td>
               <td>{guide.firstname} - {guide.lastname}</td>
               <td>{guide.email}</td>
+              <td>{guide.lineID || ' - '}</td>
               <td>{guide.id_card}</td>
               <td>
                 <ul>
@@ -215,6 +218,7 @@ const Accpetlist = ({ list }) => {
           <th>รหัสประจำตัว</th>
           <th>สถานที่มู</th>
           <th>รูปประจำตัว</th>
+          <th>ไอดีไลน์</th>
           <th>สถานนะ</th>
         </thead>
 
@@ -225,6 +229,7 @@ const Accpetlist = ({ list }) => {
               <td>{guide.firstname} {' '} {guide.lastname}</td>
               <td>{guide.email}</td>
               <td>{guide.id_card}</td>
+              <td>{guide.lineID || ' - '}</td>
               <td>
                 <ul>
                   {guide.mu_place.map((places) => (

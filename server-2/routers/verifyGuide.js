@@ -46,7 +46,7 @@ verify_g.post('/img/:id',upload_verify_guide.single('img-guide'),async(req,res) 
 
 //get_guide INFO
 verify_g.post('/info', async (req,res) => {
-     const {firstName,lastName,id_card,id_guide,mu_place,userID,tel,email} = req.body.guide;
+     const {firstName,lastName,id_card,id_guide,mu_place,userID,tel,email,lineID} = req.body.guide;
     
     try{
         //check exist regis guide
@@ -70,7 +70,8 @@ verify_g.post('/info', async (req,res) => {
                 id_guide:id_guide,
                 mu_place:mu_place,
                 tel:tel,
-                email:req.body.guide.email
+                email:req.body.guide.email,
+                lineID:lineID
             })
             console.log(insert);
             let sendemail = await usdb.findOne({_id:userID}).select('email');

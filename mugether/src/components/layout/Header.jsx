@@ -44,7 +44,7 @@ export default function Header({ handleFav, showguide }) {
   const [Muplace, Setmuplace] = useState([])
   const [Shoplist, Setshoplist] = useState([]);
 
-  const onEditClick = (type) => {
+   const onEditClick = (type) => {
     Setshowedit(true);
     Setedittype(type)
   }
@@ -127,6 +127,12 @@ export default function Header({ handleFav, showguide }) {
           <img src={Guideedit} style={{ width: '30px' }} />
           <span>แก้ไขโปรไฟล์ไกด์</span>
         </Menu.Item>
+
+        {/* <Menu.Item onClick={() => navigate('/guide/profile')}  key="profile guide">
+          <img src={Guideedit} style={{ width: '30px' }} />
+          <span>โปรไฟล์ไกด์ของคุณ</span>
+        </Menu.Item> */}
+        
       </Menu.SubMenu>}
       {shopStatus && <Menu.SubMenu title="แก้ไขข้อมูลร้านค้า" icon={<img src={Shopdetail} style={{ width: '30px' }} />} key="editShop">
         <Menu.Item key='editShopProfile' onClick={() => onEditClick('shop')}>

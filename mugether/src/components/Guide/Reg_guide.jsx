@@ -24,6 +24,7 @@ export default function Reg_guide() {
       id_guide: "",
       tel:"",
       email:"",
+      lineID:"",
       mu_place: [], //เลือกโลเคชั่น
     }
   )
@@ -85,6 +86,7 @@ export default function Reg_guide() {
         id_guide: "",
         tel:"",
         email:"",
+        lineID:"",
         mu_place: [],
       });
       setImage(null);
@@ -209,6 +211,17 @@ export default function Reg_guide() {
                 type="text"
                 placeholder="✉️ อีเมล"
                 value={guide.email}
+                onChange={Change2}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="lineID">
+              <Form.Label>ไอดีไลน์ (ถ้ามี)</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="✉️ ไอดีไลน์"
+                value={guide.lineID}
                 onChange={Change2}
                 required
               />
