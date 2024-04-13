@@ -45,11 +45,11 @@ const Register = () => {
 
 
     const checkusr=()=>{
-        const pattern  = /^[a-zA-Z0-9]{1,10}$/;
+        const pattern  = /^[a-zA-Z0-9]{1,20}$/;
         if(!pattern.test(User.username)){
             Swal.fire({
                
-                text: "ชื่อผู้ใช้ต้องยาวไม่เกิน 10 ตัวอักษร",
+                text: "ชื่อผู้ใช้ต้องยาวไม่เกิน 20 ตัวอักษร",
                 icon: "warning",
                 customClass: {
                     popup: 'custom-font-size',

@@ -8,7 +8,11 @@ const Guide_model = mongoose.Schema({
     aka:{type:String,default:''},
 
     mu_location:{type:[String],required:true},
-
+    guide_type:{
+      type:String,
+      required:true
+ },
+  
     
     email:{type:String,required:true},
     detail:{type:String,required:true},

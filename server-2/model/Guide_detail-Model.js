@@ -12,7 +12,11 @@ const guide_detail = monggose.Schema({
      },
      guide_detail:String,
      mu_location:{type:[],required:true},
-
+     guide_type:{
+          type:String,
+          required:true
+     },
+     
      guide_post:{
         type:[{
              muplace:String,

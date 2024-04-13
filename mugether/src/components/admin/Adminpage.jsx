@@ -130,6 +130,7 @@ const RegisGuideList = ({ setstate }) => {
           <tr>
             {/* <th>Username ที่ใช้สมัคร</th> */}
             <th>ID ผู้ใช้งาน</th>
+            <th>ประเภท</th>
             <th>ชื่อ</th>
             <th>อีเมล์</th>
             <th>ไอดีไลน์</th>
@@ -145,6 +146,7 @@ const RegisGuideList = ({ setstate }) => {
           {regislist.map((guide, id) => (
             <tr key={id}>
               <td>{guide.id_user}</td>
+              <td>{guide.guide_type || '-'}</td>
               <td>{guide.firstname} - {guide.lastname}</td>
               <td>{guide.email}</td>
               <td>{guide.lineID || ' - '}</td>
@@ -213,6 +215,7 @@ const Accpetlist = ({ list }) => {
       <Table style={{ textAlign: 'center', overflow: 'hidden', whiteSpace: 'nowrap' }} striped bordered hover>
         <thead>
           <th>ID ผู้ใช้งาน</th>
+          <th>ประเภท</th>
           <th>ชื่อ</th>
           <th>อีเมล์</th>
           <th>รหัสประจำตัว</th>
@@ -226,6 +229,7 @@ const Accpetlist = ({ list }) => {
           {list.map((guide, id) => (
             <tr key={id}>
               <td>{guide.id_user}</td>
+              <td>{guide.guide_type || '-'}</td>
               <td>{guide.firstname} {' '} {guide.lastname}</td>
               <td>{guide.email}</td>
               <td>{guide.id_card}</td>

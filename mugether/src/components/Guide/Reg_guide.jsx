@@ -26,6 +26,7 @@ export default function Reg_guide() {
       email:"",
       lineID:"",
       mu_place: [], //เลือกโลเคชั่น
+      guide_type:''
     }
   )
 
@@ -128,7 +129,7 @@ export default function Reg_guide() {
           <div className="profile-header">
 
           </div>
-          <h2 className="head">เเบบฟอร์มสมัครไกด์🧳</h2> 
+          <h2 className="head">เเบบฟอร์มสมัครไกด์ / นักรับจ้างมู🧳</h2> 
           
 
           <Form onSubmit={handleSubmit}>
@@ -147,7 +148,17 @@ export default function Reg_guide() {
                 required
               />
           </Form.Group>
-    
+          
+
+          <Form.Group controlId="guide_type">
+                 <Form.Label>ประเภท (ไกด์ / นักรับจ้างมู)</Form.Label>
+                 <Form.Control  as='select' onChange={Change2}>
+                      <option value='guide'>ไกด์</option>
+                      <option value='muler'>นักรับจ้างมู</option>
+                      <option value='both' > ไกด์เเละนักรับจ้างมู</option>
+                 </Form.Control>
+          </Form.Group>
+          
             <Form.Group controlId="firstName">
               <Form.Label>ชื่อ</Form.Label>
               <Form.Control
