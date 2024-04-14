@@ -12,7 +12,8 @@ import ButtonBoot from 'react-bootstrap/Button'
 import { AiFillLike } from "react-icons/ai";
 import { AiOutlineLike } from "react-icons/ai";
 import './Shopreview.css'
-
+import Carouselmulti from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 
 const Addshopreview=({ check_finish })=>{
@@ -387,6 +388,25 @@ export default function Shopreview({reviewdata,id_user}) {
     })
   }
 
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1024 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 1024, min: 800 },
+      items: 4
+    },
+    tablet: {
+      breakpoint: { max: 800, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+
   const renderModal = () => {
     if (!isModalOpen) return null;
     
@@ -465,6 +485,8 @@ const addlike=async(id_review,isreview)=>{
                   <p className="review-text">{data.review_detail}</p>
                 </div>
               </div>
+
+                
               {data.review_image && (
                 <div className='review-img'>
                     {data.review_image.length !== 0 && data.review_image.map((image, i) => (

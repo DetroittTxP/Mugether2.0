@@ -57,7 +57,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
     }
 
     if (files.length > 5) {
-      return alert('รูปภาพต้องไม่เกิน 5 รูป')
+      return Swal('รูปภาพต้องไม่เกิน 5 รูป')
     }
 
     Setimage(files)
@@ -427,8 +427,10 @@ export default function ReviewPage({ Muplace_name }) {
   };
 
 
-  const onReplyview = () => {
-
+  const styles = {
+    carouselItem: {
+      paddingRight: '40px'
+    }
   };
 
   return (
@@ -468,16 +470,16 @@ export default function ReviewPage({ Muplace_name }) {
                     ) : (<p className="review-text">{data.detail}</p>)}
                   </div>
                 </div>
-                {data.reviewImage && (
+                {/* {data.reviewImage && (
                   <Carousel
                     responsive={responsive}
-                 
-                    itemClass="review-img"
-                  >
+                     partialVisbile={false}
+                     itemClass="carousel-item-padding-40-px"
                     
+                  >
                     {data.reviewImage.map((image, i) => (
                        <img
-                        
+                        style={{width: '140px', height: '170px', objectFit: 'cover', cursor:  'zoom-in'}}
                         key={i}
                         src={`${SERVER_URL}/muplace/reviewimage/${data.username}/${image}`}
                         alt={`Review ${i}`}
@@ -485,31 +487,24 @@ export default function ReviewPage({ Muplace_name }) {
                       />
                     ))}
                   </Carousel>
-                )}
+                )} */}
 
-                {/* {data.reviewImage && (
-                 <div>
-
-       
-           
-                  <Carousel    responsive={responsive}>
-                         <div className='review-img'>
-                      {data.reviewImage.map((image, i) => (
-                          <img 
-                            style={{width: '140px', height: '140px', cursor: 'zoom-in'}} 
-                            key={i} 
-                            src={`${SERVER_URL}/muplace/reviewimage/${data.username}/${image}`} 
-                            alt={`Review ${i}`}
-                            onClick={() => openModal(`${SERVER_URL}/muplace/reviewimage/${data.username}/${image}`)}
-                          />
-                        ))}
-                          </div>
-                  </Carousel>
+                {data.reviewImage && (
+                  <div className='review-img'>
+                    {data.reviewImage.map((image, i) => (
+                      <img
+                        style={{ width: '140px', height: '140px', cursor: 'zoom-in' }}
+                        key={i}
+                        src={`${SERVER_URL}/muplace/reviewimage/${data.username}/${image}`}
+                        alt={`Review ${i}`}
+                        onClick={() => openModal(`${SERVER_URL}/muplace/reviewimage/${data.username}/${image}`)}
+                      />
+                    ))}
                   </div>
-                 
-          
-         )
-              } */}
+                )
+                }
+
+
                 <div className='comment-actions'>
                   {username === data.username &&
                     <span className='action-btn'>
