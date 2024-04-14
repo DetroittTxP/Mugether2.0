@@ -70,7 +70,8 @@ const RegisGuideList = ({ setstate }) => {
         tel: guide.tel,
         email: guide.email,
         lineID:guide.lineID || ""
-      }
+      },
+      guide_type:guide.guide_type
     }
 
 

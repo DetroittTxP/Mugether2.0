@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const verify_guide_model = mongoose.Schema({
     id_user:{
         type:String,

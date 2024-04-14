@@ -40,7 +40,7 @@ app.use('/image', img);
 app.use('/user', usr);
 
 //guide
-app.use('/guide', guide);
+//app.use('/guide', guide);
 
 //upload_img
 app.use('/upload-img', upload_img);

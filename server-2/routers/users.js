@@ -3,7 +3,7 @@ const usr = require('express').Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const {Reg_User_mail,Reset_Pass_Email} = require('../mail/sendmail')
-
+const db_checkdbguide = require('../model/Guide_detail-Model')
 
 usr.get('/',(req,res) => {
     res.send('ok')
@@ -65,12 +65,18 @@ usr.post('/verify',(req,res) => {
     let tokenMEbearer =  req.headers.authorization
     let token = tokenMEbearer.split(' ')[1];
 
-    jwt.verify(token, process.env.SECRET_KEY, (err, result) => {
+    jwt.verify(token, process.env.SECRET_KEY,async (err, result) => {
           if(err){
             return res.send({
                 status:"error",
                 err
             })
+          }
+        
+          let guide_type;
+          if(req.body.guide){
+               let check_guide_type = await db_checkdbguide.findOne({id_guide:req.body.usr_id}).select('guide_type');
+               guide_type = check_guide_type.guide_type;
           }
 
           return res.send({
@@ -79,7 +85,8 @@ usr.post('/verify',(req,res) => {
             userID:req.body.usr_id,
             guide:req.body.guide,
             shop:req.body.shop,
-            token:token
+            token:token,
+            guide_type:guide_type
           })
       });
    

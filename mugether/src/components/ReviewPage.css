@@ -3,7 +3,17 @@
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
+    max-width: 100%;
   }
+
+  
+@media (max-width:576px){
+  .review-container{
+    max-width: 100%;
+  }
+
+ 
+}
   
   .review-title {
     font-size: 24px;
@@ -55,8 +65,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  
 }
+
 
 .pagination-controls {
   display: flex;

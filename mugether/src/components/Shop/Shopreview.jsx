@@ -2,7 +2,7 @@ import React,{useState, useContext, useEffect} from 'react'
 import axios from 'axios';
 import Rating from '@mui/material/Rating';
 import { Button, Input } from 'antd'
-import { Form,Image } from 'react-bootstrap'
+import { Form,Image,Row,Col } from 'react-bootstrap'
 import Swal from 'sweetalert2'
 import { IconButton } from '@mui/material';
 import ButtonBo from 'react-bootstrap/Button'
@@ -155,16 +155,19 @@ const Addshopreview=({ check_finish })=>{
               <Form.Control onChange={onimage}  multiple accept='image/*' type='file'  rows={4} cols={100}/>
           </Form.Group>
 
-          {imgsrc.length !== 0 && 
-              <Carousel indicators controls>
+{ imgsrc.length !== 0 && 
+          <Row>
+             <Col xs={10} className="d-flex justify-content-center align-items-center">
+  
+                 <Carousel >
                      {imgsrc.map(img => (
                          <Carousel.Item>
                                 <Image  className="d-block w-100" src={img} />
                          </Carousel.Item>
-                     ))}
-              </Carousel>
-          
-          }
+                      ))}
+                </Carousel>
+            </Col>
+          </Row>}
 
           <b style={{ fontSize: 20 }}>โปรดให้คะเเนน</b> <br />
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Rating from '@mui/material/Rating';
 import { Button, Input } from 'antd'
-import { Form, Image } from 'react-bootstrap'
+import { Form, Image,Row,Col } from 'react-bootstrap'
 import Swal from 'sweetalert2'
 import { IconButton } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -164,16 +164,18 @@ const Add_Review = ({ updatestate, reviewdata, check_finish, guideID, updaterevi
             <Form.Control onChange={onimage} multiple accept='image/*' type='file' rows={4} cols={100} />
           </Form.Group>
 
-          {imgsrc.length !== 0 &&
-            <Carousel indicators controls>
-              {imgsrc.map(img => (
-                <Carousel.Item>
-                  <Image className="d-block w-100" src={img} />
-                </Carousel.Item>
-              ))}
-            </Carousel>
-
-          }
+          {imgsrc.length !== 0 && <Row>
+             <Col xs={10} className="d-flex justify-content-center align-items-center">
+  
+                 <Carousel >
+                     {imgsrc.map(img => (
+                         <Carousel.Item>
+                                <Image  className="d-block w-100" src={img} />
+                         </Carousel.Item>
+                      ))}
+                </Carousel>
+            </Col>
+          </Row>}
 
           <b style={{ fontSize: 20 }}>โปรดให้คะเเนน</b> <br />
 

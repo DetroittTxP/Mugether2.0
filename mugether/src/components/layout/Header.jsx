@@ -35,6 +35,7 @@ export default function Header({ handleFav, showguide }) {
   const [editType, Setedittype] = useState(null);
   const [isMobileSearchVisible, setIsMobileSearchVisible] = useState(false);
   const [isDesktopView, setIsDesktopView] = useState(window.innerWidth > 768);
+  const guide_type = localStorage.getItem('guide_type');
 
   window.addEventListener('resize', () => {
     setIsDesktopView(window.innerWidth > 768);
@@ -88,6 +89,19 @@ export default function Header({ handleFav, showguide }) {
     }
   }
 
+  const switchguidetype =()=>{
+      switch(guide_type){
+            case 'guide':
+               return <> ไกด์ </>;
+            case 'muler':
+              return <> รับจ้างมู </>;
+            case 'both':
+              return  <> ทั้งหมด </>;
+            default:
+              return null;       
+      }
+  }
+
 
   const loged_in = (
     <Menu>
@@ -104,7 +118,7 @@ export default function Header({ handleFav, showguide }) {
             : null}
             {guideStatus ? 
             <p style={{ display: 'inline-block' }}>
-              <img src={Corrrect} style={{ width: '30px' }}/> ไกด์
+              <img src={Corrrect} style={{ width: '30px' }}/> ไกด์ - {switchguidetype()}
             </p> 
             : null}
         </span>

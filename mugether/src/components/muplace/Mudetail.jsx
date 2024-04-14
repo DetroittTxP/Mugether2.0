@@ -122,15 +122,17 @@ export default function Mudetail({ showguide }) {
         >
           <h2><b>ประวัติความเป็นมา</b></h2>
         </AccordionSummary>
-        <br/>
+     
         <AccordionDetails>
           <div className="detail" style={{ zIndex: 0 }}>
             <h5>{mudetail}</h5>
           </div>
-
+          
+          <br/>
+          <h2><b>วิดีโอของสถานที่มู</b></h2>
           <div className="Video">
             <br/>
-            <h2><b>วิดีโอของสถานที่มู</b></h2>
+            
              { video_url !== '#' &&  <ReactPlayer url={(video_url || '#')} style={{ maxWidth: '100%', height: 'auto' }} />}
           </div>
           <br/>

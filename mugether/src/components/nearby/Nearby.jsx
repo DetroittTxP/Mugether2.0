@@ -72,7 +72,8 @@ export default function Nearby({ Muplace_name }) {
                     <h2><b>{data.type}</b></h2>
                     
                     <Carousel   responsive={responsive}>
-                        {data.data.sort((a,b) => parseFloat(a.distance_to_mu) - parseFloat(b.distance_to_mu)).map((e) => (
+                        {data.data.sort((a,b) => parseFloat(a.distance_to_mu) - parseFloat(b.distance_to_mu))
+                           .map((e) => (
                             <div className='Card'>
                                 <img onClick={() => {
                                     setOpen(true)

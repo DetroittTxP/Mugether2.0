@@ -16,7 +16,6 @@ const guide_detail = monggose.Schema({
           type:String,
           required:true
      },
-     
      guide_post:{
         type:[{
              muplace:String,
@@ -55,16 +54,8 @@ const guide_detail = monggose.Schema({
         default:[]
      },
 
-     guide_review:{type:[{
-          username:String,
-          score:Number,
-          detail:String,
-          review_img:[] 
-     }],
-     default:[]},
-     profile_pic:{type:String,default:'profile_temp.png'},
-   
-})
 
+     profile_pic:{type:String,default:'profile_temp.png'},
+})
 module.exports =monggose.model('guide_detail', guide_detail);
 

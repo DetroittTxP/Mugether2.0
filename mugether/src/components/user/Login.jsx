@@ -58,6 +58,8 @@ export default function Login() {
       localStorage.setItem('usr_id', verify_token.data.userID);
       localStorage.setItem('guide',verify_token.data.guide);
       localStorage.setItem('shop',verify_token.data.shop);
+      localStorage.setItem('guide_type',verify_token.data.guide_type);
+
       
       await Swal.fire({
         icon: 'success',
