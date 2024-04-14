@@ -52,6 +52,13 @@
      margin : auto;
 }
 
-.Video{
+/* .Video{
   padding-left: 300px;
+} */
+
+@media (max-width:576px){
+  .Video{
+    margin: auto;
+  }
 }
+
