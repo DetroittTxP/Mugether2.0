@@ -55,7 +55,6 @@ const Checktimeout = (timeout, onLogout) => {
 export default function App() {
   const SERVER_URL = import.meta.env.VITE_MOBILE_LOCALHOST_URL
 
-
   const location = useLocation();
   const {pathname} = location;
   const pageStatus = JSON.parse(localStorage.getItem('showguide'))

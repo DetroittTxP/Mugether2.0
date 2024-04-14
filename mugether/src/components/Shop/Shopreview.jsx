@@ -461,6 +461,22 @@ const addlike=async(id_review,isreview)=>{
   })
 }
 
+const isSmallScreen = window.matchMedia("(max-width: 1000px)").matches;
+const [smallscreen,Setsmallscreen] = useState(isSmallScreen);
+
+useEffect(() => {
+
+  const handleResize = () => {
+    Setsmallscreen(window.matchMedia("(max-width: 1000px)").matches);
+  };
+
+ 
+  window.addEventListener('resize', handleResize);
+
+
+  return () => window.removeEventListener('resize', handleResize);
+}, []); 
+
   return (
     <div className="review-container">
       {currentReviews.length === 0 ? <h3>ไม่มีรีวิวขณะนี้</h3> :  Reviewd}
@@ -486,8 +502,44 @@ const addlike=async(id_review,isreview)=>{
                 </div>
               </div>
 
+
+
+              <div> 
+                  {data.review_image && (
+                    smallscreen ? (
+                      <Carouselmulti
+                        responsive={responsive}
+                        partialVisbile={false}
+                        itemClass="carousel-item-padding-40-px"
+                      >
+                        {data.review_image.map((image, i) => (
+                          <img
+                            style={{ width: '140px', height: '170px', objectFit: 'cover', cursor: 'zoom-in' }}
+                            key={i}
+                            src={`${SERVER_URL}/shop/review/img/${shop_id}/${image}`}
+                            alt={`Review ${i}`}
+                            onClick={() => openModal(`${SERVER_URL}/shop/review/img/${shop_id}/${image}`)}
+                          />
+                        ))}
+                      </Carouselmulti>
+                    ) : (
+                      <div className='review-img'>
+                        {data.review_image.map((image, i) => (
+                          <img
+                            style={{ width: '140px', height: '140px', cursor: 'zoom-in', objectFit: 'cover' }}
+                            key={i}
+                            src={`${SERVER_URL}/shop/review/img/${shop_id}/${image}`}
+                            alt={`Review ${i}`}
+                            onClick={() => openModal(`${SERVER_URL}/shop/review/img/${shop_id}/${image}`)}
+                          />
+                        ))}
+                      </div>
+                    )
+                  )}
+                </div>
+
                 
-              {data.review_image && (
+              {/* {data.review_image && (
                 <div className='review-img'>
                     {data.review_image.length !== 0 && data.review_image.map((image, i) => (
                       <img 
@@ -495,11 +547,11 @@ const addlike=async(id_review,isreview)=>{
                         key={i} 
                         src={`${SERVER_URL}/shop/review/img/${shop_id}/${image}`} 
                         alt={`Review ${i}`}
-                        onClick={() => openModal(`${SERVER_URL}/shop/reviewimage/${data.username}/${image}`)}
+                        onClick={() => openModal(`${SERVER_URL}/shop/review/img/${shop_id}/${image}`)}
                       />
                     ))}
                 </div>
-              )}
+              )} */}
               
               <div className='comment-actions'>
       

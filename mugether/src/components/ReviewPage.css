@@ -11,8 +11,13 @@
   .review-container{
     max-width: 100%;
   }
+}
 
- 
+@media (max-width:1000px){
+  
+  .review-text{
+    object-fit: cover;
+  }
 }
   
   .review-title {

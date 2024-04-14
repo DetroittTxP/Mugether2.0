@@ -13,6 +13,8 @@ import { Muplace_Context } from '../../context/MuContext';
 import ButtonBoot from 'react-bootstrap/Button'
 import { AiFillLike } from "react-icons/ai";
 import { AiOutlineLike } from "react-icons/ai";
+import Carouselmulti from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 import './Reviewguide.css';
 
@@ -452,8 +454,43 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
     })
   }
 
- 
+  
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1024 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 1024, min: 800 },
+      items: 4
+    },
+    tablet: {
+      breakpoint: { max: 800, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
 
+  const isSmallScreen = window.matchMedia("(max-width: 1000px)").matches;
+  const [smallscreen,Setsmallscreen] = useState(isSmallScreen);
+
+  useEffect(() => {
+  
+    const handleResize = () => {
+      Setsmallscreen(window.matchMedia("(max-width: 1000px)").matches);
+    };
+  
+   
+    window.addEventListener('resize', handleResize);
+  
+  
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); 
+
+  
   return (
     <div className="review-container">
       {detail.length === 0 ? <h2>ไม่มีรีวิวขณะนี้</h2> : Reviewd}
@@ -474,7 +511,44 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
                   <p className="review-text">{data.detail}</p>
                 </div>
               </div>
-              {data.review_img && (
+
+
+              <div> 
+                  {data.review_img&& (
+                    smallscreen ? (
+                      <Carouselmulti
+                        responsive={responsive}
+                        partialVisbile={false}
+                        itemClass="carousel-item-padding-40-px"
+                      >
+                        {data.review_img.map((image, i) => (
+                          <img
+                            style={{ width: '140px', height: '170px', objectFit: 'cover', cursor: 'zoom-in' }}
+                            key={i}
+                            src={`${SERVER_URL}/guide_detail/review/img/${guideID}/${image}`}
+                            alt={`Review ${i}`}
+                            onClick={() => openModal(`${SERVER_URL}/guide_detail/review/img/${guideID}/${image}`)}
+                          />
+                        ))}
+                      </Carouselmulti>
+                    ) : (
+                      <div className='review-img'>
+                        {data.review_img.map((image, i) => (
+                          <img
+                            style={{ width: '140px', height: '140px', cursor: 'zoom-in', objectFit: 'cover' }}
+                            key={i}
+                            src={`${SERVER_URL}/guide_detail/review/img/${guideID}/${image}`}
+                            alt={`Review ${i}`}
+                            onClick={() => openModal(`${SERVER_URL}/guide_detail/review/img/${guideID}/${image}`)}
+                          />
+                        ))}
+                      </div>
+                    )
+                  )}
+                </div>
+
+
+              {/* {data.review_img && (
                 <div className='review-img'>
                   {data.review_img.map((image, i) => (
                     <img
@@ -486,7 +560,10 @@ export default function ReviewGuide({ profile_name,reviewdata2, reviewdata, guid
                     />
                   ))}
                 </div>
-              )}
+              )} */}
+
+
+
               {replyReviewId === data._id && (
                 <Form onSubmit={makereply}>
                   <Form.Control as='textarea'

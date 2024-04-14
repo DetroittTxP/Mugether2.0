@@ -426,12 +426,21 @@ export default function ReviewPage({ Muplace_name }) {
     });
   };
 
+  const isSmallScreen = window.matchMedia("(max-width: 800px)").matches;
+  const [smallscreen,Setsmallscreen] = useState(isSmallScreen);
 
-  const styles = {
-    carouselItem: {
-      paddingRight: '40px'
-    }
-  };
+  useEffect(() => {
+  
+    const handleResize = () => {
+      Setsmallscreen(window.matchMedia("(max-width: 800px)").matches);
+    };
+  
+   
+    window.addEventListener('resize', handleResize);
+  
+  
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); 
 
   return (
     <div className="review-container"  >
@@ -453,9 +462,6 @@ export default function ReviewPage({ Muplace_name }) {
                   <div className="review-content">
                     <div className="header">
                       <h4 className="username">{data.username}</h4>
-                      {/* <div className='delete-comment'>
-                        {username === data.username &&  <span id='delete-btn'><ButtonBoot onClick={() => onDeletereview(data.username)} variant='danger'>ลบคอมเม้น</ButtonBoot></span>}
-                      </div> */}
                     </div>
                     <Rating className="rating" readOnly name='read-only' value={data.score} />
                     {editing === data.username ? (
@@ -467,9 +473,46 @@ export default function ReviewPage({ Muplace_name }) {
                         <button onClick={() => onSaveEdit(data.username)}>บันทึก</button>
                         <button onClick={() => setEditing(null)}>ยกเลิก</button>
                       </div>
-                    ) : (<p className="review-text">{data.detail}</p>)}
+                    ) : (<p className="review-text" style={{objectFit:'cover'}}>{data.detail}</p>)}
                   </div>
                 </div>
+
+                <div> 
+                  {data.reviewImage && (
+                    smallscreen ? (
+                      <Carousel
+                        responsive={responsive}
+                        partialVisbile={false}
+                        itemClass="carousel-item-padding-40-px"
+                      >
+                        {data.reviewImage.map((image, i) => (
+                          <img
+                            style={{ width: '140px', height: '170px', objectFit: 'cover', cursor: 'zoom-in' }}
+                            key={i}
+                            src={`${SERVER_URL}/muplace/reviewimage/${data.username}/${image}`}
+                            alt={`Review ${i}`}
+                            onClick={() => openModal(`${SERVER_URL}/muplace/reviewimage/${data.username}/${image}`)}
+                          />
+                        ))}
+                      </Carousel>
+                    ) : (
+                      <div className='review-img'>
+                        {data.reviewImage.map((image, i) => (
+                          <img
+                            style={{ width: '140px', height: '140px', cursor: 'zoom-in', objectFit: 'cover' }}
+                            key={i}
+                            src={`${SERVER_URL}/muplace/reviewimage/${data.username}/${image}`}
+                            alt={`Review ${i}`}
+                            onClick={() => openModal(`${SERVER_URL}/muplace/reviewimage/${data.username}/${image}`)}
+                          />
+                        ))}
+                      </div>
+                    )
+                  )}
+                </div>
+
+
+
                 {/* {data.reviewImage && (
                   <Carousel
                     responsive={responsive}
@@ -489,11 +532,16 @@ export default function ReviewPage({ Muplace_name }) {
                   </Carousel>
                 )} */}
 
+
+
+
+
+                {/* 
                 {data.reviewImage && (
                   <div className='review-img'>
                     {data.reviewImage.map((image, i) => (
                       <img
-                        style={{ width: '140px', height: '140px', cursor: 'zoom-in' }}
+                        style={{ width: '140px', height: '140px', cursor: 'zoom-in',objectFit:'cover' }}
                         key={i}
                         src={`${SERVER_URL}/muplace/reviewimage/${data.username}/${image}`}
                         alt={`Review ${i}`}
@@ -502,7 +550,7 @@ export default function ReviewPage({ Muplace_name }) {
                     ))}
                   </div>
                 )
-                }
+                } */}
 
 
                 <div className='comment-actions'>
