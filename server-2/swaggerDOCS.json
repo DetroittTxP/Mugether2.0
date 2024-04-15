@@ -10,7 +10,18 @@
   "schemes": [
     "http"
   ],
+  "tags": [
+    {
+      "name": "Admin",
+      "description": "Api การทำงานของเเอดมิน"
+    },
+    {
+      "name":"Muplace",
+      "description":"Api ที่มู"
+    }
+  ],
   "paths": {
+    
     "/": {
       "get": {
         "description": "",
@@ -23,6 +34,7 @@
     },
     "/admin/test": {
       "get": {
+        "tags":["Admin"],
         "description": "",
         "responses": {
           "200": {
@@ -34,6 +46,7 @@
     "/admin/login": {
       "post": {
         "description": "",
+        "tags":["Admin"],
         "parameters": [
           {
             "name": "body",
@@ -58,6 +71,7 @@
     "/admin/verify": {
       "post": {
         "description": "",
+        "tags":["Admin"],
         "parameters": [
           {
             "name": "authorization",
@@ -90,6 +104,7 @@
     "/admin/listregisguide": {
       "get": {
         "description": "",
+        "tags":["Admin"],
         "responses": {
           "200": {
             "description": "OK"
@@ -100,6 +115,7 @@
     "/admin/listregisguide/delete/{id}/{id_user}/{email}": {
       "delete": {
         "description": "",
+        "tags":["Admin"],
         "parameters": [
           {
             "name": "id",
@@ -130,6 +146,7 @@
     "/admin/listregisguide/image/{id}/{imgname}": {
       "get": {
         "description": "",
+        "tags":["Admin"],
         "parameters": [
           {
             "name": "id",
@@ -157,6 +174,7 @@
     "/admin/listregisguide/reject": {
       "put": {
         "description": "",
+        "tags":["Admin"],
         "responses": {
           "default": {
             "description": ""
@@ -167,6 +185,7 @@
     "/admin/test/2.0": {
       "get": {
         "description": "",
+        "tags":["Admin"],
         "responses": {
           "200": {
             "description": "OK"
@@ -177,6 +196,7 @@
     "/muplace/mudata": {
       "get": {
         "description": "",
+        "tags":["Muplace"],
         "responses": {
           "200": {
             "description": "OK"
@@ -187,6 +207,7 @@
     "/muplace/mudata/{name}": {
       "get": {
         "description": "",
+        "tags":["Muplace"],
         "parameters": [
           {
             "name": "name",
@@ -205,6 +226,7 @@
     "/muplace/addreviewmuplace/image/{username}": {
       "post": {
         "description": "",
+        "tags":["Muplace"],
         "parameters": [
           {
             "name": "username",
@@ -223,6 +245,7 @@
     "/muplace/reviewimage/{username}/{imageName}": {
       "get": {
         "description": "",
+        "tags":["Muplace"],
         "parameters": [
           {
             "name": "username",
@@ -247,6 +270,7 @@
     "/muplace/addreviewmuplace/": {
       "post": {
         "description": "",
+        "tags":["Muplace"],
         "parameters": [
           {
             "name": "body",
@@ -274,6 +298,7 @@
     "/muplace/delete/review/{muplace}/{username}": {
       "delete": {
         "description": "",
+        "tags":["Muplace"],
         "parameters": [
           {
             "name": "muplace",
@@ -298,6 +323,7 @@
     "/muplace/edit/review/{Muplace_name}/{usr_name}": {
       "put": {
         "description": "",
+        "tags":["Muplace"],
         "parameters": [
           {
             "name": "Muplace_name",
@@ -340,6 +366,7 @@
     "/nearby/multiple/{muplace_name}": {
       "get": {
         "description": "",
+        
         "parameters": [
           {
             "name": "muplace_name",
