@@ -1,0 +1,1920 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "MUGETHER API LIST",
+    "description": ""
+  },
+  "host": "localhost:5353",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/test": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/login": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/verify": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "usr_id": {
+                  "example": "any"
+                },
+                "admin": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/listregisguide": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/listregisguide/delete/{id}/{id_user}/{email}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_user",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/listregisguide/image/{id}/{imgname}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "imgname",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/admin/listregisguide/reject": {
+      "put": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/admin/test/2.0": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/muplace/mudata": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/muplace/mudata/{name}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/muplace/addreviewmuplace/image/{username}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/muplace/reviewimage/{username}/{imageName}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "imageName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/muplace/addreviewmuplace/": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "review": {
+                  "example": "any"
+                },
+                "image": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/muplace/delete/review/{muplace}/{username}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "muplace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/muplace/edit/review/{Muplace_name}/{usr_name}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "Muplace_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "usr_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/nearby/multiple/{muplace_name}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "muplace_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/image/mu/{place_name}/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "place_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/image/nearby/{type}/{name}/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/image/user/profile/{username}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/image/guide/detail/{username}/{imgname}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "imgname",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/image/guide/profile/{username}/{imgname}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "imgname",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/verify": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "guide": {
+                  "example": "any"
+                },
+                "usr_id": {
+                  "example": "any"
+                },
+                "shop": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/register": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/update/profile/": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "editdata": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/add/favorite": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "updateFav": {
+                  "example": "any"
+                },
+                "usrID": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/fav/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/resetpassword": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/verifyresettoken": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/changepass": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/upload-img/user/profile/{username}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/upload-img/guide/profile/{username}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/upload-img/guide/post/{usr_id}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "usr_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/upload-img/guide/verify/{username}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/upload-img/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/latlong/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/latlong/mu/nearby/{mu_place_name}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "mu_place_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/verify_guide/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/verify_guide/img/{id}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/verify_guide/info": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "guide": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/create_guide": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "guide": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/create_post/{usr_id}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "usr_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "post": {
+                  "example": "any"
+                },
+                "dataphoto": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/get_list_guide/{muplace}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "muplace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/upload_profile_guide/{id_guide}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/update_profile/{id_guide}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "editGuide": {
+                  "example": "any"
+                },
+                "profile_pic": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/replycomment/{id_guide}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/guide_detail/delete-post/{id_user}/{muplace}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_user",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "muplace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/upload/exp/{id_guide}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/review/upload/{id_guide}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/review/{id_guide}/{id_post}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_post",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "review": {
+                  "example": "any"
+                },
+                "imagedata": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_post",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/guide_detail/review/img/{id_guide}/{img_name}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "img_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/exp/img/{id_guide}/{img_name}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "img_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/delete/review/{id_guide}/{id_post}/{id_review}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_post",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_review",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/reply/review/{id_guide}/{id_post}/{id_reivew}/{replyID}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_post",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_reivew",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "replyID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "replyText": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_post",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_reivew",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "replyID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/like/review/{id_guide}/{id_post}/{id_reivew}/{usr_name}/{isreview}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_post",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_reivew",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "usr_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "isreview",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/guide_detail/guide/profile/{id_guide}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_guide",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/add_profile_img_shop/{shop_id}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "shop_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/create-shop": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id_user": {
+                  "example": "any"
+                },
+                "shop_name": {
+                  "example": "any"
+                },
+                "shop_detail": {
+                  "example": "any"
+                },
+                "contact": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/add_post_img/{shop_id}/": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "shop_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/post_img/{shop_id}/{image_name}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "shop_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "image_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/profile_img/{shop_id}/{image_name}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "shop_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "image_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/shop_item": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/add-item/{shop_id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "shop_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "shop_item": {
+                  "example": "any"
+                },
+                "filename": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/get_per_shop/{shop_id}/{shop_item_id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "shop_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "shop_item_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/upload-edit-profile/{id_user}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_user",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/upload-register-profile/{id_user}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_user",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/edit-profile/{usrid}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "usrid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "editShop": {
+                  "example": "any"
+                },
+                "filename": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/{userID}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/delete/{shop_id}/{shop_item_id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "shop_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "shop_item_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/shop/review/image/{shop_id}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "shop_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/review/{id_user}/{item_id}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_user",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "item_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "review": {
+                  "example": "any"
+                },
+                "imagedata": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/review/img/{id_shop}/{img_name}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_shop",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "img_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/delete/review/{id_shop}/{id_post}/{id_review}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_shop",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_post",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_review",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/review/{id_shop}/{shop_item_id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_shop",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "shop_item_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shop/reply/review/{id_shop}/{shop_item_id}/{id_review}/{replyID}": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_shop",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "shop_item_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_review",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "replyID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "replyText": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/shop/like/review/{id_shop}/{shop_item_id}/{id_review}/{usr_name}/{isreview}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_shop",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "shop_item_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_review",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "usr_name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "isreview",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}

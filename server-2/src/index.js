@@ -14,15 +14,21 @@ const verify_guide = require('../routers/verifyGuide')
 const Guide_detail = require('../routers/Guides_detail');
 const Shop = require('../routers/Shop');
 const Admin = require('../routers/admin')
+const swaggerUI = require('swagger-ui-express');
+const swaggerData = require('../swaggerDOCS.json')
 
 const app = express();
 
 app.use(cors())
 app.use(bodyparser.json())
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerData));
+
 
 mongoose.connect(process.env.CON_STR)
 .then(() => console.log('db connected'))
 .catch(err => console.log(err))
+
+app
 
 //admin
 app.use('/admin' , Admin);
