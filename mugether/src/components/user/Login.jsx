@@ -59,7 +59,7 @@ export default function Login() {
       localStorage.setItem('guide',verify_token.data.guide);
       localStorage.setItem('shop',verify_token.data.shop);
       localStorage.setItem('guide_type',verify_token.data.guide_type);
-
+      localStorage.removeItem('admin')
       
       await Swal.fire({
         icon: 'success',

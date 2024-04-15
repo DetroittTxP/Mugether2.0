@@ -53,7 +53,7 @@ const Checktimeout = (timeout, onLogout) => {
 }
 
 export default function App() {
-  const SERVER_URL = import.meta.env.VITE_MOBILE_LOCALHOST_URL
+  const SERVER_URL = import.meta.env.VITE_LOCAL_DOCKER_URL
 
   const location = useLocation();
   const {pathname} = location;
@@ -105,11 +105,6 @@ export default function App() {
       localStorage.removeItem('token')
       localStorage.removeItem('usr_id')
       localStorage.clear();
-      // localStorage.removeItem('shop_id');
-      // localStorage.removeItem('shop_item_id');
-      // localStorage.removeItem('shop');
-      // localStorage.removeItem('guide');
-      // localStorage.removeItem('fav');
 
       setLogoutAlertShown(true);
       return window.location.href = '/'
@@ -119,6 +114,15 @@ export default function App() {
 
   //fetch global MUPLACE 
   useEffect(() => {
+
+    if(usr_id && pathname === '/login'){
+        Swal.fire('คุณ login ไปเเล้ว')
+        return window.location.href = '/';
+    }
+    else if(usr_id && pathname === '/register'){
+     Swal.fire('โปรดออกจากระบบเพื่อ สมัครใหม่')
+      return window.location.href = '/';
+    }
 
     axios.get(`${SERVER_URL}/muplace/mudata`)
       .then(res => {

@@ -87,6 +87,7 @@ export default function Mudetail({ showguide }) {
       <Row>
         <Col md={5} className="main-image">
           <Image
+            style={{ cursor: 'pointer'}}
             onClick={() =>  setOpen(true)}
             src={`${SERVER_URL}/image/mu/${Muplace}/1`}
             alt="Main Image"
@@ -98,18 +99,22 @@ export default function Mudetail({ showguide }) {
           <Row>
             <Col md={12} >
               <Image
+                style={{ cursor: 'pointer'}}
                 src={`${SERVER_URL}/image/mu/${Muplace}/2`}
                 alt="Image 2"
                 className="small-image"
                 fluid
+                onClick={() =>  setOpen(true)}
               />
             </Col>
             <Col md={12}>
               <Image
+                style={{ cursor: 'pointer'}}
                 src={`${SERVER_URL}/image/mu/${Muplace}/3`}
                 alt="Image 3"
                 className="small-image"
                 fluid
+                onClick={() =>  setOpen(true)}
               />
             </Col>
           </Row>
@@ -118,10 +123,12 @@ export default function Mudetail({ showguide }) {
           <Row>
             <Col md={12}>
               <Image
+                style={{ cursor: 'pointer'}}
                 src={`${SERVER_URL}/image/mu/${Muplace}/4`}
                 alt="Image 4"
                 className="small-image figure-3"
                 fluid
+                onClick={() =>  setOpen(true)}
               />
             </Col>
             <Col md={12}>
@@ -130,7 +137,8 @@ export default function Mudetail({ showguide }) {
                 alt="Image 5"
                 className="small-image figure-4"
                 fluid
-                style={{ cursor: 'zoom-in' }}
+                onClick={() =>  setOpen(true)}
+                style={{ cursor: 'pointer'}}
               />
             </Col>
           </Row>

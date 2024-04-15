@@ -58,10 +58,12 @@ export default function Header({ handleFav, showguide }) {
     localStorage.removeItem('usr');
     localStorage.removeItem('token')
     localStorage.removeItem('usr_id')
+    localStorage.removeItem('id_user')
     // localStorage.removeItem('shop_id');
     // localStorage.removeItem('shop_item_id');
     // localStorage.removeItem('shop');
     localStorage.removeItem('guide');
+   
     
     await Swal.fire('ออกจากระบบสำเร็จ')
     let maihaiyu = [
