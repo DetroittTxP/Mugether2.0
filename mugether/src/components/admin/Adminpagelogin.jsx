@@ -99,6 +99,7 @@ export default function Adminpagelogin() {
                 type="Password"
                 placeholder="กรอกรหัสผ่าน"
                 onChange={onChangeuser}
+                required
               />
               {/* <div className="password-toggle101"
                 onClick={() => setvisible(!visible)}>

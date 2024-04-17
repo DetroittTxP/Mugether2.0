@@ -9,14 +9,13 @@ import SwalLoading from "../util/SwalLoading";
 import './listitem.css'
 
 
-export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
+export default function Listitem({ SelectedMuType, SelectedMuplace }) {
   const navigate = useNavigate();
   const mu_type = localStorage.getItem('type_mu');
   const usrID = localStorage.getItem('usr_id')
   const [List_Of_Mu, Setlistofmu] = useState([]);
   const [HeartCheck, Setheartcheck] = useState([]);
-  const { muplace,SERVER_URL } = useContext(Muplace_Context);
-  const [tempmu,Settempmu] = useState('');
+  const { muplace, SERVER_URL } = useContext(Muplace_Context);
   const favstatus = JSON.parse(localStorage.getItem('fav'))
   console.log(favstatus);
   useEffect(() => {
@@ -40,35 +39,35 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
   }, []);
 
   useEffect(() => {
-    if(!mu_type){
-      if(favstatus === false){
+    if (!mu_type) {
+      if (favstatus === false) {
         Setlistofmu(muplace)
       }
-      else if(favstatus === true){
+      else if (favstatus === true) {
         Setlistofmu(prev => prev.filter(data => HeartCheck.includes(data.name)));
       }
       return;
     }
 
     Setlistofmu(muplace);
-      if(favstatus === false){
-        Setlistofmu(prev => prev.filter(data => data.type === mu_type));
-      }
-      else if(favstatus === true){
-        Setlistofmu(prev => prev.filter(data => data.type === mu_type && HeartCheck.includes(data.name)));
-      }
+    if (favstatus === false) {
+      Setlistofmu(prev => prev.filter(data => data.type === mu_type));
+    }
+    else if (favstatus === true) {
+      Setlistofmu(prev => prev.filter(data => data.type === mu_type && HeartCheck.includes(data.name)));
+    }
   }, [mu_type, favstatus, muplace]);
 
   const handleHeart = async (name) => {
     try {
       SwalLoading();
       let updateFav;
-      if(HeartCheck.includes(name)) updateFav = HeartCheck.filter(item => item !== name);
+      if (HeartCheck.includes(name)) updateFav = HeartCheck.filter(item => item !== name);
       else updateFav = [...HeartCheck, name];
       Setheartcheck(updateFav);
       const { data } = await axios.put(`${SERVER_URL}/user/add/favorite`, { updateFav, usrID });
-      if(data.status === 'ok') Swal.close();
-    } catch(err){
+      if (data.status === 'ok') Swal.close();
+    } catch (err) {
       Swal.fire({ icon: 'error', text: err });
     }
   }
@@ -80,7 +79,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
           .sort((a, b) => a.name.localeCompare(b.name, "th"))
           .map((data, index) => (
             <Col key={data.name}>
-              <Card style={{ height: "100%" , borderRadius: "15px", cursor: "pointer"}}>
+              <Card style={{ height: "100%", borderRadius: "15px", cursor: "pointer" }}>
                 <Card.Img
                   variant="top"
                   src={`${SERVER_URL}/image/mu/${data.name}/7`}
@@ -88,7 +87,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
                   onClick={() => {
                     SelectedMuplace(data.name);
                     localStorage.setItem('showmap', data.name)
-                    localStorage.setItem('muplace',data.name)
+                    localStorage.setItem('muplace', data.name)
                     navigate("/mudetail");
                     Swal.fire({
                       title: 'กำลังโหลด...',
@@ -100,7 +99,7 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
                       },
                     })
                   }}
-                  style={{ height: "300px", objectFit: "cover", borderRadius: "15px"}}
+                  style={{ height: "300px", objectFit: "cover", borderRadius: "15px" }}
                 />
                 <Card.Body>
                   <Card.Title>{data.name}</Card.Title>
@@ -108,18 +107,18 @@ export default function Listitem({ SelectedMuType, SelectedMuplace  }) {
                     <FaMapMarkerAlt style={{ marginRight: "5px" }} />
                     {data.address}
                   </Card.Text>
-                  {usrID && (
+                  {usrID && !localStorage.getItem('admin') && (
                     <div className="fav-icon">
-                    <Button variant="link" onClick={() => handleHeart(data.name)}>
-                      <FaHeart
-                        style={{
-                          color: HeartCheck.includes(data.name) ? "#DF4B5F" : "white",
-                          cursor: "pointer",
-                          fontSize: "24px",
-                        }}
-                      />
-                    </Button>
-                    
+                      <Button variant="link" onClick={() => handleHeart(data.name)}>
+                        <FaHeart
+                          style={{
+                            color: HeartCheck.includes(data.name) ? "#DF4B5F" : "white",
+                            cursor: "pointer",
+                            fontSize: "24px",
+                          }}
+                        />
+                      </Button>
+
                     </div>
                   )}
                 </Card.Body>

@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const verify_guide_model = mongoose.Schema({
+    Ig:String,
+    Facebook:String,
+    URL:String,
     id_user:{
         type:String,
         required:true

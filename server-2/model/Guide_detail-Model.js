@@ -8,7 +8,9 @@ const guide_detail = monggose.Schema({
           tel:{type:String,required:true},
           email:{type:String,required:true},
           lineID:String,
-          Ig:String
+          Ig:String,
+          Facebook:String,
+          URL:String,
      },
      guide_detail:String,
      mu_location:{type:[],required:true},

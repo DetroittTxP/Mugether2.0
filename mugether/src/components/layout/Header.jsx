@@ -331,6 +331,7 @@ const adminmenu = (
         <Container>
           <Navbar.Brand style={{ cursor: 'pointer', maxWidth: '600px'}} onClick={() => {
             localStorage.removeItem('showmap');
+            localStorage.removeItem('admin');
             navigate('/');
             localStorage.setItem('showguide',false);
             showguide(false);

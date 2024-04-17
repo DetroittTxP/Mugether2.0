@@ -551,6 +551,4 @@ Guide_detail.get('/guide/profile/:id_guide',async (req,res) => {
 })
 
 
-
-
 module.exports = Guide_detail;

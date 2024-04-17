@@ -111,7 +111,7 @@ const RegisGuideList = ({ setstate }) => {
 
 
   return (
-    <Container>
+    <Container >
 
       <Lightbox
         open={open}
@@ -126,7 +126,7 @@ const RegisGuideList = ({ setstate }) => {
 
 
       <h1>รายชื่อคนสมัครไกด์</h1>
-      <Table style={{ textAlign: 'center', overflow: 'hidden', whiteSpace: 'nowrap' }} striped bordered hover>
+      <Table   responsive striped bordered hover style={{ overflow: 'hidden', whiteSpace: 'nowrap', }}  >
         <thead>
           <tr>
             {/* <th>Username ที่ใช้สมัคร</th> */}
@@ -143,7 +143,7 @@ const RegisGuideList = ({ setstate }) => {
             <th>สถานนะ</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           {regislist.map((guide, id) => (
             <tr key={id}>
               <td>{guide.id_user}</td>
