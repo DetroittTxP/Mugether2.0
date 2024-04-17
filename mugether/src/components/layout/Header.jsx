@@ -114,13 +114,22 @@ export default function Header({ handleFav, showguide }) {
           <span style={{ marginLeft: 10 }}>
             {usr_data} <br /><br />
             {shopStatus ? 
+
             <p style={{ display: 'inline-block', marginRight: '10px' }}>
-              <img src={Corrrect} style={{ width: '30px' }} /> ร้านค้า 
+              
+                <Menu.Item   key='shop_profile'>
+                <img src={Corrrect} style={{ width: '30px' }} /> ร้านค้า 
+                </Menu.Item>
+             
             </p> 
             : null}
             {guideStatus ? 
             <p style={{ display: 'inline-block' }}>
-              <img src={Corrrect} style={{ width: '30px' }}/> ไกด์ - {switchguidetype()}
+                <Menu.Item onClick={() => navigate('/guide/profile')} key='guide_profile'>
+                   <img src={Corrrect} style={{ width: '30px' }}/> ไกด์ - {switchguidetype()}
+                </Menu.Item>
+             
+        
             </p> 
             : null}
         </span>

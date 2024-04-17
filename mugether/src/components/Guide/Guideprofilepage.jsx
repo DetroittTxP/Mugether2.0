@@ -82,7 +82,6 @@ export default function Guideprofilepage() {
 
               <Container fluid>
                 <Row>
-                  
                   {guideprofile.guide_post.map((post) => (
                     <Col key={post.id} md={4} sm={6} xs={12}>
                       <Card>
@@ -91,8 +90,8 @@ export default function Guideprofilepage() {
                         </Card.Header>
                         <Card.Body>
                           <Card.Img style={{ width: '100%', height: '250px', objectFit: 'cover' }} src={`${SERVER_URL}/image/guide/detail/${guideprofile.id_guide}/${post.postPhotos[0]}`} alt={post.muplace} />
-                          <Card.Footer>
-                            <Button onClick={() => gotopost(post.muplace)} variant='warning' href='#'>ไปยังโพส</Button>
+                          <Card.Footer style={{display:'flex',justifyContent:'center'}}>
+                            <Button onClick={() => gotopost(post.muplace)} variant='warning'>ไปยังโพส</Button>
                           </Card.Footer>
                         </Card.Body>
                       </Card>
