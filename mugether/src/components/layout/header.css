@@ -1,12 +1,12 @@
 .scroll-dropdown {
-  max-width: 600px; 
+  max-width: 450px; 
   max-height: 300px; 
   overflow-y: auto; 
   overflow-x: auto;    
 }
 
 .scroll-dropdown .dropdown-menu {
-  max-width: 600px;
+  max-width: 450px;
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 900px;
