@@ -1,8 +1,13 @@
 const mongoose = require('mongoose');
 const verify_guide_model = mongoose.Schema({
-    Ig:String,
-    Facebook:String,
-    URL:String,
+    info:{
+        type:{
+            detail:String,
+            gender:String,
+            dob:Date,
+            
+        }
+    },
     id_user:{
         type:String,
         required:true
@@ -37,6 +42,7 @@ const verify_guide_model = mongoose.Schema({
         type:String,
         required:true
     },
+    
     image_guide:{
         type:String,
         default:''
@@ -45,12 +51,18 @@ const verify_guide_model = mongoose.Schema({
         type:String,
         default:'pending'
     },
-    lineID:String,
+    contact:{
+        type:{
+            lineID:String,
+            facebook:String,
+            ig:String,
+            website:String
+        }
+    },
     guide_type:{
         type:String,
         required:true
    },
-    
 })
 
 module.exports = mongoose.model(process.env.DB_VERIFY_GUIDE,verify_guide_model)

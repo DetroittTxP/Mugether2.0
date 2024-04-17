@@ -24,7 +24,6 @@ import Guideprofilepage from './components/Guide/guideprofilepage'
 
 const Checktimeout = (timeout, onLogout) => {
   let idleTime = null;
-
   const resetTime = () => {
     clearTimeout(idleTime);
     idleTime = setTimeout(() => {
@@ -53,7 +52,7 @@ const Checktimeout = (timeout, onLogout) => {
 }
 
 export default function App() {
-  const SERVER_URL = import.meta.env.VITE_LOCAL_DOCKER_URL
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL
 
   const location = useLocation();
   const {pathname} = location;

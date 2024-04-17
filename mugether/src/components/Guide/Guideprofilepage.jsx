@@ -101,13 +101,8 @@ export default function Guideprofilepage() {
                 </Row>
               </Container>
             </div>
-
-
-
           </div>
-          {/* <Col >
-                          <Button variant='warning'>เเก้ไข</Button>
-                     </Col> */}
+
         </Col>
 
       </Row>
