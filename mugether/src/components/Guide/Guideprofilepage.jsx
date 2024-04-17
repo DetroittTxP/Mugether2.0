@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Container, Row, Col, Image, Button,Card } from 'react-bootstrap';
+import { Container, Row, Col, Image, Button, Card } from 'react-bootstrap';
 import axios from 'axios';
 import './Reg_guide.css'
 import { Muplace_Context } from '../../context/MuContext';
@@ -17,7 +17,7 @@ export default function Guideprofilepage() {
       lineID: ''
     },
     profile_pic: '',
-    guide_post:[]
+    guide_post: []
   });
 
   const lineIcon = <LineIcon className='share-icon' href='https://qr-official.line.me/sid/L/026gkuxb.png' size={32} round={true} />
@@ -31,23 +31,12 @@ export default function Guideprofilepage() {
   }, [])
 
 
-  // stop here continue tomorrow
-  const posts = [
-    {
-      id: 1,
-      title: 'โพสต์ที่ 1',
-      content: 'เนื้อหาโพสต์ที่ 1',
-      createdAt: '2024-04-17',
-    },
-    {
-      id: 2,
-      title: 'โพสต์ที่ 2',
-      content: 'เนื้อหาโพสต์ที่ 2',
-      createdAt: '2024-04-16',
-    },
-    // เพิ่มโพสต์เพิ่มเติม...
-  ];
+  const gotopost=(muplace,showguide = true)=>{
+      localStorage.setItem('showguide',showguide);
+      localStorage.setItem('muplace',muplace);
 
+      return window.location.href = '/mudetail';
+}
 
   return (
 
@@ -90,35 +79,28 @@ export default function Guideprofilepage() {
 
             <div style={{ marginTop: 30 }}>
               <span>โพสทั้งหมด  </span>
-                
-                <Container>
 
-             
-                <br/>
+              <Container fluid>
                 <Row>
+                  
                   {guideprofile.guide_post.map((post) => (
-                    <>
-                    <Col key={post.id} md={4}>
+                    <Col key={post.id} md={4} sm={6} xs={12}>
                       <Card>
-                        <Card.Header style={{ maxHeight: '2em', overflow: 'hidden', textOverflow: 'ellipsis' }}>{post.muplace}</Card.Header>
+                        <Card.Header style={{ maxHeight: '2em', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          {post.muplace}
+                        </Card.Header>
                         <Card.Body>
-                          <Card.Img  style={{ objectFit: 'cover', width: 290, height: 250 }} src={`${SERVER_URL}/image/guide/detail/${guideprofile.id_guide}/${post.postPhotos[0]}`} /> 
-                               
-                   
+                          <Card.Img style={{ width: '100%', height: '250px', objectFit: 'cover' }} src={`${SERVER_URL}/image/guide/detail/${guideprofile.id_guide}/${post.postPhotos[0]}`} alt={post.muplace} />
                           <Card.Footer>
-                            <Button variant='warning'>ไปยังโพส</Button>
+                            <Button onClick={() => gotopost(post.muplace)} variant='warning' href='#'>ไปยังโพส</Button>
                           </Card.Footer>
                         </Card.Body>
                       </Card>
-                      <br/>
-                      <br/>
-                      
+                      <br /><br/>
                     </Col>
-                   
-                    </>
                   ))}
                 </Row>
-                </Container>
+              </Container>
             </div>
 
 

@@ -175,6 +175,7 @@ const Register = () => {
                                     type="Username"
                                     placeholder="👤  ชื่อผู้ใช้งาน"
                                     onChange={Change}
+                        
                                     required
                                 />
                             </Form.Group>
