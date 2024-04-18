@@ -5,7 +5,6 @@ const verify_guide_model = mongoose.Schema({
             detail:String,
             gender:String,
             dob:Date,
-            
         }
     },
     id_user:{
