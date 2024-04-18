@@ -17,7 +17,7 @@ export default function ListGuide() {
     const [showModal, setShowModal] = useState(false);
     const { guideStatus, SERVER_URL } = useContext(Muplace_Context)
     const [list_all_guide, Setlistallguide] = useState([]);
-
+    const [filteredGuides, setFilteredGuides] = useState([]);
     const [guide_type,setguide_type] = useState('guide');
 
     const navigate = useNavigate()
@@ -28,9 +28,15 @@ export default function ListGuide() {
     useEffect(() => {
 
         axios.get(`${SERVER_URL}/guide_detail/get_list_guide/${localStorage.getItem('muplace')}`)
-            .then(res => Setlistallguide(res.data))
+            .then(res => {
+                Setlistallguide(res.data);
+                setFilteredGuides(res.data.filter(type => type.guide_type === guide_type));
+            })
             .catch(err => alert(err))
-    }, []);
+    }, [guide_type]);
+
+
+
 
     const onDelete = (id_guide) => {
 
@@ -45,7 +51,7 @@ export default function ListGuide() {
             .then(async result => {
                 if (result.isConfirmed) {
                     Setlistallguide(prev => prev.filter(data => data.id_guide !== id_guide));
-
+                    setFilteredGuides(prev => prev.filter(data => data.id_guide !== id_guide));
                     let deletedata = await axios.delete(`${SERVER_URL}/guide_detail/delete-post/${id_guide}/${muplace}`);
                     return Swal.fire({ icon: 'success', text: 'ลบโพสต์เเล้ว' })
                 }
@@ -105,14 +111,26 @@ export default function ListGuide() {
                 </Modal>
                 }
 
-                {list_all_guide == 0 &&
+                {filteredGuides == 0 &&
                     <h1>ยังไม่มีไกด์ในขณะนี้ครับ</h1>
                 }
 
 
 
-                {list_all_guide.length != 0 && list_all_guide.filter(data => data.guide_type === guide_type).map((data) => {
-            
+                {filteredGuides.length != 0 && filteredGuides.map((data) => {
+                    let guideshow;
+                    switch(data.guide_type){
+                         case 'guide':
+                            guideshow = 'ไกด์'
+                            break;
+                        case 'muler':
+                            guideshow = 'รับจ้างมู'
+                            break;
+                        default:
+                            guideshow = '(ไกด์,รับจ้างมู)'
+                            break;    
+                    }
+
                     return (
                         <Accordion>
                             <AccordionSummary
@@ -128,7 +146,7 @@ export default function ListGuide() {
                                     />
 
                                     <span style={{ marginLeft: 10 }}>
-                                        <b>นาย {data.firstname} {data.lastname} (ไกด์)</b>
+                                        <b>นาย {data.firstname} {data.lastname} {`(${guideshow})`}</b>
 
                                     </span>
                                 </div>
@@ -141,7 +159,7 @@ export default function ListGuide() {
                             </AccordionSummary>
 
                             <AccordionDetails>
-                                <Guide_detail profile_name={{ id_guide: data.id_guide, name: data.profile_pic }} contact={data.contact} data={data} />
+                                <Guide_detail   profile_name={{ id_guide: data.id_guide, name: data.profile_pic }} contact={data.contact} data={data} />
                             </AccordionDetails>
                         </Accordion>
                     )

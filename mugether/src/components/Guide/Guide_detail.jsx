@@ -4,30 +4,29 @@ import './Guide_detail.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Muplace_Context } from '../../context/MuContext';
 import ReviewGuide from './ReviewGuide';
+import { LineIcon } from 'react-share'
 
-
-export default function Guide_detail({ profile_name, contact, data }) {
+export default function Guide_detail({ profile_name, contact, data, detailImg }) {
 
 
   const muplace = localStorage.getItem('muplace');
   const [newdata, Setnewdata] = useState(data);
   const { SERVER_URL } = useContext(Muplace_Context)
+  const [detailImg1,Setdetailimg] = useState([]);
+  const lineIcon = <LineIcon className='share-icon' href='https://qr-official.line.me/sid/L/026gkuxb.png' size={32} round={true} />
   const [contactt, Setcontactt] = useState({
       tel: '',
       email: ''
   })
-  
+  console.log(newdata);
   useEffect(() => {
-
-    let newdata = {
-      firstname: data.firstname,
-      lastname: data.lastname,
-      guide_post: data.guide_post.filter((e) => e.muplace === muplace)
-    }
-    Setnewdata(newdata);
-
-    Setcontactt(contact)
-  }, [])
+    const filteredData = {
+        firstname: data.firstname,
+        lastname: data.lastname,
+        guide_post: data.guide_post.filter((e) => e.muplace === localStorage.getItem('muplace'))
+    };
+    Setnewdata(filteredData);
+}, [data]);
 
 
   return (
@@ -35,10 +34,6 @@ export default function Guide_detail({ profile_name, contact, data }) {
       <h2><b>{data.firstname} {data.lastname}</b></h2> <br />
 
       <Container>
-
-
-
-
         <Row>
           <Col md={5} className="main-image">
             <Image
@@ -135,6 +130,7 @@ export default function Guide_detail({ profile_name, contact, data }) {
         <h2><b>ติดต่อ</b></h2>
         <h3>เบอร์โทร: {contact.tel} </h3>
         <h3>อีเมลล์: {contact.email} </h3>
+       {contact.lineID && <h3>{ lineIcon } : {contact.lineID}</h3>}
 
         <br />
 

@@ -68,25 +68,6 @@ img.get('/user/profile/:username',async(req,res) => {
         {
             imagesFile = path.join(dir_,"assets","user",username,"profile_pic",profile_pic);
 
-            // fs.readdir(path.join(dir_,"assets","user",username,"profile_pic"),
-            // (err,file) => {
-            //     if(err)
-            //     {
-            //         console.log(err);
-            //     }
-            
-            //     file.forEach((img) => { 
-            //         if(img !== profile_pic)
-            //         {
-            //             let deletefile = path.join(dir_,"assets","user",username,"profile_pic",img)
-            //             fs.unlink(deletefile, (err) => {
-            //                 if (err) {
-            //                     console.error(err);
-            //                 }
-            //             });
-            //         }
-            //     })
-            // })
         }
 
     
@@ -100,7 +81,7 @@ img.get('/user/profile/:username',async(req,res) => {
 //image of guide_detail
 img.get('/guide/detail/:username/:imgname', async (req,res) => {
     const {username,imgname} = req.params;
-    
+    console.log(req.params);
     try{
         let dir_ = path.dirname(__dirname);
         let imagesFile = path.join(dir_,"assets","guide",username,"detail_img",imgname);
@@ -110,6 +91,7 @@ img.get('/guide/detail/:username/:imgname', async (req,res) => {
     catch(err)
     {
         console.log(err);
+        return;
     }
 
 })
@@ -117,7 +99,7 @@ img.get('/guide/detail/:username/:imgname', async (req,res) => {
 //image of profile_guide
 img.get('/guide/profile/:username/:imgname', async (req,res) => {
     const {username,imgname} = req.params;
-
+   
     try{
         let dir_ = path.dirname(__dirname);
         let imagesFile = path.join(dir_,"assets","guide",username,"profile_pic",imgname);
