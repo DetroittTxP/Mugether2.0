@@ -49,7 +49,7 @@ verify_g.post('/info', async (req,res) => {
      const {firstName,lastName,id_card,id_guide,mu_place,userID,tel,email,lineID,guide_type,contact} = req.body.guide;
     
     try{
-        //check exist regis guide
+   
         let querycheck = {
             $or:[
                 {id_user:userID},

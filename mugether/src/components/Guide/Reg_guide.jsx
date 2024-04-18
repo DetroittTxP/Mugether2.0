@@ -87,15 +87,24 @@ export default function Reg_guide() {
   
       }
    
-      setguidedata({
+      setguidedata( {
+        userID:userID,
         firstName: "",
         lastName: "",
-        id_card: "",
+        id_card: "", //รหัสบัตรปชช
         id_guide: "",
         tel:"",
         email:"",
         lineID:"",
-        mu_place: [],
+        mu_place: [], //เลือกโลเคชั่น
+        guide_type:'',
+        contact:{
+          lineID:'',
+          facebook:'',
+          ig:'',
+          website:''
+        }
+        
       });
       setImage(null);
 

@@ -78,7 +78,7 @@ export default function Guideprofilepage() {
             </div>
 
             <div style={{ marginTop: 30 }}>
-              <span>โพสทั้งหมด  </span>
+             {guideprofile.guide_post.length !== 0 &&  <span>โพสทั้งหมด  </span>}
 
               <Container fluid>
                 <Row>

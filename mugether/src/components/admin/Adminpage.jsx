@@ -59,8 +59,7 @@ const RegisGuideList = ({ setstate }) => {
 
 
   const Accept = async (guide) => {
-
-
+    
     let guide11 = {
       _id: guide.id_user,
       firstname: guide.firstname,
@@ -69,11 +68,11 @@ const RegisGuideList = ({ setstate }) => {
       contact: {
         tel: guide.tel,
         email: guide.email,
-        lineID:guide.contact.lineID || ""
+        lineID:guide.contact.lineID
       },
       guide_type:guide.guide_type
     }
-
+   
 
     swal.fire({
       icon: 'question',
@@ -128,7 +127,7 @@ const RegisGuideList = ({ setstate }) => {
 
 
       <h1>รายชื่อคนสมัครไกด์</h1>
-      <Table   responsive striped bordered hover style={{ overflow: 'hidden', whiteSpace: 'nowrap', }}  >
+      <Table  striped bordered hover   >
         <thead>
           <tr>
             {/* <th>Username ที่ใช้สมัคร</th> */}
@@ -179,7 +178,7 @@ const RegisGuideList = ({ setstate }) => {
                 <Button onClick={() => Accept(guide)} variant="success" size="small" >
                   ยืนยัน
                 </Button>
-                {' '}
+                {' '}<br/><br/>
                 <Button onClick={() => deleteee(guide._id, guide.id_user, guide.email)} variant="danger" size="small" >
                   ปฏิเสธ
                 </Button>
