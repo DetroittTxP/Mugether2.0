@@ -46,7 +46,7 @@ verify_g.post('/img/:id',upload_verify_guide.single('img-guide'),async(req,res) 
 
 //get_guide INFO
 verify_g.post('/info', async (req,res) => {
-     const {firstName,lastName,id_card,id_guide,mu_place,userID,tel,email,lineID,guide_type} = req.body.guide;
+     const {firstName,lastName,id_card,id_guide,mu_place,userID,tel,email,lineID,guide_type,contact} = req.body.guide;
     
     try{
         //check exist regis guide
@@ -71,7 +71,7 @@ verify_g.post('/info', async (req,res) => {
                 mu_place:mu_place,
                 tel:tel,
                 email:req.body.guide.email,
-                lineID:lineID,
+                contact:contact,
                 guide_type:guide_type
             })
             console.log(insert);

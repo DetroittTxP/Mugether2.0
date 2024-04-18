@@ -69,7 +69,7 @@ const RegisGuideList = ({ setstate }) => {
       contact: {
         tel: guide.tel,
         email: guide.email,
-        lineID:guide.lineID || ""
+        lineID:guide.contact.lineID || ""
       },
       guide_type:guide.guide_type
     }
@@ -109,6 +109,8 @@ const RegisGuideList = ({ setstate }) => {
       })
   }
 
+  
+
 
   return (
     <Container >
@@ -144,13 +146,18 @@ const RegisGuideList = ({ setstate }) => {
           </tr>
         </thead>
         <tbody >
-          {regislist.map((guide, id) => (
-            <tr key={id}>
+          {regislist.map((guide, id) => {
+            let contact  =false;
+            if(guide.contact){
+                contact = true;
+            }
+            return(
+              <tr key={id}>
               <td>{guide.id_user}</td>
               <td>{guide.guide_type || '-'}</td>
               <td>{guide.firstname} - {guide.lastname}</td>
               <td>{guide.email}</td>
-              <td>{guide.lineID || ' - '}</td>
+              <td>{contact ? guide.contact.lineID : guide.lineID || ' - '}</td>
               <td>{guide.id_card}</td>
               <td>
                 <ul>
@@ -181,7 +188,11 @@ const RegisGuideList = ({ setstate }) => {
                 {guide.status === 'accept' ? 'ยืนยันสำเร็จ' : 'รอการยืนยัน'}
               </td>
             </tr>
-          ))}
+            )
+
+          }
+          
+          )}
 
         </tbody>
       </Table>

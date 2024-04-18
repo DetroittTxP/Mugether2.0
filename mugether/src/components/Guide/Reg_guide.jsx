@@ -26,7 +26,14 @@ export default function Reg_guide() {
       email:"",
       lineID:"",
       mu_place: [], //เลือกโลเคชั่น
-      guide_type:''
+      guide_type:'',
+      contact:{
+        lineID:'',
+        facebook:'',
+        ig:'',
+        website:''
+      }
+      
     }
   )
 
@@ -109,6 +116,7 @@ export default function Reg_guide() {
 
   const Change2 = (event1) => {
     setguidedata((e) => {
+
       return {
         ...e,
         [event1.target.id]: event1.target.value
@@ -116,6 +124,27 @@ export default function Reg_guide() {
       }
     }
     )
+  }
+
+  const change3=(e) => {
+    const { id, value } = e.target;
+    let keys = id.split('.');
+  
+   setguidedata((currentState) => {
+      let newState = { ...currentState };
+      let tempState = newState; 
+  
+      keys.forEach((key, index) => {
+        if (index === keys.length - 1) {
+          tempState[key] = value;
+        } else {
+          if (!tempState[key]) tempState[key] = {};
+          tempState = tempState[key];
+        }
+      });
+  
+      return newState;
+    });
   }
 
   const onImageChange = (event) => {
@@ -227,13 +256,12 @@ export default function Reg_guide() {
               />
             </Form.Group>
 
-            <Form.Group controlId="lineID">
+            <Form.Group controlId="contact.lineID">
               <Form.Label>ไอดีไลน์ (ถ้ามี)</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="✉️ ไอดีไลน์"
-                value={guide.lineID}
-                onChange={Change2}
+                onChange={change3}
                 required
               />
             </Form.Group>
