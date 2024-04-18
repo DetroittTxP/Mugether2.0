@@ -192,7 +192,7 @@ Guide_detail.put('/update_profile/:id_guide',async (req,res) => {
 
           // const {firstname,lastname,profile_pic} = req.body.editGuide;
           const {id_guide} = req.params;
-          const {firstname,lastname,tel,email} = req.body.editGuide
+          const {firstname,lastname,tel,email,lineID} = req.body.editGuide
           const {profile_pic} = req.body;
 
           let Og = await db.findOne({id_guide:id_guide});
@@ -205,7 +205,8 @@ Guide_detail.put('/update_profile/:id_guide',async (req,res) => {
                lastname:lastname || Og.lastname,
                contact:{
                     tel:tel || Og.contact.tel,
-                    email:email || Og.contact.email
+                    email:email || Og.contact.email,
+                    lineID:lineID || Og.contact.lineID
                }
           }
         

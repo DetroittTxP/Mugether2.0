@@ -9,8 +9,8 @@ import './EditProfile.css'
 import { makeAspectCrop } from 'react-image-crop';
 import setCanvasPreview from '../util/setCanvasPreview';
 import {Muplace_Context} from '../../context/MuContext'
-
-
+import { LineIcon } from 'react-share'
+const lineIcon = <LineIcon className='share-icon' href='https://qr-official.line.me/sid/L/026gkuxb.png' size={32} round={true} />
 
 export default function EditProfile({ showedit, toggle, editType }) {
   const {SERVER_URL} = useContext(Muplace_Context)
@@ -201,6 +201,16 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 <Form.Label>เบอร์โทร</Form.Label>
                 <Form.Control
                   placeholder='เบอร์โทร'
+                  type="text"
+                  onChange={onGuideChange}
+                />
+              </Form.Group>
+
+              <Form.Group controlId="lineID">
+    
+                <Form.Label>ไอดีไลน์</Form.Label>
+                <Form.Control
+                  placeholder='ไอดีไลน์'
                   type="text"
                   onChange={onGuideChange}
                 />
