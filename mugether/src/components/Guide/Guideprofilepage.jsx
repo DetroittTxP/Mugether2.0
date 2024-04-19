@@ -39,8 +39,7 @@ export default function Guideprofilepage() {
 }
 
   return (
-
-    <Container className='reguide-container' fluid>
+    <Container  className='reguide-container' fluid>
       <Row className="justify-content-center align-items-center">
         <Col md={6} className="reguide-form">
           <label>
@@ -76,7 +75,6 @@ export default function Guideprofilepage() {
 
               </ul>
             </div>
-
             <div style={{ marginTop: 30 }}>
              {guideprofile.guide_post.length !== 0 &&  <span>โพสทั้งหมด  </span>}
 

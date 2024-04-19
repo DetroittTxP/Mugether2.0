@@ -19,7 +19,17 @@
     
 }
 
+#f{
+  width: 100%;
+}
+
 .head {
     text-align: center;
     font-weight: bolder;
 }
+
+.form-dob{
+    display: flex;
+    justify-content: space-between;
+}
+

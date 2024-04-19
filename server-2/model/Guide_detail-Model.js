@@ -18,6 +18,15 @@ const guide_detail = monggose.Schema({
           type:String,
           required:true
      },
+     guide_review:{
+          type:{
+               review_username:String,
+               review_detail:String,
+               review_score:String,
+               review_like:Number,
+          },
+          default:[],
+     },
      guide_post:{
         type:[{
              muplace:String,

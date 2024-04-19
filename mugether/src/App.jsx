@@ -19,7 +19,8 @@ import Forgottenpassword from './components/user/ForgottenPassword'
 import Footer from './components/layout/Footer'
 import Adminpagelogin from './components/admin/Adminpagelogin'
 import Adminpage from './components/admin/Adminpage'
-import Guideprofilepage from './components/Guide/guideprofilepage'
+import Guideprofilepage from './components/Guide/Guideprofilepage'
+import Aboutguide from './components/Guide/Aboutguide'
 
 
 const Checktimeout = (timeout, onLogout) => {
@@ -174,6 +175,10 @@ export default function App() {
     Setshowguide(showed);
   }
 
+  const ignorepath = ()=>{
+
+  }
+
   return (
     <Muplace_Context.Provider value={data_context} >
      {    pathname!== '/admin/login' && <  Header showguide={show_guide} handleFav={Handlefav} />}
@@ -207,6 +212,7 @@ export default function App() {
         <Route path='/Forgottenpassword' element={<Forgottenpassword />} />
         <Route path='/admin' element={<Adminpage/>}/>
         <Route path='/guide/profile' element={<Guideprofilepage/>}/>
+        <Route path='/about/guide/profile' element={<Aboutguide/>}/>
       </Routes>
       <br />
       

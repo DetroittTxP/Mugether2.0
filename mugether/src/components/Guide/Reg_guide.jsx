@@ -1,7 +1,7 @@
-import React, { useState, useContext,useRef } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-
+import { FacebookShareButton, TwitterShareButton, LineShareButton, FacebookIcon, TwitterIcon, LineIcon,VKShareButton,VKIcon } from 'react-share';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Reg_guide.css";
@@ -13,27 +13,32 @@ import { Muplace_Context } from "../../context/MuContext";
 export default function Reg_guide() {
   const navigate = useNavigate();
   const userID = localStorage.getItem('usr_id');
-  const { muplace,SERVER_URL } = useContext(Muplace_Context);
+  const { muplace, SERVER_URL } = useContext(Muplace_Context);
   const file = useRef(null);
+
   const [guide, setguidedata] = useState(
     {
-      userID:userID,
+      userID: userID,
+      info: {
+        detail: '',
+        gender: 'male',
+        dob: '',
+      },
       firstName: "",
       lastName: "",
-      id_card: "", //รหัสบัตรปชช
+      id_card: "",
       id_guide: "",
-      tel:"",
-      email:"",
-      lineID:"",
-      mu_place: [], //เลือกโลเคชั่น
-      guide_type:'',
-      contact:{
-        lineID:'',
-        facebook:'',
-        ig:'',
-        website:''
+      tel: "",
+      email: "",
+      lineID: "",
+      mu_place: [],
+      guide_type: 'guide',
+      contact: {
+        lineID: '',
+        facebook: '',
+        ig: '',
+        website: '',
       }
-      
     }
   )
 
@@ -59,59 +64,61 @@ export default function Reg_guide() {
 
       let res = await axios.post(`${SERVER_URL}/verify_guide/info`, { guide })
       console.log(res.data);
-      if(res.data.status === 'duplicate'){
-          return await Swal.fire({
-            icon:'error',
-            text:'มีการใช้ข้อมูลการสมัครไกด์ซ้ำไปเเล้ว โปรดลองใหม่อีกครั้ง'
-          })
+      if (res.data.status === 'duplicate') {
+        return await Swal.fire({
+          icon: 'error',
+          text: 'มีการใช้ข้อมูลการสมัครไกด์ซ้ำไปเเล้ว โปรดลองใหม่อีกครั้ง'
+        })
       }
       let id_user = res.data.msg._id;
       let add_image = await axios.post(`${SERVER_URL}/verify_guide/img/${userID}`, image_form)
       Swal.close();
       console.log(res.data);
-      if(res.data.status === 'success'){
+      if (res.data.status === 'success') {
         await Swal.fire({
           icon: 'success',
           title: 'ขอบคุณสำหรับการสมัครไกด์ โปรดรอการติดต่อกลับจากทาง Mugether '
         })
 
         return window.location.href = '/'
-  
+
       }
-      else
-      {
-        await Swal.fire({
+      else {
+        console.log(res.data);
+        return Swal.fire({
           icon: 'error',
           title: 'โปรดลองใหม่'
+
         })
-  
+
+
       }
-   
-      setguidedata( {
-        userID:userID,
+
+      setguidedata({
+        userID: userID,
         firstName: "",
         lastName: "",
         id_card: "", //รหัสบัตรปชช
         id_guide: "",
-        tel:"",
-        email:"",
-        lineID:"",
+        tel: "",
+        email: "",
+        lineID: "",
         mu_place: [], //เลือกโลเคชั่น
-        guide_type:'',
-        contact:{
-          lineID:'',
-          facebook:'',
-          ig:'',
-          website:''
+        guide_type: '',
+        contact: {
+          lineID: '',
+          facebook: '',
+          ig: '',
+          website: ''
         }
-        
+
       });
       setImage(null);
 
-      if(file.current){
+      if (file.current) {
         file.current.value = '';
       }
-    
+
 
     }
     catch (err) {
@@ -135,14 +142,14 @@ export default function Reg_guide() {
     )
   }
 
-  const change3=(e) => {
+  const change3 = (e) => {
     const { id, value } = e.target;
     let keys = id.split('.');
-  
-   setguidedata((currentState) => {
+
+    setguidedata((currentState) => {
       let newState = { ...currentState };
-      let tempState = newState; 
-  
+      let tempState = newState;
+
       keys.forEach((key, index) => {
         if (index === keys.length - 1) {
           tempState[key] = value;
@@ -151,7 +158,7 @@ export default function Reg_guide() {
           tempState = tempState[key];
         }
       });
-  
+
       return newState;
     });
   }
@@ -159,7 +166,7 @@ export default function Reg_guide() {
   const onImageChange = (event) => {
     setImage(event.target.files[0]);
   }
-  
+
   return (
     <Container className="reguide-container">
       <Row className="justify-content-center align-items-center">
@@ -167,15 +174,15 @@ export default function Reg_guide() {
           <div className="profile-header">
 
           </div>
-          <h2 className="head">เเบบฟอร์มสมัครไกด์ / นักรับจ้างมู🧳</h2> 
-          
+          <h2 className="head">เเบบฟอร์มสมัครไกด์ / นักรับจ้างมู🧳</h2>
+
 
           <Form onSubmit={handleSubmit}>
 
-          <Form.Group>
+            <Form.Group>
 
-              <Form.Control  type="hidden" id='userID' value={userID}/>
-             
+              <Form.Control type="hidden" id='userID' value={userID} />
+
 
               <Form.Label>โปรดเเนบรูปประจำตัวของคุณ</Form.Label>
               <Form.Control
@@ -185,18 +192,18 @@ export default function Reg_guide() {
                 onChange={onImageChange}
                 required
               />
-          </Form.Group>
-          
+            </Form.Group>
 
-          <Form.Group controlId="guide_type">
-                 <Form.Label>ประเภท (ไกด์ / นักรับจ้างมู)</Form.Label>
-                 <Form.Control  as='select' onChange={Change2}>
-                      <option value='guide'>ไกด์</option>
-                      <option value='muler'>นักรับจ้างมู</option>
-                      <option value='both' > ไกด์เเละนักรับจ้างมู</option>
-                 </Form.Control>
-          </Form.Group>
-          
+
+            <Form.Group controlId="guide_type">
+              <Form.Label>ประเภท (ไกด์ / นักรับจ้างมู)</Form.Label>
+              <Form.Control as='select' onChange={Change2}>
+                <option value='guide'>ไกด์</option>
+                <option value='muler'>นักรับจ้างมู</option>
+                <option value='both' > ไกด์เเละนักรับจ้างมู</option>
+              </Form.Control>
+            </Form.Group>
+
             <Form.Group controlId="firstName">
               <Form.Label>ชื่อ</Form.Label>
               <Form.Control
@@ -219,6 +226,33 @@ export default function Reg_guide() {
               />
             </Form.Group>
 
+            <Form.Group controlId="info.gender">
+              <Form.Label>เพศ</Form.Label>
+              <Form.Control as='select' onChange={change3}>
+                <option value='male'>ชาย</option>
+                <option value='female'>หญิง</option>
+                <option value='notprefer' > ไม่ระบุ</option>
+              </Form.Control>
+            </Form.Group>
+
+   
+              <Form.Group controlId="info.dob">
+                <Form.Label>เดือน / วัน / เกิด</Form.Label>
+                <Form.Control
+                  style={{width:200}}
+                  type="date"
+                  placeholder="นามสกุล"
+                  onChange={change3}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group controlId="info.detail">
+                <Form.Label>ประวัติเเนะนำตัวเอง </Form.Label>
+                <Form.Control placeholder="เเนะนำตัวเอง เช่น จบจากที่ใด" onChange={change3} as="textarea" rows={4} />
+              </Form.Group>
+      
+
             <Form.Group controlId="id_card">
               <Form.Label>รหัสบัตรประชาชน</Form.Label>
               <Form.Control
@@ -239,7 +273,6 @@ export default function Reg_guide() {
                 placeholder="🪪 เลขรหัสไกด์/มัคคุเทศก์"
                 value={guide.id_guide}
                 onChange={Change2}
-                required
               />
             </Form.Group>
 
@@ -266,10 +299,41 @@ export default function Reg_guide() {
             </Form.Group>
 
             <Form.Group controlId="contact.lineID">
-              <Form.Label>ไอดีไลน์ (ถ้ามี)</Form.Label>
+              <Form.Label  style={{marginTop:10}}> <LineIcon size={32} round={true}/> ไอดีไลน์ (ถ้ามี)</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="✉️ ไอดีไลน์"
+                onChange={change3}
+           
+              />
+            </Form.Group>
+
+            <Form.Group controlId="contact.facebook">
+            <Form.Label style={{marginTop:10}}> <FacebookIcon size={32} round={true} /> เฟสบุ๊ค (ถ้ามี)  </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="ชื่อ หรือ ลิงค์"
+                onChange={change3}
+           
+              />
+            </Form.Group>
+
+            <Form.Group controlId="contact.ig">
+              <Form.Label>อินสตราเเกรม (ถ้ามี)</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="ชื่อไอจี"
+                onChange={change3}
+             
+              />
+            </Form.Group>
+
+            <Form.Group controlId="contact.website">
+           
+            <Form.Label>เว็บไต์ของท่าน (ถ้ามี)</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="ลิงค์"
                 onChange={change3}
                 required
               />
@@ -279,12 +343,12 @@ export default function Reg_guide() {
               <Form.Label>สถานที่สะดวก</Form.Label>
               <Select
                 mode="multiple"
-                
+
                 showSearch
                 style={{ width: '100%' }}
                 placeholder="🗺️ โปรดเลือกสถานที่พาไปมู"
                 optionFilterProp="children"
-                    value={guide.mu_place}
+                value={guide.mu_place}
                 onChange={(values) => {
 
                   setguidedata(prevState => ({
@@ -297,15 +361,13 @@ export default function Reg_guide() {
                 }
               >
                 {muplace.map((mu_place, i) => (
-                  <Select.Option  key={i} value={mu_place.name}>
+                  <Select.Option key={i} value={mu_place.name}>
                     {mu_place.name}
                   </Select.Option>
                 ))}
               </Select>
             </Form.Group>
             <br />
-
-          
 
             <Button variant="warning" type="submit" >
               สมัคร

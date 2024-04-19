@@ -6,6 +6,7 @@ import { Muplace_Context } from '../../context/MuContext';
 import swal from 'sweetalert2';
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import { FacebookIcon, LineIcon } from 'react-share';
 
 
 const RegisGuideList = ({ setstate }) => {
@@ -127,7 +128,7 @@ const RegisGuideList = ({ setstate }) => {
 
 
       <h1>รายชื่อคนสมัครไกด์</h1>
-      <Table  striped bordered hover   >
+      <Table   striped bordered hover   >
         <thead>
           <tr>
             {/* <th>Username ที่ใช้สมัคร</th> */}
@@ -135,7 +136,7 @@ const RegisGuideList = ({ setstate }) => {
             <th>ประเภท</th>
             <th>ชื่อ</th>
             <th>อีเมล์</th>
-            <th>ไอดีไลน์</th>
+            <th>ติดต่อ</th>
             <th>รหัสประจำตัว</th>
             <th>สถานที่มู</th>
             <th>รูปประจำตัว</th>
@@ -146,19 +147,27 @@ const RegisGuideList = ({ setstate }) => {
         </thead>
         <tbody >
           {regislist.map((guide, id) => {
-            let contact  =false;
-            if(guide.contact){
-                contact = true;
-            }
+
+              const {contact} = guide;
+
             return(
               <tr key={id}>
               <td>{guide.id_user}</td>
               <td>{guide.guide_type || '-'}</td>
-              <td>{guide.firstname} - {guide.lastname}</td>
+              <td  >{guide.firstname} - {guide.lastname}</td>
               <td>{guide.email}</td>
-              <td>{contact ? guide.contact.lineID : guide.lineID || ' - '}</td>
-              <td>{guide.id_card}</td>
               <td>
+                   <ul style={{listStyleType:'none',padding: '0 10px'}}>
+                       <li > <LineIcon  size={32} round /> {contact.lineID ? contact.lineID : '- '}</li> 
+                       <br/>
+                       <li > <FacebookIcon  size={32} round /> {contact.facebook ? contact.facebook : '- '}</li> 
+                       <br/>
+                       {contact.website && <li>Website : <a href={contact.website}>link</a></li>}
+                       {contact.ig && <li>IG : <a href={contact.ig}>{contact.ig}</a></li>}
+                   </ul>
+              </td>
+              <td>{guide.id_card}</td>
+              <td >
                 <ul>
                   {guide.mu_place.map((places) => (
                     <li>{places}</li>
@@ -183,7 +192,7 @@ const RegisGuideList = ({ setstate }) => {
                   ปฏิเสธ
                 </Button>
               </td>
-              <td>
+              <td >
                 {guide.status === 'accept' ? 'ยืนยันสำเร็จ' : 'รอการยืนยัน'}
               </td>
             </tr>
@@ -232,7 +241,7 @@ const Accpetlist = ({ list }) => {
           <th>รหัสประจำตัว</th>
           <th>สถานที่มู</th>
           <th>รูปประจำตัว</th>
-          <th>ไอดีไลน์</th>
+          <th>ติดต่อ</th>
           <th>สถานนะ</th>
         </thead>
 

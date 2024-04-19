@@ -4,7 +4,8 @@ const verify_guide_model = mongoose.Schema({
         type:{
             detail:String,
             gender:String,
-            dob:Date,
+            dob:String,
+            age:String,
         }
     },
     id_user:{

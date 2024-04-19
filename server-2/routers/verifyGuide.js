@@ -46,14 +46,17 @@ verify_g.post('/img/:id',upload_verify_guide.single('img-guide'),async(req,res) 
 
 //get_guide INFO
 verify_g.post('/info', async (req,res) => {
-     const {firstName,lastName,id_card,id_guide,mu_place,userID,tel,email,lineID,guide_type,contact} = req.body.guide;
+     const {firstName,lastName,id_card,id_guide,mu_place,userID,tel,email,info,guide_type,contact} = req.body.guide;
     
     try{
    
         let querycheck = {
             $or:[
                 {id_user:userID},
-                {email:email}
+                {email:email},
+                {id_guide:id_guide},
+                {id_card:id_card},
+                {tel:tel},
             ]
         }
         let isExist = await db_verfiy_guide.findOne(querycheck)
@@ -72,13 +75,14 @@ verify_g.post('/info', async (req,res) => {
                 tel:tel,
                 email:req.body.guide.email,
                 contact:contact,
-                guide_type:guide_type
+                guide_type:guide_type,
+                info
             })
             console.log(insert);
             let sendemail = await usdb.findOne({_id:userID}).select('email');
             const {email} = sendemail;
             
-            await Reg_Guide_Mail(email)
+            //await Reg_Guide_Mail(email)
     
             return res.json({status:'success',msg:insert});
         }
