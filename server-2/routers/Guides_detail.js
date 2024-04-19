@@ -17,7 +17,7 @@ Guide_detail.get('/',(req,res) => {
 
 
 Guide_detail.post('/create_guide', async (req,res)=>{
-     const {_id,firstname,lastname,mu_location,contact,guide_type} = req.body.guide;
+     const {_id,firstname,lastname,mu_location,contact,guide_type,info} = req.body.guide;
      console.log(req.body.guide);
 
      try{
@@ -35,7 +35,8 @@ Guide_detail.post('/create_guide', async (req,res)=>{
                lastname:lastname,
                mu_location:mu_location,
                contact,
-               guide_type:guide_type
+               guide_type:guide_type,
+               info
           })
                
           
@@ -59,6 +60,7 @@ Guide_detail.post('/create_guide', async (req,res)=>{
           return res.json({status:'success',result:create_guide});
      }
      catch(err){
+          console.log(err);
           return res.send({status:'error',Error:err})
      }
 })

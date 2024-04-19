@@ -69,7 +69,15 @@ const RegisGuideList = ({ setstate }) => {
       contact: {
         tel: guide.tel,
         email: guide.email,
-        lineID:guide.contact.lineID
+        lineID:guide.contact.lineID,
+        Facebook:guide.contact.facebook,
+        Ig:guide.contact.ig,
+        Website:guide.contact.website
+      },
+      info:{
+        dob:guide.info.dob,
+        detail:guide.info.detail,
+        gender:guide.info.gender
       },
       guide_type:guide.guide_type
     }

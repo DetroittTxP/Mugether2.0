@@ -4,13 +4,18 @@ const guide_detail = monggose.Schema({
      id_guide:{type:String,required:true},
      firstname:{type:String,required:true},
      lastname:{type:String,required:true},
+     info:{
+          dob:String,
+          detail:String,
+          gender:String
+     },
      contact:{
           tel:{type:String,required:true},
           email:{type:String,required:true},
           lineID:String,
           Ig:String,
           Facebook:String,
-          URL:String,
+          Website:String,
      },
      guide_detail:String,
      mu_location:{type:[],required:true},
@@ -19,12 +24,12 @@ const guide_detail = monggose.Schema({
           required:true
      },
      guide_review:{
-          type:{
+          type:[{
                review_username:String,
                review_detail:String,
                review_score:String,
                review_like:Number,
-          },
+          }],
           default:[],
      },
      guide_post:{

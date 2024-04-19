@@ -335,7 +335,6 @@ export default function Reg_guide() {
                 type="text"
                 placeholder="ลิงค์"
                 onChange={change3}
-                required
               />
             </Form.Group>
 

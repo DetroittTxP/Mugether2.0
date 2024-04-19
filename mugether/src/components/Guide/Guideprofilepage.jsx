@@ -3,7 +3,7 @@ import { Container, Row, Col, Image, Button, Card } from 'react-bootstrap';
 import axios from 'axios';
 import './Reg_guide.css'
 import { Muplace_Context } from '../../context/MuContext';
-import { LineIcon } from 'react-share'
+import { LineIcon,FacebookIcon } from 'react-share'
 
 export default function Guideprofilepage() {
   const { SERVER_URL } = useContext(Muplace_Context);
@@ -17,8 +17,28 @@ export default function Guideprofilepage() {
       lineID: ''
     },
     profile_pic: '',
-    guide_post: []
+    guide_post: [],
+    info:{
+        dob:'',
+        gender:'',
+        detail:'',
+    },
+    guide_type:''
   });
+
+  const calbirth = (birthDate) =>{
+    const today = new Date();
+    const birth = new Date(birthDate);
+    
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+      age--;
+    }
+    
+    return age;
+  }
 
   const lineIcon = <LineIcon className='share-icon' href='https://qr-official.line.me/sid/L/026gkuxb.png' size={32} round={true} />
 
@@ -42,41 +62,60 @@ export default function Guideprofilepage() {
     <Container  className='reguide-container' fluid>
       <Row className="justify-content-center align-items-center">
         <Col md={6} className="reguide-form">
-          <label>
+          <h4>
+          <b>
             ข้อมูลไกด์ของท่าน
-          </label>
+          </b>
+          </h4>
+          
           <br /><br />
 
           <div style={{ marginLeft: 140 }}>
-            <span>ชื่อ - สกุล :  {guideprofile.firstname || null} - {guideprofile.lastname || null}</span>
+            <span>  <b>ชื่อ - สกุล</b>:  {guideprofile.firstname || null} - {guideprofile.lastname || null}</span>
+            <br/>
+            <span><b>วันเกิด</b> : {guideprofile.info ? guideprofile.info.dob : null}</span>
+            <br/>
+            <span><b>เพศ</b> : {guideprofile.info ? guideprofile.info. gender : null}</span>
+            <br/>
+            <span><b>อายุ</b> : {guideprofile.info ? calbirth(guideprofile.info.dob) : null} ปี</span>
+            <br/>
+            <span><b>ประเภท</b> : {guideprofile.guide_type}</span>
 
             <div style={{ marginTop: 30 }}>
-              <span>รูปภาพโปรไฟล์ :   <Image
+              <b>รูปภาพโปรไฟล์ :   <Image
                 src={`${SERVER_URL}/image/guide/profile/${guideprofile.id_guide || null}/${guideprofile.profile_pic || null}`}
                 roundedCircle
                 className='avatar'
-              /> </span>
+              /> </b>
             </div>
 
             <div style={{ marginTop: 30 }}>
-              <span>ติดต่อ  </span>
+              <span> <b>ข้อมูลส่วนตัว</b> :  {guideprofile.info ? guideprofile.info.detail : null}  </span>
+            </div>
+
+            <div style={{ marginTop: 30 }}>
+              <b>ติดต่อ  </b>
               <ul style={{ listStyleType: 'none' }}>
                 <div style={{ marginLeft: 15 }}>
                   <li>
-                    เบอร์โทร : {guideprofile.contact.tel || null}
+                    <b>เบอร์โทร</b> : {guideprofile.contact.tel || null}
                   </li>
                   <li>
-                    อีเมล : {guideprofile.contact.email || null}
+                    <b>อีเมล</b> : {guideprofile.contact.email || null}
                   </li>
                   {guideprofile.contact.lineID && <li>
                     {lineIcon}  : {guideprofile.contact.lineID || null}
                   </li>}
+                  {guideprofile.contact.facebook && <li>
+                    {<FacebookIcon/>}  : {guideprofile.contact.facebook || null}
+                  </li>}
+                  
                 </div>
 
               </ul>
             </div>
             <div style={{ marginTop: 30 }}>
-             {guideprofile.guide_post.length !== 0 &&  <span>โพสทั้งหมด  </span>}
+             {guideprofile.guide_post.length !== 0 &&  <b>โพสทั้งหมด  </b>}
 
               <Container fluid>
                 <Row>
