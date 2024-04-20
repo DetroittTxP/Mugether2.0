@@ -111,11 +111,12 @@ export default function ListGuide() {
                 </Modal>
                 }
 
-                {filteredGuides == 0 &&
-                    <h1>ยังไม่มีไกด์ในขณะนี้ครับ</h1>
+                {(filteredGuides.length === 0 && guide_type === 'guide') &&
+                    <h1>ยังไม่มีไกด์ในขณะนี้</h1>
                 }
-
-
+                {(filteredGuides.length === 0 && guide_type === 'muler') &&
+                    <h1>ยังไม่มีนักรับจ้างมูในขณะนี้</h1>
+                }
 
                 {filteredGuides.length != 0 && filteredGuides.map((data) => {
                     let guideshow;
