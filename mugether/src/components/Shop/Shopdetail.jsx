@@ -63,7 +63,7 @@ export default function Shopdetail() {
 
     const Owner = usr_id === id_user_shop
     
-    const haveid = ()=>{
+    const haveid =()=>{
           if(!usr_id || !id_user_shop)
           {
             return false;
