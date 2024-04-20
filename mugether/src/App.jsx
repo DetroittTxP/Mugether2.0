@@ -21,6 +21,7 @@ import Adminpagelogin from './components/admin/Adminpagelogin'
 import Adminpage from './components/admin/Adminpage'
 import Guideprofilepage from './components/Guide/Guideprofilepage'
 import Aboutguide from './components/Guide/Aboutguide'
+import Shopprofilepage from './components/Shop/Shopprofilepage'
 
 
 const Checktimeout = (timeout, onLogout) => {
@@ -146,7 +147,6 @@ export default function App() {
     }
   },[])
 
-
   const data_context = {
     muplace: global_muplace,
     per_muplace: selectedMuplace,
@@ -213,10 +213,11 @@ export default function App() {
         <Route path='/admin' element={<Adminpage/>}/>
         <Route path='/guide/profile' element={<Guideprofilepage/>}/>
         <Route path='/about/guide/profile' element={<Aboutguide/>}/>
+        <Route path='/shop/profile' element={<Shopprofilepage/>}/>
       </Routes>
       <br />
       
-      {(location.pathname !== '/login' &&   pathname!== '/guide/profile' &&  pathname!== '/admin/login' &&  pathname!== '/admin' && location.pathname !== '/register' && location.pathname !== '/ForgottenPassword' && location.pathname !=='/add-shop'
+      {(location.pathname !== '/login' &&  pathname!== '/shop/profile' &&   pathname!== '/guide/profile' &&  pathname!== '/admin/login' &&  pathname!== '/admin' && location.pathname !== '/register' && location.pathname !== '/ForgottenPassword' && location.pathname !=='/add-shop'
       && location.pathname !=='/reg-shop' && location.pathname !=='/reg-guide') && <Footer />}
        
 

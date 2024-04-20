@@ -80,6 +80,7 @@ export default function NavType({ SelectedTypeMu, show_guide }) {
         !location.pathname.includes('/admin') &&
         !location.pathname.includes('/admin/login')&&
         !location.pathname.includes('/guide/profile')&&
+        !location.pathname.includes('/shop/profile')&&
         (
           <Nav
             className='justify-content-center'

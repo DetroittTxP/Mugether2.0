@@ -4,10 +4,14 @@ import axios from 'axios';
 import './Reg_guide.css'
 import { Muplace_Context } from '../../context/MuContext';
 import { LineIcon,FacebookIcon } from 'react-share'
+import { MdEmail } from "react-icons/md";
+import { BsTelephoneFill } from "react-icons/bs";
 
 export default function Guideprofilepage() {
+
   const { SERVER_URL } = useContext(Muplace_Context);
   const usrid = localStorage.getItem('usr_id');
+  
   const [guideprofile, setguideprofile] = useState({
     firstname: '',
     lastname: '',
@@ -98,16 +102,16 @@ export default function Guideprofilepage() {
               <ul style={{ listStyleType: 'none' }}>
                 <div style={{ marginLeft: 15 }}>
                   <li>
-                    <b>เบอร์โทร</b> : {guideprofile.contact.tel || null}
+                    <b><BsTelephoneFill size={32}/></b> : {guideprofile.contact.tel || null}
                   </li>
                   <li>
-                    <b>อีเมล</b> : {guideprofile.contact.email || null}
+                    <b><MdEmail size={32}/></b> : {guideprofile.contact.email || null}
                   </li>
                   {guideprofile.contact.lineID && <li>
-                    {lineIcon}  : {guideprofile.contact.lineID || null}
+                    {lineIcon}: {guideprofile.contact.lineID || null}
                   </li>}
-                  {guideprofile.contact.facebook && <li>
-                    {<FacebookIcon/>}  : {guideprofile.contact.facebook || null}
+                  {guideprofile.contact.Facebook && <li>
+                    {<FacebookIcon size={32} round/>}  : {guideprofile.contact.Facebook || null}
                   </li>}
                   
                 </div>

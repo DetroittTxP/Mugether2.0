@@ -4,8 +4,10 @@ import './Guide_detail.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Muplace_Context } from '../../context/MuContext';
 import ReviewGuide from './ReviewGuide';
-import { LineIcon } from 'react-share'
-
+import { LineIcon ,FacebookIcon } from 'react-share'
+import { MdEmail } from "react-icons/md";
+import { BsTelephoneFill } from "react-icons/bs";
+import { CgWebsite } from "react-icons/cg";
 export default function Guide_detail({ profile_name, contact, data, detailImg }) {
 
 
@@ -128,9 +130,11 @@ export default function Guide_detail({ profile_name, contact, data, detailImg })
 
         <br />    <br />
         <h2><b>ติดต่อ</b></h2>
-        <h3>เบอร์โทร: {contact.tel} </h3>
-        <h3>อีเมลล์: {contact.email} </h3>
-       {contact.lineID && <h3>{ lineIcon } : {contact.lineID}</h3>}
+        <h3><BsTelephoneFill size={32} />: {contact.tel} </h3>
+        <h3><MdEmail size={32}/>: {contact.email} </h3>
+       {contact.lineID && <h3>{ <LineIcon  size={32} round /> } : {contact.lineID}</h3>}
+       {contact.Facebook && <h3>{ <FacebookIcon size={32} round/> } : {contact.Facebook}</h3>}
+       {contact.Website && <h3>{ <CgWebsite size={32} round/> } : {contact.Website}</h3>}    
 
         <br />
 

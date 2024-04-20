@@ -22,7 +22,9 @@ export default function EditProfile({ showedit, toggle, editType }) {
   const username = localStorage.getItem('usr')
   const [editdata, Seteditdata] = useState({ username: username });
 
-  const [editGuide, setEditguide] = useState({ user_id: userID });
+  const [editGuide, setEditguide] = useState({ 
+    user_id: userID
+   });
 
   const [editShop, setShop] = useState({ 
     user_id: userID,
@@ -50,14 +52,11 @@ export default function EditProfile({ showedit, toggle, editType }) {
 
   const MIN_DIMENSION = 150;
   const ASPECT_RATIO = 1;
-
   const submit_edit = async (e) => {
     e.preventDefault();
   
     const formData = new FormData();
     formData.append('profile_img', selectedfile);
-
-
     try {
       Swal.fire({
         title: 'กำลังโหลด...',
@@ -67,7 +66,6 @@ export default function EditProfile({ showedit, toggle, editType }) {
           Swal.showLoading();
         },
       })
-
       let update_img, update_usr
       if (editType === 'user') {
 
@@ -91,15 +89,12 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 update_img = await axios.post(`${SERVER_URL}/shop/upload-edit-profile/${shopID}`, formData)
                 filenamne = update_img.data.filename
            }
-       
            update_usr = await axios.put(`${SERVER_URL}/shop/edit-profile/${userID}`, {
             editShop,
             filename:filenamne || null
            })
         
       }  
-
-
       Swal.close();
       
       await Swal.fire({
@@ -110,18 +105,19 @@ export default function EditProfile({ showedit, toggle, editType }) {
           zIndex: 1051 
         }
       })
-
-      
-      
     }
     catch (err) {
       alert(err,'123123')
     }
-
-
   }
 
-  const switchForm = () => {
+
+
+
+
+  
+  const switchForm =  () => {
+
     switch (editType) {
       case 'user':
         return (
@@ -180,7 +176,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
           <>
             
             <Form.Group controlId="firstname">
-                  <Form.Label>Firstname</Form.Label>
+                  <Form.Label>ชื่อจริง</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="✉️ ชื่อจริง"
@@ -189,13 +185,16 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 </Form.Group>
 
               <Form.Group controlId="lastname">
-                <Form.Label>lastname</Form.Label>
+                <Form.Label>นามสกุล</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="✉️ นามสกุล"
                   onChange={onGuideChange}
                 />
               </Form.Group>
+
+             
+
 
               <Form.Group controlId="tel">
                 <Form.Label>เบอร์โทร</Form.Label>
@@ -211,6 +210,24 @@ export default function EditProfile({ showedit, toggle, editType }) {
                 <Form.Label>ไอดีไลน์</Form.Label>
                 <Form.Control
                   placeholder='ไอดีไลน์'
+                  type="text"
+                  onChange={onGuideChange}
+                />
+              </Form.Group>
+
+              <Form.Group controlId="website">
+                <Form.Label>ลิงค์เว็บไซต์</Form.Label>
+                <Form.Control
+                  placeholder='ลิงค์เว็บไซต์'
+                  type="text"
+                  onChange={onGuideChange}
+                />
+              </Form.Group>
+
+              <Form.Group controlId="facebook">
+                <Form.Label>เฟสบุ๊ค</Form.Label>
+                <Form.Control
+                    placeholder='ชื่อหรือลิงค์เฟสบุ๊ค'
                   type="text"
                   onChange={onGuideChange}
                 />

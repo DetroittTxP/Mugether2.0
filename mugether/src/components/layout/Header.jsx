@@ -70,6 +70,8 @@ export default function Header({ handleFav, showguide }) {
       '/reg-guide',
       '/reg-shop',
       '/add-shop',
+      '/guide/profile',
+      '/shop/profile'
     ]
 
     maihaiyu.forEach(path => {
@@ -104,7 +106,6 @@ export default function Header({ handleFav, showguide }) {
       }
   }
 
-
   const loged_in = (
     <Menu>
       <Menu.Item key="profile">
@@ -117,7 +118,7 @@ export default function Header({ handleFav, showguide }) {
 
             <p style={{ display: 'inline-block', marginRight: '10px' }}>
               
-                <Menu.Item   key='shop_profile'>
+                <Menu.Item onClick={() => navigate('/shop/profile')}  key='shop_profile'>
                 <img src={Corrrect} style={{ width: '30px' }} /> ร้านค้า 
                 </Menu.Item>
              
