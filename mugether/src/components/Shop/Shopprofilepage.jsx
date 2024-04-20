@@ -41,46 +41,6 @@ export default function Shopprofilepage() {
       .catch(err => alert(err));
   },[])
 
-  // const datasource = shopprofile.shop_items.map((data,i) => {
-  //       return {
-  //           key:i,
-  //           item_name:data.item_name,
-  //           item_price:data.item_price,
-  //           item_photo:`${SERVER_URL}/shop/post_img/${shopprofile._id}/${data.item_photo[0]}`
-  //       }
-  // })
-
-
-  // const columns = [
-  //   {
-  //     title: 'ชื่อสินค้า',
-  //     dataIndex: 'item_name',
-  //     key: 'item_name',
-  //   },
-  //   {
-  //     title: 'ราคา',
-  //     dataIndex: 'item_price',
-  //     key: 'item_price',
-  //   },
-  //   {
-  //     title: 'รูปสินค้า',
-  //     dataIndex: 'item_photo',
-  //     key:'item_photo',
-  //     render: (item_photo) => <img src={item_photo} alt="item" style={{ width: '130px' }} />, 
-  //   },  
-  //   {
-  //     title: 'ไปยังร้านค้า',
-  //     key: 'action',
-  //     render: (text, record) => (
-  //       <Button>ไปยังร้านค้า</Button>
-  //     ),
-  //   },
-  
-  // ];
-
-  
-  
-
   return (
     <Container  className='reguide-container' fluid>
     <Row className="justify-content-center align-items-center">

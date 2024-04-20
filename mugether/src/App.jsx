@@ -58,7 +58,9 @@ export default function App() {
 
   const location = useLocation();
   const {pathname} = location;
-  const pageStatus = JSON.parse(localStorage.getItem('showguide'))
+  const pageStatus = JSON.parse(localStorage.getItem('showguide'));
+  const showshopstatus = JSON.parse(localStorage.getItem('showshop'));
+
   const [global_muplace, Setmuplace] = useState([]);
   const [global_shop, Setshop] = useState([]);
   const [selectedMuType, Setselectedmutype] = useState('')
@@ -70,6 +72,7 @@ export default function App() {
   const guideStatus = JSON.parse(localStorage.getItem('guide'));
   const shopStatus = JSON.parse(localStorage.getItem('shop'));
   const usr_id = localStorage.getItem('usr_id');
+  const [showshop,Setshowshop] = useState(false);
 
   useEffect(() => {
     if (!usr_id && location.pathname === '/add-shop') {
@@ -175,9 +178,35 @@ export default function App() {
     Setshowguide(showed);
   }
 
-  const ignorepath = ()=>{
-
+  const show_shop = (showed) =>{
+        Setshowshop(showed);
   }
+
+  useEffect(() => {
+    console.log(JSON.parse(localStorage.getItem('showshop')))
+  },[JSON.parse(localStorage.getItem('showshop'))])
+
+ const handlepage = () =>{
+    const showsta = JSON.parse(localStorage.getItem('showshop'));
+
+
+    if(pageStatus && !showsta){
+         return (
+            <Route path='/mudetail' element={<Mudetail showshop={false}  showguide={true} />} />
+         )
+    }
+    else if(showsta && !pageStatus){
+       return (
+        <Route path='/mudetail' element={<Mudetail  showguide={false} showshop={true} />} />
+       )
+    }
+    else{
+      return (
+        <Route path='/mudetail' element={<Mudetail  showguide={false} showshop={false} />} />
+      )
+    }
+ }
+
 
   return (
     <Muplace_Context.Provider value={data_context} >
@@ -189,19 +218,22 @@ export default function App() {
       <br />
 
 
-      {location.pathname !== '/shop' && location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/logout' && <NavType show_guide={show_guide} SelectedTypeMu={SelectedTypeMu} handleFav={Handlefav} />}
+      {location.pathname !== '/shop' && location.pathname !== '/login' && location.pathname !== '/register' && location.pathname !== '/logout' && <NavType show_shop={show_shop}  show_guide={show_guide} SelectedTypeMu={SelectedTypeMu} handleFav={Handlefav} />}
       <br />
       <br />
-
 
       <Routes>
         <Route path='/' element={<Listitem favstatus={favoriteStatus} SelectedMuplace={SelectedMuplace} SelectedMuType={SelectedTypeMu} />} />
         <Route path='/shop' element={<ShopV2 />} />
-        {pageStatus ? (
-          <Route path='/mudetail' element={<Mudetail showguide={true} />} />
+        
+        {/* {pageStatus ? (
+          <Route path='/mudetail' element={<Mudetail  showguide={true} />} />
         ) : (
           <Route path='/mudetail' element={<Mudetail showguide={false} />} />
-        )}
+        )} */}
+        {handlepage()}
+
+        
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/reg-guide' element={<Regguide />} />

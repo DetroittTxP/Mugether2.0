@@ -62,11 +62,14 @@ export default function Shopdetail() {
     const [reviewThisItem, Setreviewthis] = useState([])
 
     const Owner = usr_id === id_user_shop
-
-    // const [isFavorited, setIsFavorited] = useState(false);
-    // const toggleFavorite = () => {
-    //     setIsFavorited(!isFavorited);
-    // };
+    
+    const haveid = ()=>{
+          if(!usr_id || !id_user_shop)
+          {
+            return false;
+          }
+          return true;
+    }
 
     useEffect(() => {
         SwalLoading();
@@ -138,7 +141,7 @@ export default function Shopdetail() {
                 </Col>
                 <Col md={6}>
                     <div className="description-box">
-                        {Owner && <Button variant='warning' onClick={handleDelete} className='button-delete'>❌ลบสินค้า</Button>}
+                        {Owner && haveid()  && <Button variant='warning' onClick={handleDelete} className='button-delete'>❌ลบสินค้า</Button>}
                         <br/>
                         <h2 className='item-name'>{selectedShop[0].item_name}</h2>
                         <p className="price">ราคา {selectedShop[0].item_price} ฿/ชิ้น</p>

@@ -4,12 +4,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
 
 
-export default function NavType({ SelectedTypeMu, show_guide }) {
+export default function NavType({ SelectedTypeMu, show_shop,show_guide }) {
   const location = useLocation();
   const [showguide, Setshowguide] = useState(false);
   const guideRef = useRef(null);
+  const shopRef = useRef(null)
   const navigate = useNavigate();
-
+  const [showshop ,setshowshop] = useState(false);
   const typeMu = [
     {
       type: 'โชคลาภ',
@@ -54,7 +55,16 @@ export default function NavType({ SelectedTypeMu, show_guide }) {
     {
       type: 'ร้านค้า',
       icon: 'https://cdn-icons-png.flaticon.com/128/1584/1584911.png',
-      path: '/shop'
+      path: '/shop',
+      fn: () => {
+        show_shop(showshop)
+        if (showshop && shopRef.current) {
+          sho
+          scroll.scrollTo(shopRef.current.offsetTop + 500, {
+            smooth: false
+          });
+        }
+      }
     }
   ];
 
@@ -94,12 +104,17 @@ export default function NavType({ SelectedTypeMu, show_guide }) {
             {type.map((data, index) => (
               <Nav.Item
                 onClick={() => {
-                  Setshowguide(!showguide);
-                  localStorage.setItem('showguide', showguide);
+                  console.log(data);
                   if (data.path === '/shop') {
-                    navigate(data.path);
+                    setshowshop(!showshop);
+                    localStorage.setItem('showshop',showshop);
+                    localStorage.setItem('showguide',false);
+                    return data.fn();
                   } else {
-                    data.fn();
+                    Setshowguide(!showguide);
+                    localStorage.setItem('showguide', showguide);
+                    localStorage.setItem('showshop', false);
+                    return data.fn();
                   }
                 }}
                 style={{

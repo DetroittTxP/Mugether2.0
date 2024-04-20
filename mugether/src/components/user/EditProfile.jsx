@@ -192,10 +192,6 @@ export default function EditProfile({ showedit, toggle, editType }) {
                   onChange={onGuideChange}
                 />
               </Form.Group>
-
-             
-
-
               <Form.Group controlId="tel">
                 <Form.Label>เบอร์โทร</Form.Label>
                 <Form.Control
@@ -247,7 +243,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
           return(
             <>
             <Form.Group controlId="shop_name">
-              <Form.Label>shopname</Form.Label>
+              <Form.Label>ชื่อร้านค้า</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="🛍️ ชื่อร้านค้า"
@@ -256,7 +252,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
             </Form.Group>
   
             <Form.Group controlId="detail">
-              <Form.Label>shopdetail</Form.Label>
+              <Form.Label>รายละเอียดร้านค้า</Form.Label>
               <Form.Control
                 as = "textarea" rows={3}
                 placeholder="📃 รายละเอียดของร้านค้า "
@@ -265,7 +261,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
             </Form.Group>
   
             <Form.Group controlId="opening">
-              <Form.Label>opening</Form.Label>
+              <Form.Label>เวลาเปิด-ปิด</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="🕐 เวลาเปิด - ปิด เช่น จ-ศ 9:00am - 5:00pm"
@@ -274,7 +270,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
             </Form.Group>
   
             <Form.Group controlId="tel">
-              <Form.Label>telephone</Form.Label>
+              <Form.Label>เบอร์โทรสัพ</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="☎️ หมายเลขโทรศัพท์ เช่น 08x-xxx-xxxx"
@@ -283,7 +279,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
             </Form.Group>
   
             <Form.Group controlId="address">
-              <Form.Label>address</Form.Label>
+              <Form.Label>ที่อยู่ร้านค้า</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="📍 ที่อยู่ (ถ้าไม่มีหน้าร้านให้ใส่ว่าหน้าร้านออนไลน์)"
@@ -292,7 +288,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
             </Form.Group>
   
             <Form.Group controlId="email">
-              <Form.Label>email</Form.Label>
+              <Form.Label>อีเมลล์</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="✉️ อีเมล์ "

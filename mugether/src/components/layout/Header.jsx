@@ -80,7 +80,7 @@ export default function Header({ handleFav, showguide }) {
       }
     })
     
-    window.location.reload();
+   return window.location.reload();
     //navigate('/')
   }
 

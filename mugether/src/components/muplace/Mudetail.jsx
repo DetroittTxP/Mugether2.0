@@ -12,8 +12,9 @@ import { ArrowDropDown } from '@mui/icons-material'
 import ReactPlayer from 'react-player'
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import List_shop from "../Shop/List_shop";
 
-export default function Mudetail({ showguide }) {
+export default function Mudetail({ showguide,showshop }) {
   const [Muplace, Setmuplace] = useState(localStorage.getItem("muplace"));
   const { per_muplace, muplace, SERVER_URL } = useContext(Muplace_Context);
   const [mudetail, Setmudetail] = useState(() => {
@@ -52,6 +53,18 @@ export default function Mudetail({ showguide }) {
   }, [per_muplace, localStorage.getItem('muplace')]);
 
   const pageUrl = window.location.href;
+
+  const switchList=()=>{
+      if(showguide && !showshop){
+         return <List_guide/>
+      }
+      else if(showshop && !showguide){
+        return <List_shop/>
+      }
+      else{
+        return null;
+      }
+  }
 
   return (
     <Container>
@@ -148,7 +161,7 @@ export default function Mudetail({ showguide }) {
       <br />
       <hr />
       <br />
-      {!showguide && <Accordion>
+      {!showguide && !showshop&&  <Accordion>
         <AccordionSummary expandIcon={<ArrowDropDown />}
           aria-controls="panel1-content"
           id="panel1-header"
@@ -176,13 +189,13 @@ export default function Mudetail({ showguide }) {
       <br />
       <Row>
         <Col md={11} className="review-section">
-          {showguide && <List_guide />}
+          {switchList()}
         </Col>
       </Row>
 
       <Row>
         <Col>
-          {!showguide && <Map Muplace_name={Muplace} showmap={true} />}
+          {!showguide && !showshop&& <Map Muplace_name={Muplace} showmap={true} />}
         </Col>
       </Row>
 
@@ -190,14 +203,14 @@ export default function Mudetail({ showguide }) {
 
       <Row>
         <Col md={11} className="review-section">
-          {!showguide && <Nearby Muplace_name={Muplace} />}
+          {!showguide && !showshop&&  <Nearby Muplace_name={Muplace} />}
         </Col>
       </Row>
       <br />
 
       <Row>
         <Col md={11} className="review-section">
-          {!showguide && <Reviewpage Muplace_name={Muplace} />}
+          {!showguide && !showshop&&  <Reviewpage Muplace_name={Muplace} />}
         </Col>
       </Row>
 

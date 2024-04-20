@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { Muplace_Context } from "../../context/MuContext";
 import './Regis_shop.css'
+import { Select } from 'antd';
 import TextArea from "antd/es/input/TextArea";
 
 export default function Regis_shop() {
@@ -27,7 +28,8 @@ export default function Regis_shop() {
       address: "",
       lat: "",
       long: ""
-    }
+    },
+    nearby_mu:[]
   });
 
   const [image, setImage] = useState(null);
@@ -214,8 +216,7 @@ export default function Regis_shop() {
                 required
               />
             </Form.Group>
-         
-
+           
             <Form.Group controlId="contact.address">
               <Form.Label>ที่อยู่ของร้านค้า</Form.Label>
               <Form.Control
@@ -226,7 +227,36 @@ export default function Regis_shop() {
                 required
               />
             </Form.Group>
-            <br />
+
+
+            <Form.Group controlId="nearby_mu">
+               <Form.Label>ที่มูใกล้เคียงร้านท่าน</Form.Label> 
+               <Select 
+                    mode="multiple"
+                    showSearch
+                    style={{ width: '100%' }}
+                    placeholder="🗺️ โปรดเลือกสถานที่มูใกล้เคียงร้านค้า (ถ้ามี)"
+                    value={shop.nearby_mu}
+                    onChange={(values) => {
+                      setshopdata(prev => ({
+                          ...prev,
+                          nearby_mu:values
+                      })) 
+                    }}
+                    filterOption={(input, option) =>
+                      option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                    }
+               >
+                
+                {muplace.map((mu_place, i) => (
+                  <Select.Option key={i} value={mu_place.name}>
+                    {mu_place.name}
+                  </Select.Option>
+                ))}
+
+               </Select>
+            </Form.Group>
+            <br/>
 
           
             <Button variant="warning" type="submit" >
