@@ -348,6 +348,8 @@ const adminmenu = (
             const fav = JSON.parse(localStorage.getItem('fav'));
             localStorage.setItem('fav', false)
             localStorage.removeItem('type_mu')
+            localStorage.removeItem('showguide')
+            localStorage.removeItem('showshop')
             handleFav(!fav)
             return window.location.reload();
           }}>
