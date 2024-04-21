@@ -86,7 +86,7 @@ export default function EditProfile({ showedit, toggle, editType }) {
       } else if (editType === 'shop') {
             let filenamne = null;
            if(selectedfile){
-                update_img = await axios.post(`${SERVER_URL}/shop/upload-edit-profile/${shopID}`, formData)
+                update_img = await axios.post(`${SERVER_URL}/shop/upload-edit-profile/${userID}`, formData)
                 filenamne = update_img.data.filename
            }
            update_usr = await axios.put(`${SERVER_URL}/shop/edit-profile/${userID}`, {

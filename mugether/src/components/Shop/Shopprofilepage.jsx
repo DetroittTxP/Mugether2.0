@@ -63,7 +63,7 @@ export default function Shopprofilepage() {
 
                 <div style={{ marginTop: 30 }}>
                 <b>รูปภาพโปรไฟล์ร้านค้า :   <Image
-                  src={`${SERVER_URL}/shop/profile_img/${shopprofile._id}/${shopprofile.profile_shop_pic}`}
+                  src={`${SERVER_URL}/shop/profile_img/${shopprofile.id_user}/${shopprofile.profile_shop_pic}`}
                   roundedCircle
                   className='avatar'
                 /> </b>
