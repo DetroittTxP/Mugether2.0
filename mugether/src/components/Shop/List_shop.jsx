@@ -99,8 +99,8 @@ export default function List_shop() {
                                       {post.item_detail.substring(100)}
                                     </>
                                   )}
-                                  <Button variant='light' onClick={() => handleToggleExpand(i)}>
-                                    {expandedIndex === i ? 'น้อยลง' : 'เพิ่มเติม'}
+                                  <Button variant='light'  onClick={() => handleToggleExpand(i)}>
+                                    {expandedIndex === i ? 'ดูน้อยลง' : 'ดูเพิ่มเติม'}
                                   </Button>
 
                                 </Typography>
