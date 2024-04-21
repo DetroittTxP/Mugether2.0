@@ -53,11 +53,11 @@ export default function Regis_shop() {
 
       let createshop = await axios.post(`${SERVER_URL}/shop/create-shop`, shop)
       console.log(createshop.data);
-      const {_id} = createshop.data.create_shop
+      const {_id,id_user} = createshop.data.create_shop
      
       
       if(image){
-         await axios.post(`${SERVER_URL}/shop/upload-register-profile/${_id}` , image_form)
+         await axios.post(`${SERVER_URL}/shop/upload-register-profile/${id_user}` , image_form)
          .then(res => {
                 console.log(res.data , 'from upload profile');
                 if(res.data.status === 'ok'){
