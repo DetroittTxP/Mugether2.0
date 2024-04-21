@@ -25,6 +25,7 @@ import Login from '../../assets/Login.png'
 import Register from '../../assets/Register.png'
 import Shop from '../../assets/Shop.png'
 import Search from '../../assets/Search.png'
+import { IoSearch } from "react-icons/io5";
 
 export default function Header({ handleFav, showguide }) {
 
@@ -369,7 +370,8 @@ const adminmenu = (
             ) : null}
             {!isDesktopView && (
               <button className="search-icon" onClick={toggleMobileSearch}>
-                <img src={Search} alt="Search" className='search-icon-1' />
+                <IoSearch alt="Search" className='search-icon-1'/>
+                {/* <img src={Search} alt="Search" className='search-icon-1' /> */}
               </button>
             )}
           </div>
