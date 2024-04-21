@@ -48,7 +48,7 @@ export default function ForgottenPassword() {
                 return nextStep();
             }
             else {
-                Swal.fire({ icon: 'error', text: 'ไม่พบอีเมลบัญชีผู้ใช้ กรุณาเช็คและลองใหม่อีกครั้ง' })
+                Swal.fire({ icon: 'error', text: 'ไม่พบโทเคน กรุณาเช็คและลองใหม่อีกครั้ง' })
             }
         }
         catch (err) {
