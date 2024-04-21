@@ -185,6 +185,7 @@ export default function Reg_guide() {
 
 
               <Form.Label>โปรดเเนบรูปประจำตัวของคุณ</Form.Label>
+              <Form.Label style={{color: 'red'}}>**</Form.Label>
               <Form.Control
                 ref={file}
                 type="file"
@@ -206,6 +207,7 @@ export default function Reg_guide() {
 
             <Form.Group controlId="firstName">
               <Form.Label>ชื่อ</Form.Label>
+              <Form.Label style={{color: 'red'}}>**</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="ชื่อ"
@@ -217,6 +219,7 @@ export default function Reg_guide() {
 
             <Form.Group controlId="lastName">
               <Form.Label>นามสกุล</Form.Label>
+              <Form.Label style={{color: 'red'}}>**</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="นามสกุล"
@@ -238,6 +241,7 @@ export default function Reg_guide() {
    
               <Form.Group controlId="info.dob">
                 <Form.Label>เดือน / วัน / เกิด</Form.Label>
+                <Form.Label style={{color: 'red'}}>**</Form.Label>
                 <Form.Control
                   style={{width:200}}
                   type="date"
@@ -255,6 +259,7 @@ export default function Reg_guide() {
 
             <Form.Group controlId="id_card">
               <Form.Label>รหัสบัตรประชาชน</Form.Label>
+              <Form.Label style={{color: 'red'}}>**</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="🪪 เลขบัตรประชาชน"
@@ -278,6 +283,7 @@ export default function Reg_guide() {
 
             <Form.Group controlId="tel">
               <Form.Label>เบอร์โทรที่ติดต่อได้</Form.Label>
+              <Form.Label style={{color: 'red'}}>**</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="☎️ หมายเลขโทรศัพท์ เช่น 08x-xxx-xxxx"
@@ -289,6 +295,7 @@ export default function Reg_guide() {
 
             <Form.Group controlId="email">
               <Form.Label>อีเมลที่ติดต่อได้</Form.Label>
+              <Form.Label style={{color: 'red'}}>**</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="✉️ อีเมล"
