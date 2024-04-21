@@ -89,7 +89,6 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
       return Swal.fire('โปรดให้คะแนนอย่างน้อย 1 คะแนน')
     }
 
-
     await Swal.fire({
       title: 'ยืนยันการรีวิว',
       icon: 'question',
@@ -98,7 +97,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
       confirmButtonText: 'ยืนยัน',
       showCancelButton: true,
       cancelButtonText: 'ยกเลิก',
-      confirmButtonColor: 'orange'
+      confirmButtonColor: 'orange',
     })
       .then(async result => {
         if (!result.isConfirmed) return;
@@ -136,8 +135,7 @@ const Add_Review = ({ Muplace_name, check_finish }) => {
               if (result.isConfirmed) {
                 check_finish(false)
                 return window.location.reload();
-              }
-
+              }else if(result.dismiss === Swal.DismissReason.cancel) window.location.reload();
             });
 
         }
