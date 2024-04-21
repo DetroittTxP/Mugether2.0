@@ -88,7 +88,7 @@ export default function Shopprofilepage() {
               </div>
 
             { shopprofile.shop_items.length !==0 &&  <div style={{marginTop:30}}>
-                   <b>รายการสินค้าที่โพส  </b>
+                   <b>รายการสินค้าที่โพสต์  </b>
                     {/* <Table columns={columns}  dataSource={datasource} /> */}
                     <Table style={{textAlign:'center'}} responsive  striped bordered hover >
                            <thead>
