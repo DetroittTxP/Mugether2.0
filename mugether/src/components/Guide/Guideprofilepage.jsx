@@ -119,7 +119,7 @@ export default function Guideprofilepage() {
               </ul>
             </div>
             <div style={{ marginTop: 30 }}>
-             {guideprofile.guide_post.length !== 0 &&  <b>โพสทั้งหมด  </b>}
+             {guideprofile.guide_post.length !== 0 &&  <b>โพสต์ทั้งหมด  </b>}
 
               <Container fluid>
                 <Row>
