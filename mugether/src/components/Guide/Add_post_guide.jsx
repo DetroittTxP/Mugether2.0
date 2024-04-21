@@ -128,7 +128,7 @@ export default function Add_post() {
             
             Swal.fire({
                 icon: 'success',
-                text: 'เพิ่มโพสสำเร็จ',
+                text: 'เพิ่มโพสต์สำเร็จ',
                 style: {
                     zIndex: 1051 
                   }
