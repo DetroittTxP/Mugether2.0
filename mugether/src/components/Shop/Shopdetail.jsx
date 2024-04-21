@@ -156,7 +156,7 @@ export default function Shopdetail() {
 
             <div className="store-info">
                 <div className="logo-container">
-                    <img src={`${SERVER_URL}/shop/profile_img/${usr_id}/${shopdetail.profile_shop_pic}`} alt="Logo" className="store-logo" />
+                    <img src={`${SERVER_URL}/shop/profile_img/${shopdetail.id_user}/${shopdetail.profile_shop_pic}`} alt="Logo" className="store-logo" />
                 </div>
                 <div className="contact-and-favorite-container">
                     <div className="contact-info">
