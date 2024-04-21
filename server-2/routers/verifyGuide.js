@@ -83,7 +83,7 @@ verify_g.post('/info', async (req,res) => {
             let sendemail = await usdb.findOne({_id:userID}).select('email');
             const {email} = sendemail;
             
-            //await Reg_Guide_Mail(email)
+            await Reg_Guide_Mail(email)
     
             return res.json({status:'success',msg:insert});
         }

@@ -67,5 +67,10 @@ const shop_model = mongoose.Schema({
         type:String,
         default:'profile_temp.png'
     },
+    nearby_mu:{
+        type:[String],
+        default:[]
+    }
 })
+
 module.exports = mongoose.model(process.env.DB_SHOP, shop_model);

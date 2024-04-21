@@ -48,7 +48,8 @@ Shop.post('/create-shop', async (req,res) => {
         id_user,
         shop_name,
         shop_detail,
-        contact
+        contact,
+        nearby_mu
 
     } = req.body;
 
@@ -64,7 +65,6 @@ Shop.post('/create-shop', async (req,res) => {
         {
             return res.send('something went wrong');
         }
-
            await usr.findByIdAndUpdate(
             {_id:id_user},
             {shop:true}
@@ -75,17 +75,13 @@ Shop.post('/create-shop', async (req,res) => {
                 email:check_user.email
           }
 
-          
-
         let create_shop = await db_shop.create({
             id_user:id_user,
             shop_name:shop_name,
             shop_detail:shop_detail,
-            
+            nearby_mu,
             contact:newcontact
         })
-
-        
 
         return res.json({status:"success",create_shop});
 
@@ -430,6 +426,52 @@ Shop.post('/review/:id_user/:item_id', async (req,res) => {
         console.log(err);
         return;
     }
+})
+
+//get pershop 
+Shop.get('/profile/:id_user', async (req,res) => {
+    const {id_user} = req.params;
+    
+    try{
+        if(!id_user){
+             return res.send('id_user not found');
+        }
+
+        let profileshop = await db_shop.findOne({id_user:id_user});
+        console.log(profileshop);
+        return res.json(profileshop);
+    }
+    catch(err){
+        console.log(err);
+        return res.json({status:'err',err})
+    }
+})
+
+//get shop by muplace
+Shop.get('/muplace/:name',async (req,res) => {
+      const {name} = req.params;
+
+      if(!name){
+        console.log('mu place name');
+        return res.send('no muplace name');
+      }
+
+      try{
+        let filter = {
+            nearby_mu:{$in:[name]}     
+        }
+
+        let data = await db_shop.find(filter);
+        if(!data){
+            return res.send('no data found');
+        }
+
+        return res.json(data);
+      }
+      catch(err){
+         console.log(err);
+         return res.json(err)
+      }
 })
 
 //getimage

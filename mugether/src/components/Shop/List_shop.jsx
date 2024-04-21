@@ -41,7 +41,7 @@ export default function List_shop() {
       <Container>
         <Row>
           <Col>
-            <h1>ร้านค้าใกล้เคียง</h1>
+            {listshop_nearby.length !== 0 ? <h1>ร้านค้าใกล้เคียง</h1> :  <h1>ยังไม่มีร้านค้าใกล้เคียงสถานที่นี้</h1>}
           </Col>
           <br />
           <br />
