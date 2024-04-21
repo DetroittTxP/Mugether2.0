@@ -140,7 +140,7 @@ const Add_Review = ({ updatestate, reviewdata, check_finish, guideID, updaterevi
             check_finish(false)
             return window.location.reload();
 
-          }
+          }else if(result.dismiss === Swal.DismissReason.cancel) window.location.reload();
 
         });
   

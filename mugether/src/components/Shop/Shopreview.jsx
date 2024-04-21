@@ -128,7 +128,7 @@ const Addshopreview=({ check_finish })=>{
            .then(result => {
              if (result.isConfirmed) {
                check_finish(false)
-             }
+             }else if(result.dismiss === Swal.DismissReason.cancel) window.location.reload();
    
            });
            window.location.reload();
