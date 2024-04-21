@@ -54,7 +54,7 @@ const Checktimeout = (timeout, onLogout) => {
 }
 
 export default function App() {
-  const SERVER_URL = import.meta.env.VITE_SERVER_URL
+  const SERVER_URL = import.meta.env.VITE_TEST_IMG_URL
 
   const location = useLocation();
   const {pathname} = location;
