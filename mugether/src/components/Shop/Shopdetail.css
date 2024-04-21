@@ -1,19 +1,6 @@
-
-.carousel {
-    width: 500px;
-    height: 500px;
-    overflow: hidden;
-    margin-left: auto;
-}
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   filter: invert(100%); 
-}
-
-.Container {
-    max-width: 1200px;
-    margin: auto;
 }
   
 .description-box {
@@ -40,12 +27,7 @@
     padding: 20px;
     margin-top: 5px;
 }
-  
-@media (max-width: 767px) {
-    .description-box, .additional-details {
-      margin-top: 5px;
-    }
-}
+
 .reviewshop,
 .info-shop-name,
 .description2{
@@ -164,24 +146,6 @@
     line-height: 1.5;
 }
 
-
-@media (max-width: 768px) {
-    .store-info {
-        flex-direction: column;
-    }
-
-    .contact-and-favorite-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .favorite-section {
-        order: -1;
-        margin-left: 0;
-        margin-bottom: 10px; 
-    }
-}
-
 .shop-details-container {
     display: flex;
     justify-content: space-between;
@@ -225,25 +189,21 @@
     height: 100%;
 }
 
+.img-shop{
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 @media (max-width: 768px) {
-    .shop-details-container {
-        flex-direction: column;
+    .img-shop{
+        width: 400px;
+        height: 500px;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
     }
-
-    .map-container {
-        width: 100%;
-        margin-top: 0;
-    }
 }
 
-.share-button{
-    padding-left: 1015px;
-}
-
-.share-button span{
-    font-weight: bolder;
-    font-size: larger;
-    padding-right: 10px;
-
-}

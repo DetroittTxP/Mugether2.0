@@ -123,8 +123,8 @@ export default function Shopdetail() {
     return (
         <Container className="mt-3">
             <Row>
-                <Col md={6}>
-                    <Carousel indicators controls>
+                <Col>
+                    <Carousel indicators controls className='img-shop'>
                     {item_img.map((image, index) => (
                         <Carousel.Item key={index}>
                         <div className="carousel-image-wrapper">
@@ -139,7 +139,7 @@ export default function Shopdetail() {
                     ))}
                     </Carousel>
                 </Col>
-                <Col md={6}>
+                <Col>
                     <div className="description-box">
                         {Owner && haveid()  && <Button variant='warning' onClick={handleDelete} className='button-delete'>❌ลบสินค้า</Button>}
                         <br/>
