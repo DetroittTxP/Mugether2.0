@@ -35,9 +35,6 @@ export default function ListGuide() {
             .catch(err => alert(err))
     }, [guide_type]);
 
-
-
-
     const onDelete = (id_guide) => {
 
         Swal.fire({
@@ -82,7 +79,10 @@ export default function ListGuide() {
                         
                         transition
                         variant='underline'
-                        onSelect={(eventKey) => setguide_type(eventKey)}
+                        onSelect={(eventKey) => {
+                              
+                        return   setguide_type(eventKey);                       
+                        }}
                         className="mb-3"
                         justify
                         defaultActiveKey='guide'
@@ -117,6 +117,8 @@ export default function ListGuide() {
                 {(filteredGuides.length === 0 && guide_type === 'muler') &&
                     <h1>ยังไม่มีนักรับจ้างมูในขณะนี้</h1>
                 }
+
+
 
                 {filteredGuides.length != 0 && filteredGuides.map((data) => {
                     localStorage.setItem('guidetype', data.guide_type);

@@ -276,7 +276,11 @@ export default function Header({ handleFav, showguide }) {
             <a onClick={() => {
               localStorage.setItem('muplace', data.name)
               localStorage.setItem('showmap', data.name)
-              navigate('/mudetail')
+              if(location.pathname === '/mudetail'){
+                return window.location.reload();
+              }
+            
+              return navigate('/mudetail')
             }} style={{ textDecoration: 'none' }} >
               <h6>{data.name}</h6>
             </a>
