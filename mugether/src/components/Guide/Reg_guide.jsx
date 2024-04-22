@@ -369,7 +369,7 @@ export default function Reg_guide() {
 
             <Form.Group controlId="contact.website">
 
-              <Form.Label>เว็บไต์ของท่าน (ถ้ามี)</Form.Label>
+              <Form.Label>เว็บไซต์ของท่าน (ถ้ามี)</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="ลิงค์"
