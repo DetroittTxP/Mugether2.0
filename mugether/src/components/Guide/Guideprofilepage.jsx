@@ -27,7 +27,8 @@ export default function Guideprofilepage() {
         gender:'',
         detail:'',
     },
-    guide_type:''
+    guide_type:'',
+    mu_location:[]
   });
 
   const calbirth = (birthDate) =>{
@@ -62,6 +63,36 @@ export default function Guideprofilepage() {
       return window.location.href = '/mudetail';
 }
 
+const switchguidetype = ()=>{
+    const {guide_type} = guideprofile;
+
+    if(guide_type === "guide"){
+        return "ไกด์";
+    }
+    else if(guide_type === "muler"){
+      return "รับจ้างมู";
+    }
+    else{
+      return "ไกด์-รับจ้างมู"
+    }
+}
+
+const switchguide =()=>{
+    const {info} = guideprofile;
+    if(guideprofile.info){
+         if(info.gender === 'male'){
+            return "ชาย";
+         }
+         else if(info.gender === "female"){
+            return "หญิง"
+         }
+         else{
+           return "ไม่ระบุ"
+         }
+    }
+    return null;
+}
+
   return (
     <Container  className='reguide-container' fluid>
       <Row className="justify-content-center align-items-center">
@@ -79,11 +110,22 @@ export default function Guideprofilepage() {
             <br/>
             <span><b>วันเกิด</b> : {guideprofile.info ? guideprofile.info.dob : null}</span>
             <br/>
-            <span><b>เพศ</b> : {guideprofile.info ? guideprofile.info. gender : null}</span>
+            <span><b>เพศ</b> : {switchguide()}</span>
             <br/>
             <span><b>อายุ</b> : {guideprofile.info ? calbirth(guideprofile.info.dob) : null} ปี</span>
             <br/>
-            <span><b>ประเภท</b> : {guideprofile.guide_type}</span>
+            <span><b>ประเภท</b> : {switchguidetype()}</span>
+            <br/>
+            <span><b>สถานที่มู</b>:
+                  <ul>
+                  {guideprofile.mu_location.map((list) => {
+                        return <li>
+                           {list}
+                        </li>
+                  })}
+                  </ul>
+
+            </span>
 
             <div style={{ marginTop: 30 }}>
               <b>รูปภาพโปรไฟล์ :   <Image
@@ -108,7 +150,7 @@ export default function Guideprofilepage() {
                     <b><MdEmail size={32}/></b> : {guideprofile.contact.email || null}
                   </li>
                   {guideprofile.contact.lineID && <li>
-                    {lineIcon}: {guideprofile.contact.lineID || null}
+                    {<LineIcon size={32} round/>}: {guideprofile.contact.lineID || null}
                   </li>}
                   {guideprofile.contact.Facebook && <li>
                     {<FacebookIcon size={32} round/>}  : {guideprofile.contact.Facebook || null}

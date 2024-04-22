@@ -31,6 +31,7 @@ export default function Shopprofilepage() {
        shop_items:[],
        shop_review:[],
        profile_shop_pic:'',
+       nearby_mu:[]
   })
 
   useEffect(() => {
@@ -59,6 +60,16 @@ export default function Shopprofilepage() {
               <br/>
               <span>
                   <b>เวลาเปิด - ปิด</b> : {shopprofile.shop_detail.opening}
+              </span>
+              <br/>
+              <span>
+                   <b>สถานที่มูใกล้ร้าน</b> : <ul>
+                          {shopprofile.nearby_mu.map((data) => {
+                             return <li>
+                                 {data}
+                             </li>
+                          })}
+                   </ul>
               </span>
 
                 <div style={{ marginTop: 30 }}>
