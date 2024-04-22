@@ -266,7 +266,9 @@ export default function Header({ handleFav, showguide }) {
         })))
       
       default:
-        let newdata = muplace.sort((a, b) => a.name.localeCompare(b.name, 'th')).filter(data => data.name.toLowerCase().includes(e.target.value))
+        let newdata = muplace.sort((a, b) => a.name.localeCompare(b.name, 'th'))
+                                 .filter(data => data.name.toLowerCase()
+                                 .includes(e.target.value) || data.address.toLowerCase().includes(e.target.value))
 
         Setmuplace(newdata.map(data => ({
           key: data._id.toString(),
