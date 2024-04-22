@@ -220,7 +220,7 @@ export default function Reg_guide() {
               <Form.Control type="hidden" id='userID' value={userID} />
 
 
-              <Form.Label>โปรดเเนบรูปประจำตัวของคุณ (ยืนถ่ายเห็นหน้าคนสมัคร) <a href="#" onClick={() => setOpen(true)}>ตัวอย่าง</a> </Form.Label>
+              <Form.Label>โปรดเเนบรูปประจำตัวของคุณ (รูปหน้าตรง+กระดาษ) <a href="#" onClick={() => setOpen(true)}>ตัวอย่าง</a> </Form.Label>
               <Form.Label style={{ color: 'red' }}>**</Form.Label>
               <Form.Control
                 ref={file}
