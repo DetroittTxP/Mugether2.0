@@ -18,6 +18,11 @@ const RegisGuideList = ({ setstate }) => {
   const updateIndex = ({ index: current }) => setIndex(current);
 
 
+  const [openid_card,Setopenid_card] = useState(false);
+  const [imageinfocard, Setimageinfocard] = useState([{ key: '', name: '' }])
+  const [indexcard, setIndexcard] = useState(0);
+  const updateIndexcard = ({ index: current }) => setIndexcard(current)
+
   useEffect(() => {
     axios.get(`${SERVER_URL}/admin/listregisguide`)
       .then(res => {
@@ -133,6 +138,16 @@ const RegisGuideList = ({ setstate }) => {
         on={{ view: updateIndex }}
       />
 
+  <Lightbox
+        open={openid_card}
+        close={() => Setopenid_card(false)}
+        slides={[
+          { src: `${SERVER_URL}/admin/listregisguide/image/id_card/${imageinfocard.key}/${imageinfocard.name}` },
+        ]}
+        index={indexcard}
+        on={{ view: updateIndexcard }}
+      />
+
 
 
       <h1>รายชื่อคนสมัครไกด์</h1>
@@ -146,6 +161,7 @@ const RegisGuideList = ({ setstate }) => {
             <th>อีเมล์</th>
             <th>ติดต่อ</th>
             <th>รหัสประจำตัว</th>
+            <th>รูปประจำตัวประชาชน</th>
             <th>สถานที่มู</th>
             <th>รูปประจำตัว</th>
            
@@ -175,6 +191,15 @@ const RegisGuideList = ({ setstate }) => {
                    </ul>
               </td>
               <td>{guide.id_card}</td>
+              <td>
+              <Image style={{ cursor: 'pointer' }} onClick={() => {
+                  Setopenid_card(true)
+                  Setimageinfocard({
+                    key: guide.id_user,
+                    name: guide.id_card_pic
+                  })
+                }} width={100} height={100} src={`${SERVER_URL}/admin/listregisguide/image/id_card/${guide.id_user}/${guide.id_card_pic}`} />
+              </td>
               <td >
                 <ul>
                   {guide.mu_place.map((places) => (
