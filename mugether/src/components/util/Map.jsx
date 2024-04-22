@@ -4,7 +4,7 @@ import { MapContainer, Marker, Popup, TileLayer} from 'react-leaflet';
 import axios from 'axios';
 import MarkerClusterGroup from "react-leaflet-cluster";
 import Image from 'react-bootstrap/Image'
-import { Carousel } from 'react-bootstrap'
+import { Carousel,Row,Col } from 'react-bootstrap'
 import './Map.css'
 import { DivIcon, Icon } from 'leaflet'
 import { Muplace_Context } from '../../context/MuContext';
@@ -12,7 +12,7 @@ import Gps1 from '../../assets/gps.png'
 import location1 from '../../assets/location.png'
 import Gps22 from '../../assets/gps2222.png'
 import location22 from '../../assets/location-pin.png'
-
+import ShareButton from "../layout/ShareButton";
 
 export default function Map() {
   const [muplace_name, Setmuplace_name] = useState(localStorage.getItem('showmap'))
@@ -68,7 +68,16 @@ export default function Map() {
 
   return (
     <div>
-      <h1><b>เเผนที่</b></h1>
+      <br/>
+      <Row className="header-row">
+        <Col className="header-title">
+        <h1><b>เเผนที่</b></h1>
+        </Col>
+        <Col xs="auto" >
+
+          <ShareButton  />
+        </Col>
+      </Row>
 
       {showmap &&
         <MapContainer center={markers.muplace_latlong.location} zoom={13} scrollWheelZoom={true} minZoom={5} maxZoom={18}>

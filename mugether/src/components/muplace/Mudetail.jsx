@@ -91,10 +91,9 @@ export default function Mudetail({ showguide,showshop }) {
         <Col className="header-title">
           <h1><b>{Muplace}</b></h1>
         </Col>
-        <Col xs="auto" className="share-button-col">
-
+        {/* <Col xs="auto" className="share-button-col">
           <ShareButton url={pageUrl} />
-        </Col>
+        </Col> */}
       </Row>
 
       <Row>
@@ -195,6 +194,10 @@ export default function Mudetail({ showguide,showshop }) {
 
       <Row>
         <Col>
+        <Row className="header-row">
+
+       
+      </Row>
           {!showguide && !showshop&& <Map Muplace_name={Muplace} showmap={true} />}
         </Col>
       </Row>
