@@ -9,8 +9,20 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { Select } from 'antd';
 import { Muplace_Context } from "../../context/MuContext";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import Muexampleimage from '../../assets/muexampleid.jpg'
+
+
 
 export default function Reg_guide() {
+
+  const [open, setOpen] = useState(false);
+  const [imageinfo, Setimageinfo] = useState([{ key: '', name: '' }])
+  const [index, setIndex] = useState(0);
+  const updateIndex = ({ index: current }) => setIndex(current);
+
+
   const navigate = useNavigate();
   const userID = localStorage.getItem('usr_id');
   const { muplace, SERVER_URL } = useContext(Muplace_Context);
@@ -187,6 +199,16 @@ export default function Reg_guide() {
         <Col md={6} className="reguide-form">
           <div className="profile-header">
 
+            <Lightbox
+              open={open}
+              close={() => setOpen(false)}
+              slides={[
+                { src: Muexampleimage },
+              ]}
+              index={index}
+              on={{ view: updateIndex }}
+            />
+
           </div>
           <h2 className="head">เเบบฟอร์มสมัครไกด์ / นักรับจ้างมู🧳</h2>
 
@@ -198,7 +220,7 @@ export default function Reg_guide() {
               <Form.Control type="hidden" id='userID' value={userID} />
 
 
-              <Form.Label>โปรดเเนบรูปประจำตัวของคุณ</Form.Label>
+              <Form.Label>โปรดเเนบรูปประจำตัวของคุณ (ยืนถ่ายเห็นหน้าคนสมัคร) <a href="#" onClick={() => setOpen(true)}>ตัวอย่าง</a> </Form.Label>
               <Form.Label style={{ color: 'red' }}>**</Form.Label>
               <Form.Control
                 ref={file}
@@ -211,10 +233,10 @@ export default function Reg_guide() {
 
             <Form.Group>
 
-         
 
 
-              <Form.Label>โปรดเเนบรูปประจำตัวประชาชน</Form.Label>
+
+              <Form.Label>โปรดเเนบสำเนาประจำตัวประชาชน </Form.Label>
               <Form.Label style={{ color: 'red' }}>**</Form.Label>
               <Form.Control
                 ref={file}

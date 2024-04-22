@@ -57,7 +57,7 @@ export default function ListGuide() {
             .catch(err => Swal.fire({ icon: 'error', text: err }))
 
     }
-    console.log(list_all_guide);
+  
     return (
         <div>
             <Container>
