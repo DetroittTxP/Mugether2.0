@@ -8,8 +8,16 @@ import { LineIcon ,FacebookIcon } from 'react-share'
 import { MdEmail } from "react-icons/md";
 import { BsTelephoneFill } from "react-icons/bs";
 import { CgWebsite } from "react-icons/cg";
-export default function Guide_detail({ profile_name, contact, data, detailImg }) {
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
+
+export default function Guide_detail({ profile_name, contact, data, detailImg,guide_type }) {
+
+  const [open, setOpen] = useState(false);
+  const [imageinfo, Setimageinfo] = useState([{ key: '', name: '' }])
+  const [index, setIndex] = useState(0);
+  const updateIndex = ({ index: current }) => setIndex(current);
 
   const muplace = localStorage.getItem('muplace');
   const [newdata, Setnewdata] = useState(data);
@@ -31,15 +39,47 @@ export default function Guide_detail({ profile_name, contact, data, detailImg })
 }, [data]);
 
 
+const switchExp=()=>{
+   switch(guide_type){
+       case 'guide':
+          return "รูปประสบการณ์ (Experience)"
+       case 'muler':
+          return "รูปตัวอย่างการรับจ้างมู"      
+       default:
+         return "รูปประสบการณ์ (Experience) / รูปตัวอย่างการรับจ้างมู"
+   }
+}
+
+
   return (
     <div>
       <h2><b>{data.firstname} {data.lastname}</b></h2> <br />
+
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        slides={[
+          { src: `${SERVER_URL}/image/guide/detail/${imageinfo.key}/${newdata.guide_post[0].postPhotos[0]}` },
+          { src: `${SERVER_URL}/image/guide/detail/${imageinfo.key}/${newdata.guide_post[0].postPhotos[1]}` },
+          { src: `${SERVER_URL}/image/guide/detail/${imageinfo.key}/${newdata.guide_post[0].postPhotos[2]}` },
+          { src: `${SERVER_URL}/image/guide/detail/${imageinfo.key}/${newdata.guide_post[0].postPhotos[3]}` },
+          { src: `${SERVER_URL}/image/guide/detail/${imageinfo.key}/${newdata.guide_post[0].postPhotos[4]}` },
+        ]}
+        index={index}
+        on={{ view: updateIndex }}
+      />
 
       <Container>
         <Row>
           <Col md={5} className="main-image">
             <Image
-              onClick={() => console.log(data.id_guide)}
+              onClick={() => {
+                setOpen(true)
+                Setimageinfo({
+                  key: data.id_guide,
+                  name: newdata.guide_post[0].postPhotos[0]
+                })
+              }}
               src={`${SERVER_URL}/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[0]}`}
               alt="Main Image"
               className="big-image"
@@ -51,6 +91,13 @@ export default function Guide_detail({ profile_name, contact, data, detailImg })
             <Row>
               <Col md={12}>
                 <Image
+                  onClick={() => {
+                    setOpen(true)
+                    Setimageinfo({
+                      key: data.id_guide,
+                      name: newdata.guide_post[0].postPhotos[1]
+                    })
+                  }}
                   src={`${SERVER_URL}/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[1]}`}
                   alt="Image 2"
                   className="small-image"
@@ -60,6 +107,13 @@ export default function Guide_detail({ profile_name, contact, data, detailImg })
 
               <Col md={12}>
                 <Image
+                  onClick={() => {
+                    setOpen(true)
+                    Setimageinfo({
+                      key: data.id_guide,
+                      name: newdata.guide_post[0].postPhotos[2]
+                    })
+                  }}
                   src={`${SERVER_URL}/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[2]}`}
                   alt="Image 3"
                   className="small-image"
@@ -72,6 +126,13 @@ export default function Guide_detail({ profile_name, contact, data, detailImg })
             <Row>
               <Col md={12}>
                 <Image
+                  onClick={() => {
+                    setOpen(true)
+                    Setimageinfo({
+                      key: data.id_guide,
+                      name: newdata.guide_post[0].postPhotos[3]
+                    })
+                  }}
                   src={`${SERVER_URL}/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[3]}`}
                   alt="Image 4"
                   className="small-image figure-3"
@@ -80,6 +141,13 @@ export default function Guide_detail({ profile_name, contact, data, detailImg })
               </Col>
               <Col md={12}>
                 <Image
+                  onClick={() => {
+                    setOpen(true)
+                    Setimageinfo({
+                      key: data.id_guide,
+                      name: newdata.guide_post[0].postPhotos[4]
+                    })
+                  }}
                   src={`${SERVER_URL}/image/guide/detail/${data.id_guide}/${newdata.guide_post[0].postPhotos[4]}`}
                   alt="Image 4"
                   className="small-image figure-4"
@@ -111,7 +179,7 @@ export default function Guide_detail({ profile_name, contact, data, detailImg })
           })}
         </ul>
         <br />
-        <h2><b>ประสบการณ์ (Experience)</b></h2>    <br />
+        <h2><b>{switchExp()}</b></h2>    <br />
         <Col md={{ span: 6, offset: 3 }} >
           <Carousel className='picture-guidedetail' indicators controls>
             {newdata.guide_post[0].experience_img.map((image, index) => (

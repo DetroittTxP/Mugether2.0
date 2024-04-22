@@ -119,6 +119,7 @@ export default function ListGuide() {
                 }
 
                 {filteredGuides.length != 0 && filteredGuides.map((data) => {
+                    localStorage.setItem('guidetype', data.guide_type);
                     let guideshow;
                     switch(data.guide_type){
                          case 'guide':
@@ -160,7 +161,7 @@ export default function ListGuide() {
                             </AccordionSummary>
 
                             <AccordionDetails>
-                                <Guide_detail   profile_name={{ id_guide: data.id_guide, name: data.profile_pic }} contact={data.contact} data={data} />
+                                <Guide_detail guide_type={data.guide_type}    profile_name={{ id_guide: data.id_guide, name: data.profile_pic }} contact={data.contact} data={data} />
                             </AccordionDetails>
                         </Accordion>
                     )
