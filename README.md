@@ -13,6 +13,9 @@ Mugether is a final year project website developed to recommend spiritual places
 
 ### Frontend
 - **ReactJS**
+- **Boostrap**
+- **Antd**
+- **MUI**
 
 ### Backend
 - **ExpressJS**
